@@ -1,0 +1,12 @@
+.blockly-generator-container {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: row;
+}
+
+.blockly-generator__code-container,
+.blockly-generator__block-container {
+    flex: 1;
+}
