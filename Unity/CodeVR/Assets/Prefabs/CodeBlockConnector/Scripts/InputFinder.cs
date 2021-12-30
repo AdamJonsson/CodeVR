@@ -20,27 +20,15 @@ public class InputFinder : MonoBehaviour
         this._outputConnector = GetComponent<CodeBlockConnector>();
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         var connectorEntered = other.GetComponent<CodeBlockConnector>();
         if (!IsInputConnectorValid(connectorEntered)) return;
+
         this._potentialConnections.Add(new PotentialConnection {
             Input = connectorEntered,
             Output = _outputConnector,
         });
-        Debug.Log("New connector entered");
     }
 
     private void OnTriggerExit(Collider other)
@@ -49,7 +37,6 @@ public class InputFinder : MonoBehaviour
         if (connectorExit == null) return;
         var potentialConnectionToRemove = this._potentialConnections.Find((potentialConnection) => potentialConnection.Input == connectorExit);
         this._potentialConnections.Remove(potentialConnectionToRemove);
-        Debug.Log("Connector exited");
     }
 
     private bool IsInputConnectorValid(CodeBlockConnector _inputConnector)

@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class CodeBlockConnectionManager : MonoBehaviour
 {
+    [SerializeField] ConnectionLine _line;
+
     private List<CodeBlock> _allCodeBlocks = new List<CodeBlock>();
 
     // Start is called before the first frame update
@@ -22,11 +24,9 @@ public class CodeBlockConnectionManager : MonoBehaviour
 
     private void DrawConnectionLine(PotentialConnection potentialConnection)
     {
+        _line.gameObject.SetActive(potentialConnection != null);
         if (potentialConnection == null) return;
-        Debug.DrawLine(
-            potentialConnection.Input.DistanceReferencePoint.position, 
-            potentialConnection.Output.DistanceReferencePoint.position
-        );
+        this._line.SetPositions(potentialConnection.Input.DistanceReferencePoint.position, potentialConnection.Output.DistanceReferencePoint.position);
     }
 
     private List<PotentialConnection> GetAllPotentialConnections()
