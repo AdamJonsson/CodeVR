@@ -34,6 +34,7 @@ public class CodeBlockConnector : MonoBehaviour
     private CodeBlockConnector _connection;
 
     public CodeBlock BlockAttachedTo { get => _blockAttachedTo; }
+    public CodeBlockConnector Connection { get => _connection; }
 
     public CodeBlock BlockConnectedTo 
     { 
