@@ -28,6 +28,7 @@ public class CodeBlockConnector : MonoBehaviour
     [SerializeField] private float _connectionDistance = 0.25f;
     [SerializeField] private BoxCollider _collider;
     [SerializeField] private Transform _distanceReferencePoint;
+    [SerializeField] private ParticleSystem _connectionParticleSystem;
 
     private InputFinder _inputFinder;
 
@@ -52,6 +53,16 @@ public class CodeBlockConnector : MonoBehaviour
 
     public Types ConnectionType { get => _connectionType; }
 
+    public Pose ConnectionPose 
+    {
+        get {
+            return new Pose(
+                this.transform.position + this.transform.up * this.transform.lossyScale.x * (1.0f + _connectionDistance),
+                this.BlockAttachedTo.transform.rotation
+            );
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -73,6 +84,12 @@ public class CodeBlockConnector : MonoBehaviour
         
         if (_inputFinder != null)
             this._inputFinder.enabled = ConnectionType == Types.Output;
+
+        if (ConnectionType == Types.Output)
+            this.gameObject.layer = LayerMask.NameToLayer("CodeBlockConnectorOutput");
+
+        if (ConnectionType == Types.Input)
+            this.gameObject.layer = LayerMask.NameToLayer("CodeBlockConnectorInput");
     }
 
     private void NotifyMissingFields()
@@ -81,5 +98,21 @@ public class CodeBlockConnector : MonoBehaviour
         if (isPrefabMode) return;
 
         if (this._blockAttachedTo == null) Debug.LogError("A connector do not have a reference to the block it is attached to. Check the fields for the connector");
+    }
+
+    public void Connect(CodeBlockConnector connector, bool snapConnectorsBlockCluster)
+    {
+        this._connection = connector;
+        this._connectionParticleSystem.Play();
+        this._inputFinder.ClearPotentialConnections();
+        if (snapConnectorsBlockCluster)
+        {
+            connector.BlockAttachedTo.SnapBlockClusterToConnector(this);
+        }
+    }
+
+    public void Detach()
+    {
+        this._connection = null;
     }
 }   

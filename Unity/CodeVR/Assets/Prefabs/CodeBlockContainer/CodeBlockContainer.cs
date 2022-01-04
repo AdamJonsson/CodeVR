@@ -8,8 +8,14 @@ public class CodeBlockContainer : MonoBehaviour
     [SerializeField] private XRGrabInteractable _interactable;
     private List<CodeBlock> _children = new List<CodeBlock>();
     private CodeBlockInteractionManager _codeBlockInteractionManager;
+    private CodeBlock _codeBlockOrigin;
 
     public XRGrabInteractable Interactable { get { return this._interactable; }}
+
+    private bool _hasDeleteFlag = false;
+    public bool HasDeleteFlag { get => this._hasDeleteFlag; }
+
+    public CodeBlock CodeBlockOrigin { get => this._codeBlockOrigin; }
 
     // Start is called before the first frame update
     void Start()
@@ -27,7 +33,8 @@ public class CodeBlockContainer : MonoBehaviour
     private void OnDeselect(SelectExitEventArgs args)
     {
         this._codeBlockInteractionManager.MakeInteractorCodeBlockInteractable(args.interactorObject);
-        this.DeleteContainerDelayed(1.0f);
+        this._hasDeleteFlag = true;
+        StartCoroutine(this.DeleteContainerDelayed(1.0f));
     }
 
     private void DeleteContainer(bool deleteChildren = false)
@@ -53,4 +60,11 @@ public class CodeBlockContainer : MonoBehaviour
     {
         this._children.Add(block);
     }
+
+    public void SetCodeBlockOrigin(CodeBlock block)
+    {
+        this._codeBlockOrigin = block;
+    }
+
+
 }

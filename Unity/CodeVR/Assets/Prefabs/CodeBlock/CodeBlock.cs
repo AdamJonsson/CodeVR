@@ -8,21 +8,32 @@ public class CodeBlock : MonoBehaviour
     [SerializeField] private List<CodeBlockConnector> _connectors;
     [SerializeField] private CodeBlockContainer _containerPrefab;
     [SerializeField] private AudioClip _selectSound;
+    [SerializeField] private AudioClip _connectSound;
+    [SerializeField] private AudioClip _detachSound;
     [SerializeField] private AudioSource _audioSource;
 
-    private CodeBlockConnector _outputConnector;
-    private List<CodeBlockConnector> _inputConnectors;
-    private InputFinder _inputFinder;
+    private List<CodeBlockConnector> _outputConnectors = new List<CodeBlockConnector>();
+    private List<CodeBlockConnector> _inputConnectors = new List<CodeBlockConnector>();
+    private List<InputFinder> _inputFinders = new List<InputFinder>();
 
     private CodeBlockContainer _currentContainer;
 
     private CodeBlockInteractionManager _codeBlockInteractionManager;
+    private CodeBlockConnectionManager _codeBlockConnectionManager;
 
     private XRSimpleInteractable _interactable;
 
     public bool HasContainer { get => _currentContainer != null; }
 
-    public bool IsCurrentlyBeingMoved { get => this.HasContainer; }
+    public CodeBlockContainer Container { get => _currentContainer; }
+
+    public bool IsCurrentlyBeingMoved 
+    { 
+        get {
+            if (!this.HasContainer) return false;
+            return !this._currentContainer.HasDeleteFlag;
+        } 
+    }
 
     /// <summary>True if this block is not connected to any other block</summary>
     public bool IsSolo 
@@ -41,11 +52,11 @@ public class CodeBlock : MonoBehaviour
         this.SetupConnectors();
         this._interactable = GetComponent<XRSimpleInteractable>();
         this._codeBlockInteractionManager = FindObjectOfType<CodeBlockInteractionManager>();
-        this._inputFinder = this._outputConnector.GetComponent<InputFinder>();
-        this._audioSource = GetComponent<AudioSource>();
-
+        this._codeBlockConnectionManager = FindObjectOfType<CodeBlockConnectionManager>();
+        this.GetAllInputFinders();
         this._interactable.selectEntered.AddListener(OnUserSelected);
     }
+
 
     // Update is called once per frame
     void Update()
@@ -53,11 +64,45 @@ public class CodeBlock : MonoBehaviour
         
     }
 
+    public void OnConnection()
+    {
+        this._audioSource.PlayOneShot(_connectSound, 1.0f);
+    }
+
+    private void GetAllInputFinders()
+    {
+        foreach (var outputConnector in this._outputConnectors)
+        {
+            this._inputFinders.Add(outputConnector.GetComponent<InputFinder>());
+        }
+    }
+
     public void OnUserSelected(SelectEnterEventArgs args)
     {
         var interactor = this._interactable.firstInteractorSelecting;
+        if (this.IsCurrentlyBeingMoved && !this.IsSolo)
+        {
+            CodeBlockConnector detachmentPoint = FindBestDetachementPoint();
+            this._codeBlockConnectionManager.DetachConnector(detachmentPoint);
+            this._audioSource.PlayOneShot(this._detachSound, 1.0f);
+        }
+        else 
+        {
+            this._audioSource.PlayOneShot(this._selectSound, 0.25f);
+        }
+
         this.MakeUserGrabSelfAndConnectedBlocks(interactor);
-        this._audioSource.PlayOneShot(this._selectSound);
+    }
+
+    private CodeBlockConnector FindBestDetachementPoint()
+    {
+        foreach (var connector in this._connectors)
+        {
+            if (!connector.IsConnected) continue;
+            var blocks = connector.BlockConnectedTo.GetBlockCluster(true, connector.Connection);
+            if (blocks.Contains(this.Container.CodeBlockOrigin)) return connector;
+        }
+        return null;
     }
 
     private void MakeUserGrabSelfAndConnectedBlocks(IXRSelectInteractor interactor)
@@ -74,6 +119,7 @@ public class CodeBlock : MonoBehaviour
     private CodeBlockContainer CreateNewContainer()
     {
         var newContainer = Instantiate(_containerPrefab, this.transform.position, this.transform.rotation);
+        newContainer.SetCodeBlockOrigin(this);
         return newContainer;
     }
 
@@ -93,13 +139,19 @@ public class CodeBlock : MonoBehaviour
 
     private void SetupConnectors()
     {
-        this._outputConnector = this._connectors.Find((connector) => connector.ConnectionType == CodeBlockConnector.Types.Output);
+        this._outputConnectors = this._connectors.FindAll((connector) => connector.ConnectionType == CodeBlockConnector.Types.Output);
         this._inputConnectors = this._connectors.FindAll((connector) => connector.ConnectionType == CodeBlockConnector.Types.Input);
     }
 
-    public List<PotentialConnection> GetAllPotentialConnections()
+    public IEnumerable<PotentialConnection> GetAllPotentialConnections()
     {
-        return this._inputFinder.PotentialConnections;
+        foreach (var inputFinder in this._inputFinders)
+        {
+            foreach (var potentialConnection in inputFinder.PotentialConnections)
+            {
+                yield return potentialConnection;
+            }
+        }
     }
 
     private void SetContainer(CodeBlockContainer container)
@@ -118,10 +170,42 @@ public class CodeBlock : MonoBehaviour
             if (!connector.IsConnected) continue;
             if (connector == connectorToIgnore) continue;
             var blockFromConnection = connector.BlockConnectedTo.GetBlockCluster(true, connector.Connection);
+            allBlocks.AddRange(blockFromConnection);
         }
 
         return allBlocks;
     }
 
+    /// <summary>Snaps the blocks block-cluster to a connector</summary>
+    public void SnapBlockClusterToConnector(CodeBlockConnector connectorToSnapTo)
+    {
+        if (!connectorToSnapTo.IsConnected) return;
 
+        if (connectorToSnapTo.BlockAttachedTo.HasContainer)
+        {
+            this.MoveToContainer(connectorToSnapTo.BlockAttachedTo.Container);
+        }
+        else if (this.HasContainer)
+        {
+            this.MoveOutFromContainer(this._currentContainer);
+        }
+
+        this.transform.SetPositionAndRotation(
+            connectorToSnapTo.ConnectionPose.position,
+            connectorToSnapTo.ConnectionPose.rotation
+        );
+
+        foreach (var connector in this._connectors)
+        {
+            if (!connector.IsConnected) continue;
+            if (connectorToSnapTo.Connection == connector) continue;
+            connector.BlockConnectedTo.SnapBlockClusterToConnector(connector);
+        }
+    }
+
+    public bool BlockIsPartOfCluster(CodeBlock block)
+    {
+        var blockCluster = this.GetBlockCluster(true);
+        return blockCluster.Contains(block);
+    }
 }
