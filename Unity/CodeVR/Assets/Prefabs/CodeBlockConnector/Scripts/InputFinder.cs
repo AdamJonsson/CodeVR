@@ -23,8 +23,10 @@ public class InputFinder : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         var connectorEntered = other.GetComponent<CodeBlockConnector>();
+        if (InputConnectorAlreadyExist(connectorEntered)) return;
         if (!IsInputConnectorValid(connectorEntered)) return;
 
+        Debug.Log("Enter");
         this._potentialConnections.Add(new PotentialConnection {
             Input = connectorEntered,
             Output = _outputConnector,
@@ -39,12 +41,32 @@ public class InputFinder : MonoBehaviour
         this._potentialConnections.Remove(potentialConnectionToRemove);
     }
 
-    private bool IsInputConnectorValid(CodeBlockConnector _inputConnector)
+    private bool IsInputConnectorValid(CodeBlockConnector inputConnector)
     {
-        if (_inputConnector == null) return false;
-        if (_inputConnector.IsConnected) return false;
-        if (_inputConnector.BlockAttachedTo == this._outputConnector.BlockAttachedTo) return false;
-        if (_potentialConnections.Find((potentialConnection) => potentialConnection.Input == _inputConnector) != null) return false;
+        if (inputConnector == null) return false;
+        if (inputConnector.IsConnected) return false;
+        if (inputConnector.ConnectionType == CodeBlockConnector.Types.Output) return false;
+        if (inputConnector.ConnectionCategory != _outputConnector.ConnectionCategory) return false;
+
+        // At least one controller need to have the block grabbed
+        if (!_outputConnector.BlockAttachedTo.IsCurrentlyBeingMoved && !inputConnector.BlockAttachedTo.IsCurrentlyBeingMoved) return false;
+
+        // If the potential input connector is part of the same block
+        if (inputConnector.BlockAttachedTo == this._outputConnector.BlockAttachedTo) return false;
+        
+        // If the potential input connector is part of the same block cluster as this output connector
+        if (inputConnector.BlockAttachedTo.BlockIsPartOfCluster(_outputConnector.BlockAttachedTo)) return false;
+        
         return true;
+    }
+
+    private bool InputConnectorAlreadyExist(CodeBlockConnector inputConnector)
+    {
+        return _potentialConnections.Find((potentialConnection) => potentialConnection.Input == inputConnector) != null;
+    }
+
+    public void ClearPotentialConnections()
+    {
+        _potentialConnections.Clear();
     }
 }
