@@ -44,7 +44,7 @@ public class InputFinder : MonoBehaviour
     private bool IsInputConnectorValid(CodeBlockConnector inputConnector)
     {
         if (inputConnector == null) return false;
-        if (inputConnector.IsConnected) return false;
+        if (inputConnector.IsConnected || this._outputConnector.IsConnected) return false;
         if (inputConnector.ConnectionType == CodeBlockConnector.Types.Output) return false;
         if (inputConnector.ConnectionCategory != _outputConnector.ConnectionCategory) return false;
 
