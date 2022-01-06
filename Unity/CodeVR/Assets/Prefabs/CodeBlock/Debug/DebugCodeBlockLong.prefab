@@ -254,11 +254,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2814352666598496517, guid: b95cd7d8e42ab4348963285cc8fc28f4, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4053330007800758289, guid: b95cd7d8e42ab4348963285cc8fc28f4, type: 3}
       propertyPath: _connectionType
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4053330007800758289, guid: b95cd7d8e42ab4348963285cc8fc28f4, type: 3}
       propertyPath: _blockAttachedTo
@@ -270,7 +270,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4620819750103158277, guid: b95cd7d8e42ab4348963285cc8fc28f4, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4630171632046864126, guid: b95cd7d8e42ab4348963285cc8fc28f4, type: 3}
       propertyPath: m_Name
@@ -278,15 +278,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4630171632046864126, guid: b95cd7d8e42ab4348963285cc8fc28f4, type: 3}
       propertyPath: m_Layer
-      value: 9
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7379071070072286881, guid: b95cd7d8e42ab4348963285cc8fc28f4, type: 3}
       propertyPath: m_IsTrigger
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8242264361652181158, guid: b95cd7d8e42ab4348963285cc8fc28f4, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b95cd7d8e42ab4348963285cc8fc28f4, type: 3}
@@ -458,6 +458,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2814352666598496517, guid: b95cd7d8e42ab4348963285cc8fc28f4, type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4053330007800758289, guid: b95cd7d8e42ab4348963285cc8fc28f4, type: 3}
+      propertyPath: _connectionType
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4053330007800758289, guid: b95cd7d8e42ab4348963285cc8fc28f4, type: 3}
@@ -468,17 +472,25 @@ PrefabInstance:
       propertyPath: _connectionCategory
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4620819750103158277, guid: b95cd7d8e42ab4348963285cc8fc28f4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4630171632046864126, guid: b95cd7d8e42ab4348963285cc8fc28f4, type: 3}
       propertyPath: m_Name
       value: CodeBlockConnector (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 4630171632046864126, guid: b95cd7d8e42ab4348963285cc8fc28f4, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 7379071070072286881, guid: b95cd7d8e42ab4348963285cc8fc28f4, type: 3}
       propertyPath: m_IsTrigger
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8242264361652181158, guid: b95cd7d8e42ab4348963285cc8fc28f4, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b95cd7d8e42ab4348963285cc8fc28f4, type: 3}
@@ -614,11 +626,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -3184931884940399610, guid: f4d5111c3c2a141e78033c2b787575ad, type: 3}
       propertyPath: _startText
-      value: DEBUG LON
+      value: Debug Two
       objectReference: {fileID: 0}
     - target: {fileID: 472953189859411272, guid: f4d5111c3c2a141e78033c2b787575ad, type: 3}
       propertyPath: m_text
-      value: DEBUG LON
+      value: Debug Two
       objectReference: {fileID: 0}
     - target: {fileID: 472953189859411272, guid: f4d5111c3c2a141e78033c2b787575ad, type: 3}
       propertyPath: m_fontSize
@@ -626,7 +638,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2194244225480463897, guid: f4d5111c3c2a141e78033c2b787575ad, type: 3}
       propertyPath: m_text
-      value: DEBUG LON
+      value: Debug Two
       objectReference: {fileID: 0}
     - target: {fileID: 2194244225480463897, guid: f4d5111c3c2a141e78033c2b787575ad, type: 3}
       propertyPath: m_fontSize
