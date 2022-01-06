@@ -190,10 +190,7 @@ public class CodeBlock : MonoBehaviour
             this.MoveOutFromContainer(this._currentContainer);
         }
 
-        this.transform.SetPositionAndRotation(
-            connectorToSnapTo.ConnectionPose.position,
-            connectorToSnapTo.ConnectionPose.rotation
-        );
+        this.AlignConnectors(connectorToSnapTo.Connection, connectorToSnapTo);
 
         foreach (var connector in this._connectors)
         {
@@ -201,6 +198,17 @@ public class CodeBlock : MonoBehaviour
             if (connectorToSnapTo.Connection == connector) continue;
             connector.BlockConnectedTo.SnapBlockClusterToConnector(connector);
         }
+    }
+
+    /// <summary>Moves this block such that the two connectors align with each other</summary>
+    private void AlignConnectors(CodeBlockConnector connectorAttachedToThisBlock, CodeBlockConnector otherConnectorToAlignWith)
+    {
+        this.transform.rotation = otherConnectorToAlignWith.ConnectionPose.rotation;
+
+        // A pos offset is needed as the connector of the block is not always in the center.
+        var posOffset = this.transform.position - connectorAttachedToThisBlock.transform.position;
+        
+        this.transform.position = otherConnectorToAlignWith.ConnectionPose.position + posOffset;
     }
 
     public bool BlockIsPartOfCluster(CodeBlock block)
