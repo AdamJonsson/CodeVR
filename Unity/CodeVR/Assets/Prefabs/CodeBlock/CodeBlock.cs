@@ -207,7 +207,7 @@ public class CodeBlock : MonoBehaviour
 
         // A pos offset is needed as the connector of the block is not always in the center.
         var posOffset = this.transform.position - connectorAttachedToThisBlock.transform.position;
-        
+
         this.transform.position = otherConnectorToAlignWith.ConnectionPose.position + posOffset;
     }
 

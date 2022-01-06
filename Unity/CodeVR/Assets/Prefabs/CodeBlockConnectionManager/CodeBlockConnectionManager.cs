@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.InputSystem;
+using UnityEditor;
 
 public class CodeBlockConnectionManager : MonoBehaviour
 {
@@ -12,7 +14,12 @@ public class CodeBlockConnectionManager : MonoBehaviour
 
     [SerializeField] private XRRayInteractor _rightController;
 
+    [Header("IF enabled, connection can be made by pressing the key (C)")]
+    [SerializeField] private bool _debugMode = false;
+
     private List<CodeBlock> _allCodeBlocks = new List<CodeBlock>();
+
+    public bool DebugMode { get => this._debugMode; }
 
     void Start()
     {
@@ -25,6 +32,16 @@ public class CodeBlockConnectionManager : MonoBehaviour
     {
         var bestPotentialConnection = this.GetBestPotentialConnection();
         this.DrawConnectionLine(bestPotentialConnection);
+
+        if (this._debugMode) this.DebugActionUpdate();
+    }
+
+    private void DebugActionUpdate()
+    {
+        if (Keyboard.current.cKey.wasPressedThisFrame)
+        {
+            this.ConnectBestPotentialConnection();
+        }
     }
 
     private void OnDropBlock(SelectExitEventArgs args)
