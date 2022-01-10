@@ -3,14 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
+[RequireComponent(typeof(CodeBlockSize))]
 public class CodeBlock : MonoBehaviour
 {
     [SerializeField] private List<CodeBlockConnector> _connectors;
     [SerializeField] private CodeBlockContainer _containerPrefab;
+
+    [Header("Sound")]
     [SerializeField] private AudioClip _selectSound;
     [SerializeField] private AudioClip _connectSound;
     [SerializeField] private AudioClip _detachSound;
     [SerializeField] private AudioSource _audioSource;
+
+    private CodeBlockSize _size;
 
     private List<CodeBlockConnector> _outputConnectors = new List<CodeBlockConnector>();
     private List<CodeBlockConnector> _inputConnectors = new List<CodeBlockConnector>();
@@ -47,12 +52,17 @@ public class CodeBlock : MonoBehaviour
         } 
     }
 
+    public List<CodeBlockConnector> AllConnectors { get => this._connectors; }
+
+    public CodeBlockSize Size { get => this._size; }
+
     void Start()
     {
         this.SetupConnectors();
         this._interactable = GetComponent<XRSimpleInteractable>();
         this._codeBlockInteractionManager = FindObjectOfType<CodeBlockInteractionManager>();
         this._codeBlockConnectionManager = FindObjectOfType<CodeBlockConnectionManager>();
+        this._size = this.GetComponent<CodeBlockSize>();
         this.GetAllInputFinders();
         this._interactable.selectEntered.AddListener(OnUserSelected);
     }
@@ -64,9 +74,42 @@ public class CodeBlock : MonoBehaviour
         
     }
 
-    public void OnConnection()
+    public void OnConnectionToThisBlock()
     {
         this._audioSource.PlayOneShot(_connectSound, 1.0f);
+        this.NotifyBlockClusterOfNewConnection();
+    }
+
+    private void OnNewConnectionToCluster()
+    {
+        this._size.ResizeAllExpandableBlocks();
+        foreach (var connector in this._outputConnectors)
+        {
+            connector.InputFinder.ClearPotentialConnections();
+        }
+    }
+
+    private void OnDetachConnectionFromCluster()
+    {
+        this._size.ResizeAllExpandableBlocks();
+    }
+
+    private void NotifyBlockClusterOfNewConnection()
+    {
+        var blocksToNotify = this.GetBlockCluster(true);
+        foreach (var block in blocksToNotify)
+        {
+            block.OnNewConnectionToCluster();
+        }
+    }
+
+    public void NotifyBlockClusterOfDetachement()
+    {
+        var blocksToNotify = this.GetBlockCluster(true);
+        foreach (var block in blocksToNotify)
+        {
+            block.OnDetachConnectionFromCluster();
+        }
     }
 
     private void GetAllInputFinders()
@@ -201,7 +244,7 @@ public class CodeBlock : MonoBehaviour
     }
 
     /// <summary>Moves this block such that the two connectors align with each other</summary>
-    private void AlignConnectors(CodeBlockConnector connectorAttachedToThisBlock, CodeBlockConnector otherConnectorToAlignWith)
+    public void AlignConnectors(CodeBlockConnector connectorAttachedToThisBlock, CodeBlockConnector otherConnectorToAlignWith)
     {
         this.transform.rotation = otherConnectorToAlignWith.ConnectionPose.rotation;
 
@@ -209,6 +252,22 @@ public class CodeBlock : MonoBehaviour
         var posOffset = this.transform.position - connectorAttachedToThisBlock.transform.position;
 
         this.transform.position = otherConnectorToAlignWith.ConnectionPose.position + posOffset;
+    }
+
+    public void RealignBlockCluster(CodeBlockConnector connectorToIgnore = null)
+    {
+        foreach (var connector in AllConnectors)
+        {
+            if (!connector.IsConnected) continue;
+            if (connector == connectorToIgnore) continue;
+            connector.BlockConnectedTo.AlignConnectors(connector.Connection, connector);
+        }
+        foreach (var connector in AllConnectors)
+        {
+            if (!connector.IsConnected) continue;
+            if (connector == connectorToIgnore) continue;
+            connector.BlockConnectedTo.RealignBlockCluster(connector.Connection);
+        }
     }
 
     public bool BlockIsPartOfCluster(CodeBlock block)

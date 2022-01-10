@@ -498,7 +498,7 @@ PrefabInstance:
       objectReference: {fileID: 464279294438429285}
     - target: {fileID: 4630171632046864126, guid: b95cd7d8e42ab4348963285cc8fc28f4, type: 3}
       propertyPath: m_Name
-      value: CodeBlockConnector (4)
+      value: BottomConnector
       objectReference: {fileID: 0}
     - target: {fileID: 4630171632046864126, guid: b95cd7d8e42ab4348963285cc8fc28f4, type: 3}
       propertyPath: m_Layer
@@ -657,6 +657,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4615836069189851194, guid: a34e6df8b375543b5986556f8dd5ff09, type: 3}
+      propertyPath: _connectorsThatEffectHeight.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4615836069189851194, guid: a34e6df8b375543b5986556f8dd5ff09, type: 3}
+      propertyPath: _connectorsThatEffectHeight.Array.data[0]
+      value: 
+      objectReference: {fileID: 7426325201924670637}
     - target: {fileID: 7096149081139296630, guid: a34e6df8b375543b5986556f8dd5ff09, type: 3}
       propertyPath: m_Colliders.Array.size
       value: 1

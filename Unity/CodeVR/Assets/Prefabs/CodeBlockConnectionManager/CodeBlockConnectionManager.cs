@@ -14,7 +14,7 @@ public class CodeBlockConnectionManager : MonoBehaviour
 
     [SerializeField] private XRRayInteractor _rightController;
 
-    [Header("IF enabled, connection can be made by pressing the key (C)")]
+    [Header("IF enabled, connection can be made by pressing the key (C). Must be disabled during production!")]
     [SerializeField] private bool _debugMode = false;
 
     private List<CodeBlock> _allCodeBlocks = new List<CodeBlock>();
@@ -57,6 +57,7 @@ public class CodeBlockConnectionManager : MonoBehaviour
 
     private void ConnectBestPotentialConnection()
     {
+        Debug.Log("Connect best potential connection!");
         var bestPotentialConnection = this.GetBestPotentialConnection();
         if (bestPotentialConnection == null) return;
 
@@ -130,9 +131,20 @@ public class CodeBlockConnectionManager : MonoBehaviour
 
     private void ConnectBlocks(CodeBlockConnector fromConnector, CodeBlockConnector toConnector)
     {
+        // Perform the basic connection
         fromConnector.Connect(connector: toConnector, snapConnectorsBlockCluster: false);
         toConnector.Connect(connector: fromConnector, snapConnectorsBlockCluster: true);
-        toConnector.BlockAttachedTo.OnConnection();
+
+        // Notify the new block cluster of the connection. So it resize itself correctly
+        toConnector.BlockAttachedTo.OnConnectionToThisBlock();
+
+        // After the cluster have resized itself, we need to realign the blocks again
+        toConnector.BlockAttachedTo.RealignBlockCluster();
+    }
+
+    private IEnumerator DelayedRealignBlocks(CodeBlockConnector connector)
+    {
+        yield return new WaitForSeconds(1.0f);
     }
 
     public void DetachConnector(CodeBlockConnector connectorToDetach)
@@ -141,5 +153,10 @@ public class CodeBlockConnectionManager : MonoBehaviour
         var connectorTwo = connectorToDetach.Connection;
         connectorOne.Detach();
         connectorTwo.Detach();
+        connectorOne.BlockAttachedTo.NotifyBlockClusterOfDetachement();
+        connectorTwo.BlockAttachedTo.NotifyBlockClusterOfDetachement();
+
+        connectorOne.BlockAttachedTo.RealignBlockCluster();
+        connectorTwo.BlockAttachedTo.RealignBlockCluster();
     }
 }

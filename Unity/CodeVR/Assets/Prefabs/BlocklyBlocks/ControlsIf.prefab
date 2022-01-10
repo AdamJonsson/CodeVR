@@ -109,7 +109,7 @@ GameObject:
   - component: {fileID: 9043864854919757606}
   - component: {fileID: 5689976561045927056}
   - component: {fileID: 8792282178216738535}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Do Bottom Cap Block
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -206,7 +206,7 @@ GameObject:
   - component: {fileID: 297828875732936979}
   - component: {fileID: 3739773695506269794}
   - component: {fileID: 3564853451808354974}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Do Middle Block
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -303,7 +303,7 @@ GameObject:
   - component: {fileID: 9067377547388477329}
   - component: {fileID: 8147181812055622444}
   - component: {fileID: 1675826155801473964}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Do Top Cap Block
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -736,6 +736,22 @@ PrefabInstance:
       value: -1
       objectReference: {fileID: 0}
     - target: {fileID: -4072927354368697834, guid: f3a57e93e2a864de1967a639ab437c25, type: 3}
+      propertyPath: _minExpandSize.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -4072927354368697834, guid: f3a57e93e2a864de1967a639ab437c25, type: 3}
+      propertyPath: _extraExpandSize.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4072927354368697834, guid: f3a57e93e2a864de1967a639ab437c25, type: 3}
+      propertyPath: _extraStaticSize.y
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: -4072927354368697834, guid: f3a57e93e2a864de1967a639ab437c25, type: 3}
+      propertyPath: _connectorEffectsHeight
+      value: 
+      objectReference: {fileID: 3732833421425347194}
+    - target: {fileID: -4072927354368697834, guid: f3a57e93e2a864de1967a639ab437c25, type: 3}
       propertyPath: _expandables.Array.size
       value: 6
       objectReference: {fileID: 0}
@@ -902,6 +918,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 432045458254109831, guid: f3a57e93e2a864de1967a639ab437c25, type: 3}
   m_PrefabInstance: {fileID: 4367013054430752308}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8926329190034666530 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -4072927354368697834, guid: f3a57e93e2a864de1967a639ab437c25, type: 3}
+  m_PrefabInstance: {fileID: 4367013054430752308}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4130c45c7450d4573940de153ca22e63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4593609248496413447
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1043,6 +1070,14 @@ PrefabInstance:
       value: -1
       objectReference: {fileID: 0}
     - target: {fileID: -4072927354368697834, guid: f3a57e93e2a864de1967a639ab437c25, type: 3}
+      propertyPath: _minExpandSize.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4072927354368697834, guid: f3a57e93e2a864de1967a639ab437c25, type: 3}
+      propertyPath: _connectorEffectsHeight
+      value: 
+      objectReference: {fileID: 576343571334343446}
+    - target: {fileID: -4072927354368697834, guid: f3a57e93e2a864de1967a639ab437c25, type: 3}
       propertyPath: _expandables.Array.size
       value: 5
       objectReference: {fileID: 0}
@@ -1164,6 +1199,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f3a57e93e2a864de1967a639ab437c25, type: 3}
+--- !u!114 &1680670964917819191 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -4072927354368697834, guid: f3a57e93e2a864de1967a639ab437c25, type: 3}
+  m_PrefabInstance: {fileID: 5776147378853416225}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4130c45c7450d4573940de153ca22e63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &6185149272343843238 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 432045458254109831, guid: f3a57e93e2a864de1967a639ab437c25, type: 3}
@@ -1443,14 +1489,70 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4615836069189851194, guid: a34e6df8b375543b5986556f8dd5ff09, type: 3}
+      propertyPath: _staticSize.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4615836069189851194, guid: a34e6df8b375543b5986556f8dd5ff09, type: 3}
+      propertyPath: _staticSize.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4615836069189851194, guid: a34e6df8b375543b5986556f8dd5ff09, type: 3}
+      propertyPath: _staticSize.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4615836069189851194, guid: a34e6df8b375543b5986556f8dd5ff09, type: 3}
+      propertyPath: _heightCalculationMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4615836069189851194, guid: a34e6df8b375543b5986556f8dd5ff09, type: 3}
+      propertyPath: _heightExpandableBlocks.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4615836069189851194, guid: a34e6df8b375543b5986556f8dd5ff09, type: 3}
+      propertyPath: _connectorsThatEffectWidth.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4615836069189851194, guid: a34e6df8b375543b5986556f8dd5ff09, type: 3}
+      propertyPath: _heightExpandableBlocks.Array.data[0]
+      value: 
+      objectReference: {fileID: 1680670964917819191}
+    - target: {fileID: 4615836069189851194, guid: a34e6df8b375543b5986556f8dd5ff09, type: 3}
+      propertyPath: _heightExpandableBlocks.Array.data[1]
+      value: 
+      objectReference: {fileID: 8926329190034666530}
+    - target: {fileID: 4615836069189851194, guid: a34e6df8b375543b5986556f8dd5ff09, type: 3}
+      propertyPath: _connectorsThatEffectHeight.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4615836069189851194, guid: a34e6df8b375543b5986556f8dd5ff09, type: 3}
+      propertyPath: _connectorsThatEffectWidth.Array.data[0]
+      value: 
+      objectReference: {fileID: 576343571334343446}
+    - target: {fileID: 4615836069189851194, guid: a34e6df8b375543b5986556f8dd5ff09, type: 3}
+      propertyPath: _connectorsThatEffectHeight.Array.data[0]
+      value: 
+      objectReference: {fileID: 6664971751550474603}
     - target: {fileID: 7096149081139296630, guid: a34e6df8b375543b5986556f8dd5ff09, type: 3}
       propertyPath: m_Colliders.Array.size
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7096149081139296630, guid: a34e6df8b375543b5986556f8dd5ff09, type: 3}
       propertyPath: m_Colliders.Array.data[0]
       value: 
       objectReference: {fileID: 8348407244533287661}
+    - target: {fileID: 7096149081139296630, guid: a34e6df8b375543b5986556f8dd5ff09, type: 3}
+      propertyPath: m_Colliders.Array.data[1]
+      value: 
+      objectReference: {fileID: 1675826155801473964}
+    - target: {fileID: 7096149081139296630, guid: a34e6df8b375543b5986556f8dd5ff09, type: 3}
+      propertyPath: m_Colliders.Array.data[2]
+      value: 
+      objectReference: {fileID: 3564853451808354974}
+    - target: {fileID: 7096149081139296630, guid: a34e6df8b375543b5986556f8dd5ff09, type: 3}
+      propertyPath: m_Colliders.Array.data[3]
+      value: 
+      objectReference: {fileID: 8792282178216738535}
     - target: {fileID: 9147208355751664282, guid: a34e6df8b375543b5986556f8dd5ff09, type: 3}
       propertyPath: _connectors.Array.size
       value: 4

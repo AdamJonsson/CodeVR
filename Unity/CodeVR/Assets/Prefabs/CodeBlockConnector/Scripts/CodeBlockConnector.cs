@@ -37,6 +37,8 @@ public class CodeBlockConnector : MonoBehaviour
     public CodeBlock BlockAttachedTo { get => _blockAttachedTo; }
     public CodeBlockConnector Connection { get => _connection; }
 
+    public float ConnectionDistance { get => this._connectionDistance; }
+
     public CodeBlock BlockConnectedTo 
     { 
         get {
@@ -62,6 +64,9 @@ public class CodeBlockConnector : MonoBehaviour
             );
         }
     }
+
+    /// <summary>Is always null if the connector is an input</summary>
+    public InputFinder InputFinder { get => this._inputFinder; }
 
     // Start is called before the first frame update
     void Start()

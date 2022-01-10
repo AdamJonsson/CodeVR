@@ -33,7 +33,6 @@ public class InputFinder : MonoBehaviour
         if (InputConnectorAlreadyExist(connectorEntered)) return;
         if (!IsInputConnectorValid(connectorEntered)) return;
 
-        Debug.Log("Enter");
         this._potentialConnections.Add(new PotentialConnection {
             Input = connectorEntered,
             Output = _outputConnector,
