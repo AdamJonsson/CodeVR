@@ -156,7 +156,7 @@ public class CodeBlock : MonoBehaviour
         {
             block.MoveToContainer(newContainer);
         }
-        this._codeBlockInteractionManager.MakeInteractorGrabContainer(newContainer, interactor);
+        this._codeBlockInteractionManager.MakeInteractorGrabContainer(newContainer, interactor, offsetGrab: true);
     }
 
     private CodeBlockContainer CreateNewContainer()
