@@ -131,7 +131,7 @@ public class CodeBlock : MonoBehaviour
         }
         else 
         {
-            this._audioSource.PlayOneShot(this._selectSound, 0.25f);
+            this._audioSource.PlayOneShot(this._selectSound, 0.1f);
         }
 
         this.MakeUserGrabSelfAndConnectedBlocks(interactor);
