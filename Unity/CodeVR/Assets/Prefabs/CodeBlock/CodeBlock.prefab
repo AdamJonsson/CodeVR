@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1608641029879533589}
   - component: {fileID: 9147208355751664282}
+  - component: {fileID: 4615836069189851194}
   - component: {fileID: 7096149081139296630}
   - component: {fileID: -6347147416706373758}
   m_Layer: 7
@@ -53,6 +54,25 @@ MonoBehaviour:
   _connectSound: {fileID: 8300000, guid: 874b95fa0534f43df83d1669f317ba80, type: 3}
   _detachSound: {fileID: 8300000, guid: f4c5ed6369f2840339d2b9d22fea74d6, type: 3}
   _audioSource: {fileID: 2741038212756663278}
+--- !u!114 &4615836069189851194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9427996589336988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3ae0b866b7244932910ae96ea2ee983, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _staticSize: {x: 1, y: 1, z: 1}
+  _heightCalculationMode: 1
+  _heightExpandableBlocks: []
+  _connectorsThatEffectHeight: []
+  _widthCalculationMode: 1
+  _widthExpandableBlocks: []
+  _connectorsThatEffectWidth: []
 --- !u!114 &7096149081139296630
 MonoBehaviour:
   m_ObjectHideFlags: 0

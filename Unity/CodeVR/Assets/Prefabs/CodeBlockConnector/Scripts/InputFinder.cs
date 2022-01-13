@@ -14,10 +14,17 @@ public class InputFinder : MonoBehaviour
 
     public List<PotentialConnection> PotentialConnections { get => _potentialConnections; }
 
+    private CodeBlockConnectionManager _connectionManager;
+
     void Awake()
     {
         this._collider = GetComponent<BoxCollider>();
         this._outputConnector = GetComponent<CodeBlockConnector>();
+    }
+
+    void Start()
+    {
+        this._connectionManager = FindObjectOfType<CodeBlockConnectionManager>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -26,7 +33,6 @@ public class InputFinder : MonoBehaviour
         if (InputConnectorAlreadyExist(connectorEntered)) return;
         if (!IsInputConnectorValid(connectorEntered)) return;
 
-        Debug.Log("Enter");
         this._potentialConnections.Add(new PotentialConnection {
             Input = connectorEntered,
             Output = _outputConnector,
@@ -49,7 +55,7 @@ public class InputFinder : MonoBehaviour
         if (inputConnector.ConnectionCategory != _outputConnector.ConnectionCategory) return false;
 
         // At least one controller need to have the block grabbed
-        if (!_outputConnector.BlockAttachedTo.IsCurrentlyBeingMoved && !inputConnector.BlockAttachedTo.IsCurrentlyBeingMoved) return false;
+        if (!_outputConnector.BlockAttachedTo.IsCurrentlyBeingMoved && !inputConnector.BlockAttachedTo.IsCurrentlyBeingMoved && !this._connectionManager.DebugMode) return false;
 
         // If the potential input connector is part of the same block
         if (inputConnector.BlockAttachedTo == this._outputConnector.BlockAttachedTo) return false;
