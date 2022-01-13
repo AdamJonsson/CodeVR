@@ -1,0 +1,118 @@
+%%% -*-BibTeX-*-
+%%% Do NOT edit. File created by BibTeX with style
+%%% ACM-Reference-Format-Journals [18-Jan-2012].
+
+\begin{thebibliography}{00}
+
+%%% ====================================================================
+%%% NOTE TO THE USER: you can override these defaults by providing
+%%% customized versions of any of these macros before the \bibliography
+%%% command.  Each of them MUST provide its own final punctuation,
+%%% except for \shownote{}, \showDOI{}, and \showURL{}.  The latter two
+%%% do not use final punctuation, in order to avoid confusing it with
+%%% the Web address.
+%%%
+%%% To suppress output of a particular field, define its macro to expand
+%%% to an empty string, or better, \unskip, like this:
+%%%
+%%% \newcommand{\showDOI}[1]{\unskip}   % LaTeX syntax
+%%%
+%%% \def \showDOI #1{\unskip}           % plain TeX syntax
+%%%
+%%% ====================================================================
+
+\ifx \showCODEN    \undefined \def \showCODEN     #1{\unskip}     \fi
+\ifx \showDOI      \undefined \def \showDOI       #1{{\tt DOI:}\penalty0{#1}\ }
+  \fi
+\ifx \showISBNx    \undefined \def \showISBNx     #1{\unskip}     \fi
+\ifx \showISBNxiii \undefined \def \showISBNxiii  #1{\unskip}     \fi
+\ifx \showISSN     \undefined \def \showISSN      #1{\unskip}     \fi
+\ifx \showLCCN     \undefined \def \showLCCN      #1{\unskip}     \fi
+\ifx \shownote     \undefined \def \shownote      #1{#1}          \fi
+\ifx \showarticletitle \undefined \def \showarticletitle #1{#1}   \fi
+\ifx \showURL      \undefined \def \showURL       #1{#1}          \fi
+
+\bibitem{bort-roig_uptake_2014}
+{Judit Bort-Roig}, {Montserrat Martin}, {Anna Puig-Ribera}, {Ángel~Manuel
+  González-Suárez}, {Iván Martínez-Lemos}, {Joan~Carles Martori}, {and}
+  {Nicholas~D. Gilson}.
+\newblock \showarticletitle{Uptake and factors that influence the use of ‘sit
+  less, move more’ occupational intervention strategies in Spanish office
+  employees}.
+\newblock  {11}, 1 (????), 152.
+\newblock
+\showISSN{1479-5868}
+\showDOI{%
+\url{http://dx.doi.org/10.1186/s12966-014-0152-6}}
+
+
+\bibitem{cole_they_2015}
+{Judith~A. Cole}, {Mark~A. Tully}, {and} {Margaret~E. Cupples}.
+\newblock \showarticletitle{“They should stay at their desk until the
+  work’s done”: a qualitative study examining perceptions of sedentary
+  behaviour in a desk-based occupational setting}.
+\newblock  {8}, 1 (????), 683.
+\newblock
+\showISSN{1756-0500}
+\showDOI{%
+\url{http://dx.doi.org/10.1186/s13104-015-1670-2}}
+
+
+\bibitem{lakdawalla_labor_2007}
+{Darius Lakdawalla} {and} {Tomas Philipson}.
+\newblock \showarticletitle{Labor Supply and Weight}.
+\newblock  {42}, 1 (????), 85--116.
+\newblock
+\showISSN{0022-166X}
+\showURL{%
+\url{https://www.jstor.org/stable/40057299}}
+\newblock
+\shownote{Publisher: [University of Wisconsin Press, Board of Regents of the
+  University of Wisconsin System].}
+
+
+\bibitem{parry_contribution_2013}
+{Sharon Parry} {and} {Leon Straker}. 2013.
+\newblock \showarticletitle{The contribution of office work to sedentary
+  behaviour associated risk}.
+\newblock {\em BMC Public Health\/} {13}, 1 (2013), 296.
+\newblock
+\showISSN{1471-2458}
+\showDOI{%
+\url{http://dx.doi.org/10.1186/1471-2458-13-296}}
+
+
+\bibitem{pronk_reducing_2012}
+{Nicolaas~P. Pronk}, {Abigail~S. Katz}, {Marcia Lowry}, {and} {Jane~Rodmyre
+  Payfer}.
+\newblock \showarticletitle{Reducing Occupational Sitting Time and Improving
+  Worker Health: The Take-a-Stand Project, 2011}.
+\newblock   {9} (????), E154.
+\newblock
+\showISSN{1545-1151}
+\showDOI{%
+\url{http://dx.doi.org/10.5888/pcd9.110323}}
+
+
+\bibitem{straker_sedentary_2016}
+{Leon Straker}.
+\newblock {\em Sedentary work: evidence on an emergent work health and safety
+  issue report}.
+\newblock
+\showISBNx{978-1-76028-589-0 978-1-76028-590-6}
+\newblock
+\shownote{{OCLC}: 1262093519.}
+
+
+\bibitem{zhai_sedentary_2015}
+{Long Zhai}, {Yi Zhang}, {and} {Dongfeng Zhang}.
+\newblock \showarticletitle{Sedentary behaviour and the risk of depression: a
+  meta-analysis}.
+\newblock  {49}, 11 (????), 705--709.
+\newblock
+\showISSN{0306-3674, 1473-0480}
+\showDOI{%
+\url{http://dx.doi.org/10.1136/bjsports-2014-093613}}
+
+
+\end{thebibliography}
