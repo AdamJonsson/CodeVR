@@ -16,8 +16,10 @@ public class ExpandableBlock : MonoBehaviour
     [SerializeField] private List<ExpandableSetting> _expandables = new List<ExpandableSetting>();
 
     [Header("Automatic Scale Settings")]
-    [SerializeField] private CodeBlockConnector _connectorEffectsHeight;
-    [SerializeField] private CodeBlockConnector _connectorEffectsWidth;
+    [SerializeField] private CodeBlockSize.CalculationMode _heightCalculationMode = CodeBlockSize.CalculationMode.Additive;
+    [SerializeField] private List<CodeBlockConnector> _connectorsEffectsHeight = new List<CodeBlockConnector>();
+    [SerializeField] private CodeBlockSize.CalculationMode _widthCalculationMode = CodeBlockSize.CalculationMode.Additive;
+    [SerializeField] private List<CodeBlockConnector> _connectorsEffectsWidth = new List<CodeBlockConnector>();
 
     [Tooltip("The min expand scale, the block scale can not be less than this vector")]
     [SerializeField] private Vector3 _minExpandSize;
@@ -34,23 +36,31 @@ public class ExpandableBlock : MonoBehaviour
 
     }
 
+    void Update()
+    {
+        if (!Application.isPlaying) this.ApplyScaleToExpandableSettings();
+    }
+
     private void ApplyScaleToExpandableSettings()
     {
         foreach (var expandable in this._expandables)
         {
             if (expandable.ShouldScale)
-                expandable.TransformReference.localScale = this._expandScale;
+                expandable.TransformReference.localScale = Vector3.Scale(this._expandScale, expandable.ScaleFactor) + expandable.ExtraStaticScale;
 
-            expandable.TransformReference.localPosition = expandable.Offset + Vector3.Scale(this._expandScale - Vector3.one, this._expandAnchor + expandable.ScaleOffset) / 2.0f;
+            expandable.TransformReference.localPosition = 
+                expandable.Offset +
+                Vector3.Scale(this._expandScale - Vector3.one, this._expandAnchor + expandable.ScaleOffset)
+                / 2.0f;
         }
     }
 
     public void ChangeSizeFromConnectors()
     {
-        if (this._connectorEffectsHeight != null)
-            this._expandScale.y = GetSizeOfClusterConnectedToConnector(this._connectorEffectsHeight).y;
-        if (this._connectorEffectsWidth != null)
-            this._expandScale.x = GetSizeOfClusterConnectedToConnector(this._connectorEffectsWidth).x;
+        if (this._connectorsEffectsHeight.Count > 0)
+            this._expandScale.y = GetSizeOfClusterConnectedToConnectors(this._connectorsEffectsHeight).y;
+        if (this._connectorsEffectsWidth.Count > 0)
+            this._expandScale.x = GetSizeOfClusterConnectedToConnectors(this._connectorsEffectsWidth).x;
         this.ApplyScaleToExpandableSettings();
     }
 
@@ -69,15 +79,43 @@ public class ExpandableBlock : MonoBehaviour
         ) + this._extraExpandSize;
     }
 
+    private Vector3 GetSizeOfClusterConnectedToConnectors(List<CodeBlockConnector> connectors)
+    {
+        Vector3 size = new Vector3(0.0f, 0.0f, 1.0f);
+
+        foreach (var connector in connectors)
+        {
+            var sizeOfConnector = this.GetSizeOfClusterConnectedToConnector(connector);
+            if (this._widthCalculationMode == CodeBlockSize.CalculationMode.Additive)
+            {
+                size.x += sizeOfConnector.x;
+            }
+            else
+            {
+                size.x = Mathf.Max(size.x, sizeOfConnector.x);
+            }
+
+            if (this._heightCalculationMode == CodeBlockSize.CalculationMode.Additive)
+            {
+                size.y += sizeOfConnector.y;
+            }
+            else
+            {
+                size.y = Mathf.Max(size.y, sizeOfConnector.y);
+            }
+        }
+        return size;
+    }
+
     public float GetHeight()
     {
-        var heightOfChildren = this.GetSizeOfClusterConnectedToConnector(this._connectorEffectsHeight).y;
+        var heightOfChildren = this.GetSizeOfClusterConnectedToConnectors(this._connectorsEffectsHeight).y;
         return heightOfChildren + this._extraStaticSize.y;
     }
 
     public float GetWidth()
     {
-        var widthOfChildren = this.GetSizeOfClusterConnectedToConnector(this._connectorEffectsWidth).x;
+        var widthOfChildren = this.GetSizeOfClusterConnectedToConnectors(this._connectorsEffectsWidth).x;
         return widthOfChildren + this._extraStaticSize.x;
     }
 
@@ -90,7 +128,12 @@ public class ExpandableBlock : MonoBehaviour
 
         public Vector3 ScaleOffset;
 
+        public Vector3 ScaleFactor;
+
+        public Vector3 ExtraStaticScale;
+
         public bool ShouldScale;
 
     }
+
 }

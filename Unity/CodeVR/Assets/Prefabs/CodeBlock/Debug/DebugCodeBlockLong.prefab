@@ -761,6 +761,22 @@ PrefabInstance:
       propertyPath: _staticSize.x
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 4615836069189851194, guid: a34e6df8b375543b5986556f8dd5ff09, type: 3}
+      propertyPath: _connectorsThatEffectWidth.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4615836069189851194, guid: a34e6df8b375543b5986556f8dd5ff09, type: 3}
+      propertyPath: _connectorsThatEffectHeight.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4615836069189851194, guid: a34e6df8b375543b5986556f8dd5ff09, type: 3}
+      propertyPath: _connectorsThatEffectWidth.Array.data[0]
+      value: 
+      objectReference: {fileID: 576343571334343446}
+    - target: {fileID: 4615836069189851194, guid: a34e6df8b375543b5986556f8dd5ff09, type: 3}
+      propertyPath: _connectorsThatEffectHeight.Array.data[0]
+      value: 
+      objectReference: {fileID: 7426325201924670637}
     - target: {fileID: 7096149081139296630, guid: a34e6df8b375543b5986556f8dd5ff09, type: 3}
       propertyPath: m_Colliders.Array.size
       value: 1
