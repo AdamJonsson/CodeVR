@@ -39,9 +39,20 @@ public class CodeBlockInteractionManager : MonoBehaviour
         castedInteractor.playHapticsOnHoverEntered = true;
     }
 
-    public void MakeInteractorGrabContainer(CodeBlockContainer container, IXRSelectInteractor interactor)
+    public void MakeInteractorGrabContainer(CodeBlockContainer container, IXRSelectInteractor interactor, bool offsetGrab)
     {
         this.MakeInteractorCodeBlockContainerInteractable(interactor);
+        if (offsetGrab)
+        {
+            var attachmentTransform = interactor.GetAttachTransform(container.Interactable);
+            var attachmentGameObject = new GameObject();
+            attachmentGameObject.transform.parent = container.transform;
+            attachmentGameObject.transform.SetPositionAndRotation(
+                attachmentTransform.position, 
+                container.transform.rotation
+            );
+            container.Interactable.attachTransform = attachmentGameObject.transform;
+        }
         this._xrInteractionManager.SelectEnter(interactor, container.Interactable);
     }
 }

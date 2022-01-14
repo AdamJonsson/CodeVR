@@ -41,7 +41,7 @@ public class CodeBlockSize : MonoBehaviour
         {
             var sum = 0.0f;
             var max = 0.0f;
-            foreach (var expandableBlock in this._heightExpandableBlocks)
+            foreach (var expandableBlock in this._widthExpandableBlocks)
             {
                 var width = expandableBlock.GetWidth();
                 sum += width;
@@ -105,7 +105,7 @@ public class CodeBlockSize : MonoBehaviour
         
     }
 
-    private enum CalculationMode 
+    public enum CalculationMode 
     {
         Additive,
         Largest

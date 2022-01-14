@@ -57,7 +57,6 @@ public class CodeBlockConnectionManager : MonoBehaviour
 
     private void ConnectBestPotentialConnection()
     {
-        Debug.Log("Connect best potential connection!");
         var bestPotentialConnection = this.GetBestPotentialConnection();
         if (bestPotentialConnection == null) return;
 
