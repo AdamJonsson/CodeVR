@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/Homebrew) (preloaded format=pdflatex 2021.9.30)  13 JAN 2022 12:38
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/Homebrew) (preloaded format=pdflatex 2021.9.30)  1 FEB 2022 16:13
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -675,12 +675,12 @@ LaTeX Info: Redefining \addtolength on input line 81.
 )
 \c@@todonotes@numberoftodonotes=\count314
 )
-Package hyperref Info: Option `pdfdisplaydoctitle' set `true' on input line 130.
-Package hyperref Info: Option `bookmarksnumbered' set `true' on input line 130.
-Package hyperref Info: Option `colorlinks' set `true' on input line 130.
-Package hyperref Info: Option `breaklinks' set `true' on input line 130.
-Package hyperref Info: Option `hypertexnames' set `false' on input line 130.
-LaTeX Font Info:    Trying to load font information for T1+ptm on input line 136.
+Package hyperref Info: Option `pdfdisplaydoctitle' set `true' on input line 129.
+Package hyperref Info: Option `bookmarksnumbered' set `true' on input line 129.
+Package hyperref Info: Option `colorlinks' set `true' on input line 129.
+Package hyperref Info: Option `breaklinks' set `true' on input line 129.
+Package hyperref Info: Option `hypertexnames' set `false' on input line 129.
+LaTeX Font Info:    Trying to load font information for T1+ptm on input line 135.
  (/opt/homebrew/Cellar/texlive/58837/share/texmf-dist/tex/latex/psnfss/t1ptm.fd
 File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
 ) (/opt/homebrew/Cellar/texlive/58837/share/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
@@ -690,40 +690,40 @@ File: l3backend-pdftex.def 2021-03-18 L3 backend support: PDF output (pdfTeX)
 ) (/Users/adam/Repositories/CodeVR/Research/Assignments/IndividualPlan/IndividualPlan.aux)
 \openout1 = `IndividualPlan.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/txmi/m/it on input line 136.
-LaTeX Font Info:    Trying to load font information for OML+txmi on input line 136.
+LaTeX Font Info:    Checking defaults for OML/txmi/m/it on input line 135.
+LaTeX Font Info:    Trying to load font information for OML+txmi on input line 135.
  (/opt/homebrew/Cellar/texlive/58837/share/texmf-dist/tex/latex/txfonts/omltxmi.fd
 File: omltxmi.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    ... okay on input line 136.
-LaTeX Font Info:    Checking defaults for OMS/txsy/m/n on input line 136.
-LaTeX Font Info:    Trying to load font information for OMS+txsy on input line 136.
+LaTeX Font Info:    ... okay on input line 135.
+LaTeX Font Info:    Checking defaults for OMS/txsy/m/n on input line 135.
+LaTeX Font Info:    Trying to load font information for OMS+txsy on input line 135.
  (/opt/homebrew/Cellar/texlive/58837/share/texmf-dist/tex/latex/txfonts/omstxsy.fd
 File: omstxsy.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    ... okay on input line 136.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 136.
-LaTeX Font Info:    ... okay on input line 136.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 136.
-LaTeX Font Info:    ... okay on input line 136.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 136.
-LaTeX Font Info:    ... okay on input line 136.
-LaTeX Font Info:    Checking defaults for OMX/txex/m/n on input line 136.
-LaTeX Font Info:    Trying to load font information for OMX+txex on input line 136.
+LaTeX Font Info:    ... okay on input line 135.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 135.
+LaTeX Font Info:    ... okay on input line 135.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 135.
+LaTeX Font Info:    ... okay on input line 135.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 135.
+LaTeX Font Info:    ... okay on input line 135.
+LaTeX Font Info:    Checking defaults for OMX/txex/m/n on input line 135.
+LaTeX Font Info:    Trying to load font information for OMX+txex on input line 135.
  (/opt/homebrew/Cellar/texlive/58837/share/texmf-dist/tex/latex/txfonts/omxtxex.fd
 File: omxtxex.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    ... okay on input line 136.
-LaTeX Font Info:    Checking defaults for U/txexa/m/n on input line 136.
-LaTeX Font Info:    Trying to load font information for U+txexa on input line 136.
+LaTeX Font Info:    ... okay on input line 135.
+LaTeX Font Info:    Checking defaults for U/txexa/m/n on input line 135.
+LaTeX Font Info:    Trying to load font information for U+txexa on input line 135.
  (/opt/homebrew/Cellar/texlive/58837/share/texmf-dist/tex/latex/txfonts/utxexa.fd
 File: utxexa.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    ... okay on input line 136.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 136.
-LaTeX Font Info:    ... okay on input line 136.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 136.
-LaTeX Font Info:    ... okay on input line 136.
+LaTeX Font Info:    ... okay on input line 135.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 135.
+LaTeX Font Info:    ... okay on input line 135.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 135.
+LaTeX Font Info:    ... okay on input line 135.
  (/opt/homebrew/Cellar/texlive/58837/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count316
@@ -743,7 +743,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
  (/opt/homebrew/Cellar/texlive/58837/share/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-Package hyperref Info: Link coloring ON on input line 136.
+Package hyperref Info: Link coloring ON on input line 135.
  (/opt/homebrew/Cellar/texlive/58837/share/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
  (/opt/homebrew/Cellar/texlive/58837/share/texmf-dist/tex/latex/refcount/refcount.sty
@@ -753,21 +753,21 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count322
 )
-LaTeX Info: Redefining \ref on input line 136.
-LaTeX Info: Redefining \pageref on input line 136.
-LaTeX Info: Redefining \nameref on input line 136.
+LaTeX Info: Redefining \ref on input line 135.
+LaTeX Info: Redefining \pageref on input line 135.
+LaTeX Info: Redefining \nameref on input line 135.
  (/Users/adam/Repositories/CodeVR/Research/Assignments/IndividualPlan/IndividualPlan.out) (/Users/adam/Repositories/CodeVR/Research/Assignments/IndividualPlan/IndividualPlan.out)
 \@outlinefile=\write5
 \openout5 = `IndividualPlan.out'.
 
-LaTeX Info: Redefining \microtypecontext on input line 136.
+LaTeX Info: Redefining \microtypecontext on input line 135.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
 Package microtype Info: Automatic font expansion enabled (level 2),
 (microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
 Package microtype Info: Using default expansion set `alltext-nott'.
-LaTeX Info: Redefining \showhyphens on input line 136.
+LaTeX Info: Redefining \showhyphens on input line 135.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
@@ -775,9 +775,9 @@ Package microtype Info: No adjustment of character kerning.
 File: mt-ptm.cfg 2006/04/20 v1.7 microtype config. file: Times (RS)
 )
 
-Package todonotes Warning: The length marginparwidth is less than 2cm and will most likely cause issues with the appearance of inserted todonotes. The issue can be solved by adding a line like \setlength {\marginparwidth }{2cm} prior to loading the todonotes package. on input line 136.
+Package todonotes Warning: The length marginparwidth is less than 2cm and will most likely cause issues with the appearance of inserted todonotes. The issue can be solved by adding a line like \setlength {\marginparwidth }{2cm} prior to loading the todonotes package. on input line 135.
 
-LaTeX Font Info:    Trying to load font information for OT1+ztmcm on input line 151.
+LaTeX Font Info:    Trying to load font information for OT1+ztmcm on input line 150.
 (/opt/homebrew/Cellar/texlive/58837/share/texmf-dist/tex/latex/psnfss/ot1ztmcm.fd
 File: ot1ztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OT1/ztmcm.
 )
@@ -785,70 +785,70 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `ztmcm' (encoding: OT1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-LaTeX Font Info:    Trying to load font information for OML+ztmcm on input line 151.
+LaTeX Font Info:    Trying to load font information for OML+ztmcm on input line 150.
  (/opt/homebrew/Cellar/texlive/58837/share/texmf-dist/tex/latex/psnfss/omlztmcm.fd
 File: omlztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OML/ztmcm.
 )
-LaTeX Font Info:    Trying to load font information for OMS+ztmcm on input line 151.
+LaTeX Font Info:    Trying to load font information for OMS+ztmcm on input line 150.
  (/opt/homebrew/Cellar/texlive/58837/share/texmf-dist/tex/latex/psnfss/omsztmcm.fd
 File: omsztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMS/ztmcm.
 )
-LaTeX Font Info:    Trying to load font information for OMX+ztmcm on input line 151.
+LaTeX Font Info:    Trying to load font information for OMX+ztmcm on input line 150.
  (/opt/homebrew/Cellar/texlive/58837/share/texmf-dist/tex/latex/psnfss/omxztmcm.fd
 File: omxztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMX/ztmcm.
 )
-LaTeX Font Info:    Trying to load font information for U+txsya on input line 151.
+LaTeX Font Info:    Trying to load font information for U+txsya on input line 150.
  (/opt/homebrew/Cellar/texlive/58837/share/texmf-dist/tex/latex/txfonts/utxsya.fd
 File: utxsya.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    Trying to load font information for U+txsyb on input line 151.
+LaTeX Font Info:    Trying to load font information for U+txsyb on input line 150.
  (/opt/homebrew/Cellar/texlive/58837/share/texmf-dist/tex/latex/txfonts/utxsyb.fd
 File: utxsyb.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    Trying to load font information for U+lasy on input line 151.
+LaTeX Font Info:    Trying to load font information for U+lasy on input line 150.
  (/opt/homebrew/Cellar/texlive/58837/share/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
-LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 151.
+LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 150.
  (/opt/homebrew/Cellar/texlive/58837/share/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
-LaTeX Font Info:    Trying to load font information for U+txmia on input line 151.
+LaTeX Font Info:    Trying to load font information for U+txmia on input line 150.
  (/opt/homebrew/Cellar/texlive/58837/share/texmf-dist/tex/latex/txfonts/utxmia.fd
 File: utxmia.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    Trying to load font information for U+txsyc on input line 151.
+LaTeX Font Info:    Trying to load font information for U+txsyc on input line 150.
  (/opt/homebrew/Cellar/texlive/58837/share/texmf-dist/tex/latex/txfonts/utxsyc.fd
 File: utxsyc.fd 2000/12/15 v3.1
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 151.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 150.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.4> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 151.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 150.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 151.
-LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 151.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 150.
+LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 150.
  (/opt/homebrew/Cellar/texlive/58837/share/texmf-dist/tex/latex/psnfss/ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 )
-LaTeX Font Info:    Trying to load font information for T1+txtt on input line 151.
+LaTeX Font Info:    Trying to load font information for T1+txtt on input line 150.
  (/opt/homebrew/Cellar/texlive/58837/share/texmf-dist/tex/latex/txfonts/t1txtt.fd
 File: t1txtt.fd 2000/12/15 v3.1
 )
 LaTeX Font Info:    Font shape `T1/txtt/b/n' in size <8> not available
-(Font)              Font shape `T1/txtt/bx/n' tried instead on input line 151.
+(Font)              Font shape `T1/txtt/bx/n' tried instead on input line 150.
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `txtt' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 151.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 150.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 151.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 150.
  Excluding 'CCSXML' comment.
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 181.
+(hyperref)                than one, level fixed on input line 180.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -859,23 +859,28 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Non-PDF special ignored!
 <special> papersize=8.5in,11in
 
-] (/Users/adam/Repositories/CodeVR/Research/Assignments/IndividualPlan/IndividualPlan.bbl) [2] (/Users/adam/Repositories/CodeVR/Research/Assignments/IndividualPlan/IndividualPlan.aux)
+] [2]
+Underfull \vbox (badness 5847) has occurred while \output is active []
+
+ [3] (/Users/adam/Repositories/CodeVR/Research/Assignments/IndividualPlan/IndividualPlan.bbl [4]) [5
+
+] (/Users/adam/Repositories/CodeVR/Research/Assignments/IndividualPlan/IndividualPlan.aux)
 Package rerunfilecheck Info: File `IndividualPlan.out' has not changed.
-(rerunfilecheck)             Checksum: D8551ACB99813B2BB6446C03F7AC4E62;2501.
+(rerunfilecheck)             Checksum: B00FE447381D80540181D6F964833B8C;3929.
  ) 
 Here is how much of TeX's memory you used:
- 23137 strings out of 478994
- 421962 string characters out of 5849630
- 721165 words of memory out of 5000000
- 39918 multiletter control sequences out of 15000+600000
- 473753 words of font info for 219 fonts, out of 8000000 for 9000
+ 23260 strings out of 478994
+ 423387 string characters out of 5849630
+ 727193 words of memory out of 5000000
+ 39934 multiletter control sequences out of 15000+600000
+ 480804 words of font info for 276 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 102i,10n,102p,1005b,620s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/opt/homebrew/Cellar/texlive/58837/share/texmf-dist/fonts/enc/dvips/base/8r.enc}</opt/homebrew/Cellar/texlive/58837/share/texmf-dist/fonts/type1/public/txfonts/t1xbtt.pfb></opt/homebrew/Cellar/texlive/58837/share/texmf-dist/fonts/type1/public/txfonts/t1xtt.pfb></opt/homebrew/Cellar/texlive/58837/share/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></opt/homebrew/Cellar/texlive/58837/share/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb></opt/homebrew/Cellar/texlive/58837/share/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></opt/homebrew/Cellar/texlive/58837/share/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></opt/homebrew/Cellar/texlive/58837/share/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on /Users/adam/Repositories/CodeVR/Research/Assignments/IndividualPlan/IndividualPlan.pdf (2 pages, 78170 bytes).
+ 102i,10n,102p,1192b,620s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/opt/homebrew/Cellar/texlive/58837/share/texmf-dist/fonts/enc/dvips/base/8r.enc}</opt/homebrew/Cellar/texlive/58837/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></opt/homebrew/Cellar/texlive/58837/share/texmf-dist/fonts/type1/public/txfonts/t1xbtt.pfb></opt/homebrew/Cellar/texlive/58837/share/texmf-dist/fonts/type1/public/txfonts/t1xtt.pfb></opt/homebrew/Cellar/texlive/58837/share/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></opt/homebrew/Cellar/texlive/58837/share/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb></opt/homebrew/Cellar/texlive/58837/share/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></opt/homebrew/Cellar/texlive/58837/share/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></opt/homebrew/Cellar/texlive/58837/share/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on /Users/adam/Repositories/CodeVR/Research/Assignments/IndividualPlan/IndividualPlan.pdf (5 pages, 112892 bytes).
 PDF statistics:
- 208 PDF objects out of 1000 (max. 8388607)
- 179 compressed objects within 2 object streams
- 50 named destinations out of 1000 (max. 500000)
- 46861 words of extra memory for PDF output out of 51595 (max. 10000000)
+ 287 PDF objects out of 1000 (max. 8388607)
+ 253 compressed objects within 3 object streams
+ 74 named destinations out of 1000 (max. 500000)
+ 51013 words of extra memory for PDF output out of 51595 (max. 10000000)
 

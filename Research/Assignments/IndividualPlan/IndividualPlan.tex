@@ -78,8 +78,7 @@
 % so you remain anonymous.
 \def\plaintitle{Individual Plan - Degree Project}
 \def\subplaintitle{
-  Reducing Sedentary Behavior for Software Engineers: Identified Performance Issues and Benefits Using a Visual Programming Language Inside Virtual Reality
-}
+  Reducing Sedentary Behavior for Software Engineers: Identified Performance Advantages and Disadvantages Using a Visual Programming Language Inside Virtual Reality}
 \def\plainauthor{First Author, Second Author, Third Author,
   Fourth Author, Fifth Author, Sixth Author}
 \def\emptyauthor{}
@@ -178,8 +177,8 @@
 
 \section{Project Information}
 
-\subsubsection{Preliminary title} 
-\subplaintitle
+\subsubsection{Preliminary title}
+\subplaintitle.
 
 \subsubsection{Student} 
 Adam Jonsson - adajon@kth.se
@@ -197,70 +196,134 @@ Martin Hedlund - marthed@kth.se
 Visual Programming Language, Virtual Reality, Performance, Health.
 
 \section{Background And Objective}
-% Sedentary is bad
-% There exist research about it
-% VR is good health wise
-% VR is bad performance wise
-% Visual programming language may be useful for VR
-% Identify performance differences between desktop and VR, what and why.
-% 
 
-Profession that is primarily conducted sedentary have increased due to a growth of office related occupation \cite{parry_contribution_2013}. One such profession is software engineering. A concern with this direction is that sedentary behavior has been found to have a negative effect on health, such as overweight \cite{lakdawalla_labor_2007}, depression \cite{zhai_sedentary_2015}, and a higher risk of cardiovascular events \cite{straker_sedentary_2016}. It is therefore of interested to reduce sedentary behavior while keeping or increasing the productivity of these professions.
+Profession that is primarily conducted sedentary have increased due to a growth of office related occupation \cite{parry_contribution_2013}. One such profession is software engineering. A concern with this direction is that sedentary behavior has been found to have a negative effect on a persons health, such as overweight \cite{lakdawalla_labor_2007}, depression \cite{zhai_sedentary_2015}, and a higher risk of cardiovascular events \cite{straker_sedentary_2016}. It is therefore of interested to reduce sedentary behavior to make the work environment healthier.
 
-There exist previous studies exploring ways to prevent sedentary behavior during work, such as making the employers more aware of their activity with help of notification from a mobile application \cite{cole_they_2015}, introducing standing desks \cite{pronk_reducing_2012}, and walking while having meetings \cite{bort-roig_uptake_2014}. One of these studies found that to make the change be of effects, the intervention needs to not hurt the productivity and be customized for the work context \cite{bort-roig_uptake_2014}. Similarly, this degree project aims to explore the potential to reduce the sedentary behavior for software engineers. But instead of adding intervention to the work environment, this study explores the potential of conducting software engineering in virtual reality that requires movement, reducing the sedentary behavior form the work itself.
+There exist previous studies exploring ways to prevent sedentary behavior during work, such as making the employers more aware of their activity with help of notification from a mobile application \cite{cole_they_2015}, introducing standing desks \cite{pronk_reducing_2012}, and walking while having meetings \cite{bort-roig_uptake_2014}. One of these studies found that to make the change be of effect, the intervention needs to not hurt the productivity and be customized for the work context \cite{bort-roig_uptake_2014}. 
 
-In terms of reducing sedentary behavior, virtual reality (VR) that uses six degrees of freedom have its benefits that it typical requires move movement compared sittning in front of a computer. A typical VR-application might need the user to walk, look around, and move their arms to grab or push interfacetbales. Of course, the design of a VR-application heavily effects the amount of these movements. Compare this to a mouse and keyboard setup, where the user only needs to do small movements with their fingers and wrist in order to interact with a GUI. TODO: Give references of positive health effects.
+% Similarly, this degree project aims to explore the potential to reduce the sedentary behavior for software engineers. But instead of adding intervention to the work environment, this study explores the potential of conducting software engineering in virtual reality that requires movement, reducing the sedentary behavior form the work itself.
 
-One potential issue with conducting software engineering inside VR is the performance. Software engineering as an occupation often require programming, which is typically done with help of a keyboard. A number of studies have found that typing with VR controllers is slower compared to using a qwerty keyboard [TODO: Cite a number of studies]. Therefore, to generate code by typing inside VR might prevent sedentary behavior, but will also reduce the productivity.
+Another potential means of reducing sedentary behavior is by using virtual reality (VR) during work. This is because a VR device that uses six degrees of freedom have its benefits that it requires more movement compared sittning in front of a computer. A typical VR-application might need the user to walk, look around, and move their arms to grab or push interfacetbales. Of course, the design of a VR-application heavily effects the frequency of these movements. Compare this to a mouse and keyboard setup, where the user only needs to do small movements with their fingers and wrist in order to interact with a GUI. One meta analysis on physical traning in VR concluded that it has potential \cite{ng_effectiveness_2019}
 
-% Change this
-One approach that do not require a keyboard by generate code with a visual programming language. That is, you need to move elements around in the program in order to create a desired outcome. There are mainly two ways to implement VPL. One is a block-based approach which is like putting lego together, which is forcing a specific layout of the code blocks [7]. The other is a flow-based approach which is more like putting cables together, and is instead more free regarding placement of the code [7]. VPLs have previously been implemented in VR. For example, FlowMatic [6] is a flow-based environment for creating VR applications, while Cubely [8] makes use of blocks for teaching programming. HackVR [9] combines the flow-based approach with the object oriented paradigm, which they argue has a natural translation to VR applications. However, none of these studies have focused on the health aspect of VPL in VR.
+While VR is beneficial in terms of increasing movement, one potential issue with conducting software engineering inside VR is the performance. Software engineering as an occupation often require programming, which is typically done with help of a keyboard. One studie have found that many typing technics with VR controllers is slower compared to using a qwerty keyboard \cite{speicher_selection-based_2018}. Therefore, to generate code by typing inside VR might prevent sedentary behavior, but will potentially reduce the productivity.
 
+% Change this & fix references
+One approach that do not primarily requires text entry input is using a visual programming language (VPL). That is, you need to move elements around in the program in order to create a desired program. There are mainly two types of VPL. One is a block-based approach, similar to putting lego together, which is forcing a specific layout of the code blocks \cite{mason_block-based_2017}. The other is a flow-based approach which is more like putting cables together, and is instead more free regarding placement of the code \cite{mason_block-based_2017}. Blockly is a popular block-based open source VPL published by Google and have been shown to be easy to understand and get started with \cite{seraj_scratch_2019}. 
+% Add an image here
 
+VPLs have previously been implemented in VR. For example, FlowMatic \cite{zhang_flowmatic_2020} is a flow-based environment for creating VR applications, while Cubely \cite{vincur_cubely_2017} makes use of blocks for teaching programming. HackVR \cite{kao_hackvr_2020} combines the flow-based approach with the object oriented paradigm, which they argue has a natural translation to VR applications. However, none of these studies have focused on the health aspect of VPL in VR, or compare the performance between doing a VPL in front of a computer.
 
-Talk about the potential and goal of this research
-
-The background knowledge required to carry out the project.
+% Talk about blockly here
+In this degree project, the potential of reducing sedentary behavior for software engineering using virtual reality are going to be explored. More specifically, performance differences in relation to movement between coding in a VPL inside virtual reality and a computer are going to be tested. The aim of this degree is to contribute to future researchers and designers in terms of creating an efficient visual programing language inside virtual reality, that have the potential reducing sedentary behavior while also being performant. Moreover, the findings here also have the potential to be used in other application outside the VPL area.
 
 \section{RESEARCH QUESTION AND METHOD}
 
 \subsection{Question}
-State the question that will be examined. Formulate is as an explicit and evaluable question. State your hypothesis.
+The main research question that is going to be explored in this degree project is as follows:
+
+\textit{
+  "What are the performance differences in relation to movement between coding using a visual programming language inside virtual reality and a computer?"
+}
+
+One potential outcome could be that the performance and movement differences reside in different areas of working with a VPL. For example, say that working with a VPL is divided into three categories: 1) connecting codeblocks, 2) adding new codeblocks using a menu, and 3) moving and restructuring exiting blocks. Because VR and computers usually have different input and output modalities, some categories could potentially differ depending on the platform used. Connecting codeblock may be faster using VR as both hands can be used, while on a computer you can only use the mouse. However, using the menu may instead be faster on a computer while slower on VR, possible due to the VR use requiring more movement than a computer.
 
 \subsection{Objectives}
-Objectives: Break down the research questions to measurable objectives.
+The main objective of this degree project is to create a report to help future researcher and designers to create a performant VPL inside VR that can reduce sedentary behavior for software engineers. In order to make the report as giving as possible, the following objectives needs to be reached.
+\begin{itemize}
+  \item Identify how areas of coding a VPL differ in terms of performance and movement.
+  \item Explore the correlation between the tracked movement and performance.
+  \item Discuss how the design differences potentially contribute to the observed data.
+\end{itemize}
 
 \subsection{Tasks}
-Describe the tasks that are necessary to reach the objectives. For each task, describe the challenges it involves.
+To research the above mentioned objects, the followings tasks needs to be completed:
+
+\subsubsection{Create a VPL inside VR}
+A VPL inside VR needs to be created based on an existing VPL design for traditional 2D GUI. The reson why no existing VPL is used is because the design can vary between the one used in VR and the used on a computer. In this case, the movement and performance differences may be influenced more by the design rather the platform it is used on. For this reson, creating a VPL for VR based on an existing VPL for a computer will ensure that the design differences are to the minimum.
+
+\subsubsection{Find a method to mesure time and movement}
+A method of gathering movement and performance data needs to be explored and implemented in both the VR and computer platform. However, previous research about movement when sittning in front of a computer can be used, assuming that the movement is similar for most of computer related tasks. A challenge here is that the sample rate of the VR movement needs to be fairly hight in order reduce the amount of error in the movement. This is going to result to very large data set that needs to be stored and analyzed. Therefore, it can be useful to check if the data gathering is technical possible early in the project. 
+
+\subsubsection{Categories interactions of a VPL}
+To get a more detailed comparison between working with a VPL in VR and a computer, the interaction with a VPL can be categories into different areas. This allows one to compare movement and performance for each individual areas. For example, the observed performance and movement while connecting blocks or moving blocks may have different depending on the platform that is used. The challenge here is to create categories that are easy to identify for both VR and a computer.
+
+\subsubsection{Create programming tasks}
+Programming tasks needs to be created in order to gather data about the movement and performance. The programing tasks should have a difficult level such that it is take about one minute to figure out the solution. This is to minimize the time spent thinking about the task and maximize the time implementing the solution in code. However, this is a challenge as the perceived difficult level may vary between participants. Also, figuring out the solution may also occurs while coding. For these reasons, variation needs to be allowed to happened and taken into account.
+
+\subsubsection{Create a tutorial}
+Because a number of participants may have limited experience of using VR, a steep learning curve is going to be present when the participants first puts on the headset. This learning curve is probably going to resolve around learning the controllers and move around in the virtual world. To prevent this issue to effect the result, a tutorial around the basic controls and logic needs to be created.
 
 \subsection{Method}
-Describe the method/s that will be followed. Explain why they are appropriate for the project or for the specific tasks.
+The method can be divided into three stages: 1) Information and conditions of participating, 2) Data gathering, and 3) Data analysis. Each stage is described in more detail below:
 
-\subsection{Ethics and Sustainability}
-Does the project address questions of ethics or sustainability? Does the project raise ethical or sustainability questions? If yes, how could these be handled?
+\subsubsection{Information and conditions of participating}
+For each potential participant, information regarding management of data, and the possibility to withdraw at any moment, needs to be communicated before the study starts. The possibility to quit the participating at any time is important as there is a change of the participants feeling simulation sickness during the experiment.
+
+\subsubsection{Data gathering}
+Participants body measurement and previous experience with VR, VPL, and JavaScript is gathered by they filling in a form. This data is used for metabolic equivalent of task calculation (METs), as well to see if previous experience have any correlation to the participants performance. The observed METs can be used to compare the movement in VR to other physical activities, such as sittning still, standing, and walking.
+
+In order to gather and compare performance data, each participant is to solve several programming tasks three times, each time using a different tool. These tools include text entry programming, a VPL using a computer, and a VPL using VR. The programming tasks are identical for every tool used. The time it takes the participant to complete every task is documented by recording the screen. However, the participants will presumably be more performant each time they solve the same programming tasks. For this reason, half of the participants will do the VPL using a computer before doing a VPL inside VR. The other half does the opposite. All participants will start with the text entry coding to create a baseline to compare the performance and movement using a VPL in VR and on a computer. This method will result in two comparison groups, those participants that used the VPL inside VR or computer the first time and those who did it the second time. Furthermore, differences can be observed within the two groups to get an insight into the learning curve's effect on the participants' performance.
+
+% Mention movement tracking here
+
+Before and after using the VR headset, the user is to answer a simulation sickness questionnaire to identify potential factors that could effect the observed result. Moreover, a tutorial for the VPL inside VR and the computer needs to be completed before the participants can start with the programming tasks. This is to reduce the effect of the learning curve for the basics around VPL, as well as the controls.
+
+\subsubsection{Data analysis}
+Different types of interaction with the VPL going to be categorized. For example, connecting codeblocks, removing codeblocks, adding codeblocks, being stationary, etc. These categories are used to do a more detailed comparison between the VPL inside VR and on a computer. Screen recordings of the participants using the VPL in both platforms are coded into these specified categories. After which the time spent and the tracked movement are compared between the different categories by using mean and standard divination. More complex statistics, such as a t-test, can be used if the number of participant is enough.
+
+% \subsection{Ethics and Sustainability}
+% Does the project address questions of ethics or sustainability? Does the project raise ethical or sustainability questions? If yes, how could these be handled?
 
 \subsection{Limitations}
-Define the limitations on what is to be done (so that it is clear what is not included in the degree project).
+This study is focusing on one aspect of programming in a VPL, which is to generate relative small pieces of code that solves a given problem. There are many other aspect to programming, such as debugging, refactoring, testing, etc. However, while the mentioned aspect are important for future research, these aspect are not evaluated in this degree project. Moreover, the study is limited to explore the differences between using a block-based VPL based on an existing design called Blockly. Thus, the result do not reflect the full potential of a VPL inside VR, but rather potential issues and benefits when migrating an existing VPL designed for a two-dimensional GUI into VR.
 
 \subsection{Risks}
-Explain what can go wrong and delay or make the project impossible to conclude. Explain how you will deal with these problems.
+Due to the COVID-19 situation, acquiring participants that are willing to use a VR headset can be challenge. The risk is that to few volunteers are found such as making the result of this study inconclusive. To minimize this risk, information regarding the health protocol are communicated, such as the headset being sanitized after every use. Moreover, a reward for participating could also increase the number of volunteers. 
+
+Another risk is development roadblocks. That is, there is a chance that bugs and challenging implementation is discovred late into the project. This will also potentially make the result inconclusive. To reduce this risk, development is going to be worked on early into the project, creating first a minimal viable product (MVP). Having an MVP is an insurance that the every aspect of this study is technical possible. Thus, roadblocks will occur early and changes can be made in the study without postponing the deadline.
 
 \section{EVALUATION AND NEWS VALUE}
-Evaluation: How is it determined if the objectives of the degree project have been fulfilled and if the research question has been adequately answered? What kind of qualitative or quantitative measures can be defined and evaluated?
+The objective for this degree project is to explore what the differences is in performance in relation to movement between coding using a VPL inside VR and on a computer. The objective is reached when enough movement and performance data has been gathered and analyzed such that a conclusions can be made. An examples of such conclusions can be that connecting block significant slower in VR than on a computer and only contributes 5 percent to the overall movement.
 
-Expected scientific results: How is the work scientifically relevant?
-
-The work's innovation/news value. Why does someone want to read the finished work? And who are these people?
+The news value of this research is to give a broad view of the movement advantages in relation to potential performance disadvantages using a VPL inside VR. Designers can use the result to make design decisions or to see if VR is a viable technology for VPLs. Researcher can potentially use the result to identify intresseting research areas.
 
 \section{PRE-STUDY}
-Description of the literature studies. What areas will the literature study focus on? How shall the necessary knowledge on background and state-of-the-art be obtained? What preliminarily important references have been identified?
+The literature review is going to consist of existing research surrounding the the topic of reducing sedentary behavior. Background on VPL is also going to be studied, including existing VPLs inside VR. HackVR, FlowMatic, and Cubely is some of the existing VPLs using VR that currently have been found. Lastly, VR overall is going to be researched, such as the typical benefits and downside of using it. Lastly, existing design recommendation for VR is going to be reviewed and applied when designing the VPL implementation in VR.  
 
 \section{CONDITIONS AND SCHEDULE}
-List of the resources are needed to solve the problem. This can be technical equipment, software, or data, but also experiment and interview subjects.
+In order to make conduct the experiment described in the suggested methodology, the following equipment needs to exist: A VR headset with six degrees of freedom, a room that is at least have 5 times 5 space, and a computer. For interview subject, all needs to have some experience with programming because programming tasks needs to be completed. Previous experience with VR or VPL are allowed to vary between participants.
 
-Describe the way the external supervisor will be involved in the project.
+The supervisor is to guide and give recommendation through the entire degree project. This by having recurring meetings were progress is reported and feedback is given from the supervisor. Moreover, because the supervisor is currently working around the same research area, sharing useful literature with each other can also be expected.
 
-Provide a project timeline, specifying the main tasks and the time allocated for them, milestones (time of achievement of intermediate goals)
+The schedule is presented in weeks. However, note that this is a preliminary planing and may change in the future:
+
+\begin{itemize}
+  \item \textbf{W5 - Literature Review \& Development.} Research existing prevention for sedentary behavior during work. Basic development for VPL inside VR.
+  \item \textbf{W6 - Literature Review \& Development.} Research existing VPLs, their performance compared to typical programming and other differences. Basic development for VPL inside VR.
+  \item \textbf{W7 - Literature Review \& Development.} Research VR, both in terms of design recommendation as well as movement tracking. Basic development for VPL inside VR.
+  \item \textbf{W8 - Literature Review \& Development.} Research existing VPL inside VR . Basic development for VPL inside VR.
+  \item \textbf{ END OF W8 MILESTONE  } - Literature review done and the core logic for the VPL inside VR works.
+  \item \textbf{W9 - Design \& Development.} - Choose design for the VPL inside VR from the litteratur found. Document every design difference between the VPL in VR and on a computer.
+  \item \textbf{W10 - Design \& Development.} - Implement the chosen design into the VPL in VR.
+  \item \textbf{W11 - Design \& Development.} - Develop the VPL such that code can be generated and shown in VR. 
+  \item \textbf{W12 - Design \& Development.} - Develop the ability to complete programming tasks on all platforms.
+  \item \textbf{W13 - Design \& Development.} - Create tutorial for VPL inside VR and on a computer.
+  \item \textbf{W14 - Design \& Development.} - Create programming tasks and make sure that they can be solved on all platforms.
+  \item \textbf{ END OF W14 MILESTONE  } - VPL inside VR is functional and code can be created with it.
+  \item \textbf{W15 - Movement Tracking \& Development.} - Investigate and implement method of tracking movement with VR.
+  \item \textbf{W16 - Pilot Study.} - Create all questionnaires and conduct a pilot test to check if everything works and that data can be gathered as planed.
+  \item \textbf{ END OF W16 MILESTONE  } - VPL for all platforms are ready and data gathering can start.
+  \item \textbf{W17 - Data Gathering } - Invite participants and start gathering data.
+  \item \textbf{W18 - Data Gathering } - Continue inviting participants and  gathering data.
+  \item \textbf{W19 - Data Analysis} - Categorize interaction types from video recordings and make statistical analyzes on the gathered data.
+  \item \textbf{ END OF W19 MILESTONE } - Data is fully gathered.
+  \item \textbf{W20 - Writing } - Write about the analyzed data.
+  \item \textbf{W21 - Writing } - Refine paper.
+  \item \textbf{W22 - Writing } - Refine paper.
+  \item \textbf{W23 - Writing } - Refine paper.
+  \item \textbf{W24 - Writing } - Prepare final presentation.
+
+\end{itemize}
 
 % REFERENCES FORMAT
 % References must be the same font size as other body text.
