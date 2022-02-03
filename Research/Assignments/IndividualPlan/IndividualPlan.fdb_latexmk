@@ -1,14 +1,14 @@
 # Fdb version 3
-["bibtex IndividualPlan"] 1643728432 "IndividualPlan.aux" "IndividualPlan.bbl" "IndividualPlan" 1643743871
+["bibtex IndividualPlan"] 1643885063 "IndividualPlan.aux" "IndividualPlan.bbl" "IndividualPlan" 1643885064
   "./SIGCHI-Reference-Format.bst" 1642596251 91203 2c1ca74f807536bd0fa4e9e9feb42c05 ""
-  "IndividualPlan.aux" 1643728433 4853 73d36a8ce0d8d1f288b186d0080899d4 "pdflatex"
+  "IndividualPlan.aux" 1643885064 5095 e196b7800387379acf85392799e4ae6d "pdflatex"
   "References.bib" 1643728417 23099 cf3e3985dbc7d9a1e0f66de09f3524e9 ""
   (generated)
   "IndividualPlan.blg"
   "IndividualPlan.bbl"
-["pdflatex"] 1643728432 "/Users/adam/Repositories/CodeVR/Research/Assignments/IndividualPlan/IndividualPlan.tex" "/Users/adam/Repositories/CodeVR/Research/Assignments/IndividualPlan/IndividualPlan.pdf" "IndividualPlan" 1643743871
-  "/Users/adam/Repositories/CodeVR/Research/Assignments/IndividualPlan/IndividualPlan.aux" 1643728433 4853 73d36a8ce0d8d1f288b186d0080899d4 ""
-  "/Users/adam/Repositories/CodeVR/Research/Assignments/IndividualPlan/IndividualPlan.tex" 1643743871 25937 17a33d799f861fe241cdacd50b4c4770 ""
+["pdflatex"] 1643885063 "/Users/adam/Repositories/CodeVR/Research/Assignments/IndividualPlan/IndividualPlan.tex" "/Users/adam/Repositories/CodeVR/Research/Assignments/IndividualPlan/IndividualPlan.pdf" "IndividualPlan" 1643885064
+  "/Users/adam/Repositories/CodeVR/Research/Assignments/IndividualPlan/IndividualPlan.aux" 1643885064 5095 e196b7800387379acf85392799e4ae6d ""
+  "/Users/adam/Repositories/CodeVR/Research/Assignments/IndividualPlan/IndividualPlan.tex" 1643885061 27960 94c20800647bf19294437d451961d6f1 ""
   "/opt/homebrew/Cellar/texlive/58837/share/texmf-dist/fonts/enc/dvips/base/8r.enc" 1618176823 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/opt/homebrew/Cellar/texlive/58837/share/texmf-dist/fonts/map/fontname/texfonts.map" 1618176823 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/opt/homebrew/Cellar/texlive/58837/share/texmf-dist/fonts/map/pdftex/updmap/pdftex.map" 1618176823 5169161 faec376d6e4a0f9287e20add9eecc042 ""
@@ -219,16 +219,17 @@
   "/opt/homebrew/Cellar/texlive/58837/share/texmf-dist/tex/latex/xkeyval/xkeyval.sty" 1618176823 4902 efb3d66683a2da2a232f71e3a571a899 ""
   "/opt/homebrew/Cellar/texlive/58837/share/texmf-dist/web2c/texmf.cnf" 1618176823 39975 4b05abf73e01b5eea84984a594557aa7 ""
   "/opt/homebrew/Cellar/texlive/58837/share/texmf-var/web2c/pdftex/pdflatex.fmt" 1618176823 2724924 3245175c558990ccfa3ba75008a2a704 ""
-  "IndividualPlan.aux" 1643728433 4853 73d36a8ce0d8d1f288b186d0080899d4 "pdflatex"
-  "IndividualPlan.bbl" 1643728432 7225 90c08dc4570c232cb94143b46b6a28ee "bibtex IndividualPlan"
-  "IndividualPlan.out" 1643728433 3929 b00fe447381d80540181d6f964833b8c "pdflatex"
-  "IndividualPlan.tex" 1643743871 25937 17a33d799f861fe241cdacd50b4c4770 ""
+  "IndividualPlan.aux" 1643885064 5095 e196b7800387379acf85392799e4ae6d "pdflatex"
+  "IndividualPlan.bbl" 1643885063 7225 90c08dc4570c232cb94143b46b6a28ee "bibtex IndividualPlan"
+  "IndividualPlan.out" 1643885064 3969 258bfa2ca13b821ab770a45f5b2c8fc9 "pdflatex"
+  "IndividualPlan.tex" 1643885061 27960 94c20800647bf19294437d451961d6f1 ""
   "acmcopyright.sty" 1642596251 9626 03a22ffcc9f51aaef67ac6ed43847230 ""
+  "figures/blockly.png" 1643811877 155974 823ce48d3493ed9bb6004d4bf0b65668 ""
   "sigchi.cls" 1642596251 55722 4906b8152c7964ef635f3b95e24917dd ""
   (generated)
-  "IndividualPlan.out"
-  "IndividualPlan.log"
-  "IndividualPlan.pdf"
-  "/Users/adam/Repositories/CodeVR/Research/Assignments/IndividualPlan/IndividualPlan.pdf"
-  "IndividualPlan.aux"
   "/Users/adam/Repositories/CodeVR/Research/Assignments/IndividualPlan/IndividualPlan.log"
+  "IndividualPlan.log"
+  "IndividualPlan.out"
+  "IndividualPlan.aux"
+  "/Users/adam/Repositories/CodeVR/Research/Assignments/IndividualPlan/IndividualPlan.pdf"
+  "IndividualPlan.pdf"

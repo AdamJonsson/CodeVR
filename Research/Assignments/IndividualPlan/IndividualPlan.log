@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/Homebrew) (preloaded format=pdflatex 2021.9.30)  1 FEB 2022 16:13
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/Homebrew) (preloaded format=pdflatex 2021.9.30)  3 FEB 2022 11:44
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -850,8 +850,13 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5> not available
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
 (hyperref)                than one, level fixed on input line 180.
 
+<figures/blockly.png, id=150, 373.395pt x 163.61125pt>
+File: figures/blockly.png Graphic file (type png)
+<use figures/blockly.png>
+Package pdftex.def Info: figures/blockly.png  used on input line 211.
+(pdftex.def)             Requested size: 243.98238pt x 106.90526pt.
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 2181) has occurred while \output is active []
 
  [1{/opt/homebrew/Cellar/texlive/58837/share/texmf-dist/fonts/map/pdftex/updmap/pdftex.map}
 
@@ -859,28 +864,26 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Non-PDF special ignored!
 <special> papersize=8.5in,11in
 
-] [2]
-Underfull \vbox (badness 5847) has occurred while \output is active []
+ </Users/adam/Repositories/CodeVR/Research/Assignments/IndividualPlan/figures/blockly.png>] [2] [3]
+Underfull \vbox (badness 2486) has occurred while \output is active []
 
- [3] (/Users/adam/Repositories/CodeVR/Research/Assignments/IndividualPlan/IndividualPlan.bbl [4]) [5
-
-] (/Users/adam/Repositories/CodeVR/Research/Assignments/IndividualPlan/IndividualPlan.aux)
+ (/Users/adam/Repositories/CodeVR/Research/Assignments/IndividualPlan/IndividualPlan.bbl [4]) [5] (/Users/adam/Repositories/CodeVR/Research/Assignments/IndividualPlan/IndividualPlan.aux)
 Package rerunfilecheck Info: File `IndividualPlan.out' has not changed.
-(rerunfilecheck)             Checksum: B00FE447381D80540181D6F964833B8C;3929.
+(rerunfilecheck)             Checksum: 258BFA2CA13B821AB770A45F5B2C8FC9;3969.
  ) 
 Here is how much of TeX's memory you used:
- 23260 strings out of 478994
- 423387 string characters out of 5849630
- 727193 words of memory out of 5000000
- 39934 multiletter control sequences out of 15000+600000
- 480804 words of font info for 276 fonts, out of 8000000 for 9000
+ 23279 strings out of 478994
+ 423629 string characters out of 5849630
+ 724817 words of memory out of 5000000
+ 39941 multiletter control sequences out of 15000+600000
+ 482167 words of font info for 281 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 102i,10n,102p,1192b,620s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 102i,10n,102p,1292b,620s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/opt/homebrew/Cellar/texlive/58837/share/texmf-dist/fonts/enc/dvips/base/8r.enc}</opt/homebrew/Cellar/texlive/58837/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></opt/homebrew/Cellar/texlive/58837/share/texmf-dist/fonts/type1/public/txfonts/t1xbtt.pfb></opt/homebrew/Cellar/texlive/58837/share/texmf-dist/fonts/type1/public/txfonts/t1xtt.pfb></opt/homebrew/Cellar/texlive/58837/share/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></opt/homebrew/Cellar/texlive/58837/share/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb></opt/homebrew/Cellar/texlive/58837/share/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></opt/homebrew/Cellar/texlive/58837/share/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></opt/homebrew/Cellar/texlive/58837/share/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on /Users/adam/Repositories/CodeVR/Research/Assignments/IndividualPlan/IndividualPlan.pdf (5 pages, 112892 bytes).
+Output written on /Users/adam/Repositories/CodeVR/Research/Assignments/IndividualPlan/IndividualPlan.pdf (5 pages, 209535 bytes).
 PDF statistics:
- 287 PDF objects out of 1000 (max. 8388607)
- 253 compressed objects within 3 object streams
- 74 named destinations out of 1000 (max. 500000)
- 51013 words of extra memory for PDF output out of 51595 (max. 10000000)
+ 293 PDF objects out of 1000 (max. 8388607)
+ 257 compressed objects within 3 object streams
+ 75 named destinations out of 1000 (max. 500000)
+ 53066 words of extra memory for PDF output out of 61914 (max. 10000000)
 
