@@ -1,0 +1,203 @@
+%%% -*-BibTeX-*-
+%%% Do NOT edit. File created by BibTeX with style
+%%% ACM-Reference-Format-Journals [18-Jan-2012].
+
+\begin{thebibliography}{00}
+
+%%% ====================================================================
+%%% NOTE TO THE USER: you can override these defaults by providing
+%%% customized versions of any of these macros before the \bibliography
+%%% command.  Each of them MUST provide its own final punctuation,
+%%% except for \shownote{}, \showDOI{}, and \showURL{}.  The latter two
+%%% do not use final punctuation, in order to avoid confusing it with
+%%% the Web address.
+%%%
+%%% To suppress output of a particular field, define its macro to expand
+%%% to an empty string, or better, \unskip, like this:
+%%%
+%%% \newcommand{\showDOI}[1]{\unskip}   % LaTeX syntax
+%%%
+%%% \def \showDOI #1{\unskip}           % plain TeX syntax
+%%%
+%%% ====================================================================
+
+\ifx \showCODEN    \undefined \def \showCODEN     #1{\unskip}     \fi
+\ifx \showDOI      \undefined \def \showDOI       #1{{\tt DOI:}\penalty0{#1}\ }
+  \fi
+\ifx \showISBNx    \undefined \def \showISBNx     #1{\unskip}     \fi
+\ifx \showISBNxiii \undefined \def \showISBNxiii  #1{\unskip}     \fi
+\ifx \showISSN     \undefined \def \showISSN      #1{\unskip}     \fi
+\ifx \showLCCN     \undefined \def \showLCCN      #1{\unskip}     \fi
+\ifx \shownote     \undefined \def \shownote      #1{#1}          \fi
+\ifx \showarticletitle \undefined \def \showarticletitle #1{#1}   \fi
+\ifx \showURL      \undefined \def \showURL       #1{#1}          \fi
+
+\bibitem{bort-roig_uptake_2014}
+{Judit Bort-Roig}, {Montserrat Martin}, {Anna Puig-Ribera}, {Ángel~Manuel
+  González-Suárez}, {Iván Martínez-Lemos}, {Joan~Carles Martori}, {and}
+  {Nicholas~D. Gilson}.
+\newblock \showarticletitle{Uptake and factors that influence the use of ‘sit
+  less, move more’ occupational intervention strategies in Spanish office
+  employees}.
+\newblock  {11}, 1 (????), 152.
+\newblock
+\showISSN{1479-5868}
+\showDOI{%
+\url{http://dx.doi.org/10.1186/s12966-014-0152-6}}
+
+
+\bibitem{cole_they_2015}
+{Judith~A. Cole}, {Mark~A. Tully}, {and} {Margaret~E. Cupples}.
+\newblock \showarticletitle{“They should stay at their desk until the
+  work’s done”: a qualitative study examining perceptions of sedentary
+  behaviour in a desk-based occupational setting}.
+\newblock  {8}, 1 (????), 683.
+\newblock
+\showISSN{1756-0500}
+\showDOI{%
+\url{http://dx.doi.org/10.1186/s13104-015-1670-2}}
+
+
+\bibitem{kao_hackvr_2020}
+{Dominic Kao}, {Christos Mousas}, {Alejandra~J. Magana}, {D.~Fox Harrell},
+  {Rabindra Ratan}, {Edward~F. Melcer}, {Brett Sherrick}, {Paul Parsons}, {and}
+  {Dmitri~A. Gusev}.
+\newblock \showarticletitle{Hack.{VR}: A Programming Game in Virtual Reality}.
+\newblock  (????).
+\newblock
+\showURL{%
+\url{http://arxiv.org/abs/2007.04495}}
+
+
+\bibitem{lakdawalla_labor_2007}
+{Darius Lakdawalla} {and} {Tomas Philipson}.
+\newblock \showarticletitle{Labor Supply and Weight}.
+\newblock  {42}, 1 (????), 85--116.
+\newblock
+\showISSN{0022-166X}
+\showURL{%
+\url{https://www.jstor.org/stable/40057299}}
+\newblock
+\shownote{Publisher: [University of Wisconsin Press, Board of Regents of the
+  University of Wisconsin System].}
+
+
+\bibitem{mason_block-based_2017}
+{Dave Mason} {and} {Kruti Dave}.
+\newblock \showarticletitle{Block-based versus flow-based programming for naive
+  programmers}. In {\em 2017 {IEEE} Blocks and Beyond Workshop (B B)}
+  (2017-10). 25--28.
+\newblock
+\showDOI{%
+\url{http://dx.doi.org/10.1109/BLOCKS.2017.8120405}}
+
+
+\bibitem{ng_effectiveness_2019}
+{Yu-Leung Ng}, {Flora Ma}, {Frederick~K. Ho}, {Patrick Ip}, {and} {King-wa Fu}.
+\newblock \showarticletitle{Effectiveness of virtual and augmented
+  reality-enhanced exercise on physical activity, psychological outcomes, and
+  physical performance: A systematic review and meta-analysis of randomized
+  controlled trials}.
+\newblock   {99} (????), 278--291.
+\newblock
+\showISSN{0747-5632}
+\showDOI{%
+\url{http://dx.doi.org/10.1016/j.chb.2019.05.026}}
+
+
+\bibitem{parry_contribution_2013}
+{Sharon Parry} {and} {Leon Straker}. 2013.
+\newblock \showarticletitle{The contribution of office work to sedentary
+  behaviour associated risk}.
+\newblock {\em BMC Public Health\/} {13}, 1 (2013), 296.
+\newblock
+\showISSN{1471-2458}
+\showDOI{%
+\url{http://dx.doi.org/10.1186/1471-2458-13-296}}
+
+
+\bibitem{pronk_reducing_2012}
+{Nicolaas~P. Pronk}, {Abigail~S. Katz}, {Marcia Lowry}, {and} {Jane~Rodmyre
+  Payfer}.
+\newblock \showarticletitle{Reducing Occupational Sitting Time and Improving
+  Worker Health: The Take-a-Stand Project, 2011}.
+\newblock   {9} (????), E154.
+\newblock
+\showISSN{1545-1151}
+\showDOI{%
+\url{http://dx.doi.org/10.5888/pcd9.110323}}
+
+
+\bibitem{seraj_scratch_2019}
+{Mazyar Seraj}, {Eva-Sophie Katterfeldt}, {Kerstin Bub}, {Serge Autexier},
+  {and} {Rolf Drechsler}.
+\newblock \showarticletitle{Scratch and Google Blockly: How Girls' Programming
+  Skills and Attitudes are Influenced}. In {\em Proceedings of the 19th Koli
+  Calling International Conference on Computing Education Research}
+  (2019-11-21) {\em (Koli Calling '19)}. Association for Computing Machinery,
+  1--10.
+\newblock
+\showISBNx{978-1-4503-7715-7}
+\showDOI{%
+\url{http://dx.doi.org/10.1145/3364510.3364515}}
+
+
+\bibitem{speicher_selection-based_2018}
+{Marco Speicher}, {Anna~Maria Feit}, {Pascal Ziegler}, {and} {Antonio Krüger}.
+\newblock \showarticletitle{Selection-based Text Entry in Virtual Reality}.
+\newblock In {\em Proceedings of the 2018 {CHI} Conference on Human Factors in
+  Computing Systems}. Association for Computing Machinery, 1--13.
+\newblock
+\showISBNx{978-1-4503-5620-6}
+\showURL{%
+\url{https://doi.org/10.1145/3173574.3174221}}
+
+
+\bibitem{straker_sedentary_2016}
+{Leon Straker}.
+\newblock {\em Sedentary work: evidence on an emergent work health and safety
+  issue report}.
+\newblock
+\showISBNx{978-1-76028-589-0 978-1-76028-590-6}
+\newblock
+\shownote{{OCLC}: 1262093519.}
+
+
+\bibitem{vincur_cubely_2017}
+{Juraj Vincur}, {Martin Konopka}, {Jozef Tvarozek}, {Martin Hoang}, {and}
+  {Pavol Navrat}.
+\newblock \showarticletitle{Cubely: virtual reality block-based programming
+  environment}. In {\em Proceedings of the 23rd {ACM} Symposium on Virtual
+  Reality Software and Technology} (2017-11-08) {\em ({VRST} '17)}. Association
+  for Computing Machinery, 1--2.
+\newblock
+\showISBNx{978-1-4503-5548-3}
+\showDOI{%
+\url{http://dx.doi.org/10.1145/3139131.3141785}}
+
+
+\bibitem{zhai_sedentary_2015}
+{Long Zhai}, {Yi Zhang}, {and} {Dongfeng Zhang}.
+\newblock \showarticletitle{Sedentary behaviour and the risk of depression: a
+  meta-analysis}.
+\newblock  {49}, 11 (????), 705--709.
+\newblock
+\showISSN{0306-3674, 1473-0480}
+\showDOI{%
+\url{http://dx.doi.org/10.1136/bjsports-2014-093613}}
+
+
+\bibitem{zhang_flowmatic_2020}
+{Lei Zhang} {and} {Steve Oney}.
+\newblock \showarticletitle{{FlowMatic}: An Immersive Authoring Tool for
+  Creating Interactive Scenes in Virtual Reality}.
+\newblock In {\em Proceedings of the 33rd Annual {ACM} Symposium on User
+  Interface Software and Technology}. Association for Computing Machinery,
+  342--353.
+\newblock
+\showISBNx{978-1-4503-7514-6}
+\showURL{%
+\url{https://doi.org/10.1145/3379337.3415824}}
+
+
+\end{thebibliography}
