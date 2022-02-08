@@ -26,6 +26,10 @@ public class CodeBlockConnectionManager : MonoBehaviour
         this._allCodeBlocks = FindObjectsOfType<CodeBlock>().ToList();
         this._leftController.selectExited.AddListener(OnDropBlock);
         this._rightController.selectExited.AddListener(OnDropBlock);
+
+        StartCoroutine(
+            WebsiteConnection.UpdateBlocklyCode("<xml xmlns='https://developers.google.com/blockly/xml'> <block type='controls_if' id='JK8L=R)FBxLJX@WmOv^J' x='77' y='65'> <statement name='DO0'> <block type='controls_if' id='l5dvRlyoDlJ;|1,=!4,0'> <statement name='DO0'> <block type='controls_if' id='Y$^Gn{IS0XtE_Sfq!lrW'></block> </statement> <next> <block type='controls_if' id='J58W)3Y{wVGhat,+`KqC'> <statement name='DO0'> <block type='controls_if' id='us/+CiQqRRhM1Q{z`|+A'></block> </statement> </block> </next> </block> </statement> </block> </xml>")
+        );
     }
 
     void Update()

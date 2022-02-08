@@ -1,8 +1,12 @@
 # CodeVR
 CodeVR is an visual programming language implementation inside VR that is based on [Blockly](https://developers.google.com/blockly). It allows you to program javascript inside VR by connecting block together.
 
+---
+
 ## Setup for Users
 TODO
+
+---
 
 ## Setup for Developers
 
@@ -14,17 +18,34 @@ TODO
 * Close this project and open the *CodeVR* > *Unity* > *CodeVR* folder with UnityHub.
 
 ### Website
-TODO
+#### Setup
+* Located the `_config.json` file located in *Website* > *Frontend* > *src* > *_config.json*
+* Duplicate the file and rename it to `config.json`.
+* Open the file and enter the IP adress of your computer.
+* Go to the *Backend* folder and run `npm install`
+* Go to the *Frontend* folder and run `npm install`
+
+#### First time Start
+* Go to the *Backend* folder and run `npm start`
+* Go to the *Frontend* folder and run `npm start`
+
 
 ### Unity
+#### Setup
+* Go the the `_Config.cs` file located in *Unity* > *CodeVR* > *Assets* > *Settings* > *_Config.cs*.
+* Duplicated the file and rename the new file to `Config.cs`.
+* Open the file and remove the underscore in the class name.
+* Write the IP adress of where the blockly website is hosted. 
 
-#### To make an APK biuld
+#### To make an APK build
 * Go to *File* > *Build Settings*.
 * Select Android under the *Platform* list.
 * Click *Switch Platform*
 * Under *Run Device*, select your Oculus Quest. If the device do not appear, check Error Checklist 2).
 * Click *Build* or *Build and Run*. If the installation failed, see Error Checklist 1).
 * Done
+
+---
 
 ### Error Checklist
 

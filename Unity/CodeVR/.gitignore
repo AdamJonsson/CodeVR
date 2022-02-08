@@ -73,3 +73,5 @@ crashlytics-build.properties
 
 # Custom
 /Build
+
+/Assets/Settings/Config.cs
