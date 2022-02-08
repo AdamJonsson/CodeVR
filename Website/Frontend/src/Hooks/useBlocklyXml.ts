@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import config from '../config.json';
 
 function useBlocklyXml() {
   const [blocklyXml, setBlocklyXml] = useState(`
@@ -7,10 +8,13 @@ function useBlocklyXml() {
             <field name="TEXT">Generated code will appear here</field>
         </block>
     </xml>
-`);
+  `);
 
   useEffect(() => {
-    var blocklyWebSocket = new WebSocket("ws://localhost:8999");
+
+    // TODO: Make a config file for the IP adress.
+    var blocklyWebSocket = new WebSocket(`ws://${config.serverIP}:8999`);
+    
     blocklyWebSocket.onopen = () => {
       console.log("Socket open!");
     }

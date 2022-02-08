@@ -2,9 +2,11 @@ import * as express from 'express';
 import * as bodyParser from 'body-parser';
 import * as http from 'http';
 import * as WebSocket from 'ws';
+import { AddressInfo } from 'ws';
 
 const app = express();
-app.use(bodyParser.json());
+// app.use(bodyParser.json()); // Parsing JSON
+app.use(bodyParser.urlencoded({ extended: true })); // Parsing Form data
 
 //initialize a simple http server
 const server = http.createServer(app);
@@ -29,5 +31,6 @@ app.post('/api/notify-code-change', (req, res) => {
 
 //start our server
 server.listen(process.env.PORT || 8999, () => {
-    console.log(`Server started on port ${server.address()} :)`);
+    var adressInfo = server.address() as AddressInfo;
+    console.log(`Server started on port ${adressInfo.port} :)`);
 });
