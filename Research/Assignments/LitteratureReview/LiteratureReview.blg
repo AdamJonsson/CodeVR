@@ -1,0 +1,61 @@
+This is BibTeX, Version 0.99d (TeX Live 2021/Homebrew)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: LiteratureReview.aux
+The style file: SIGCHI-Reference-Format.bst
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Database file #1: References.bib
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Warning--empty year in hoffman_vergenceaccommodation_2008
+Warning--no journal in hoffman_vergenceaccommodation_2008
+Warning--empty year in kramida_resolving_2016
+Warning--no journal in kramida_resolving_2016
+Warning--empty year in reichelt_depth_2010
+Warning--empty publisher in reichelt_depth_2010
+Warning--empty address in reichelt_depth_2010
+Warning--empty year in speicher_selection-based_2018
+Warning--empty address in speicher_selection-based_2018
+Warning--empty year in suryakumar_vergence_2007
+Warning--no journal in suryakumar_vergence_2007
+You've used 5 entries,
+            5283 wiz_defined-function locations,
+            1259 strings with 15562 characters,
+and the built_in function-call counts, 4778 in all, are:
+= -- 496
+> -- 167
+< -- 1
++ -- 51
+- -- 93
+* -- 361
+:= -- 532
+add.period$ -- 29
+call.type$ -- 5
+change.case$ -- 37
+chr.to.int$ -- 5
+cite$ -- 16
+duplicate$ -- 369
+empty$ -- 265
+format.name$ -- 66
+if$ -- 1035
+int.to.chr$ -- 1
+int.to.str$ -- 0
+missing$ -- 15
+newline$ -- 86
+num.names$ -- 30
+pop$ -- 189
+preamble$ -- 1
+purify$ -- 57
+quote$ -- 0
+skip$ -- 80
+stack$ -- 0
+substring$ -- 482
+swap$ -- 37
+text.length$ -- 80
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 41
+warning$ -- 11
+while$ -- 29
+width$ -- 0
+write$ -- 111
+(There were 11 warnings)

@@ -1,0 +1,242 @@
+\documentclass{sigchi}
+
+% Use this section to set the ACM copyright statement (e.g. for
+% preprints).  Consult the conference website for the camera-ready
+% copyright statement.
+
+% Copyright
+\CopyrightYear{2020}
+%\setcopyright{acmcopyright}
+\setcopyright{acmlicensed}
+%\setcopyright{rightsretained}
+%\setcopyright{usgov}
+%\setcopyright{usgovmixed}
+%\setcopyright{cagov}
+%\setcopyright{cagovmixed}
+% DOI
+\doi{https://doi.org/10.1145/3313831.XXXXXXX}
+% ISBN
+\isbn{978-1-4503-6708-0/20/04}
+%Conference
+\conferenceinfo{CHI'20,}{April  25--30, 2020, Honolulu, HI, USA}
+%Price
+\acmPrice{\$15.00}
+
+% Use this command to override the default ACM copyright statement
+% (e.g. for preprints).  Consult the conference website for the
+% camera-ready copyright statement.
+
+%% HOW TO OVERRIDE THE DEFAULT COPYRIGHT STRIP --
+%% Please note you need to make sure the copy for your specific
+%% license is used here!
+% \toappear{
+% Permission to make digital or hard copies of all or part of this work
+% for personal or classroom use is granted without fee provided that
+% copies are not made or distributed for profit or commercial advantage
+% and that copies bear this notice and the full citation on the first
+% page. Copyrights for components of this work owned by others than ACM
+% must be honored. Abstracting with credit is permitted. To copy
+% otherwise, or republish, to post on servers or to redistribute to
+% lists, requires prior specific permission and/or a fee. Request
+% permissions from \href{mailto:Permissions@acm.org}{Permissions@acm.org}. \\
+% \emph{CHI '16},  May 07--12, 2016, San Jose, CA, USA \\
+% ACM xxx-x-xxxx-xxxx-x/xx/xx\ldots \$15.00 \\
+% DOI: \url{http://dx.doi.org/xx.xxxx/xxxxxxx.xxxxxxx}
+% }
+
+% Arabic page numbers for submission.  Remove this line to eliminate
+% page numbers for the camera ready copy
+% \pagenumbering{arabic}
+
+% Load basic packages
+\usepackage{balance}       % to better equalize the last page
+\usepackage{graphics}      % for EPS, load graphicx instead 
+\usepackage[T1]{fontenc}   % for umlauts and other diaeresis
+\usepackage{txfonts}
+\usepackage{mathptmx}
+\usepackage[pdflang={en-US},pdftex]{hyperref}
+\usepackage{color}
+\usepackage{booktabs}
+\usepackage{textcomp}
+
+% Some optional stuff you might like/need.
+\usepackage{microtype}        % Improved Tracking and Kerning
+% \usepackage[all]{hypcap}    % Fixes bug in hyperref caption linking
+\usepackage{ccicons}          % Cite your images correctly!
+% \usepackage[utf8]{inputenc} % for a UTF8 editor only
+
+% If you want to use todo notes, marginpars etc. during creation of
+% your draft document, you have to enable the "chi_draft" option for
+% the document class. To do this, change the very first line to:
+% "\documentclass[chi_draft]{sigchi}". You can then place todo notes
+% by using the "\todo{...}"  command. Make sure to disable the draft
+% option again before submitting your final document.
+\usepackage{todonotes}
+
+% Paper metadata (use plain text, for PDF inclusion and later
+% re-using, if desired).  Use \emtpyauthor when submitting for review
+% so you remain anonymous.
+\def\plaintitle{Litterature Review}
+\def\subplaintitle{
+  Reducing Sedentary Behavior for Software Engineers: Identified Performance Advantages and Disadvantages Using a Visual Programming Language Inside Virtual Reality}
+\def\plainauthor{First Author, Second Author, Third Author,
+  Fourth Author, Fifth Author, Sixth Author}
+\def\emptyauthor{}
+\def\plainkeywords{Authors' choice; of terms; separated; by
+  semicolons; include commas, within terms only; this section is required.}
+\def\plaingeneralterms{Documentation, Standardization}
+
+% llt: Define a global style for URLs, rather that the default one
+\makeatletter
+\def\url@leostyle{%
+  \@ifundefined{selectfont}{
+    \def\UrlFont{\sf}
+  }{
+    \def\UrlFont{\small\bf\ttfamily}
+  }}
+\makeatother
+\urlstyle{leo}
+
+% To make various LaTeX processors do the right thing with page size.
+\def\pprw{8.5in}
+\def\pprh{11in}
+\special{papersize=\pprw,\pprh}
+\setlength{\paperwidth}{\pprw}
+\setlength{\paperheight}{\pprh}
+\setlength{\pdfpagewidth}{\pprw}
+\setlength{\pdfpageheight}{\pprh}
+
+% Make sure hyperref comes last of your loaded packages, to give it a
+% fighting chance of not being over-written, since its job is to
+% redefine many LaTeX commands.
+\definecolor{linkColor}{RGB}{6,125,233}
+\hypersetup{%
+  pdftitle={\plaintitle},
+% Use \plainauthor for final version.
+%  pdfauthor={\plainauthor},
+  pdfauthor={\emptyauthor},
+  pdfkeywords={\plainkeywords},
+  pdfdisplaydoctitle=true, % For Accessibility
+  bookmarksnumbered,
+  pdfstartview={FitH},
+  colorlinks,
+  citecolor=black,
+  filecolor=black,
+  linkcolor=black,
+  urlcolor=linkColor,
+  breaklinks=true,
+  hypertexnames=false
+}
+
+% create a shortcut to typeset table headings
+% \newcommand\tabhead[1]{\small\textbf{#1}}
+
+% End of preamble. Here it comes the document.
+\begin{document}
+
+\title{%
+  \plaintitle \\
+  \large \subplaintitle
+}
+
+\numberofauthors{3}
+\author{
+  \alignauthor{Adam Jonsson\\
+  \affaddr{Stockholm, Sweden}\\
+  \email{adajon@kth.se}}\\
+}
+
+\maketitle
+
+
+% ACM Classfication
+
+\begin{CCSXML}
+<ccs2012>
+<concept>
+<concept_id>10003120.10003121</concept_id>
+<concept_desc>Human-centered computing~Human computer interaction (HCI)</concept_desc>
+<concept_significance>500</concept_significance>
+</concept>
+<concept>
+<concept_id>10003120.10003121.10003125.10011752</concept_id>
+<concept_desc>Human-centered computing~Haptic devices</concept_desc>
+<concept_significance>300</concept_significance>
+</concept>
+<concept>
+<concept_id>10003120.10003121.10003122.10003334</concept_id>
+<concept_desc>Human-centered computing~User studies</concept_desc>
+<concept_significance>100</concept_significance>
+</concept>
+</ccs2012>
+\end{CCSXML}
+
+\ccsdesc[500]{Human-centered computing~Human computer interaction (HCI)}
+\ccsdesc[300]{Human-centered computing~Haptic devices}
+\ccsdesc[100]{Human-centered computing~User studies}
+
+\section{Information}
+The literature review is divided into different areas that can be found as titles in this paper.
+
+\subsubsection{Keywords} 
+Visual Programming Language, Virtual Reality, Performance, Health.
+
+\section{Sedentary Behavior}
+
+\section{Visual Programming Language}
+
+\section{Virtual Reality}
+
+\subsection{Performance}
+
+\subsubsection{Typing}
+One issue with VR is the text-input Performance. The reason is that two hand controllers are usually used with a VR headset. This results in limited movement. One study explore select base typing as an allternetive to keyboard input \cite{speicher_selection-based_2018}
+
+\subsection{Motion Sickness}
+\subsubsection{Simulation Sickness}
+There is a lot of research in to motion sickness, also called simulation sickness. This ocurred when the person is stationary in the physical world, but is moving in the virtual one. 
+
+\subsubsection{Accommodation-Vergence Mismatch}
+Retinal cues of disparity and blur makes the eyes change accommodation and vergence in order to create one clear image \cite{reichelt_depth_2010}. Accommodation is when the eyes change its focus to create a clear image of what is looked at. If the accommodation fails, the object that is looked at is going to be perceived blurry. Vergence is when the eyes converge or diverge from each other to create a singel image. If vergence fails, visual disparity is perceived, making the object that is looked at appear twice. Accommodation and vergence have been found to be influencing each other, meaning that when accommodation changes, vergence also changes as a reflex, and vice versa \cite{suryakumar_vergence_2007}.
+Because of this, it is difficult only change accommodation or vergence without changing the other.
+
+In the context of virtual reality headsets, there is a phenomenon called accommodation-vergence mismatch, also called accommodation-vergence conflict \cite{kramida_resolving_2016}. This causes objects to close to the viewer to be blurry or to appear twice. The reson for this is that most VR headsets uses fixed lenses, resulting in a fixed focal length of the viewed content. This means that the user do not need to change their accommodation when using VR. However, the viewer need to alter their vergence due to VR using stereoscopic displays that creates the illusion of 3D. Requiring the viewier to have a fixed accommodation while changing their vergence can cause a accommodation-vergence mismatch. For viewing objects far away, the mismatch is at a level that it is not noticeable for the viewer. However, when object are closer than one meter, the mismatch is at a level that the vision either becomes blurry or have disparity \cite{hoffman_vergenceaccommodation_2008}. This can lead to eye-strain, headache or nausea. For this reason, the viewable content in VR should be placed a a distance such that it minimize accommodation-vergence mismatch.
+
+\section{VPL in VR}
+\subsection{Existing VPL designed for VR}
+
+\subsubsection{HackVR}
+HackVR is an Object Oriented Programming VPL inside VR. It is design around teaching OOP for new programmings by having challenges that can be solved. It focuses primarily to create a gameification
+
+\subsection{Design}
+The size of the blocks is determine on multiple factors. One factor is the screen resolution... Another is the focal length of the lenses, as accomodation-vergence conflict can occure if objects are to close. And third, is the distace which the input system can reach. Using a raycast method allows the user to interact with objects at any distance, but may increase the errors rates such as selecting a block on mistake.
+
+\section{Cognitive Dimensions}
+TODO: Explain briefly about what cognitive dimensions are.
+
+One paper by Robert Holwerda and Felienne Hermans explored the potential of using a block based VPL in a professional context. This is in contrast for what block base VPL are usually design for, which is eduction and learnability. The study uses some aspects of cognitive dimensions to evaluated a VPL. The following findings can be of relevance for a VPL in VR. 
+
+\subsection{Role-Expressiveness}
+% May need to change the example of puzzles pecies
+Role-expressiveness is the ability of a program to convey the role or function of a curtain visual element to the user. In Blockly, for example, the blocks are design as puzzles pieces to convey that the blocks are to be connected to each other. Moreover, the shape of the puzzles pieces also give information about what blocks can be connected together.
+
+The study by Holwerda and Hermans found two issues with role-expressiveness for their VPL prototype. For one, there was some complaints about the labeling on some of the blocks. Secondly, the participants did not take any use of the comment feature that exited in the VPL. This even after being instructed about the commenting feature. The reasons behind these two issues were not specified in the study. However, some suggested improvements were mentioned. Adding better features for secondary notations were one such suggestion. This could include better commenting, allowing to group blocks, and to add variables and procedures. Having more of these secondary notation would result in better role-expressiveness for the VPL application.
+
+Having a three dimensional environment can potentially contribute to an increased role-expressiveness. For example, comments, labels, or other notation could be shown behind the block it references without obscuring other blocks. The user can then glance behind the block in order to see the different blocks role in the application. However, when the code grows in size, there is a chance that this implementation litter the code space with notation. Making it more confusing instead of increasing role-expressiveness.
+
+\subsection{Role-Expressiveness}
+
+\subsection{???}
+One study found that, in terms of role-expressiveness, that screen space was an issue. That block cluster got large enough to 
+
+% REFERENCES FORMAT
+% References must be the same font size as other body text.
+\bibliographystyle{SIGCHI-Reference-Format}
+\bibliography{References}
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

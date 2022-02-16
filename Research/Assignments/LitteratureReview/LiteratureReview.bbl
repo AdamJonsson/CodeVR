@@ -1,0 +1,95 @@
+%%% -*-BibTeX-*-
+%%% Do NOT edit. File created by BibTeX with style
+%%% ACM-Reference-Format-Journals [18-Jan-2012].
+
+\begin{thebibliography}{00}
+
+%%% ====================================================================
+%%% NOTE TO THE USER: you can override these defaults by providing
+%%% customized versions of any of these macros before the \bibliography
+%%% command.  Each of them MUST provide its own final punctuation,
+%%% except for \shownote{}, \showDOI{}, and \showURL{}.  The latter two
+%%% do not use final punctuation, in order to avoid confusing it with
+%%% the Web address.
+%%%
+%%% To suppress output of a particular field, define its macro to expand
+%%% to an empty string, or better, \unskip, like this:
+%%%
+%%% \newcommand{\showDOI}[1]{\unskip}   % LaTeX syntax
+%%%
+%%% \def \showDOI #1{\unskip}           % plain TeX syntax
+%%%
+%%% ====================================================================
+
+\ifx \showCODEN    \undefined \def \showCODEN     #1{\unskip}     \fi
+\ifx \showDOI      \undefined \def \showDOI       #1{{\tt DOI:}\penalty0{#1}\ }
+  \fi
+\ifx \showISBNx    \undefined \def \showISBNx     #1{\unskip}     \fi
+\ifx \showISBNxiii \undefined \def \showISBNxiii  #1{\unskip}     \fi
+\ifx \showISSN     \undefined \def \showISSN      #1{\unskip}     \fi
+\ifx \showLCCN     \undefined \def \showLCCN      #1{\unskip}     \fi
+\ifx \shownote     \undefined \def \shownote      #1{#1}          \fi
+\ifx \showarticletitle \undefined \def \showarticletitle #1{#1}   \fi
+\ifx \showURL      \undefined \def \showURL       #1{#1}          \fi
+
+\bibitem{hoffman_vergenceaccommodation_2008}
+{David~M. Hoffman}, {Ahna~R. Girshick}, {Kurt Akeley}, {and} {Martin~S. Banks}.
+\newblock \showarticletitle{Vergence–accommodation conflicts hinder visual
+  performance and cause visual fatigue}.
+\newblock  {8}, 3 (????), 33.
+\newblock
+\showISSN{1534-7362}
+\showDOI{%
+\url{http://dx.doi.org/10.1167/8.3.33}}
+
+
+\bibitem{kramida_resolving_2016}
+{Gregory Kramida}.
+\newblock \showarticletitle{Resolving the Vergence-Accommodation Conflict in
+  Head-Mounted Displays}.
+\newblock  {22}, 7 (????), 1912--1931.
+\newblock
+\showISSN{1941-0506}
+\showDOI{%
+\url{http://dx.doi.org/10.1109/TVCG.2015.2473855}}
+\newblock
+\shownote{Conference Name: {IEEE} Transactions on Visualization and Computer
+  Graphics.}
+
+
+\bibitem{reichelt_depth_2010}
+{Stephan Reichelt}, {Ralf Haeussler}, {Gerald Fütterer}, {and} {Norbert
+  Leister}.
+\newblock {\em Depth cues in human visual perception and their realization in
+  3D displays}. Vol. 7690.
+\newblock
+\showDOI{%
+\url{http://dx.doi.org/10.1117/12.850094}}
+\newblock
+\shownote{Journal Abbreviation: Most 76900B Publication Title: Most 76900B.}
+
+
+\bibitem{speicher_selection-based_2018}
+{Marco Speicher}, {Anna~Maria Feit}, {Pascal Ziegler}, {and} {Antonio Krüger}.
+\newblock \showarticletitle{Selection-based Text Entry in Virtual Reality}.
+\newblock In {\em Proceedings of the 2018 {CHI} Conference on Human Factors in
+  Computing Systems}. Association for Computing Machinery, 1--13.
+\newblock
+\showISBNx{978-1-4503-5620-6}
+\showURL{%
+\url{https://doi.org/10.1145/3173574.3174221}}
+
+
+\bibitem{suryakumar_vergence_2007}
+{Rajaraman Suryakumar}, {Jason~P. Meyers}, {Elizabeth~L. Irving}, {and}
+  {William~R. Bobier}.
+\newblock \showarticletitle{Vergence accommodation and monocular closed loop
+  blur accommodation have similar dynamic characteristics}.
+\newblock  {47}, 3 (????), 327--337.
+\newblock
+\showISSN{0042-6989}
+\showDOI{%
+\url{http://dx.doi.org/10.1016/j.visres.2006.10.006}}
+
+
+\end{thebibliography}
