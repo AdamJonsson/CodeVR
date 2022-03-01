@@ -1100,6 +1100,16 @@ INPUT /opt/homebrew/Cellar/texlive/58837/share/texmf-dist/fonts/tfm/public/txfon
 INPUT /opt/homebrew/Cellar/texlive/58837/share/texmf-dist/fonts/tfm/public/txfonts/txexa.tfm
 INPUT /opt/homebrew/Cellar/texlive/58837/share/texmf-dist/fonts/tfm/adobe/times/ptmb7t.tfm
 INPUT /opt/homebrew/Cellar/texlive/58837/share/texmf-dist/fonts/tfm/adobe/times/ptmb7t.tfm
+INPUT /Users/adam/Repositories/CodeVR/Research/Assignments/LitteratureReview/figures/AccommodationVergenceConflict.png
+INPUT /Users/adam/Repositories/CodeVR/Research/Assignments/LitteratureReview/figures/AccommodationVergenceConflict.png
+INPUT /Users/adam/Repositories/CodeVR/Research/Assignments/LitteratureReview/figures/AccommodationVergenceConflict.png
+INPUT /Users/adam/Repositories/CodeVR/Research/Assignments/LitteratureReview/figures/AccommodationVergenceConflict.png
+INPUT /Users/adam/Repositories/CodeVR/Research/Assignments/LitteratureReview/figures/AccommodationVergenceConflict.png
+INPUT /Users/adam/Repositories/CodeVR/Research/Assignments/LitteratureReview/figures/ComfortViewingDiagram.png
+INPUT /Users/adam/Repositories/CodeVR/Research/Assignments/LitteratureReview/figures/ComfortViewingDiagram.png
+INPUT /Users/adam/Repositories/CodeVR/Research/Assignments/LitteratureReview/figures/ComfortViewingDiagram.png
+INPUT /Users/adam/Repositories/CodeVR/Research/Assignments/LitteratureReview/figures/ComfortViewingDiagram.png
+INPUT /Users/adam/Repositories/CodeVR/Research/Assignments/LitteratureReview/figures/ComfortViewingDiagram.png
 INPUT /opt/homebrew/Cellar/texlive/58837/share/texmf-dist/fonts/vf/adobe/helvetic/phvb8t.vf
 INPUT /opt/homebrew/Cellar/texlive/58837/share/texmf-dist/fonts/tfm/adobe/helvetic/phvb8r.tfm
 INPUT /opt/homebrew/Cellar/texlive/58837/share/texmf-dist/fonts/map/pdftex/updmap/pdftex.map
@@ -1118,6 +1128,8 @@ INPUT /opt/homebrew/Cellar/texlive/58837/share/texmf-dist/fonts/tfm/adobe/times/
 INPUT /opt/homebrew/Cellar/texlive/58837/share/texmf-dist/fonts/vf/adobe/times/ptmri8t.vf
 INPUT /opt/homebrew/Cellar/texlive/58837/share/texmf-dist/fonts/tfm/adobe/times/ptmri8r.tfm
 INPUT /opt/homebrew/Cellar/texlive/58837/share/texmf-dist/fonts/vf/adobe/times/ptmr8c.vf
+INPUT /opt/homebrew/Cellar/texlive/58837/share/texmf-dist/fonts/vf/adobe/times/ptmb8t.vf
+INPUT /opt/homebrew/Cellar/texlive/58837/share/texmf-dist/fonts/tfm/adobe/times/ptmb8r.tfm
 INPUT /Users/adam/Repositories/CodeVR/Research/Assignments/LitteratureReview/LiteratureReview.bbl
 INPUT /Users/adam/Repositories/CodeVR/Research/Assignments/LitteratureReview/LiteratureReview.bbl
 INPUT /Users/adam/Repositories/CodeVR/Research/Assignments/LitteratureReview/LiteratureReview.bbl

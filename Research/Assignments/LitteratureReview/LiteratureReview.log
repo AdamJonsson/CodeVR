@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/Homebrew) (preloaded format=pdflatex 2021.9.30)  16 FEB 2022 12:01
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/Homebrew) (preloaded format=pdflatex 2021.9.30)  17 FEB 2022 18:59
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -850,29 +850,45 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5> not available
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
 (hyperref)                than one, level fixed on input line 181.
 
-[1{/opt/homebrew/Cellar/texlive/58837/share/texmf-dist/fonts/map/pdftex/updmap/pdftex.map}
+<figures/AccommodationVergenceConflict.png, id=115, 1181.16281pt x 688.82344pt>
+File: figures/AccommodationVergenceConflict.png Graphic file (type png)
+<use figures/AccommodationVergenceConflict.png>
+Package pdftex.def Info: figures/AccommodationVergenceConflict.png  used on input line 206.
+(pdftex.def)             Requested size: 243.98238pt x 142.2818pt.
+<figures/ComfortViewingDiagram.png, id=120, 794.97pt x 378.66469pt>
+File: figures/ComfortViewingDiagram.png Graphic file (type png)
+<use figures/ComfortViewingDiagram.png>
+Package pdftex.def Info: figures/ComfortViewingDiagram.png  used on input line 214.
+(pdftex.def)             Requested size: 243.98238pt x 116.21191pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [1{/opt/homebrew/Cellar/texlive/58837/share/texmf-dist/fonts/map/pdftex/updmap/pdftex.map}
 
 
 Non-PDF special ignored!
 <special> papersize=8.5in,11in
 
-] (/Users/adam/Repositories/CodeVR/Research/Assignments/LitteratureReview/LiteratureReview.bbl) [2] (/Users/adam/Repositories/CodeVR/Research/Assignments/LitteratureReview/LiteratureReview.aux)
+ </Users/adam/Repositories/CodeVR/Research/Assignments/LitteratureReview/figures/AccommodationVergenceConflict.png>] (/Users/adam/Repositories/CodeVR/Research/Assignments/LitteratureReview/LiteratureReview.bbl) [2 </Users/adam/Repositories/CodeVR/Research/Assignments/LitteratureReview/figures/ComfortViewingDiagram.png>] (/Users/adam/Repositories/CodeVR/Research/Assignments/LitteratureReview/LiteratureReview.aux)
 Package rerunfilecheck Info: File `LiteratureReview.out' has not changed.
-(rerunfilecheck)             Checksum: A89717CC5C75D3B94A96B7DEC74D6EC8;2479.
+(rerunfilecheck)             Checksum: EA602F5AD3A4F9D7A5E5EA36918E92ED;2479.
  ) 
 Here is how much of TeX's memory you used:
- 23133 strings out of 478994
- 421995 string characters out of 5849630
- 723236 words of memory out of 5000000
- 39915 multiletter control sequences out of 15000+600000
- 473788 words of font info for 221 fonts, out of 8000000 for 9000
+ 23165 strings out of 478994
+ 422738 string characters out of 5849630
+ 722396 words of memory out of 5000000
+ 39930 multiletter control sequences out of 15000+600000
+ 475214 words of font info for 227 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 102i,10n,102p,1287b,620s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 102i,10n,102p,1378b,620s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/opt/homebrew/Cellar/texlive/58837/share/texmf-dist/fonts/enc/dvips/base/8r.enc}</opt/homebrew/Cellar/texlive/58837/share/texmf-dist/fonts/type1/public/txfonts/t1xbtt.pfb></opt/homebrew/Cellar/texlive/58837/share/texmf-dist/fonts/type1/public/txfonts/t1xtt.pfb></opt/homebrew/Cellar/texlive/58837/share/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></opt/homebrew/Cellar/texlive/58837/share/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb></opt/homebrew/Cellar/texlive/58837/share/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></opt/homebrew/Cellar/texlive/58837/share/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></opt/homebrew/Cellar/texlive/58837/share/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on /Users/adam/Repositories/CodeVR/Research/Assignments/LitteratureReview/LiteratureReview.pdf (2 pages, 76498 bytes).
+Output written on /Users/adam/Repositories/CodeVR/Research/Assignments/LitteratureReview/LiteratureReview.pdf (2 pages, 330125 bytes).
 PDF statistics:
- 196 PDF objects out of 1000 (max. 8388607)
- 167 compressed objects within 2 object streams
- 46 named destinations out of 1000 (max. 500000)
- 46853 words of extra memory for PDF output out of 51595 (max. 10000000)
+ 212 PDF objects out of 1000 (max. 8388607)
+ 180 compressed objects within 2 object streams
+ 50 named destinations out of 1000 (max. 500000)
+ 48911 words of extra memory for PDF output out of 51595 (max. 10000000)
 

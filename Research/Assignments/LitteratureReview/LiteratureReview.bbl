@@ -32,6 +32,14 @@
 \ifx \showarticletitle \undefined \def \showarticletitle #1{#1}   \fi
 \ifx \showURL      \undefined \def \showURL       #1{#1}          \fi
 
+\bibitem{noauthor_vision_nodate}
+Vision {\textbar} Oculus Developers.
+\newblock   (????).
+\newblock
+\showURL{%
+\url{https://developer.oculus.com/resources/bp-vision/}}
+
+
 \bibitem{hoffman_vergenceaccommodation_2008}
 {David~M. Hoffman}, {Ahna~R. Girshick}, {Kurt Akeley}, {and} {Martin~S. Banks}.
 \newblock \showarticletitle{Vergence–accommodation conflicts hinder visual
@@ -67,6 +75,17 @@
 \url{http://dx.doi.org/10.1117/12.850094}}
 \newblock
 \shownote{Journal Abbreviation: Most 76900B Publication Title: Most 76900B.}
+
+
+\bibitem{shibata_zone_2011}
+{Takashi Shibata}, {Joohwan Kim}, {David~M. Hoffman}, {and} {Martin~S. Banks}.
+\newblock \showarticletitle{The zone of comfort: Predicting visual discomfort
+  with stereo displays}.
+\newblock  {11}, 8 (????), 11.
+\newblock
+\showISSN{1534-7362}
+\showDOI{%
+\url{http://dx.doi.org/10.1167/11.8.11}}
 
 
 \bibitem{speicher_selection-based_2018}

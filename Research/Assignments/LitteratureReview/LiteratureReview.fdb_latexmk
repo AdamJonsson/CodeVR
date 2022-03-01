@@ -1,14 +1,14 @@
 # Fdb version 3
-["bibtex LiteratureReview"] 1645008868 "LiteratureReview.aux" "LiteratureReview.bbl" "LiteratureReview" 1645009265
+["bibtex LiteratureReview"] 1645120707 "LiteratureReview.aux" "LiteratureReview.bbl" "LiteratureReview" 1645120763
   "./SIGCHI-Reference-Format.bst" 1644225082 91203 2c1ca74f807536bd0fa4e9e9feb42c05 ""
-  "LiteratureReview.aux" 1645009265 3239 4818765ed4aab75fa901df1b8af2eb46 "pdflatex"
-  "References.bib" 1645008866 29935 d7065529e7aa584cbb469772ee25b160 ""
+  "LiteratureReview.aux" 1645120763 4226 ad6fb8aba2823c16d13991095d299382 "pdflatex"
+  "References.bib" 1645120701 32229 591a0c92f0cf1c39791d1a481b020608 ""
   (generated)
-  "LiteratureReview.bbl"
   "LiteratureReview.blg"
-["pdflatex"] 1645009264 "/Users/adam/Repositories/CodeVR/Research/Assignments/LitteratureReview/LiteratureReview.tex" "/Users/adam/Repositories/CodeVR/Research/Assignments/LitteratureReview/LiteratureReview.pdf" "LiteratureReview" 1645009265
-  "/Users/adam/Repositories/CodeVR/Research/Assignments/LitteratureReview/LiteratureReview.aux" 1645009265 3239 4818765ed4aab75fa901df1b8af2eb46 ""
-  "/Users/adam/Repositories/CodeVR/Research/Assignments/LitteratureReview/LiteratureReview.tex" 1645009264 12097 47996b964632c8b9b2afc46efe83733e ""
+  "LiteratureReview.bbl"
+["pdflatex"] 1645120762 "/Users/adam/Repositories/CodeVR/Research/Assignments/LitteratureReview/LiteratureReview.tex" "/Users/adam/Repositories/CodeVR/Research/Assignments/LitteratureReview/LiteratureReview.pdf" "LiteratureReview" 1645120763
+  "/Users/adam/Repositories/CodeVR/Research/Assignments/LitteratureReview/LiteratureReview.aux" 1645120763 4226 ad6fb8aba2823c16d13991095d299382 ""
+  "/Users/adam/Repositories/CodeVR/Research/Assignments/LitteratureReview/LiteratureReview.tex" 1645120762 13688 922dd2efcdf48c4d15e1998ba386fd6a ""
   "/opt/homebrew/Cellar/texlive/58837/share/texmf-dist/fonts/enc/dvips/base/8r.enc" 1618176823 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/opt/homebrew/Cellar/texlive/58837/share/texmf-dist/fonts/map/fontname/texfonts.map" 1618176823 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/opt/homebrew/Cellar/texlive/58837/share/texmf-dist/fonts/map/pdftex/updmap/pdftex.map" 1618176823 5169161 faec376d6e4a0f9287e20add9eecc042 ""
@@ -215,16 +215,18 @@
   "/opt/homebrew/Cellar/texlive/58837/share/texmf-dist/tex/latex/xkeyval/xkeyval.sty" 1618176823 4902 efb3d66683a2da2a232f71e3a571a899 ""
   "/opt/homebrew/Cellar/texlive/58837/share/texmf-dist/web2c/texmf.cnf" 1618176823 39975 4b05abf73e01b5eea84984a594557aa7 ""
   "/opt/homebrew/Cellar/texlive/58837/share/texmf-var/web2c/pdftex/pdflatex.fmt" 1618176823 2724924 3245175c558990ccfa3ba75008a2a704 ""
-  "LiteratureReview.aux" 1645009265 3239 4818765ed4aab75fa901df1b8af2eb46 "pdflatex"
-  "LiteratureReview.bbl" 1645008868 3552 30e4f455be163296b97bc850e23cef37 "bibtex LiteratureReview"
-  "LiteratureReview.out" 1645009265 2479 a89717cc5c75d3b94a96b7dec74d6ec8 "pdflatex"
-  "LiteratureReview.tex" 1645009264 12097 47996b964632c8b9b2afc46efe83733e ""
+  "LiteratureReview.aux" 1645120763 4226 ad6fb8aba2823c16d13991095d299382 "pdflatex"
+  "LiteratureReview.bbl" 1645120707 4048 e4f15eb54189f6c18c11fcf69e20e157 "bibtex LiteratureReview"
+  "LiteratureReview.out" 1645120763 2479 ea602f5ad3a4f9d7a5e5ea36918e92ed "pdflatex"
+  "LiteratureReview.tex" 1645120762 13688 922dd2efcdf48c4d15e1998ba386fd6a ""
   "acmcopyright.sty" 1644225082 9626 03a22ffcc9f51aaef67ac6ed43847230 ""
+  "figures/AccommodationVergenceConflict.png" 1645012603 87475 2080d098c02ad9c0c1997b2641c039a2 ""
+  "figures/ComfortViewingDiagram.png" 1645119900 226710 d3fb91d2d7d11fd16120758230c908ef ""
   "sigchi.cls" 1644225082 55722 4906b8152c7964ef635f3b95e24917dd ""
   (generated)
-  "LiteratureReview.aux"
-  "LiteratureReview.out"
-  "/Users/adam/Repositories/CodeVR/Research/Assignments/LitteratureReview/LiteratureReview.pdf"
   "LiteratureReview.log"
   "/Users/adam/Repositories/CodeVR/Research/Assignments/LitteratureReview/LiteratureReview.log"
+  "/Users/adam/Repositories/CodeVR/Research/Assignments/LitteratureReview/LiteratureReview.pdf"
   "LiteratureReview.pdf"
+  "LiteratureReview.out"
+  "LiteratureReview.aux"
