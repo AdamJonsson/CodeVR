@@ -142,8 +142,8 @@
 \numberofauthors{3}
 \author{
   \alignauthor{Adam Jonsson\\
-  \affaddr{Stockholm, Sweden}\\
-  \email{adajon@kth.se}}\\
+    \affaddr{Stockholm, Sweden}\\
+    \email{adajon@kth.se}}\\
 }
 
 \maketitle
@@ -152,23 +152,23 @@
 % ACM Classfication
 
 \begin{CCSXML}
-<ccs2012>
-<concept>
-<concept_id>10003120.10003121</concept_id>
-<concept_desc>Human-centered computing~Human computer interaction (HCI)</concept_desc>
-<concept_significance>500</concept_significance>
-</concept>
-<concept>
-<concept_id>10003120.10003121.10003125.10011752</concept_id>
-<concept_desc>Human-centered computing~Haptic devices</concept_desc>
-<concept_significance>300</concept_significance>
-</concept>
-<concept>
-<concept_id>10003120.10003121.10003122.10003334</concept_id>
-<concept_desc>Human-centered computing~User studies</concept_desc>
-<concept_significance>100</concept_significance>
-</concept>
-</ccs2012>
+  <ccs2012>
+  <concept>
+  <concept_id>10003120.10003121</concept_id>
+  <concept_desc>Human-centered computing~Human computer interaction (HCI)</concept_desc>
+  <concept_significance>500</concept_significance>
+  </concept>
+  <concept>
+  <concept_id>10003120.10003121.10003125.10011752</concept_id>
+  <concept_desc>Human-centered computing~Haptic devices</concept_desc>
+  <concept_significance>300</concept_significance>
+  </concept>
+  <concept>
+  <concept_id>10003120.10003121.10003122.10003334</concept_id>
+  <concept_desc>Human-centered computing~User studies</concept_desc>
+  <concept_significance>100</concept_significance>
+  </concept>
+  </ccs2012>
 \end{CCSXML}
 
 \ccsdesc[500]{Human-centered computing~Human computer interaction (HCI)}
@@ -176,9 +176,9 @@
 \ccsdesc[100]{Human-centered computing~User studies}
 
 \section{Information}
-The literature review is divided into different areas that can be found as titles in this paper.
+The literature review is divided into different areas thakt can be found as titles in this paper.
 
-\subsubsection{Keywords} 
+\subsubsection{Keywords}
 Visual Programming Language, Virtual Reality, Performance, Health.
 
 \section{Sedentary Behavior}
@@ -187,28 +187,30 @@ Visual Programming Language, Virtual Reality, Performance, Health.
 
 \section{Virtual Reality}
 
+\subsection{Health}
+TODO
+
 \subsection{Performance}
 
 \subsubsection{Typing}
-One issue with VR is the text-input Performance. The reason is that two hand controllers are usually used with a VR headset. This results in limited movement. One study explore select base typing as an allternetive to keyboard input \cite{speicher_selection-based_2018}
+One issue with VR using hand controllers is the text-input performance. The reason is that current two hand controllers have a limited number of buttons compared to a QWERTY keyboard. As a result, text-input in VR often take use of hand movement, also called select based typing. Marco Speicher et al. explored multiple variation of select base typing and compared the performance to traditional keyboard input \cite{speicher_selection-based_2018}. The multiple select based typing includes: 1) Head pointing, using the head to point at the letter that the user wants to select. 2) Controller pointing, using both controllers to point to letters that the user wants to select. 3) Controller tapping, physically tapping the letters with the controllers. 4) Freehand, using hand tracking were the user is typing on a virtual keyboard. 5) Discrete and continuous cursor, the user uses the buttons on the controller to move a cursor on the keyboard. Their findings was that controller pointing was the most performant in terms of WPM, as well as having the lowest error rate. It was also the most liked by the participants and had the least amount of frustration. However, while controller pointing was the most performant with an average words per minute (WPN) around 15, it falls short compared to keyboard typing with a WPN of 50. It is worth to mention that the study had a fixed distance and size between the user and the virtual keyboard for all different select based typing. Different distances and sizes could therefore potentially give different outcome.
 
-\subsection{Motion Sickness}
-\subsubsection{Simulation Sickness}
-There is a lot of research in to motion sickness, also called simulation sickness. This ocurred when the person is stationary in the physical world, but is moving in the virtual one. 
+\subsection{User Experience}
+\subsubsection{Motion Sickness}
+There is a lot of research in to motion sickness, also called simulation sickness. This ocurred when the person is stationary in the physical world, but is moving in the virtual one.
 
 \subsubsection{Accommodation-Vergence Mismatch}
-Retinal cues of disparity and blur makes the eyes change accommodation and vergence in order to create one clear image \cite{reichelt_depth_2010}. Accommodation is when the eyes change its focus to create a clear image of what is looked at. If the accommodation fails, the object that is looked at is going to be perceived blurry. Vergence is when the eyes converge or diverge from each other to create a singel image. If vergence fails, visual disparity is perceived, making the object that is looked at appear twice. Accommodation and vergence have been found to be influencing each other, meaning that when accommodation changes, vergence also changes as a reflex, and vice versa \cite{suryakumar_vergence_2007}.
-Because of this, it is difficult only change accommodation or vergence without changing the other.
+Retinal cues of disparity and blur makes the eyes change accommodation and vergence in order to create one clear image \cite{reichelt_depth_2010}. Accommodation is when the eyes change its focus to create a clear image of what is looked at. If the accommodation fails, the object that is looked at is going to be perceived blurry. Vergence is when the eyes converge or diverge from each other to create a singel image. If vergence fails, visual disparity is perceived, making the object that is looked at appear twice. Accommodation and vergence have been found to be influencing each other, meaning that when accommodation changes, vergence also changes as a reflex, and vice versa \cite{suryakumar_vergence_2007}. Because of this, it is difficult only change accommodation or vergence without changing the other.
 
 In the context of virtual reality headsets, there is a phenomenon called accommodation-vergence mismatch, also called accommodation-vergence conflict \cite{kramida_resolving_2016}. This causes objects to close to the viewer to be blurry or to appear twice. The reson for this is that most VR headsets uses fixed lenses, resulting in a fixed focal length of the viewed content. This means that the user do not need to change their accommodation when using VR. However, the viewer need to alter their vergence due to VR using stereoscopic displays that creates the illusion of 3D. Requiring the viewier to have a fixed accommodation while changing their vergence can cause a accommodation-vergence mismatch, see figure \ref{fig:accommodation_vergence_conflict}. For viewing objects far away, the mismatch is at a level that it is not noticeable for the viewer. However, when object are too close to the headset, the mismatch is at a level that the vision either becomes blurry or have disparity \cite{hoffman_vergenceaccommodation_2008}. This can lead to eye-strain, eye-tiredness and headache \cite{shibata_zone_2011}. For this reason, the viewable content in VR should be placed a a distance such that it minimize accommodation-vergence mismatch.
+
+On study have mapped the viewing distance such that accommodation-vergence mismatch is at a comfortable level \cite{shibata_zone_2011}. They found that discomfort is more promoment when the vergence distance is shorter than the accommodation distance, rather than longer. Looking at figure \ref{fig:comfort_viewing_diagram}, a Oculus Quest 2 headset that has a focal length of 1.3 meter, has a comfortable viewing range about 0.6 meter and more. This is in accordance with the minimum 0.5 meter distance Meta recommends \cite{noauthor_vision_nodate}
 
 \begin{figure}[h]
   \includegraphics[width=\linewidth]{figures/AccommodationVergenceConflict.png}
   \caption{Example of accommodation and vergence having difference distances, also called accommodation-vergence mismatch}
   \label{fig:accommodation_vergence_conflict}
 \end{figure}
-
-On study have mapped the viewing distance such that accommodation-vergence mismatch is at a comfortable level \cite{shibata_zone_2011}. They found that discomfort is more promoment when the vergence distance is shorter than the accommodation distance, rather than longer. Looking at figure \ref{fig:comfort_viewing_diagram}, a Oculus Quest 2 headset that has a focal length of 1.3 meter, has a comfortable viewing range about 0.6 meter and more. This is in accordance with the minimum 0.5 meter distance Meta recommends \cite{noauthor_vision_nodate}
 
 \begin{figure}[h]
   \includegraphics[width=\linewidth]{figures/ComfortViewingDiagram.png}
@@ -232,7 +234,7 @@ The size of the blocks is determine on multiple factors. One factor is the scree
 \section{Cognitive Dimensions}
 TODO: Explain briefly about what cognitive dimensions are.
 
-One paper by Robert Holwerda and Felienne Hermans explored the potential of using a block based VPL in a professional context. This is in contrast for what block base VPL are usually design for, which is eduction and learnability. The study uses some aspects of cognitive dimensions to evaluated a VPL. The following findings can be of relevance for a VPL in VR. 
+One paper by Robert Holwerda and Felienne Hermans explored the potential of using a block based VPL in a professional context. This is in contrast for what block base VPL are usually design for, which is eduction and learnability. The study uses some aspects of cognitive dimensions to evaluated a VPL. The following findings can be of relevance for a VPL in VR.
 
 \subsection{Role-Expressiveness}
 % May need to change the example of puzzles pecies
@@ -245,7 +247,15 @@ Having a three dimensional environment can potentially contribute to an increase
 \subsection{Role-Expressiveness}
 
 \subsection{???}
-One study found that, in terms of role-expressiveness, that screen space was an issue. That block cluster got large enough to 
+One study found that, in terms of role-expressiveness, that screen space was an issue. That block cluster got large enough to
+
+\section{Summary}
+\subsection{Design Choices}
+\subsubsection{Typing}
+Because of the performance issue of using a QWERTY keyboard in VR, design choices that requires text-entry by the user is going to be prevented when possible. However, naming variables, creating strings, and entering numbers are examples where an alternative to text-entry design can be challenging.
+
+\subsubsection{Distance of interactables}
+TODO
 
 % REFERENCES FORMAT
 % References must be the same font size as other body text.
