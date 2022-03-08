@@ -1702,6 +1702,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8792282178216738535}
     - target: {fileID: 9147208355751664282, guid: a34e6df8b375543b5986556f8dd5ff09, type: 3}
+      propertyPath: _blocklyTypeString
+      value: controls_if
+      objectReference: {fileID: 0}
+    - target: {fileID: 9147208355751664282, guid: a34e6df8b375543b5986556f8dd5ff09, type: 3}
       propertyPath: _connectors.Array.size
       value: 4
       objectReference: {fileID: 0}

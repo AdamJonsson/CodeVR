@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
@@ -15,6 +17,11 @@ public class CodeBlock : MonoBehaviour
     [SerializeField] private AudioClip _detachSound;
     [SerializeField] private AudioSource _audioSource;
 
+    [Header("Blockly Connection")]
+    [SerializeField] private string _blocklyTypeString;
+
+    private Guid _id;
+
     private CodeBlockSize _size;
 
     private List<CodeBlockConnector> _outputConnectors = new List<CodeBlockConnector>();
@@ -27,6 +34,10 @@ public class CodeBlock : MonoBehaviour
     private CodeBlockConnectionManager _codeBlockConnectionManager;
 
     private XRSimpleInteractable _interactable;
+
+    public Guid ID { get => this._id; }
+
+    public string BlocklyTypeString { get => this._blocklyTypeString; }
 
     public bool HasContainer { get => _currentContainer != null; }
 
@@ -58,6 +69,8 @@ public class CodeBlock : MonoBehaviour
 
     void Start()
     {
+        this._id = Guid.NewGuid();
+
         this.SetupConnectors();
         this._interactable = GetComponent<XRSimpleInteractable>();
         this._codeBlockInteractionManager = FindObjectOfType<CodeBlockInteractionManager>();
@@ -65,6 +78,7 @@ public class CodeBlock : MonoBehaviour
         this._size = this.GetComponent<CodeBlockSize>();
         this.GetAllInputFinders();
         this._interactable.selectEntered.AddListener(OnUserSelected);
+
     }
 
 
