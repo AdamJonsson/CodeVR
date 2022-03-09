@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
@@ -9,11 +11,21 @@ public class CodeBlock : MonoBehaviour
     [SerializeField] private List<CodeBlockConnector> _connectors;
     [SerializeField] private CodeBlockContainer _containerPrefab;
 
+
     [Header("Sound")]
     [SerializeField] private AudioClip _selectSound;
     [SerializeField] private AudioClip _connectSound;
     [SerializeField] private AudioClip _detachSound;
     [SerializeField] private AudioSource _audioSource;
+
+
+    [Header("Blockly Connection")]
+    [SerializeField] private string _blocklyTypeString;
+
+    [SerializeField] private List<CodeBlockField> _blocklyFields;
+    public List<CodeBlockField> BlocklyFields { get => this._blocklyFields; } 
+
+    private string _id;
 
     private CodeBlockSize _size;
 
@@ -27,6 +39,10 @@ public class CodeBlock : MonoBehaviour
     private CodeBlockConnectionManager _codeBlockConnectionManager;
 
     private XRSimpleInteractable _interactable;
+
+    public string ID { get => this._id; }
+
+    public string BlocklyTypeString { get => this._blocklyTypeString; }
 
     public bool HasContainer { get => _currentContainer != null; }
 
@@ -52,21 +68,41 @@ public class CodeBlock : MonoBehaviour
         } 
     }
 
+    public bool IsRootBlock
+    {
+        get {
+            bool atLeastOneConnectorHasPreviousFlow = false;
+            foreach (var connector in this._connectors)
+            {
+                bool isPreviousConnector = connector.ConnectionFlow == CodeBlockConnector.Flows.Previous;
+                if (isPreviousConnector)
+                    atLeastOneConnectorHasPreviousFlow = true;
+                if (connector.IsConnected && isPreviousConnector) 
+                    return false;
+            }
+            return atLeastOneConnectorHasPreviousFlow;
+        }
+    }
+
     public List<CodeBlockConnector> AllConnectors { get => this._connectors; }
 
     public CodeBlockSize Size { get => this._size; }
 
-    void Start()
+    void Awake()
     {
+        this._id = System.Guid.NewGuid().ToString("N");
         this.SetupConnectors();
         this._interactable = GetComponent<XRSimpleInteractable>();
-        this._codeBlockInteractionManager = FindObjectOfType<CodeBlockInteractionManager>();
-        this._codeBlockConnectionManager = FindObjectOfType<CodeBlockConnectionManager>();
         this._size = this.GetComponent<CodeBlockSize>();
         this.GetAllInputFinders();
-        this._interactable.selectEntered.AddListener(OnUserSelected);
     }
 
+    void Start()
+    {
+        this._codeBlockInteractionManager = FindObjectOfType<CodeBlockInteractionManager>();
+        this._codeBlockConnectionManager = FindObjectOfType<CodeBlockConnectionManager>();
+        this._interactable.selectEntered.AddListener(OnUserSelected);
+    }
 
     // Update is called once per frame
     void Update()
@@ -275,4 +311,11 @@ public class CodeBlock : MonoBehaviour
         var blockCluster = this.GetBlockCluster(true);
         return blockCluster.Contains(block);
     }
+}
+
+[Serializable]
+public class CodeBlockField
+{
+    public string Name;
+    public DropdownInput DropdownInput;
 }

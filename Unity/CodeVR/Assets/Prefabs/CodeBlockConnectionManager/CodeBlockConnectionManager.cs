@@ -19,6 +19,8 @@ public class CodeBlockConnectionManager : MonoBehaviour
 
     private List<CodeBlock> _allCodeBlocks = new List<CodeBlock>();
 
+    private BlocklyCodeManager _blocklyCodeManager;
+
     public bool DebugMode { get => this._debugMode; }
 
     void Start()
@@ -27,9 +29,8 @@ public class CodeBlockConnectionManager : MonoBehaviour
         this._leftController.selectExited.AddListener(OnDropBlock);
         this._rightController.selectExited.AddListener(OnDropBlock);
 
-        StartCoroutine(
-            WebsiteConnection.UpdateBlocklyCode("<xml xmlns='https://developers.google.com/blockly/xml'> <block type='controls_if' id='JK8L=R)FBxLJX@WmOv^J' x='77' y='65'> <statement name='DO0'> <block type='controls_if' id='l5dvRlyoDlJ;|1,=!4,0'> <statement name='DO0'> <block type='controls_if' id='Y$^Gn{IS0XtE_Sfq!lrW'></block> </statement> <next> <block type='controls_if' id='J58W)3Y{wVGhat,+`KqC'> <statement name='DO0'> <block type='controls_if' id='us/+CiQqRRhM1Q{z`|+A'></block> </statement> </block> </next> </block> </statement> </block> </xml>")
-        );
+        this._blocklyCodeManager = FindObjectOfType<BlocklyCodeManager>();
+        this._blocklyCodeManager.GenerateBlocklyCode();
     }
 
     void Update()
@@ -143,6 +144,8 @@ public class CodeBlockConnectionManager : MonoBehaviour
 
         // After the cluster have resized itself, we need to realign the blocks again
         toConnector.BlockAttachedTo.RealignBlockCluster();
+
+        this._blocklyCodeManager.GenerateBlocklyCode();
     }
 
     private IEnumerator DelayedRealignBlocks(CodeBlockConnector connector)
@@ -154,12 +157,18 @@ public class CodeBlockConnectionManager : MonoBehaviour
     {
         var connectorOne = connectorToDetach;
         var connectorTwo = connectorToDetach.Connection;
-        connectorOne.Detach();
-        connectorTwo.Detach();
-        connectorOne.BlockAttachedTo.NotifyBlockClusterOfDetachement();
-        connectorTwo.BlockAttachedTo.NotifyBlockClusterOfDetachement();
+        this.HandleDetachmentForConnector(connectorOne);
+        this.HandleDetachmentForConnector(connectorTwo);
 
-        connectorOne.BlockAttachedTo.RealignBlockCluster();
-        connectorTwo.BlockAttachedTo.RealignBlockCluster();
+        this._blocklyCodeManager.GenerateBlocklyCode();
     }
+
+    private void HandleDetachmentForConnector(CodeBlockConnector connector)
+    {
+        connector.Detach();
+        connector.BlockAttachedTo.NotifyBlockClusterOfDetachement();
+        connector.BlockAttachedTo.RealignBlockCluster();
+    }
+
+
 }
