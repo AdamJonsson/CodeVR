@@ -17,9 +17,6 @@ public class BlocklyXMLGenerator
         XmlElement rootnode = document.CreateElement("xml");
         rootnode.SetAttribute("xmlns", "https://developers.google.com/blockly/xml");
 
-        //create the root element
-        // document.InsertBefore(xmlDeclaration, rootnode);
-
         foreach (var block in blocks)
         {
             var xmlElementFromRootBlock = CreateXMLElementFromBlock(document, block);
