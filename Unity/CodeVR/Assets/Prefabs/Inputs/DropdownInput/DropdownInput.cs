@@ -31,14 +31,21 @@ public class DropdownInput : MonoBehaviour
 
     private List<DropdownOption> _allOptionsExceptSelected = new List<DropdownOption>();
 
+    public string Value { get => this._selectedOption.Value; }
+
+    private BlocklyCodeManager _blocklyCodeManager;
+
+    void Awake() {
+        this._thisInput = GetComponent<CodeBlockInput>();
+        this.InstantiateOptions();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        this._thisInput = GetComponent<CodeBlockInput>();
-        this.InstantiateOptions();
+        this._blocklyCodeManager = FindObjectOfType<BlocklyCodeManager>();
         this.RepositionOptions();
         this._eventSystem = FindObjectOfType<EventSystem>();
-
         this._thisInput.Button.onClick.AddListener(OnClick);
     }
 
@@ -143,6 +150,9 @@ public class DropdownInput : MonoBehaviour
         this._selectedOption = option;
         this._allOptionsExceptSelected = this.GetAllOptionExceptSelected();
         this._thisInput.SetText(option.Text);
+
+        if (this._blocklyCodeManager != null)
+            this._blocklyCodeManager.GenerateBlocklyCode();
     }
 
     private List<DropdownOption> GetAllOptionExceptSelected()

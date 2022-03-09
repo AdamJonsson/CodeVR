@@ -1,10 +1,13 @@
 
 
+using System;
+using System.Collections.Generic;
 using System.Xml;
+using UnityEngine;
 
 public class BlocklyXMLGenerator 
 {
-    public static string CreateXMLStringFromRootBlock(CodeBlock rootBlock)
+    public static string CreateXMLStringFromRootBlocks(List<CodeBlock> blocks)
     {
         XmlDocument document = new XmlDocument();
 
@@ -15,10 +18,13 @@ public class BlocklyXMLGenerator
         rootnode.SetAttribute("xmlns", "https://developers.google.com/blockly/xml");
 
         //create the root element
-        document.InsertBefore(xmlDeclaration, rootnode);
+        // document.InsertBefore(xmlDeclaration, rootnode);
 
-        var xmlElementFromRootBlock = CreateXMLElementFromBlock(document, rootBlock);
-        rootnode.AppendChild(xmlElementFromRootBlock);
+        foreach (var block in blocks)
+        {
+            var xmlElementFromRootBlock = CreateXMLElementFromBlock(document, block);
+            rootnode.AppendChild(xmlElementFromRootBlock);
+        }
 
         document.AppendChild(rootnode);
         return document.OuterXml;
@@ -28,7 +34,30 @@ public class BlocklyXMLGenerator
     {
         XmlElement xmlBlockElement = document.CreateElement("block");
         xmlBlockElement.SetAttribute("type", block.BlocklyTypeString);
+        xmlBlockElement.SetAttribute("id", block.ID);
+
+        // Add fields
+        foreach (var field in block.BlocklyFields)
+        {
+            XmlElement fieldElement = document.CreateElement("field");
+            fieldElement.SetAttribute("name", field.Name);
+            fieldElement.InnerText = field.DropdownInput.Value;
+            xmlBlockElement.AppendChild(fieldElement);
+        }
         
+        // Add connected blocks to XML Element
+        foreach (var connector in block.AllConnectors)
+        {
+            if (connector.ConnectionFlow == CodeBlockConnector.Flows.Previous) continue;
+            if (!connector.IsConnected) continue;
+
+            XmlElement connectorElement = document.CreateElement(connector.XmlTag);
+            if (connector.NameAttributeValue != null)
+                connectorElement.SetAttribute("name", connector.NameAttributeValue);
+
+            connectorElement.AppendChild(CreateXMLElementFromBlock(document, connector.BlockConnectedTo));
+            xmlBlockElement.AppendChild(connectorElement);
+        }
         
         return xmlBlockElement;
     }

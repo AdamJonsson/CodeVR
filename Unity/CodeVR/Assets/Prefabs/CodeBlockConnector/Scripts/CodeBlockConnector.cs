@@ -18,27 +18,29 @@ public class CodeBlockConnector : MonoBehaviour
         Output
     }
 
+    public enum Flows
+    {
+        Next,
+        Previous,
+        None,
+    }
+
+
     [Header("Specific settings")]
+
     [SerializeField] private Vector3 _rotation = Vector3.zero;
+
     [SerializeField] private Categories _connectionCategory = Categories.Row;
+    public Categories ConnectionCategory { get => _connectionCategory; }
+
     [SerializeField] private Types _connectionType = Types.Input;
+    public Types ConnectionType { get => _connectionType; }
+
+    [SerializeField] private Flows _connectionFlow = Flows.None;
+    public Flows ConnectionFlow { get => _connectionFlow; }
+
     [SerializeField] private CodeBlock _blockAttachedTo;
-
-    [Header("Global settings")]
-    [SerializeField] private float _connectionDistance = 0.25f;
-    [SerializeField] private BoxCollider _collider;
-    [SerializeField] private Transform _distanceReferencePoint;
-    [SerializeField] private ParticleSystem _connectionParticleSystem;
-
-    private InputFinder _inputFinder;
-
-    private CodeBlockConnector _connection;
-
     public CodeBlock BlockAttachedTo { get => _blockAttachedTo; }
-    public CodeBlockConnector Connection { get => _connection; }
-
-    public float ConnectionDistance { get => this._connectionDistance; }
-
     public CodeBlock BlockConnectedTo 
     { 
         get {
@@ -47,13 +49,34 @@ public class CodeBlockConnector : MonoBehaviour
         }
     }
 
+
+    [Header("Blockly settings")]
+
+    [SerializeField] private string _xmlTag;
+    public string XmlTag { get => this._xmlTag; } 
+
+    [SerializeField] private string _nameAttributeValue;
+    public string NameAttributeValue { get => this._nameAttributeValue; }
+
+
+    [Header("Global settings")]
+
+    [SerializeField] private float _connectionDistance = 0.25f;
+    public float ConnectionDistance { get => this._connectionDistance; }
+
+    [SerializeField] private BoxCollider _collider;
+
+    [SerializeField] private Transform _distanceReferencePoint;
     public Transform DistanceReferencePoint { get => _distanceReferencePoint; }
 
+    [SerializeField] private ParticleSystem _connectionParticleSystem;
+
+    private InputFinder _inputFinder;
+
+    private CodeBlockConnector _connection;
+    public CodeBlockConnector Connection { get => _connection; }
     public bool IsConnected { get => _connection != null; }
 
-    public Categories ConnectionCategory { get => _connectionCategory; }
-
-    public Types ConnectionType { get => _connectionType; }
 
     public Pose ConnectionPose 
     {
@@ -95,6 +118,12 @@ public class CodeBlockConnector : MonoBehaviour
 
         if (ConnectionType == Types.Input)
             this.gameObject.layer = LayerMask.NameToLayer("CodeBlockConnectorInput");
+
+        if (ConnectionFlow == Flows.Next)
+        {
+            this._xmlTag = "next";
+            this._nameAttributeValue = null;
+        }
     }
 
     private void NotifyMissingFields()
