@@ -40,6 +40,16 @@ Vision {\textbar} Oculus Developers.
 \url{https://developer.oculus.com/resources/bp-vision/}}
 
 
+\bibitem{golding_motion_2006}
+{John~F. Golding}.
+\newblock \showarticletitle{Motion sickness susceptibility}.
+\newblock  {129}, 1 (????), 67--76.
+\newblock
+\showISSN{1566-0702}
+\showDOI{%
+\url{http://dx.doi.org/10.1016/j.autneu.2006.07.019}}
+
+
 \bibitem{hoffman_vergenceaccommodation_2008}
 {David~M. Hoffman}, {Ahna~R. Girshick}, {Kurt Akeley}, {and} {Martin~S. Banks}.
 \newblock \showarticletitle{Vergence–accommodation conflicts hinder visual
@@ -63,6 +73,19 @@ Vision {\textbar} Oculus Developers.
 \newblock
 \shownote{Conference Name: {IEEE} Transactions on Visualization and Computer
   Graphics.}
+
+
+\bibitem{ng_effectiveness_2019}
+{Yu-Leung Ng}, {Flora Ma}, {Frederick~K. Ho}, {Patrick Ip}, {and} {King-wa Fu}.
+\newblock \showarticletitle{Effectiveness of virtual and augmented
+  reality-enhanced exercise on physical activity, psychological outcomes, and
+  physical performance: A systematic review and meta-analysis of randomized
+  controlled trials}.
+\newblock   {99} (????), 278--291.
+\newblock
+\showISSN{0747-5632}
+\showDOI{%
+\url{http://dx.doi.org/10.1016/j.chb.2019.05.026}}
 
 
 \bibitem{reichelt_depth_2010}

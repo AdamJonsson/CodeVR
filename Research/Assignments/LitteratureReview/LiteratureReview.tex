@@ -188,7 +188,7 @@ Visual Programming Language, Virtual Reality, Performance, Health.
 \section{Virtual Reality}
 
 \subsection{Health}
-TODO
+A potential means of reducing sedentary behavior is using virtual reality (VR) during work. This is because a VR device that uses six degrees of freedom has its benefit in that it requires more movement than being sedentary in front of a computer. A typical VR application might need users to walk, look around, and move their arms to grab or push interactable. Of course, the design of a VR application heavily affects the frequency at which these movements occur. Compare this to a mouse and keyboard setup, where the user only needs to do small movements with their fingers and wrist to interact with a GUI. One meta-analysis on physical training in VR concluded that the technology has potential \cite{ng_effectiveness_2019}
 
 \subsection{Performance}
 
@@ -196,8 +196,10 @@ TODO
 One issue with VR using hand controllers is the text-input performance. The reason is that current two hand controllers have a limited number of buttons compared to a QWERTY keyboard. As a result, text-input in VR often take use of hand movement, also called select based typing. Marco Speicher et al. explored multiple variation of select base typing and compared the performance to traditional keyboard input \cite{speicher_selection-based_2018}. The multiple select based typing includes: 1) Head pointing, using the head to point at the letter that the user wants to select. 2) Controller pointing, using both controllers to point to letters that the user wants to select. 3) Controller tapping, physically tapping the letters with the controllers. 4) Freehand, using hand tracking were the user is typing on a virtual keyboard. 5) Discrete and continuous cursor, the user uses the buttons on the controller to move a cursor on the keyboard. Their findings was that controller pointing was the most performant in terms of WPM, as well as having the lowest error rate. It was also the most liked by the participants and had the least amount of frustration. However, while controller pointing was the most performant with an average words per minute (WPN) around 15, it falls short compared to keyboard typing with a WPN of 50. It is worth to mention that the study had a fixed distance and size between the user and the virtual keyboard for all different select based typing. Different distances and sizes could therefore potentially give different outcome.
 
 \subsection{User Experience}
+
 \subsubsection{Motion Sickness}
-There is a lot of research in to motion sickness, also called simulation sickness. This ocurred when the person is stationary in the physical world, but is moving in the virtual one.
+Motion sickness is the phenomenon were the user feel sick after using a VR headset a while. The amount and frequency of motion sickness varies depending on the design of the VR application and the individual resistance to motion sickness. In VR, the cause of motion sickness is mostly due to sensory conflict where movement occur in the virtual world but not in the real physically one \cite{golding_motion_2006}. An example where this can occur is when there is continuous movement by using a joystick to traverse the virtual world without needing to physically move. With six degree of freedom headset, the user can physically move to move in the virtual world, preventing sensory conflict and thus motion sickness. However, limited physically space is one reason why physically movement is not always used to move in the virtual world.
+
 
 \subsubsection{Accommodation-Vergence Mismatch}
 Retinal cues of disparity and blur makes the eyes change accommodation and vergence in order to create one clear image \cite{reichelt_depth_2010}. Accommodation is when the eyes change its focus to create a clear image of what is looked at. If the accommodation fails, the object that is looked at is going to be perceived blurry. Vergence is when the eyes converge or diverge from each other to create a singel image. If vergence fails, visual disparity is perceived, making the object that is looked at appear twice. Accommodation and vergence have been found to be influencing each other, meaning that when accommodation changes, vergence also changes as a reflex, and vice versa \cite{suryakumar_vergence_2007}. Because of this, it is difficult only change accommodation or vergence without changing the other.
@@ -233,15 +235,19 @@ The size of the blocks is determine on multiple factors. One factor is the scree
 
 \section{Cognitive Dimensions}
 TODO: Explain briefly about what cognitive dimensions are.
+% TODO: Read  https://www.researchgate.net/profile/Marian-Petre-4/publication/200085937_Usability_Analysis_of_Visual_Programming_Environments_A_%27Cognitive_Dimensions%27_Framework/links/02bfe50fbf23476730000000/Usability-Analysis-of-Visual-Programming-Environments-A-Cognitive-Dimensions-Framework.pdf
 
 One paper by Robert Holwerda and Felienne Hermans explored the potential of using a block based VPL in a professional context. This is in contrast for what block base VPL are usually design for, which is eduction and learnability. The study uses some aspects of cognitive dimensions to evaluated a VPL. The following findings can be of relevance for a VPL in VR.
 
 \subsection{Role-Expressiveness}
+\subsubsection{Definition}
 % May need to change the example of puzzles pecies
 Role-expressiveness is the ability of a program to convey the role or function of a curtain visual element to the user. In Blockly, for example, the blocks are design as puzzles pieces to convey that the blocks are to be connected to each other. Moreover, the shape of the puzzles pieces also give information about what blocks can be connected together.
 
+\subsubsection{Previous findings}
 The study by Holwerda and Hermans found two issues with role-expressiveness for their VPL prototype. For one, there was some complaints about the labeling on some of the blocks. Secondly, the participants did not take any use of the comment feature that exited in the VPL. This even after being instructed about the commenting feature. The reasons behind these two issues were not specified in the study. However, some suggested improvements were mentioned. Adding better features for secondary notations were one such suggestion. This could include better commenting, allowing to group blocks, and to add variables and procedures. Having more of these secondary notation would result in better role-expressiveness for the VPL application.
 
+\subsubsection{Potential advantages and disadvantages in VR}
 Having a three dimensional environment can potentially contribute to an increased role-expressiveness. For example, comments, labels, or other notation could be shown behind the block it references without obscuring other blocks. The user can then glance behind the block in order to see the different blocks role in the application. However, when the code grows in size, there is a chance that this implementation litter the code space with notation. Making it more confusing instead of increasing role-expressiveness.
 
 \subsection{Role-Expressiveness}
@@ -256,6 +262,11 @@ Because of the performance issue of using a QWERTY keyboard in VR, design choice
 
 \subsubsection{Distance of interactables}
 TODO
+
+\section{Evaluation}
+\subsection{Motion Sickness}
+% Use this for motion sickness:
+% https://www.sciencedirect.com/science/article/pii/S000368701730282X?casa_token=jG4Q2R74aCwAAAAA:67n-pb67gF56qdRwBErojiVgAvXPSxzDuSl_bITM2OmosDnqg563SYUGZ2DtkVC5QDiGEe-3Pz4
 
 % REFERENCES FORMAT
 % References must be the same font size as other body text.

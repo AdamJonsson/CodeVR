@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2022.1.30)  8 MAR 2022 15:56
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2022.1.30)  9 MAR 2022 16:41
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -855,42 +855,43 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5> not available
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
 (hyperref)                than one, level fixed on input line 181.
 
-[1{c:/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
+
+Underfull \vbox (badness 2229) has occurred while \output is active []
+
+ [1{c:/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
 
 Non-PDF special ignored!
 <special> papersize=8.5in,11in
 
 ]
-<figures/AccommodationVergenceConflict.png, id=143, 1181.16281pt x 688.82344pt>
+<figures/AccommodationVergenceConflict.png, id=163, 1181.16281pt x 688.82344pt>
 File: figures/AccommodationVergenceConflict.png Graphic file (type png)
 <use figures/AccommodationVergenceConflict.png>
-Package pdftex.def Info: figures/AccommodationVergenceConflict.png  used on input line 210.
+Package pdftex.def Info: figures/AccommodationVergenceConflict.png  used on input line 212.
 (pdftex.def)             Requested size: 243.98238pt x 142.2818pt.
-<figures/ComfortViewingDiagram.png, id=145, 794.97pt x 378.66469pt>
+<figures/ComfortViewingDiagram.png, id=165, 794.97pt x 378.66469pt>
 File: figures/ComfortViewingDiagram.png Graphic file (type png)
 <use figures/ComfortViewingDiagram.png>
-Package pdftex.def Info: figures/ComfortViewingDiagram.png  used on input line 216.
+Package pdftex.def Info: figures/ComfortViewingDiagram.png  used on input line 218.
 (pdftex.def)             Requested size: 243.98238pt x 116.21191pt.
- (./LiteratureReview.bbl [2 <./figures/AccommodationVergenceConflict.png> <./figures/ComfortViewingDiagram.png>]) [3
-
-] (./LiteratureReview.aux)
+ [2 <./figures/AccommodationVergenceConflict.png> <./figures/ComfortViewingDiagram.png>] (./LiteratureReview.bbl) [3] (./LiteratureReview.aux)
 Package rerunfilecheck Info: File `LiteratureReview.out' has not changed.
-(rerunfilecheck)             Checksum: B4B1DD03E613A469B0BE119B060271B5;3047.
+(rerunfilecheck)             Checksum: FE9FC8CAFDB189803574D7B971F6A29D;3843.
  ) 
 Here is how much of TeX's memory you used:
- 24389 strings out of 478287
- 444508 string characters out of 5850749
- 748062 words of memory out of 5000000
- 41853 multiletter control sequences out of 15000+600000
- 541303 words of font info for 232 fonts, out of 8000000 for 9000
+ 24411 strings out of 478287
+ 444833 string characters out of 5850749
+ 749677 words of memory out of 5000000
+ 41860 multiletter control sequences out of 15000+600000
+ 541433 words of font info for 234 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  99i,10n,94p,1689b,639s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/texlive/2021/texmf-dist/fonts/enc/dvips/base/8r.enc}<c:/texlive/2021/texmf-dist/fonts/type1/public/txfonts/t1xbtt.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/txfonts/t1xtt.pfb><c:/texlive/2021/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb><c:/texlive/2021/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb><c:/texlive/2021/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><c:/texlive/2021/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><c:/texlive/2021/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on LiteratureReview.pdf (3 pages, 337223 bytes).
+Output written on LiteratureReview.pdf (3 pages, 340573 bytes).
 PDF statistics:
- 227 PDF objects out of 1000 (max. 8388607)
- 202 compressed objects within 3 object streams
- 61 named destinations out of 1000 (max. 500000)
- 48855 words of extra memory for PDF output out of 51595 (max. 10000000)
+ 261 PDF objects out of 1000 (max. 8388607)
+ 236 compressed objects within 3 object streams
+ 73 named destinations out of 1000 (max. 500000)
+ 48895 words of extra memory for PDF output out of 51595 (max. 10000000)
 

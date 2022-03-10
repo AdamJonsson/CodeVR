@@ -1,18 +1,18 @@
 # Fdb version 3
-["bibtex LiteratureReview"] 1646751382 "LiteratureReview.aux" "LiteratureReview.bbl" "LiteratureReview" 1646751387
-  "./SIGCHI-Reference-Format.bst" 1646726668 94555 2c1ca74f807536bd0fa4e9e9feb42c05 ""
-  "LiteratureReview.aux" 1646751386 4697 fdbc3f5664f9b209c0a5ab6e57c1d92e "pdflatex"
-  "References.bib" 1646726668 32572 591a0c92f0cf1c39791d1a481b020608 ""
+["bibtex LiteratureReview"] 1646839166 "LiteratureReview.aux" "LiteratureReview.bbl" "LiteratureReview" 1646840512
+  "./SIGCHI-Reference-Format.bst" 1646831743 94555 2c1ca74f807536bd0fa4e9e9feb42c05 ""
+  "LiteratureReview.aux" 1646840511 5422 22ae3a531f3d214e1c7698c54566ad16 "pdflatex"
+  "References.bib" 1646838051 34577 d106458d4e86961c257c909fcdebc774 ""
   (generated)
   "LiteratureReview.bbl"
   "LiteratureReview.blg"
-["pdflatex"] 1646751385 "c:/Users/adams/Repositories/CodeVR/Research/Assignments/LitteratureReview/LiteratureReview.tex" "LiteratureReview.pdf" "LiteratureReview" 1646751387
-  "LiteratureReview.aux" 1646751386 4697 fdbc3f5664f9b209c0a5ab6e57c1d92e "pdflatex"
-  "LiteratureReview.bbl" 1646751382 4048 e4f15eb54189f6c18c11fcf69e20e157 "bibtex LiteratureReview"
-  "LiteratureReview.out" 1646751386 3047 b4b1dd03e613a469b0be119b060271b5 "pdflatex"
-  "LiteratureReview.tex" 1646751383 15687 4335cac9b39b67645175907e4c8da4de ""
-  "acmcopyright.sty" 1646726668 9847 03a22ffcc9f51aaef67ac6ed43847230 ""
-  "c:/Users/adams/Repositories/CodeVR/Research/Assignments/LitteratureReview/LiteratureReview.tex" 1646751383 15687 4335cac9b39b67645175907e4c8da4de ""
+["pdflatex"] 1646840510 "c:/Users/adams/Repositories/CodeVR/Research/Assignments/LitteratureReview/LiteratureReview.tex" "LiteratureReview.pdf" "LiteratureReview" 1646840512
+  "LiteratureReview.aux" 1646840511 5422 22ae3a531f3d214e1c7698c54566ad16 "pdflatex"
+  "LiteratureReview.bbl" 1646839166 4777 3dec3f6546c6834c52184946ca188b80 "bibtex LiteratureReview"
+  "LiteratureReview.out" 1646840511 3843 fe9fc8cafdb189803574d7b971f6a29d "pdflatex"
+  "LiteratureReview.tex" 1646840509 17762 0ec5d94f7f3c9de21564073c661fb430 ""
+  "acmcopyright.sty" 1646831743 9847 03a22ffcc9f51aaef67ac6ed43847230 ""
+  "c:/Users/adams/Repositories/CodeVR/Research/Assignments/LitteratureReview/LiteratureReview.tex" 1646840509 17762 0ec5d94f7f3c9de21564073c661fb430 ""
   "c:/texlive/2021/texmf-dist/fonts/enc/dvips/base/8r.enc" 1643555261 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "c:/texlive/2021/texmf-dist/fonts/map/fontname/texfonts.map" 1643555976 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/texlive/2021/texmf-dist/fonts/tfm/adobe/helvetic/phvb8r.tfm" 1643556548 4484 b828043cbd581d289d955903c1339981 ""
@@ -218,9 +218,9 @@
   "c:/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1643560404 4417058 0b608c5d44817b826a1c6b0dd51c3a64 ""
   "c:/texlive/2021/texmf-var/web2c/pdftex/pdflatex.fmt" 1643560447 2796746 e79a8cba9652eb86bcca41ae9ac69b40 ""
   "c:/texlive/2021/texmf.cnf" 1643560388 713 e69b156964470283e0530f5060668171 ""
-  "figures/AccommodationVergenceConflict.png" 1646726668 87475 068b3c068b6c38cab23aff07375455e6 ""
-  "figures/ComfortViewingDiagram.png" 1646726668 226710 88feba8154b9401acb72bf0b3d091a44 ""
-  "sigchi.cls" 1646726668 57398 4906b8152c7964ef635f3b95e24917dd ""
+  "figures/AccommodationVergenceConflict.png" 1646831743 87475 068b3c068b6c38cab23aff07375455e6 ""
+  "figures/ComfortViewingDiagram.png" 1646831743 226710 88feba8154b9401acb72bf0b3d091a44 ""
+  "sigchi.cls" 1646831743 57398 4906b8152c7964ef635f3b95e24917dd ""
   (generated)
   "LiteratureReview.aux"
   "LiteratureReview.log"
