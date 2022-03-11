@@ -17,20 +17,21 @@ public class CodeBlockConnectionManager : MonoBehaviour
     [Header("IF enabled, connection can be made by pressing the key (C). Must be disabled during production!")]
     [SerializeField] private bool _debugMode = false;
 
-    private List<CodeBlock> _allCodeBlocks = new List<CodeBlock>();
-
     private BlocklyCodeManager _blocklyCodeManager;
 
     public bool DebugMode { get => this._debugMode; }
 
+    private CodeBlockManager _codeBlockManager;
+
     void Start()
     {
-        this._allCodeBlocks = FindObjectsOfType<CodeBlock>().ToList();
         this._leftController.selectExited.AddListener(OnDropBlock);
         this._rightController.selectExited.AddListener(OnDropBlock);
 
         this._blocklyCodeManager = FindObjectOfType<BlocklyCodeManager>();
         this._blocklyCodeManager.GenerateBlocklyCode();
+
+        this._codeBlockManager = FindObjectOfType<CodeBlockManager>();
     }
 
     void Update()
@@ -106,7 +107,7 @@ public class CodeBlockConnectionManager : MonoBehaviour
     private List<PotentialConnection> GetAllPotentialConnections()
     {
         var potentialConnections = new List<PotentialConnection>();
-        foreach (var codeBlock in this._allCodeBlocks)
+        foreach (var codeBlock in this._codeBlockManager.AllCodeBlocks)
         {
             potentialConnections.AddRange(codeBlock.GetAllPotentialConnections());
         }

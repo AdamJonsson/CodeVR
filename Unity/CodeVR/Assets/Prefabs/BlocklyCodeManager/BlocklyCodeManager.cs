@@ -6,10 +6,10 @@ public class BlocklyCodeManager : MonoBehaviour
 {
     public void GenerateBlocklyCode()
     {
-        var allBlocks = FindObjectsOfType<CodeBlock>();
+        var codeBlockManager = FindObjectOfType<CodeBlockManager>();
         var blockClusters = new List<CodeBlock>();
 
-        foreach (var block in allBlocks)
+        foreach (var block in codeBlockManager.AllCodeBlocks)
         {
             if (block.IsRootBlock)
                 blockClusters.Add(block);

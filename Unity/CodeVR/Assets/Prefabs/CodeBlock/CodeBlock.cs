@@ -90,17 +90,19 @@ public class CodeBlock : MonoBehaviour
 
     void Awake()
     {
-        this._id = System.Guid.NewGuid().ToString("N");
-        this.SetupConnectors();
+        this._codeBlockInteractionManager = FindObjectOfType<CodeBlockInteractionManager>();
+        this._codeBlockConnectionManager = FindObjectOfType<CodeBlockConnectionManager>();
         this._interactable = GetComponent<XRSimpleInteractable>();
         this._size = this.GetComponent<CodeBlockSize>();
+
+        this._id = System.Guid.NewGuid().ToString("N");
+
+        this.SetupConnectors();
         this.GetAllInputFinders();
     }
 
     void Start()
     {
-        this._codeBlockInteractionManager = FindObjectOfType<CodeBlockInteractionManager>();
-        this._codeBlockConnectionManager = FindObjectOfType<CodeBlockConnectionManager>();
         this._interactable.selectEntered.AddListener(OnUserSelected);
     }
 
@@ -159,18 +161,15 @@ public class CodeBlock : MonoBehaviour
     public void OnUserSelected(SelectEnterEventArgs args)
     {
         var interactor = this._interactable.firstInteractorSelecting;
-        if (this.IsCurrentlyBeingMoved && !this.IsSolo)
+        bool shouldDetach = this.IsCurrentlyBeingMoved && !this.IsSolo;
+        if (shouldDetach)
         {
             CodeBlockConnector detachmentPoint = FindBestDetachementPoint();
             this._codeBlockConnectionManager.DetachConnector(detachmentPoint);
             this._audioSource.PlayOneShot(this._detachSound, 1.0f);
         }
-        else 
-        {
-            this._audioSource.PlayOneShot(this._selectSound, 0.1f);
-        }
 
-        this.MakeUserGrabSelfAndConnectedBlocks(interactor);
+        this.MakeUserGrabSelfAndConnectedBlocks(interactor, playGrabSound: !shouldDetach);
     }
 
     private CodeBlockConnector FindBestDetachementPoint()
@@ -184,8 +183,11 @@ public class CodeBlock : MonoBehaviour
         return null;
     }
 
-    private void MakeUserGrabSelfAndConnectedBlocks(IXRSelectInteractor interactor)
+    public void MakeUserGrabSelfAndConnectedBlocks(IXRSelectInteractor interactor, bool playGrabSound)
     {
+        if (playGrabSound)
+            this._audioSource.PlayOneShot(this._selectSound, 0.1f);
+
         var newContainer = this.CreateNewContainer();
         var blocksToMoveToContainer = this.GetBlockCluster();
         foreach (var block in blocksToMoveToContainer)

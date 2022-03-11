@@ -7,6 +7,7 @@ public class CodeBlockContainer : MonoBehaviour
 {
     [SerializeField] private XRGrabInteractable _interactable;
     private List<CodeBlock> _children = new List<CodeBlock>();
+    public List<CodeBlock> Children { get => this._children; }
     private CodeBlockInteractionManager _codeBlockInteractionManager;
     private CodeBlock _codeBlockOrigin;
 
@@ -37,17 +38,23 @@ public class CodeBlockContainer : MonoBehaviour
         StartCoroutine(this.DeleteContainerDelayed(1.0f));
     }
 
-    private void DeleteContainer(bool deleteChildren = false)
+    public void DeleteContainer(bool deleteChildren = false)
     {
         if (!deleteChildren)
         {
             foreach (var child in this._children)
             {
+                if (child == null) continue;
                 child.MoveOutFromContainer(this);
             }
         }
 
         Destroy(this.gameObject);
+    }
+
+    public void RemoveChild(CodeBlock child)
+    {
+        Debug.Log(this._children.Remove(child));
     }
 
     private IEnumerator DeleteContainerDelayed(float delaySeconds, bool deleteChildren = false)
