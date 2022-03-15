@@ -35,7 +35,7 @@ public class InputFinder : MonoBehaviour
 
         this._potentialConnections.Add(new PotentialConnection {
             Input = connectorEntered,
-            Output = _outputConnector,
+            Output = _outputConnector
         });
     }
 

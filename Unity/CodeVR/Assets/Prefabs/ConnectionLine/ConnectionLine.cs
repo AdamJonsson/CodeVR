@@ -45,5 +45,19 @@ public class ConnectionLine : MonoBehaviour
         this._end = end;
     }
 
+    public void ConnectionCompatible(bool compatible)
+    {
+        if (compatible)
+        {
+            this._line.startColor = new Color(0.0f, 1.0f, 0.1f, 1.0f);
+            this._line.endColor = new Color(0.0f, 0.8f, 0.1f, 1.0f);
+        }
+        else
+        {
+            this._line.startColor = new Color(1.0f, 0.0f, 0.0f, 1.0f);
+            this._line.endColor = new Color(0.8f, 0.0f, 0.0f, 1.0f);
+        }
+    }
+
     private Vector3 CurrentLineDirection { get => (this._start - this._end).normalized; }
 }

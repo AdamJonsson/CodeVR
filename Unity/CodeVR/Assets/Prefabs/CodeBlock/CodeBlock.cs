@@ -20,7 +20,11 @@ public class CodeBlock : MonoBehaviour
 
 
     [Header("Blockly Connection")]
+
     [SerializeField] private string _blocklyTypeString;
+
+    [SerializeField] private CodeBlockCategory _category;
+    public CodeBlockCategory Category { get => this._category; }
 
     [SerializeField] private List<CodeBlockField> _blocklyFields;
     public List<CodeBlockField> BlocklyFields { get => this._blocklyFields; } 
@@ -228,12 +232,13 @@ public class CodeBlock : MonoBehaviour
         this._inputConnectors = this._connectors.FindAll((connector) => connector.ConnectionType == CodeBlockConnector.Types.Input);
     }
 
-    public IEnumerable<PotentialConnection> GetAllPotentialConnections()
+    public IEnumerable<PotentialConnection> GetAllPotentialConnections(bool includeIncompatibleConnections = false)
     {
         foreach (var inputFinder in this._inputFinders)
         {
             foreach (var potentialConnection in inputFinder.PotentialConnections)
             {
+                if (!includeIncompatibleConnections && !potentialConnection.IsCategoryCompatible) continue;
                 yield return potentialConnection;
             }
         }
