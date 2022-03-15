@@ -160,7 +160,7 @@ public class CodeBlock : MonoBehaviour
 
     public void OnUserSelected(SelectEnterEventArgs args)
     {
-        var interactor = this._interactable.firstInteractorSelecting;
+        var interactor = this._interactable.firstInteractorSelecting as XRRayInteractor;
         bool shouldDetach = this.IsCurrentlyBeingMoved && !this.IsSolo;
         if (shouldDetach)
         {
@@ -183,12 +183,16 @@ public class CodeBlock : MonoBehaviour
         return null;
     }
 
-    public void MakeUserGrabSelfAndConnectedBlocks(IXRSelectInteractor interactor, bool playGrabSound)
+    public void MakeUserGrabSelfAndConnectedBlocks(XRRayInteractor interactor, bool playGrabSound)
     {
         if (playGrabSound)
             this._audioSource.PlayOneShot(this._selectSound, 0.1f);
 
-        var newContainer = this.CreateNewContainer();
+        RaycastHit raycastHit;
+        var raycastHitExist = interactor.TryGetCurrent3DRaycastHit(out raycastHit);
+        var spawnPosition = raycastHitExist ? (raycastHit.point + this.transform.forward * this.transform.localScale.z * 0.5f) : this.transform.position;
+
+        var newContainer = this.CreateNewContainer(spawnPosition);
         var blocksToMoveToContainer = this.GetBlockCluster();
         foreach (var block in blocksToMoveToContainer)
         {
@@ -197,9 +201,9 @@ public class CodeBlock : MonoBehaviour
         this._codeBlockInteractionManager.MakeInteractorGrabContainer(newContainer, interactor, offsetGrab: true);
     }
 
-    private CodeBlockContainer CreateNewContainer()
+    private CodeBlockContainer CreateNewContainer(Vector3 spawnPosition)
     {
-        var newContainer = Instantiate(_containerPrefab, this.transform.position, this.transform.rotation);
+        var newContainer = Instantiate(_containerPrefab, spawnPosition, this.transform.rotation);
         newContainer.SetCodeBlockOrigin(this);
         return newContainer;
     }

@@ -189,6 +189,39 @@ MonoBehaviour:
   _rightController: {fileID: 0}
   _normalMaterial: {fileID: 2100000, guid: 0b0850a4a46440144bd2f6528437dee2, type: 2}
   _hoverMaterial: {fileID: 2100000, guid: 664b6f70f2fcec448be6e2fdf935432e, type: 2}
+  _hoverExpandAnimation:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1.0000653
+      inSlope: -0.006639767
+      outSlope: -0.006639767
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.15657541
+    - serializedVersion: 3
+      time: 0.5
+      value: 0.8
+      inSlope: -0.005145121
+      outSlope: -0.005145121
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.1413796
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: -0.00051832676
+      outSlope: -0.00051832676
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.1849109
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 1
+    m_RotationOrder: 4
 --- !u!82 &4969817895063630087
 AudioSource:
   m_ObjectHideFlags: 0

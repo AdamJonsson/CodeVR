@@ -12,6 +12,8 @@ public class Trashcan : MonoBehaviour
     [SerializeField] private Material _normalMaterial;
     [SerializeField] private Material _hoverMaterial;
 
+    [SerializeField] private AnimationCurve _hoverExpandAnimation = AnimationCurve.Linear(0.0f, 1.0f, 1.0f, 1.0f);
+
     private AudioSource _audioSource;
 
     private MeshRenderer _meshRenderer; 
@@ -20,7 +22,7 @@ public class Trashcan : MonoBehaviour
 
     private CodeBlockManager _codeBlockManager;
 
-    private List<CodeBlock> _blocksToScaleDown = new List<CodeBlock>(); 
+    private CodeBlockContainer _containerToRemove; 
 
     // Start is called before the first frame update
     void Start()
@@ -35,6 +37,13 @@ public class Trashcan : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        this.ApplyHoverColor();
+        this.AnimateRemoval();
+        this.AnimateHover();
+    }
+
+    private void ApplyHoverColor()
+    {
         if (this._blocksInsideTrashcan.Count > 0)
         {
             this._meshRenderer.material = this._hoverMaterial;
@@ -43,12 +52,21 @@ public class Trashcan : MonoBehaviour
         {
             this._meshRenderer.material = this._normalMaterial;
         }
+    }
 
-        foreach (var block in this._blocksToScaleDown)
+    private void AnimateRemoval()
+    {
+        if (this._containerToRemove == null) return;
+        if (this._containerToRemove.transform.localScale.magnitude > 0.01f)
+            this._containerToRemove.transform.localScale -= Vector3.one * Time.deltaTime * 3.0f;
+    }
+
+    private void AnimateHover()
+    {
+        if (this._containerToRemove != null) return;
+        foreach (var container in this._blocksInsideTrashcan)
         {
-            if (block == null) continue;
-            if (block.transform.localScale.magnitude > 0.01f)
-                block.transform.localScale -= Vector3.one * Time.deltaTime * 0.2f;
+            container.transform.localScale = Vector3.one * this._hoverExpandAnimation.Evaluate(Time.timeSinceLevelLoad);
         }
     }
 
@@ -60,11 +78,9 @@ public class Trashcan : MonoBehaviour
         if (!this._blocksInsideTrashcan.Contains(blockContainerDropped)) return;
 
         var childrenToRemove = new List<CodeBlock>(blockContainerDropped.Children);
-        this._blocksToScaleDown.AddRange(childrenToRemove);
+        this._containerToRemove = blockContainerDropped;
         StartCoroutine(RemoveBlocksDelayed(childrenToRemove));
         
-        this._blocksInsideTrashcan.Remove(blockContainerDropped);
-        blockContainerDropped.DeleteContainer();
     }
 
     private IEnumerator RemoveBlocksDelayed(List<CodeBlock> blocksToRemove)
@@ -77,13 +93,14 @@ public class Trashcan : MonoBehaviour
         }
 
         this._audioSource.Play();
-        this._blocksToScaleDown.Clear();
+        this._containerToRemove.DeleteContainerKeepChildren();
+        this._blocksInsideTrashcan.Clear();
+        this._containerToRemove = null;
     }
 
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Enter!");
         var codeBlock = other.GetComponent<CodeBlockContainer>();
         if (codeBlock == null) return;
 
@@ -92,10 +109,18 @@ public class Trashcan : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        Debug.Log("Exit");
         var codeBlock = other.GetComponent<CodeBlockContainer>();
         if (codeBlock == null) return;
 
+        this.RestoreOriginalScaleForContainers(this._blocksInsideTrashcan);
         this._blocksInsideTrashcan.Remove(codeBlock);
+    }
+
+    private void RestoreOriginalScaleForContainers(List<CodeBlockContainer> containers)
+    {
+        foreach (var container in containers)
+        {
+            container.transform.localScale = Vector3.one;
+        }
     }
 }
