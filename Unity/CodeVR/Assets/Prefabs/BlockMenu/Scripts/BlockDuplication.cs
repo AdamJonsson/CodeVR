@@ -27,6 +27,7 @@ public class BlockDuplication : MonoBehaviour
         foreach (var connector in this.GetComponentsInChildren<CodeBlockConnector>())
         {
             connector.enabled = false;
+            connector.GetComponent<BoxCollider>().enabled = false;
         }
 
         if (Application.isPlaying)
@@ -37,7 +38,7 @@ public class BlockDuplication : MonoBehaviour
     {
         var spawnPosition = this.transform.position;
         var spawnedBlock = this._codeBlockManager.CreateNewBlock(this._prefab, spawnPosition, this.transform.rotation);
-        var interactor = args.interactorObject;
+        var interactor = args.interactorObject as XRRayInteractor;
         spawnedBlock.MakeUserGrabSelfAndConnectedBlocks(interactor, playGrabSound: true);
     }
 

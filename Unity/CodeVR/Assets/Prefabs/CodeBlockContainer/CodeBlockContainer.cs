@@ -35,18 +35,15 @@ public class CodeBlockContainer : MonoBehaviour
     {
         this._codeBlockInteractionManager.MakeInteractorCodeBlockInteractable(args.interactorObject);
         this._hasDeleteFlag = true;
-        StartCoroutine(this.DeleteContainerDelayed(1.0f));
+        StartCoroutine(this.DeleteContainerKeepChildrenDelayed(1.0f));
     }
 
-    public void DeleteContainer(bool deleteChildren = false)
+    public void DeleteContainerKeepChildren()
     {
-        if (!deleteChildren)
+        foreach (var child in this._children)
         {
-            foreach (var child in this._children)
-            {
-                if (child == null) continue;
-                child.MoveOutFromContainer(this);
-            }
+            if (child == null) continue;
+            child.MoveOutFromContainer(this);
         }
 
         Destroy(this.gameObject);
@@ -57,10 +54,10 @@ public class CodeBlockContainer : MonoBehaviour
         Debug.Log(this._children.Remove(child));
     }
 
-    private IEnumerator DeleteContainerDelayed(float delaySeconds, bool deleteChildren = false)
+    private IEnumerator DeleteContainerKeepChildrenDelayed(float delaySeconds)
     {
         yield return new WaitForSeconds(delaySeconds);
-        DeleteContainer(deleteChildren);
+        DeleteContainerKeepChildren();
     }
 
     public void AddCodeBlock(CodeBlock block)
