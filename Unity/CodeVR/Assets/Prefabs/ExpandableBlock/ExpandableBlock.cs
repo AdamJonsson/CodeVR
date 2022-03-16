@@ -21,6 +21,10 @@ public class ExpandableBlock : MonoBehaviour
     [SerializeField] private CodeBlockSize.CalculationMode _widthCalculationMode = CodeBlockSize.CalculationMode.Additive;
     [SerializeField] private List<CodeBlockConnector> _connectorsEffectsWidth = new List<CodeBlockConnector>();
 
+    [SerializeField] private TMPro.TMP_InputField _inputFieldEffectsWidth;
+    public TMPro.TMP_InputField InputFieldEffectsWidth { get => this._inputFieldEffectsWidth; }
+
+
     [Tooltip("The min expand scale, the block scale can not be less than this vector")]
     [SerializeField] private Vector3 _minExpandSize;
 
@@ -55,12 +59,29 @@ public class ExpandableBlock : MonoBehaviour
         }
     }
 
-    public void ChangeSizeFromConnectors()
+    private float GetWidthFromInput(CodeBlock codeBlock)
+    {
+        if (_inputFieldEffectsWidth == null) return 0.0f;
+        var textComponent = this._inputFieldEffectsWidth.textComponent;
+        var widthOfInputField = textComponent.rectTransform.rect.width * textComponent.transform.lossyScale.x / codeBlock.transform.localScale.x;
+        return Mathf.Max(widthOfInputField, this._minExpandSize.x);
+    }
+
+    public void ChangeSizeFromConnectorsAndInput(CodeBlock codeBlock)
     {
         if (this._connectorsEffectsHeight.Count > 0)
             this._expandScale.y = GetSizeOfClusterConnectedToConnectors(this._connectorsEffectsHeight).y;
+        
+        var width = 0.0f;
         if (this._connectorsEffectsWidth.Count > 0)
-            this._expandScale.x = GetSizeOfClusterConnectedToConnectors(this._connectorsEffectsWidth).x;
+            width += GetSizeOfClusterConnectedToConnectors(this._connectorsEffectsWidth).x;
+
+        if (this._inputFieldEffectsWidth != null)
+            width += this.GetWidthFromInput(codeBlock);
+
+        if (width > 0.0f)
+            this._expandScale.x = width;
+
         this.ApplyScaleToExpandableSettings();
     }
 
@@ -113,9 +134,9 @@ public class ExpandableBlock : MonoBehaviour
         return heightOfChildren + this._extraStaticSize.y;
     }
 
-    public float GetWidth()
+    public float GetWidth(CodeBlock codeBlock)
     {
-        var widthOfChildren = this.GetSizeOfClusterConnectedToConnectors(this._connectorsEffectsWidth).x;
+        var widthOfChildren = this.GetSizeOfClusterConnectedToConnectors(this._connectorsEffectsWidth).x + this.GetWidthFromInput(codeBlock);
         return widthOfChildren + this._extraStaticSize.x;
     }
 

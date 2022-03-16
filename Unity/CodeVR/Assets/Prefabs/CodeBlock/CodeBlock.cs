@@ -319,5 +319,5 @@ public class CodeBlock : MonoBehaviour
 public class CodeBlockField
 {
     public string Name;
-    public DropdownInput DropdownInput;
+    public InputBase Input;
 }

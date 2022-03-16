@@ -19,7 +19,5 @@ public class BlocklyCodeManager : MonoBehaviour
         StartCoroutine(
             WebsiteConnection.UpdateBlocklyCode(blocklyString)
         );
-        Debug.Log("Number of blocks: " + blockClusters.Count);
-        Debug.Log(blocklyString);
     }
 }

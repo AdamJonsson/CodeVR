@@ -38,7 +38,7 @@ public class BlocklyXMLGenerator
         {
             XmlElement fieldElement = document.CreateElement("field");
             fieldElement.SetAttribute("name", field.Name);
-            fieldElement.InnerText = field.DropdownInput.Value;
+            fieldElement.InnerText = field.Input.Value;
             xmlBlockElement.AppendChild(fieldElement);
         }
         

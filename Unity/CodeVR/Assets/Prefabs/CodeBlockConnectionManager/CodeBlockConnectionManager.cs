@@ -32,6 +32,7 @@ public class CodeBlockConnectionManager : MonoBehaviour
         this._blocklyCodeManager.GenerateBlocklyCode();
 
         this._codeBlockManager = FindObjectOfType<CodeBlockManager>();
+        if (this._debugMode) Debug.LogWarning("DEBUG MODE IS ENABLED FOR BLOCK CONNECTIONS. SHOULD BE DISABLED IF USING VR \n See the inspector for CodeBlockConnectionManager to change the settings");
     }
 
     void Update()
