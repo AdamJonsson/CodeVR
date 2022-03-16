@@ -329,4 +329,12 @@ public class CodeBlockField
 {
     public string Name;
     public DropdownInput DropdownInput;
+    public string StaticValue;
+
+    public string Value {
+        get {
+            if (DropdownInput == null) return this.StaticValue;
+            return DropdownInput.Value;
+        }
+    }
 }
