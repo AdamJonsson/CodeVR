@@ -1,0 +1,23 @@
+.home-page__container {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.home-page__button-container {
+    width: 150px;
+}
+
+.home-page__button {
+    width: 100%;
+}
+
+.home-page__button a {
+    font-style: normal;
+    text-decoration: none;
+}
+
+.home-page__button button {
+    width: 100%;
+}
