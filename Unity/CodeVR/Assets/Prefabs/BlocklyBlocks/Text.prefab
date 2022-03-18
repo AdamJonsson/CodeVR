@@ -23,6 +23,30 @@ PrefabInstance:
       propertyPath: _blocklyFields.Array.data[0].Input
       value: 
       objectReference: {fileID: 1939365457599381499}
+    - target: {fileID: 632445417908272139, guid: 958a5623916b9d842a6a5a51f35dd2c6, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 632445417908272139, guid: 958a5623916b9d842a6a5a51f35dd2c6, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 632445417908272139, guid: 958a5623916b9d842a6a5a51f35dd2c6, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 632445417908272139, guid: 958a5623916b9d842a6a5a51f35dd2c6, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 632445417908272139, guid: 958a5623916b9d842a6a5a51f35dd2c6, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 868677464732796104, guid: 958a5623916b9d842a6a5a51f35dd2c6, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1680670964917819191, guid: 958a5623916b9d842a6a5a51f35dd2c6, type: 3}
       propertyPath: _expandScale.x
       value: 0.5
@@ -34,7 +58,7 @@ PrefabInstance:
     - target: {fileID: 1680670964917819191, guid: 958a5623916b9d842a6a5a51f35dd2c6, type: 3}
       propertyPath: _inputFieldEffectsWidth
       value: 
-      objectReference: {fileID: 2163026118881385111}
+      objectReference: {fileID: 1939365457599381499}
     - target: {fileID: 1680670964917819191, guid: 958a5623916b9d842a6a5a51f35dd2c6, type: 3}
       propertyPath: _expandables.Array.data[1].Offset.x
       value: -0.5
@@ -138,16 +162,5 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2af0b1237a56fff4990124b34e77cdb3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &2163026118881385111 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4208962374538478069, guid: 958a5623916b9d842a6a5a51f35dd2c6, type: 3}
-  m_PrefabInstance: {fileID: 2624930293236685666}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2da0c512f12947e489f739169773d7ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

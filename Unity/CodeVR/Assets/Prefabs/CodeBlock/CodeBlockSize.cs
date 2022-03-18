@@ -93,7 +93,7 @@ public class CodeBlockSize : MonoBehaviour
         return width;
     }
 
-    private void OnInputsChangeThatEffectWidth()
+    private void OnInputsChangeThatEffectWidth(string value)
     {
         var blocks = this._codeBlock.GetBlockCluster(true);
         foreach (var block in blocks)
@@ -110,8 +110,16 @@ public class CodeBlockSize : MonoBehaviour
         foreach (var expandableBlock in this.AllExpandableBlocks)
         {
             if (expandableBlock.InputFieldEffectsWidth == null) continue;
-            expandableBlock.InputFieldEffectsWidth.onValueChanged.AddListener((_) => this.OnInputsChangeThatEffectWidth());
+            expandableBlock.InputFieldEffectsWidth.OnChange += this.OnInputsChangeThatEffectWidth;
         }
+
+        StartCoroutine(ResizeForInputFields());
+    }
+
+    private IEnumerator ResizeForInputFields()
+    {
+        yield return new WaitForSeconds(0.5f);
+        this.OnInputsChangeThatEffectWidth("");
     }
 
     // Update is called once per frame

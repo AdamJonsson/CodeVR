@@ -21,8 +21,8 @@ public class ExpandableBlock : MonoBehaviour
     [SerializeField] private CodeBlockSize.CalculationMode _widthCalculationMode = CodeBlockSize.CalculationMode.Additive;
     [SerializeField] private List<CodeBlockConnector> _connectorsEffectsWidth = new List<CodeBlockConnector>();
 
-    [SerializeField] private TMPro.TMP_InputField _inputFieldEffectsWidth;
-    public TMPro.TMP_InputField InputFieldEffectsWidth { get => this._inputFieldEffectsWidth; }
+    [SerializeField] private TextInput _inputFieldEffectsWidth;
+    public TextInput InputFieldEffectsWidth { get => this._inputFieldEffectsWidth; }
 
 
     [Tooltip("The min expand scale, the block scale can not be less than this vector")]
@@ -62,8 +62,8 @@ public class ExpandableBlock : MonoBehaviour
     private float GetWidthFromInput(CodeBlock codeBlock)
     {
         if (_inputFieldEffectsWidth == null) return 0.0f;
-        var textComponent = this._inputFieldEffectsWidth.textComponent;
-        var widthOfInputField = textComponent.rectTransform.rect.width * textComponent.transform.lossyScale.x / codeBlock.transform.localScale.x;
+        var inputRectTransform = this._inputFieldEffectsWidth.RectTransform;
+        var widthOfInputField = inputRectTransform.rect.width * inputRectTransform.lossyScale.x / codeBlock.transform.localScale.x;
         return Mathf.Max(widthOfInputField, this._minExpandSize.x);
     }
 
