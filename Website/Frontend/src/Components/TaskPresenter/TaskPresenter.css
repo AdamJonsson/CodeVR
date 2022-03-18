@@ -1,0 +1,20 @@
+.task-presenter__container {
+    background-color: #eee;
+    height: 100%;
+    padding: 25px;
+
+    line-height: 1.5;
+}
+
+.task-presenter__description {
+    margin-bottom: 30px;
+    border-bottom: 1px solid #aaa;
+}
+
+.task-presenter__values {
+    padding: 10px 15px;
+    background-color: #ddd;
+    font-size: 18px;
+
+    margin-bottom: 15px;
+}
