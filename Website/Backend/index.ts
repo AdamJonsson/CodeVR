@@ -2,11 +2,14 @@ import * as express from 'express';
 import * as bodyParser from 'body-parser';
 import * as http from 'http';
 import * as WebSocket from 'ws';
+import * as Cors from 'cors';
 import { AddressInfo } from 'ws';
+import TaskManager from './TaskManager';
 
 const app = express();
 // app.use(bodyParser.json()); // Parsing JSON
 app.use(bodyParser.urlencoded({ extended: true })); // Parsing Form data
+app.use(Cors());
 
 //initialize a simple http server
 const server = http.createServer(app);
@@ -14,12 +17,29 @@ const server = http.createServer(app);
 //initialize the WebSocket server instance
 const wss = new WebSocket.Server({ server });
 
+var taskManager = new TaskManager();
+
 wss.on('connection', (ws: WebSocket) => {
     ws.send('Hi there, I am a WebSocket server');
 });
 
-app.get('/api/test', (req, res) => {
-    res.send('Hello World!')
+app.get('/api/current-task-status', (req, res) => {
+    res.send(taskManager.currentTaskStatus);
+});
+
+app.post('/api/mark-current-task-completed', (req, res) => {
+    taskManager.markCurrentLevelComplete();
+    res.send(true);
+});
+
+app.post('/api/move-to-next-task', (req, res) => {
+    taskManager.moveToNextTask();
+    res.send(true);
+});
+
+app.post('/api/reset', (req, res) => {
+    taskManager = new TaskManager();
+    res.send(true);
 });
 
 app.post('/api/notify-code-change', (req, res) => {
