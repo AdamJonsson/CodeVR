@@ -5,7 +5,7 @@ using System;
 using System.Linq;
 using UnityEngine.EventSystems;
 
-public class DropdownInput : MonoBehaviour
+public class DropdownInput : InputBase
 {
 
     [SerializeField] private CodeBlockInput _codeBlockInputPrefab;
@@ -31,7 +31,7 @@ public class DropdownInput : MonoBehaviour
 
     private List<DropdownOption> _allOptionsExceptSelected = new List<DropdownOption>();
 
-    public string Value { get => this._selectedOption.Value; }
+    public override string Value { get => this._selectedOption.Value; }
 
     private BlocklyCodeManager _blocklyCodeManager;
 

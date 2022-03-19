@@ -328,13 +328,14 @@ public class CodeBlock : MonoBehaviour
 public class CodeBlockField
 {
     public string Name;
-    public DropdownInput DropdownInput;
-    public string StaticValue;
+    [SerializeField] private InputBase Input;
+    [SerializeField] private string StaticValue;
 
-    public string Value {
+    public string Value { 
         get {
-            if (DropdownInput == null) return this.StaticValue;
-            return DropdownInput.Value;
+            if (this.Input != null) return Input.Value;
+            if (this.StaticValue != null) return this.StaticValue;
+            return null;
         }
     }
 }

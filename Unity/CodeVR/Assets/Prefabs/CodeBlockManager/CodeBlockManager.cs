@@ -15,6 +15,7 @@ public class CodeBlockManager : MonoBehaviour
     {
         this._blocklyCodeManager = FindObjectOfType<BlocklyCodeManager>();
         this._allCodeBlocks = FindObjectsOfType<CodeBlock>().Where((block) => block.enabled == true).ToList();
+        Debug.Log(this._allCodeBlocks.Count);
     }
 
     public CodeBlock CreateNewBlock(CodeBlock original, Vector3 position, Quaternion rotation)

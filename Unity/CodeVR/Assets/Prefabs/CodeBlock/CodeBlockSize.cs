@@ -43,7 +43,7 @@ public class CodeBlockSize : MonoBehaviour
             var max = 0.0f;
             foreach (var expandableBlock in this._widthExpandableBlocks)
             {
-                var width = expandableBlock.GetWidth();
+                var width = expandableBlock.GetWidth(this._codeBlock);
                 sum += width;
                 if (max < width) max = width;
             }
@@ -65,7 +65,7 @@ public class CodeBlockSize : MonoBehaviour
     {
         foreach (var expandableBlock in this.AllExpandableBlocks)
         {
-            expandableBlock.ChangeSizeFromConnectors();
+            expandableBlock.ChangeSizeFromConnectorsAndInput(this._codeBlock);
         }
     }
 
@@ -93,10 +93,33 @@ public class CodeBlockSize : MonoBehaviour
         return width;
     }
 
+    private void OnInputsChangeThatEffectWidth(string value)
+    {
+        var blocks = this._codeBlock.GetBlockCluster(true);
+        foreach (var block in blocks)
+        {
+            block.Size.ResizeAllExpandableBlocks();
+        }
+        this._codeBlock.RealignBlockCluster();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         this._codeBlock = GetComponent<CodeBlock>();
+        foreach (var expandableBlock in this.AllExpandableBlocks)
+        {
+            if (expandableBlock.InputFieldEffectsWidth == null) continue;
+            expandableBlock.InputFieldEffectsWidth.OnChange += this.OnInputsChangeThatEffectWidth;
+        }
+
+        StartCoroutine(ResizeForInputFields());
+    }
+
+    private IEnumerator ResizeForInputFields()
+    {
+        yield return new WaitForSeconds(0.5f);
+        this.OnInputsChangeThatEffectWidth("");
     }
 
     // Update is called once per frame
