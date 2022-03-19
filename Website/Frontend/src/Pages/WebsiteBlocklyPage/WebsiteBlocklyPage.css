@@ -1,13 +1,27 @@
-.blockly-generator-container {
+.website-blockly-page__container {
     width: 100%;
     height: 100vh;
 
     display: flex;
     flex-direction: row;
+
     overflow: hidden;
 }
 
-.blockly-generator__code-container,
-.blockly-generator__block-container {
+.website-blockly-page__blockly {
+    flex: 6;
+}
+
+.website-blockly-page__right-tools {
+    display: flex;
+    flex-direction: column;
+    flex: 4;
+}
+
+.website-blockly-page__task {
     flex: 1;
+}
+
+.website-blockly-page__code {
+    flex: 1
 }
