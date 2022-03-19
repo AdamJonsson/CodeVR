@@ -37,9 +37,7 @@ public class CodeBlockConnectionManager : MonoBehaviour
 
     void Update()
     {
-        var bestPotentialConnection = this.GetBestPotentialConnection();
-        this.DrawConnectionLine(bestPotentialConnection);
-
+        this.DrawConnectionLine();
         if (this._debugMode) this.DebugActionUpdate();
     }
 
@@ -97,27 +95,45 @@ public class CodeBlockConnectionManager : MonoBehaviour
         
     }
 
-    private void DrawConnectionLine(PotentialConnection potentialConnection)
+    private void DrawConnectionLine()
     {
-        if (potentialConnection != null) {
-            this._line.SetPositions(potentialConnection.Input.DistanceReferencePoint.position, potentialConnection.Output.DistanceReferencePoint.position);
+        PotentialConnection connectionToRender = null;
+
+        var bestCompatiblePotentialConnections = this.GetBestPotentialConnection();
+        if (bestCompatiblePotentialConnections != null) {
+            connectionToRender = bestCompatiblePotentialConnections;
         }
-        _line.gameObject.SetActive(potentialConnection != null);
+
+        if (connectionToRender == null)
+        {
+            connectionToRender = this.GetBestPotentialConnection(includeIncompatibleConnection: true);
+        }
+
+        if (connectionToRender != null)
+        {
+            this._line.SetPositions(
+                connectionToRender.Input.DistanceReferencePoint.position, 
+                connectionToRender.Output.DistanceReferencePoint.position
+            );
+            this._line.ConnectionCompatible(connectionToRender.IsCategoryCompatible);
+        }
+        
+        this._line.gameObject.SetActive(connectionToRender != null);
     }
 
-    private List<PotentialConnection> GetAllPotentialConnections()
+    private List<PotentialConnection> GetAllPotentialConnections(bool includeIncompatibleConnections = false)
     {
         var potentialConnections = new List<PotentialConnection>();
         foreach (var codeBlock in this._codeBlockManager.AllCodeBlocks)
         {
-            potentialConnections.AddRange(codeBlock.GetAllPotentialConnections());
+            potentialConnections.AddRange(codeBlock.GetAllPotentialConnections(includeIncompatibleConnections));
         }
         return potentialConnections;
     }
 
-    private PotentialConnection GetBestPotentialConnection() 
+    private PotentialConnection GetBestPotentialConnection(bool includeIncompatibleConnection = false) 
     {
-        var allPotentialConnections = GetAllPotentialConnections();
+        var allPotentialConnections = this.GetAllPotentialConnections(includeIncompatibleConnection);
         if (allPotentialConnections.Count == 0) return null;
         
         float closestDistance = Mathf.Infinity;
