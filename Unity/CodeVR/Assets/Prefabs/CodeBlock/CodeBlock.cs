@@ -328,5 +328,14 @@ public class CodeBlock : MonoBehaviour
 public class CodeBlockField
 {
     public string Name;
-    public InputBase Input;
+    [SerializeField] private InputBase Input;
+    [SerializeField] private string StaticValue;
+
+    public string Value { 
+        get {
+            if (this.Input != null) return Input.Value;
+            if (this.StaticValue != null) return this.StaticValue;
+            return null;
+        }
+    }
 }

@@ -14,6 +14,10 @@ public class TextInput : InputBase
 
     [SerializeField] private TMPro.TMP_Text _buttonText;
 
+    [SerializeField] private string _startValue = "";
+
+    [SerializeField] private string _valueIfEmpty = "Text";
+
     public event Action<string> OnChange;
 
     private string _value = "";
@@ -21,6 +25,8 @@ public class TextInput : InputBase
 
     private RectTransform _rectTransform;
     public RectTransform RectTransform { get => this._rectTransform; }
+
+    private BlocklyCodeManager _blocklyCodeManager;
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +36,13 @@ public class TextInput : InputBase
 
         this._vrKeyboard.OnChange += OnKeyboardInput;
         this._vrKeyboard.OnClose += OnCloseKeyboard;
+
+        this._blocklyCodeManager = FindObjectOfType<BlocklyCodeManager>();
+
+        this._value = this._startValue;
+
+        this.UpdateButtonText(this._value);
+        this.NotifyChangeDelayed();
     }
 
     private void OnInputFocus()
@@ -52,6 +65,7 @@ public class TextInput : InputBase
         if (letter.ToUpper() == "SPACE") letter = " ";
         if (letter.ToUpper() == "BACK")
         {
+            if (this._value.Length == 0) return;
             this._value = this._value.Remove(this._value.Length - 1);
         }
         else
@@ -59,7 +73,31 @@ public class TextInput : InputBase
             this._value += letter;
         }
 
-        this._buttonText.text = _value;
+
+
+        if (this._blocklyCodeManager != null)
+            this._blocklyCodeManager.GenerateBlocklyCode();
+
+        this.UpdateButtonText(this._value);
+        StartCoroutine(NotifyChangeDelayed());
+    }
+
+    private IEnumerator NotifyChangeDelayed()
+    {
+        yield return new WaitForSeconds(0.05f);
         this.OnChange.Invoke(this._value);
+    }
+
+    private void UpdateButtonText(string text)
+    {
+        if (text == "")
+        {
+            this._buttonText.text = this._valueIfEmpty;
+            this._buttonText.fontStyle = TMPro.FontStyles.Normal;
+            return;
+        }
+
+        this._buttonText.text = text;
+        this._buttonText.fontStyle = TMPro.FontStyles.Bold;
     }
 }
