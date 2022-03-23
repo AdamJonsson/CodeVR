@@ -18,13 +18,12 @@ public class TextInput : InputBase
 
     [SerializeField] private string _valueIfEmpty = "Text";
 
-    public event Action<string> OnChange;
-
     private string _value = "";
     public override string Value { get => this._value; }
 
     private RectTransform _rectTransform;
-    public RectTransform RectTransform { get => this._rectTransform; }
+
+    public override RectTransform RectTransform { get => this._rectTransform; }
 
     private BlocklyCodeManager _blocklyCodeManager;
 
@@ -42,7 +41,16 @@ public class TextInput : InputBase
         this._value = this._startValue;
 
         this.UpdateButtonText(this._value);
-        this.NotifyChangeDelayed();
+        if (this.OnChange != null)
+            this.OnChange.Invoke(this._value);
+    }
+
+    public void SetValue(string newValue)
+    {
+        this._value = newValue;
+        this.UpdateButtonText(this._value);
+        if (this.OnChange != null)
+            this.OnChange.Invoke(this._value);
     }
 
     private void OnInputFocus()
@@ -73,19 +81,12 @@ public class TextInput : InputBase
             this._value += letter;
         }
 
-
-
         if (this._blocklyCodeManager != null)
             this._blocklyCodeManager.GenerateBlocklyCode();
 
         this.UpdateButtonText(this._value);
-        StartCoroutine(NotifyChangeDelayed());
-    }
-
-    private IEnumerator NotifyChangeDelayed()
-    {
-        yield return new WaitForSeconds(0.05f);
-        this.OnChange.Invoke(this._value);
+        if (this.OnChange != null)
+            this.OnChange.Invoke(this._value);
     }
 
     private void UpdateButtonText(string text)

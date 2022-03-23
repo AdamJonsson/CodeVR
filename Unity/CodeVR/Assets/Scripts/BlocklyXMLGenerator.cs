@@ -33,8 +33,6 @@ public class BlocklyXMLGenerator
         xmlBlockElement.SetAttribute("type", block.BlocklyTypeString);
         xmlBlockElement.SetAttribute("id", block.ID);
 
-        Debug.Log("-------");
-        Debug.Log(block.BlocklyTypeString);
         // Add fields
         foreach (var field in block.BlocklyFields)
         {

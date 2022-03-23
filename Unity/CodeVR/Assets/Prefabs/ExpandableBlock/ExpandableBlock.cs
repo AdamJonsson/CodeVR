@@ -21,8 +21,8 @@ public class ExpandableBlock : MonoBehaviour
     [SerializeField] private CodeBlockSize.CalculationMode _widthCalculationMode = CodeBlockSize.CalculationMode.Additive;
     [SerializeField] private List<CodeBlockConnector> _connectorsEffectsWidth = new List<CodeBlockConnector>();
 
-    [SerializeField] private TextInput _inputFieldEffectsWidth;
-    public TextInput InputFieldEffectsWidth { get => this._inputFieldEffectsWidth; }
+    [SerializeField] private InputBase _inputFieldEffectsWidth;
+    public InputBase InputFieldEffectsWidth { get => this._inputFieldEffectsWidth; }
 
 
     [Tooltip("The min expand scale, the block scale can not be less than this vector")]

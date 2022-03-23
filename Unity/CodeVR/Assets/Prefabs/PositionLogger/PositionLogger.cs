@@ -20,7 +20,7 @@ public class PositionLogger : MonoBehaviour
     {
         var filePath = FilePath();
         var fileStream = File.Create(filePath);
-        Debug.Log(filePath);
+        Debug.Log("Created a log file for position data at: " + filePath);
         this._streamWriter = new StreamWriter(fileStream);
 
         this._streamWriter.Write("Ticks;");

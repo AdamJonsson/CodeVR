@@ -22,6 +22,8 @@ public class CodeBlockInput : MonoBehaviour
         this._canvas.sizeDelta = size;
     }
 
+    public RectTransform Canvas { get => this._canvas; }
+
     public Button Button { get => this._button; }
 
     public Vector2 CanvasSize { get => this._canvas.sizeDelta; }

@@ -5,7 +5,16 @@ using UnityEngine;
 
 public class VariableDeclarationManager : MonoBehaviour
 {
-    private List<VariableDeclaration> _variables;
+    private List<VariableDeclaration> _variables = new List<VariableDeclaration>() {
+        new VariableDeclaration {
+            Name = "foo",
+            ID = System.Guid.NewGuid().ToString("N")
+        },
+        new VariableDeclaration {
+            Name = "bar",
+            ID = System.Guid.NewGuid().ToString("N")
+        },
+    };
     public List<VariableDeclaration> Variables { get => this._variables; }
 
     public Action OnVariablesChanged;
@@ -16,13 +25,15 @@ public class VariableDeclarationManager : MonoBehaviour
         
     }
 
-    public void AddVariable(string name)
+    public VariableDeclaration AddVariable(string name)
     {
-        this._variables.Add(new VariableDeclaration() {
+        var newVariable = new VariableDeclaration() {
             ID = System.Guid.NewGuid().ToString("N"),
             Name = name,
-        });
+        };
+        this._variables.Add(newVariable);
         this.NotifyChange();
+        return newVariable;
     }
 
     public void RemoveVariable(string id)
@@ -41,7 +52,7 @@ public class VariableDeclarationManager : MonoBehaviour
 
     private void NotifyChange()
     {
-        if (this.OnVariablesChanged != null) this.OnVariablesChanged();
+        if (this.OnVariablesChanged != null) this.OnVariablesChanged.Invoke();
     }
 }
 

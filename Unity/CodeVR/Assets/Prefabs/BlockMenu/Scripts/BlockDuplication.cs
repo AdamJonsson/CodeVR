@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,6 +15,8 @@ public class BlockDuplication : MonoBehaviour
     private XRSimpleInteractable _interactable;
 
     private CodeBlockManager _codeBlockManager;
+
+    public Action<CodeBlock> OnClone;
 
     // Start is called before the first frame update
     void Start()
@@ -40,6 +43,7 @@ public class BlockDuplication : MonoBehaviour
         var spawnedBlock = this._codeBlockManager.CreateNewBlock(this._prefab, spawnPosition, this.transform.rotation);
         var interactor = args.interactorObject as XRRayInteractor;
         spawnedBlock.MakeUserGrabSelfAndConnectedBlocks(interactor, playGrabSound: true);
+        this.OnClone.Invoke(spawnedBlock);
     }
 
 

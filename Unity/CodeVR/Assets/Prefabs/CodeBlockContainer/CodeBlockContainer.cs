@@ -51,7 +51,7 @@ public class CodeBlockContainer : MonoBehaviour
 
     public void RemoveChild(CodeBlock child)
     {
-        Debug.Log(this._children.Remove(child));
+        this._children.Remove(child);
     }
 
     private IEnumerator DeleteContainerKeepChildrenDelayed(float delaySeconds)
