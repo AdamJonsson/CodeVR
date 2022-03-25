@@ -101,12 +101,14 @@ public class TextInput : InputBase
         if (text == "")
         {
             this._buttonText.text = this._valueIfEmpty;
-            this._buttonText.fontStyle = TMPro.FontStyles.Normal;
+            this._buttonText.fontStyle = TMPro.FontStyles.Italic;
+            this._buttonText.color = new Color(0.5f, 0.5f, 0.5f, 1.0f);
             return;
         }
 
         this._buttonText.text = text;
         this._buttonText.fontStyle = TMPro.FontStyles.Bold;
+        this._buttonText.color = new Color(0.0f, 0.0f, 0.0f, 1.0f);
     }
 
     private void ToggleKeyboardVisibility(bool show)

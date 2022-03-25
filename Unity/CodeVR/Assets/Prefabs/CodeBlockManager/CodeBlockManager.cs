@@ -10,12 +10,10 @@ public class CodeBlockManager : MonoBehaviour
 
     private BlocklyCodeManager _blocklyCodeManager;
 
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         this._blocklyCodeManager = FindObjectOfType<BlocklyCodeManager>();
         this._allCodeBlocks = FindObjectsOfType<CodeBlock>().Where((block) => block.enabled == true).ToList();
-        Debug.Log(this._allCodeBlocks.Count);
     }
 
     public CodeBlock CreateNewBlock(CodeBlock original, Vector3 position, Quaternion rotation)

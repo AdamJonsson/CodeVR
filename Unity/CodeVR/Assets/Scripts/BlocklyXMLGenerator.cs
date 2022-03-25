@@ -7,7 +7,7 @@ using UnityEngine;
 
 public class BlocklyXMLGenerator 
 {
-    public static string CreateXMLStringFromRootBlocks(List<CodeBlock> blocks)
+    public static string CreateXMLStringFromRootBlocks(List<CodeBlock> blocks, List<VariableDeclaration> variableDeclarations)
     {
         XmlDocument document = new XmlDocument();
 
@@ -17,6 +17,18 @@ public class BlocklyXMLGenerator
         XmlElement rootnode = document.CreateElement("xml");
         rootnode.SetAttribute("xmlns", "https://developers.google.com/blockly/xml");
 
+        // Create the xml for all the variable decleration
+        XmlElement xmlVariableContainer = document.CreateElement("variables");
+        foreach (var variable in variableDeclarations)
+        {
+            XmlElement xmlVariable = document.CreateElement("variable");
+            xmlVariable.SetAttribute("id", variable.ID);
+            xmlVariable.InnerText = variable.Name;
+            xmlVariableContainer.AppendChild(xmlVariable);
+        }
+        rootnode.AppendChild(xmlVariableContainer);
+
+        // Create the xml for all the blocks
         foreach (var block in blocks)
         {
             var xmlElementFromRootBlock = CreateXMLElementFromBlock(document, block);
@@ -24,6 +36,7 @@ public class BlocklyXMLGenerator
         }
 
         document.AppendChild(rootnode);
+        Debug.Log(document.OuterXml);
         return document.OuterXml;
     }
 
@@ -38,9 +51,16 @@ public class BlocklyXMLGenerator
         {
             XmlElement fieldElement = document.CreateElement("field");
             fieldElement.SetAttribute("name", field.Name);
-            Debug.Log(field.Name);
             fieldElement.InnerText = field.Value;
             xmlBlockElement.AppendChild(fieldElement);
+        }
+
+        // Add curstom xml elements from block
+        foreach (var customXMLElement in block.CustomXmlElements)
+        {
+            var xmlElement = customXMLElement.GetXmlElement(document);
+            if (xmlElement == null) continue;
+            xmlBlockElement.AppendChild(xmlElement);
         }
         
         // Add connected blocks to XML Element

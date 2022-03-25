@@ -24,6 +24,7 @@ public class DropdownInput : InputBase
     private CodeBlockInput _thisInput;
 
     private DropdownOption _selectedOption;
+    public DropdownOption SelectedOption { get => this._selectedOption; }
 
     private bool _optionsVisible = false;
 
@@ -38,6 +39,7 @@ public class DropdownInput : InputBase
     private BlocklyCodeManager _blocklyCodeManager;
 
     public override RectTransform RectTransform { get => this._inputRectTransform; }
+
 
     void Awake() {
         this._thisInput = GetComponent<CodeBlockInput>();

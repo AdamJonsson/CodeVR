@@ -43,7 +43,7 @@ public class BlockDuplication : MonoBehaviour
         var spawnedBlock = this._codeBlockManager.CreateNewBlock(this._prefab, spawnPosition, this.transform.rotation);
         var interactor = args.interactorObject as XRRayInteractor;
         spawnedBlock.MakeUserGrabSelfAndConnectedBlocks(interactor, playGrabSound: true);
-        this.OnClone.Invoke(spawnedBlock);
+        if (this.OnClone != null) this.OnClone.Invoke(spawnedBlock);
     }
 
 

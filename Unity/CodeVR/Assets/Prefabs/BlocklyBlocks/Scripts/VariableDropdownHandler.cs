@@ -22,6 +22,7 @@ public class VariableDropdownHandler : MonoBehaviour
 
     private void OnVariablesChanged()
     {
+        if (this == null) return;
         this.ChangeDropdownValues();
     }
 

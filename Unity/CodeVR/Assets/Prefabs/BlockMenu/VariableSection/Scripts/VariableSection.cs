@@ -45,6 +45,7 @@ public class VariableSection : MonoBehaviour
     private void OnEdit()
     {
         this.ToggleNameFormVisibility(true);
+        this._nameForm.SetInputValue(_variableDecleration.Name);
     }
 
     private void OnDelete()
@@ -63,7 +64,7 @@ public class VariableSection : MonoBehaviour
 
     private void OnCloseEditNameForm()
     {
-        this.ToggleNameFormVisibility(true);
+        this.ToggleNameFormVisibility(false);
     }
 
     public void SetVariableDecleration(VariableDeclaration variableDeclaration)

@@ -29,12 +29,14 @@ public class VariablesDeclerationMenu : MonoBehaviour
 
     private void OnAddNewVariableButtonPressed()
     {
+        this._nameForm.SetInputValue("");
         this._nameForm.gameObject.SetActive(true);
     }
 
     private void OnNameFormDone(string outputValue)
     {
         var variable = this._variableDeclerationManager.AddVariable(outputValue);
+        this._nameForm.gameObject.SetActive(false);
         this.InstantiateVariableSection(variable);
     }
     
