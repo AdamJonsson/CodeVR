@@ -4,18 +4,23 @@ using UnityEngine;
 
 public class BlocklyCodeManager : MonoBehaviour
 {
+
+    [SerializeField] private CodeBlockManager _blockManager;
+    [SerializeField] private VariableDeclarationManager _variableDeclarationManager;
+
     public void GenerateBlocklyCode()
     {
-        var codeBlockManager = FindObjectOfType<CodeBlockManager>();
+        if (this._blockManager == null) return;
         var blockClusters = new List<CodeBlock>();
-
-        foreach (var block in codeBlockManager.AllCodeBlocks)
+        foreach (var block in this._blockManager.AllCodeBlocks)
         {
             if (block.IsRootBlock)
                 blockClusters.Add(block);
         }
 
-        var blocklyString = BlocklyXMLGenerator.CreateXMLStringFromRootBlocks(blockClusters);
+        Debug.Log("Number of blocks: " + this._blockManager.AllCodeBlocks.Count);
+
+        var blocklyString = BlocklyXMLGenerator.CreateXMLStringFromRootBlocks(blockClusters, this._variableDeclarationManager.Variables);
         StartCoroutine(
             WebsiteConnection.UpdateBlocklyCode(blocklyString)
         );

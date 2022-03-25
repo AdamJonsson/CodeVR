@@ -29,6 +29,10 @@ public class CodeBlock : MonoBehaviour
     [SerializeField] private List<CodeBlockField> _blocklyFields;
     public List<CodeBlockField> BlocklyFields { get => this._blocklyFields; } 
 
+    [SerializeField] private List<CustomXMLElement> _customXMLElements;
+    public List<CustomXMLElement> CustomXmlElements { get => this._customXMLElements; } 
+
+
     private string _id;
 
     private CodeBlockSize _size;
@@ -328,12 +332,13 @@ public class CodeBlock : MonoBehaviour
 public class CodeBlockField
 {
     public string Name;
-    [SerializeField] private InputBase Input;
+    
+    [SerializeField] private InputBase DynamicValue;
     [SerializeField] private string StaticValue;
 
     public string Value { 
         get {
-            if (this.Input != null) return Input.Value;
+            if (this.DynamicValue != null) return DynamicValue.Value;
             if (this.StaticValue != null) return this.StaticValue;
             return null;
         }

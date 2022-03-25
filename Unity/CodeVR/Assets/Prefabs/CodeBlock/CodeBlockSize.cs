@@ -95,6 +95,15 @@ public class CodeBlockSize : MonoBehaviour
 
     private void OnInputsChangeThatEffectWidth(string value)
     {
+        StartCoroutine(ResizeAndRealignAllBlocksDelayed());
+    }
+
+    private IEnumerator ResizeAndRealignAllBlocksDelayed()
+    {
+        // The reason why we have a short delay is that the canvas needs time to
+        // update its size from the new value.
+        yield return new WaitForSeconds(0.05f);
+
         var blocks = this._codeBlock.GetBlockCluster(true);
         foreach (var block in blocks)
         {
@@ -113,13 +122,8 @@ public class CodeBlockSize : MonoBehaviour
             expandableBlock.InputFieldEffectsWidth.OnChange += this.OnInputsChangeThatEffectWidth;
         }
 
-        StartCoroutine(ResizeForInputFields());
-    }
-
-    private IEnumerator ResizeForInputFields()
-    {
-        yield return new WaitForSeconds(0.5f);
-        this.OnInputsChangeThatEffectWidth("");
+        // Resize 
+        StartCoroutine(this.ResizeAndRealignAllBlocksDelayed());
     }
 
     // Update is called once per frame

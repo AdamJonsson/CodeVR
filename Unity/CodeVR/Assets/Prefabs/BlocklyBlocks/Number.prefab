@@ -27,6 +27,10 @@ PrefabInstance:
       propertyPath: _blocklyFields.Array.data[0].Input
       value: 
       objectReference: {fileID: 212760745973473451}
+    - target: {fileID: 464279294438429285, guid: 958a5623916b9d842a6a5a51f35dd2c6, type: 3}
+      propertyPath: _blocklyFields.Array.data[0].DynamicValue
+      value: 
+      objectReference: {fileID: 212760745973473451}
     - target: {fileID: 632445417908272139, guid: 958a5623916b9d842a6a5a51f35dd2c6, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

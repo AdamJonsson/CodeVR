@@ -17,11 +17,14 @@ public class DropdownInput : InputBase
     [SerializeField] private AnimationCurve _expantionCurve = AnimationCurve.Linear(0.0f, 1.0f, 1.0f, 1.0f);
     [SerializeField] private float _expantionTime;
 
+    [SerializeField] private RectTransform _inputRectTransform;
+
     private float _expantionValue = 0.0f;
 
     private CodeBlockInput _thisInput;
 
     private DropdownOption _selectedOption;
+    public DropdownOption SelectedOption { get => this._selectedOption; }
 
     private bool _optionsVisible = false;
 
@@ -35,6 +38,9 @@ public class DropdownInput : InputBase
 
     private BlocklyCodeManager _blocklyCodeManager;
 
+    public override RectTransform RectTransform { get => this._inputRectTransform; }
+
+
     void Awake() {
         this._thisInput = GetComponent<CodeBlockInput>();
         this.InstantiateOptions();
@@ -47,6 +53,8 @@ public class DropdownInput : InputBase
         this.RepositionOptions();
         this._eventSystem = FindObjectOfType<EventSystem>();
         this._thisInput.Button.onClick.AddListener(OnClick);
+
+        this.CheckNumberOfOptions();
     }
 
     void Update()
@@ -69,13 +77,43 @@ public class DropdownInput : InputBase
         StartCoroutine(
             this.HideOptions(() => {
                 this.SelectOption(optionClicked);
+                if (this.OnChange != null) this.OnChange.Invoke(optionClicked.Value);
             })
         );
     }
 
     private void InstantiateOptions()
     {
-        DropdownOption optionToSelectAutomatically = null;
+        if (this._options.Count == 0) return;
+
+        this.CreateAndSpawnOptionGameObjects();
+
+        var defaultOption = this.GetDefaultOption();
+        SelectOption(defaultOption);
+    }
+
+    public void SetOptions(List<DropdownOption> options)
+    {
+        this.RemoveCurrentOptionGameObjects();
+        this._options = options;
+        this.CreateAndSpawnOptionGameObjects();
+        var defaultOption = this.GetDefaultOption();
+        SelectOption(defaultOption);
+
+        this.CheckNumberOfOptions();
+    }
+
+    private void RemoveCurrentOptionGameObjects()
+    {
+        foreach (var option in this._options)
+        {
+            if (option.InputObject != null)
+                Destroy(option.InputObject.gameObject);
+        }
+    }
+
+    private void CreateAndSpawnOptionGameObjects()
+    {
         foreach (var option in this._options)
         {
             var spawnedOption = Instantiate(
@@ -90,15 +128,7 @@ public class DropdownInput : InputBase
             spawnedOption.gameObject.SetActive(false);
             option.SetInputObject(spawnedOption);
             spawnedOption.Button.onClick.AddListener(() => OnOptionClicked(option));
-            if (option.IsDefaultValue) optionToSelectAutomatically = option;
         }
-
-        if (optionToSelectAutomatically == null)
-        {
-            optionToSelectAutomatically = this._options.First();
-        }
-
-        SelectOption(optionToSelectAutomatically);
     }
 
     private void ToggleShowOptions()
@@ -112,6 +142,14 @@ public class DropdownInput : InputBase
         {
             StartCoroutine(this.ShowOptions());
         }
+    }
+
+    private DropdownOption GetDefaultOption()
+    {
+        if (this._options.Count == 0) return null;
+        var defaultOption = this._options.Find((option) => option.IsDefaultValue);
+        if (defaultOption == null) return this._options.First();
+        return defaultOption;
     }
 
     private IEnumerator ShowOptions()
@@ -145,14 +183,22 @@ public class DropdownInput : InputBase
         OnHideDone();
     }
 
-    private void SelectOption(DropdownOption option)
+    public void SelectOption(DropdownOption option)
     {
+        if (option == null) return;
         this._selectedOption = option;
         this._allOptionsExceptSelected = this.GetAllOptionExceptSelected();
         this._thisInput.SetText(option.Text);
 
         if (this._blocklyCodeManager != null)
             this._blocklyCodeManager.GenerateBlocklyCode();
+    }
+
+    public void SelectOptionByValue(string value)
+    {
+        var dropdownOption = this._options.Find((option) => option.Value == value);
+        if (dropdownOption == null) return;
+        this.SelectOption(dropdownOption);
     }
 
     private List<DropdownOption> GetAllOptionExceptSelected()
@@ -176,6 +222,12 @@ public class DropdownInput : InputBase
             spaceIndex += index % 2;
             index++;
         }
+    }
+
+    private void CheckNumberOfOptions()
+    {
+        if (this._options.Count != 0) return;
+        this._thisInput.SetText("NO OPTIONS", true);
     }
 
     [Serializable]

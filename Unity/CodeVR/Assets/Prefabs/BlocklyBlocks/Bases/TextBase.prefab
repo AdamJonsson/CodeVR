@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1558929592787066899}
   - component: {fileID: 3134728837087671039}
   m_Layer: 7
-  m_Name: MiddleCap
+  m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -631,7 +631,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5894700553744220344, guid: f3a57e93e2a864de1967a639ab437c25, type: 3}
       propertyPath: m_Name
-      value: LogicInputFirstSection
+      value: ExpandableBlock
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f3a57e93e2a864de1967a639ab437c25, type: 3}
