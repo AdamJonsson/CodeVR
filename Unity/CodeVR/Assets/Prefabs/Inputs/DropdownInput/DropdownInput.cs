@@ -39,8 +39,6 @@ public class DropdownInput : InputBase
 
     public override RectTransform RectTransform { get => this._inputRectTransform; }
 
-    private List<DropdownOption> _currentOptions = new List<DropdownOption>();
-
     void Awake() {
         this._thisInput = GetComponent<CodeBlockInput>();
         this.InstantiateOptions();
@@ -53,6 +51,8 @@ public class DropdownInput : InputBase
         this.RepositionOptions();
         this._eventSystem = FindObjectOfType<EventSystem>();
         this._thisInput.Button.onClick.AddListener(OnClick);
+
+        this.CheckNumberOfOptions();
     }
 
     void Update()
@@ -97,6 +97,8 @@ public class DropdownInput : InputBase
         this.CreateAndSpawnOptionGameObjects();
         var defaultOption = this.GetDefaultOption();
         SelectOption(defaultOption);
+
+        this.CheckNumberOfOptions();
     }
 
     private void RemoveCurrentOptionGameObjects()
@@ -142,6 +144,7 @@ public class DropdownInput : InputBase
 
     private DropdownOption GetDefaultOption()
     {
+        if (this._options.Count == 0) return null;
         var defaultOption = this._options.Find((option) => option.IsDefaultValue);
         if (defaultOption == null) return this._options.First();
         return defaultOption;
@@ -180,6 +183,7 @@ public class DropdownInput : InputBase
 
     public void SelectOption(DropdownOption option)
     {
+        if (option == null) return;
         this._selectedOption = option;
         this._allOptionsExceptSelected = this.GetAllOptionExceptSelected();
         this._thisInput.SetText(option.Text);
@@ -216,6 +220,12 @@ public class DropdownInput : InputBase
             spaceIndex += index % 2;
             index++;
         }
+    }
+
+    private void CheckNumberOfOptions()
+    {
+        if (this._options.Count != 0) return;
+        this._thisInput.SetText("NO OPTIONS", true);
     }
 
     [Serializable]

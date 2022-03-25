@@ -12,9 +12,17 @@ public class CodeBlockInput : MonoBehaviour
 
     [SerializeField] private RectTransform _canvas;
 
-    public void SetText(string newText)
+    public void SetText(string newText, bool markAsPlaceholder = false)
     {
         this._buttonText.text = newText;
+        if (markAsPlaceholder)
+        {
+            this._buttonText.fontStyle = FontStyles.Italic;
+        }
+        else
+        {
+            this._buttonText.fontStyle = FontStyles.Bold;
+        }
     }
 
     public void SetCanvasSize(Vector2 size)

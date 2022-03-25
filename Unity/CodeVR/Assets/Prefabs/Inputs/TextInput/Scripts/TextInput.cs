@@ -27,6 +27,8 @@ public class TextInput : InputBase
 
     private BlocklyCodeManager _blocklyCodeManager;
 
+    private bool _keyboardCurrentlyOpen = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -55,17 +57,22 @@ public class TextInput : InputBase
 
     private void OnInputFocus()
     {
-        _vrKeyboard.gameObject.SetActive(true);
+        var allKeyboards = FindObjectsOfType<VRKeyboard>();
+        foreach (var keyboard in allKeyboards)
+        {
+            keyboard.gameObject.SetActive(false);
+        }
+        this.ToggleKeyboardVisibility(!this._keyboardCurrentlyOpen);
     }
 
     private void OnInputBlur()
     {
-        _vrKeyboard.gameObject.SetActive(false);
+        this.ToggleKeyboardVisibility(false);
     }
 
     private void OnCloseKeyboard()
     {
-        _vrKeyboard.gameObject.SetActive(false);
+        this.ToggleKeyboardVisibility(false);
     }
 
     private void OnKeyboardInput(string letter)
@@ -100,5 +107,11 @@ public class TextInput : InputBase
 
         this._buttonText.text = text;
         this._buttonText.fontStyle = TMPro.FontStyles.Bold;
+    }
+
+    private void ToggleKeyboardVisibility(bool show)
+    {
+        this._vrKeyboard.gameObject.SetActive(show);
+        this._keyboardCurrentlyOpen = show;
     }
 }
