@@ -729,6 +729,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "Select Start",
+                    "type": "Value",
+                    "id": "d85ae598-5829-4107-896a-acfa2f1f53f9",
+                    "expectedControlType": "Analog",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -1081,6 +1090,17 @@
                     "processors": "",
                     "groups": "Generic XR Controller",
                     "action": "UI Press Value",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "715264da-84cf-4f6a-bf67-98b48d489570",
+                    "path": "<XRController>{RightHand}/gripButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Generic XR Controller",
+                    "action": "Select Start",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

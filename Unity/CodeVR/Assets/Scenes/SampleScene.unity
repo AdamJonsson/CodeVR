@@ -10143,16 +10143,132 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 407107325}
     - target: {fileID: 4768768037161191557, guid: 91b5ccc41dc2e4726847a32b7cc4af95, type: 3}
+      propertyPath: _startSelecting.m_Id
+      value: 108eb00f-f0e4-452f-af35-37cbe5ed309f
+      objectReference: {fileID: 0}
+    - target: {fileID: 4768768037161191557, guid: 91b5ccc41dc2e4726847a32b7cc4af95, type: 3}
       propertyPath: _xrInteractionManager
       value: 
       objectReference: {fileID: 487620336}
+    - target: {fileID: 4768768037161191557, guid: 91b5ccc41dc2e4726847a32b7cc4af95, type: 3}
+      propertyPath: _startSelecting.m_Name
+      value: Start Selecting
+      objectReference: {fileID: 0}
+    - target: {fileID: 4768768037161191557, guid: 91b5ccc41dc2e4726847a32b7cc4af95, type: 3}
+      propertyPath: _startSelecting.m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4768768037161191557, guid: 91b5ccc41dc2e4726847a32b7cc4af95, type: 3}
+      propertyPath: _startSelecting.m_Flags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4768768037161191557, guid: 91b5ccc41dc2e4726847a32b7cc4af95, type: 3}
+      propertyPath: _uiInteractionMask.m_Bits
+      value: 32
+      objectReference: {fileID: 0}
     - target: {fileID: 4768768037161191557, guid: 91b5ccc41dc2e4726847a32b7cc4af95, type: 3}
       propertyPath: _codeBlockInteractionMask.m_Bits
       value: 160
       objectReference: {fileID: 0}
     - target: {fileID: 4768768037161191557, guid: 91b5ccc41dc2e4726847a32b7cc4af95, type: 3}
+      propertyPath: _startSelectingLeftController.m_Id
+      value: b1acdde8-9e90-4fdf-81cf-e5fd5358bcab
+      objectReference: {fileID: 0}
+    - target: {fileID: 4768768037161191557, guid: 91b5ccc41dc2e4726847a32b7cc4af95, type: 3}
+      propertyPath: _startSelectingRightController.m_Id
+      value: 075bd6b8-224d-42cf-ad56-ffe275bc9eb2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4768768037161191557, guid: 91b5ccc41dc2e4726847a32b7cc4af95, type: 3}
+      propertyPath: _startSelectingLeftController.m_Name
+      value: Start Selecting Left Controller
+      objectReference: {fileID: 0}
+    - target: {fileID: 4768768037161191557, guid: 91b5ccc41dc2e4726847a32b7cc4af95, type: 3}
+      propertyPath: _startSelectingLeftController.m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4768768037161191557, guid: 91b5ccc41dc2e4726847a32b7cc4af95, type: 3}
+      propertyPath: _startSelecting.m_ExpectedControlType
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4768768037161191557, guid: 91b5ccc41dc2e4726847a32b7cc4af95, type: 3}
+      propertyPath: _startSelectingRightController.m_Name
+      value: Start Selecting Right Controller
+      objectReference: {fileID: 0}
+    - target: {fileID: 4768768037161191557, guid: 91b5ccc41dc2e4726847a32b7cc4af95, type: 3}
+      propertyPath: _startSelectingRightController.m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4768768037161191557, guid: 91b5ccc41dc2e4726847a32b7cc4af95, type: 3}
       propertyPath: _codeBlockContainerInteractionMask.m_Bits
       value: 288
+      objectReference: {fileID: 0}
+    - target: {fileID: 4768768037161191557, guid: 91b5ccc41dc2e4726847a32b7cc4af95, type: 3}
+      propertyPath: _startSelectingLeftController.m_ExpectedControlType
+      value: Button
+      objectReference: {fileID: 0}
+    - target: {fileID: 4768768037161191557, guid: 91b5ccc41dc2e4726847a32b7cc4af95, type: 3}
+      propertyPath: _startSelecting.m_SingletonActionBindings.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4768768037161191557, guid: 91b5ccc41dc2e4726847a32b7cc4af95, type: 3}
+      propertyPath: _startSelectingRightController.m_ExpectedControlType
+      value: Button
+      objectReference: {fileID: 0}
+    - target: {fileID: 4768768037161191557, guid: 91b5ccc41dc2e4726847a32b7cc4af95, type: 3}
+      propertyPath: _startSelecting.m_SingletonActionBindings.Array.data[0].m_Id
+      value: 1f6612ea-643d-4d09-876c-c8ec8f85096d
+      objectReference: {fileID: 0}
+    - target: {fileID: 4768768037161191557, guid: 91b5ccc41dc2e4726847a32b7cc4af95, type: 3}
+      propertyPath: _startSelecting.m_SingletonActionBindings.Array.data[0].m_Path
+      value: <XRController>{RightHand}/grip
+      objectReference: {fileID: 0}
+    - target: {fileID: 4768768037161191557, guid: 91b5ccc41dc2e4726847a32b7cc4af95, type: 3}
+      propertyPath: _startSelecting.m_SingletonActionBindings.Array.data[0].m_Action
+      value: Start Selecting
+      objectReference: {fileID: 0}
+    - target: {fileID: 4768768037161191557, guid: 91b5ccc41dc2e4726847a32b7cc4af95, type: 3}
+      propertyPath: _startSelectingLeftController.m_SingletonActionBindings.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4768768037161191557, guid: 91b5ccc41dc2e4726847a32b7cc4af95, type: 3}
+      propertyPath: _startSelectingRightController.m_SingletonActionBindings.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4768768037161191557, guid: 91b5ccc41dc2e4726847a32b7cc4af95, type: 3}
+      propertyPath: _startSelecting.m_SingletonActionBindings.Array.data[0].m_Interactions
+      value: Press(pressPoint=0.1,behavior=2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4768768037161191557, guid: 91b5ccc41dc2e4726847a32b7cc4af95, type: 3}
+      propertyPath: _startSelectingLeftController.m_SingletonActionBindings.Array.data[0].m_Id
+      value: 0c353fdf-3cc7-4a6f-85f2-62e4cb9a6623
+      objectReference: {fileID: 0}
+    - target: {fileID: 4768768037161191557, guid: 91b5ccc41dc2e4726847a32b7cc4af95, type: 3}
+      propertyPath: _startSelectingRightController.m_SingletonActionBindings.Array.data[0].m_Id
+      value: e83c7b95-6331-49fb-b302-f48313a85c51
+      objectReference: {fileID: 0}
+    - target: {fileID: 4768768037161191557, guid: 91b5ccc41dc2e4726847a32b7cc4af95, type: 3}
+      propertyPath: _startSelectingLeftController.m_SingletonActionBindings.Array.data[0].m_Path
+      value: <XRController>{LeftHand}/grip
+      objectReference: {fileID: 0}
+    - target: {fileID: 4768768037161191557, guid: 91b5ccc41dc2e4726847a32b7cc4af95, type: 3}
+      propertyPath: _startSelectingRightController.m_SingletonActionBindings.Array.data[0].m_Path
+      value: <XRController>{RightHand}/grip
+      objectReference: {fileID: 0}
+    - target: {fileID: 4768768037161191557, guid: 91b5ccc41dc2e4726847a32b7cc4af95, type: 3}
+      propertyPath: _startSelectingLeftController.m_SingletonActionBindings.Array.data[0].m_Action
+      value: Start Selecting Left Controller
+      objectReference: {fileID: 0}
+    - target: {fileID: 4768768037161191557, guid: 91b5ccc41dc2e4726847a32b7cc4af95, type: 3}
+      propertyPath: _startSelectingRightController.m_SingletonActionBindings.Array.data[0].m_Action
+      value: Start Selecting Right Controller
+      objectReference: {fileID: 0}
+    - target: {fileID: 4768768037161191557, guid: 91b5ccc41dc2e4726847a32b7cc4af95, type: 3}
+      propertyPath: _startSelectingLeftController.m_SingletonActionBindings.Array.data[0].m_Interactions
+      value: Press(pressPoint=0.1,behavior=2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4768768037161191557, guid: 91b5ccc41dc2e4726847a32b7cc4af95, type: 3}
+      propertyPath: _startSelectingRightController.m_SingletonActionBindings.Array.data[0].m_Interactions
+      value: Press(pressPoint=0.1,behavior=2)
       objectReference: {fileID: 0}
     - target: {fileID: 5930706058931245607, guid: 91b5ccc41dc2e4726847a32b7cc4af95, type: 3}
       propertyPath: m_RootOrder
