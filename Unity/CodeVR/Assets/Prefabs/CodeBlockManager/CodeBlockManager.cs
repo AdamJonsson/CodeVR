@@ -13,7 +13,7 @@ public class CodeBlockManager : MonoBehaviour
     void Awake()
     {
         this._blocklyCodeManager = FindObjectOfType<BlocklyCodeManager>();
-        this._allCodeBlocks = FindObjectsOfType<CodeBlock>().Where((block) => block.enabled == true).ToList();
+        this._allCodeBlocks = FindObjectsOfType<CodeBlock>().ToList();
     }
 
     public CodeBlock CreateNewBlock(CodeBlock original, Vector3 position, Quaternion rotation)

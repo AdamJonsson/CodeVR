@@ -64,7 +64,7 @@ public class ExpandableBlock : MonoBehaviour
         if (_inputFieldEffectsWidth == null) return 0.0f;
         var inputRectTransform = this._inputFieldEffectsWidth.RectTransform;
         var widthOfInputField = inputRectTransform.rect.width * inputRectTransform.lossyScale.x / codeBlock.transform.localScale.x;
-        return Mathf.Max(widthOfInputField, this._minExpandSize.x);
+        return Mathf.Max(widthOfInputField, this._minExpandSize.x) + this._extraExpandSize.x;
     }
 
     public void ChangeSizeFromConnectorsAndInput(CodeBlock codeBlock)

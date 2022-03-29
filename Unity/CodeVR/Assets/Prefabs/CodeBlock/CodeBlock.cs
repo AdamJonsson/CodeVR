@@ -79,6 +79,9 @@ public class CodeBlock : MonoBehaviour
     public bool IsRootBlock
     {
         get {
+            // Special case for function declare blocks
+            if (this.BlocklyTypeString == "procedures_defreturn") return true;
+
             bool atLeastOneConnectorHasPreviousFlow = false;
             foreach (var connector in this._connectors)
             {
