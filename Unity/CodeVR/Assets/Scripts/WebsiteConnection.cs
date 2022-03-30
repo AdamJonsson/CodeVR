@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.Networking;
 using System.Collections;
+using System;
 
 public class WebsiteConnection
 {
@@ -25,6 +26,26 @@ public class WebsiteConnection
             else
             {
                 Debug.Log("Successfully updated website with new blockly code");
+            }
+        }
+    }
+
+    public static IEnumerator GetTaskStatus(Action<TaskStatusResponse> OnResult)
+    {
+        WWWForm form = new WWWForm();
+        using (UnityWebRequest www = UnityWebRequest.Get(BaseAdress + "/api/current-task-status"))
+        {
+            yield return www.SendWebRequest();
+
+            if (www.result != UnityWebRequest.Result.Success)
+            {
+                Debug.Log(www.error);
+            }
+            else
+            {
+                Debug.Log(www.downloadHandler.text);
+                var parsedResponse = JsonUtility.FromJson<TaskStatusResponse>(www.downloadHandler.text);
+                OnResult.Invoke(parsedResponse);
             }
         }
     }

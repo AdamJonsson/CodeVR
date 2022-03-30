@@ -1,6 +1,8 @@
 import { Alert, Button, Snackbar } from "@mui/material";
 import { FC, useEffect, useState } from "react"
 import { UnityBlocklyGenerator } from "../../Components/BlocklyGenerator/UnityBlocklyGenerator"
+import { TaskPresenter } from "../../Components/TaskPresenter/TaskPresenter";
+import { TaskStatus } from "../../Helpers/taskHelper";
 import useUnityBlocklyXml, { WebSocketConnectionStatus } from "../../Hooks/useBlocklyXml";
 
 import "./UnityBlocklyPage.css";
@@ -9,7 +11,7 @@ export const UnityBlocklyPage: FC = (props) => {
     const [blocklyXml, connectionStatus] = useUnityBlocklyXml();
     const [showSnackbar, setShowSnackbar] = useState(false);
     const [lastConnectionStatus, setLastConnectionStatus] = useState(WebSocketConnectionStatus.Unknown)
-
+    
     useEffect(() => {
         if (lastConnectionStatus === connectionStatus) return;
         setLastConnectionStatus(lastConnectionStatus);
