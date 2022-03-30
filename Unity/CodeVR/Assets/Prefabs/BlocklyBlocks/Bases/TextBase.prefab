@@ -351,11 +351,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -4072927354368697834, guid: f3a57e93e2a864de1967a639ab437c25, type: 3}
       propertyPath: _extraExpandSize.x
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4072927354368697834, guid: f3a57e93e2a864de1967a639ab437c25, type: 3}
       propertyPath: _extraExpandSize.y
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4072927354368697834, guid: f3a57e93e2a864de1967a639ab437c25, type: 3}
       propertyPath: _heightCalculationMode

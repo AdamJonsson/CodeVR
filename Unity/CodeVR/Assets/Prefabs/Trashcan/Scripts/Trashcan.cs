@@ -77,6 +77,7 @@ public class Trashcan : MonoBehaviour
         if (blockContainerDropped == null) return;
         if (!this._blocksInsideTrashcan.Contains(blockContainerDropped)) return;
 
+        
         var childrenToRemove = new List<CodeBlock>(blockContainerDropped.Children);
         this._containerToRemove = blockContainerDropped;
         StartCoroutine(RemoveBlocksDelayed(childrenToRemove));
