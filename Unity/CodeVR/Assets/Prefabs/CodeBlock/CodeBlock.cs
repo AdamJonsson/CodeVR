@@ -11,6 +11,10 @@ public class CodeBlock : MonoBehaviour
     [SerializeField] private List<CodeBlockConnector> _connectors;
     [SerializeField] private CodeBlockContainer _containerPrefab;
 
+    [Tooltip("Blocks that are helper blocks for this block should be specified here")]
+    [SerializeField] private List<CodeBlock> _helperBlocks = new List<CodeBlock>();
+    public List<CodeBlock> HelperBlocks { get => this._helperBlocks; }
+
 
     [Header("Sound")]
     [SerializeField] private AudioClip _selectSound;
@@ -32,6 +36,8 @@ public class CodeBlock : MonoBehaviour
     [SerializeField] private List<CustomXMLElement> _customXMLElements;
     public List<CustomXMLElement> CustomXmlElements { get => this._customXMLElements; } 
 
+    [SerializeField] private bool _excludeInAutomaticBlocklyCodeGeneration = false;
+    public bool ExcludeInAutomaticBlocklyCodeGeneration { get => this._excludeInAutomaticBlocklyCodeGeneration; }
 
     private string _id;
 

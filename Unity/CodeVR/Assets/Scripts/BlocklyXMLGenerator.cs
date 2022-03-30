@@ -68,6 +68,7 @@ public class BlocklyXMLGenerator
         {
             if (connector.ConnectionFlow == CodeBlockConnector.Flows.Previous) continue;
             if (!connector.IsConnected) continue;
+            if (connector.BlockConnectedTo.ExcludeInAutomaticBlocklyCodeGeneration) continue;
 
             XmlElement connectorElement = document.CreateElement(connector.XmlTag);
             if (connector.NameAttributeValue != null)

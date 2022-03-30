@@ -12,10 +12,12 @@ public class BlocklyCodeManager : MonoBehaviour
     {
         if (this._blockManager == null) return;
         var blockClusters = new List<CodeBlock>();
+
         foreach (var block in this._blockManager.AllCodeBlocks)
         {
-            if (block.IsRootBlock)
-                blockClusters.Add(block);
+            if (block.ExcludeInAutomaticBlocklyCodeGeneration) continue;
+            if (!block.IsRootBlock) continue;
+            blockClusters.Add(block);
         }
 
         Debug.Log("Number of blocks: " + this._blockManager.AllCodeBlocks.Count);
