@@ -10,3 +10,7 @@
 .blockly-generator__block-container {
     flex: 1;
 }
+
+.unity-blockly-generator__task-container {
+    flex: 1;
+}

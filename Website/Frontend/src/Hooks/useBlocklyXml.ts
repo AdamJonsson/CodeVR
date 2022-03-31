@@ -1,12 +1,7 @@
 import { useState, useEffect } from 'react';
 import config from '../config.json';
-
-export enum WebSocketConnectionStatus {
-  Unknown,
-  Error,
-  LostConnection,
-  Success,
-}
+import useWebsocketConnection from './useWebsocketConnection';
+import { WebSocketConnectionStatus } from './WebSocketConnectionStatus';
 
 function useUnityBlocklyXml(): [string, WebSocketConnectionStatus] {
   console.log("Use Unity blockly xml");
@@ -19,36 +14,13 @@ function useUnityBlocklyXml(): [string, WebSocketConnectionStatus] {
     </xml>
   `);
 
-  const [connectionStatus, setConnectionStatus] = useState(WebSocketConnectionStatus.Unknown);
+  const [blocklyXmlFromServer, connectionStatus] = useWebsocketConnection<string>("xmlCode");
 
   useEffect(() => {
-
-    var blocklyWebSocket = new WebSocket(`ws://${config.serverIP}:8999`);
-    
-    blocklyWebSocket.onopen = () => {
-      console.log("Socket open!");
-      setConnectionStatus(WebSocketConnectionStatus.Success);
+    if (blocklyXmlFromServer != null) {
+      setBlocklyXml(blocklyXmlFromServer);
     }
-
-    blocklyWebSocket.onerror = () => {
-      setConnectionStatus(WebSocketConnectionStatus.Error);
-    }
-    
-    blocklyWebSocket.onclose = () => {
-      setConnectionStatus(WebSocketConnectionStatus.LostConnection);
-    }
-
-    blocklyWebSocket.onmessage = (message) => {
-      var parsedData; 
-      try {
-        parsedData = JSON.parse(message.data);
-      } catch (error) {
-        console.log("Could not parse message from websocket!");
-        return;
-      }
-      setBlocklyXml(parsedData.blocklyXML);
-    }
-  }, []);
+  }, [blocklyXmlFromServer]);
 
   return [blocklyXml, connectionStatus];
 }

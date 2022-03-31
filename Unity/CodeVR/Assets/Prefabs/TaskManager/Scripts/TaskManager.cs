@@ -1,9 +1,12 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class TaskManager : MonoBehaviour
 {
+    public Action<TaskStatusResponse> OnTaskStatusChange;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -12,19 +15,17 @@ public class TaskManager : MonoBehaviour
 
     private void CheckStatus()
     {
-        Debug.Log("Running!");
         StartCoroutine(WebsiteConnection.GetTaskStatus((result) => this.OnCheckStatusResult(result)));
     }
 
     private void OnCheckStatusResult(TaskStatusResponse response)
     {
-        Debug.Log(response.task.functionName);
-        Debug.Log("Task is completed: " + response.isCompleted);
+        if (this.OnTaskStatusChange == null) return;
+        this.OnTaskStatusChange.Invoke(response);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void LoadNextTask()
     {
-        
+        StartCoroutine(WebsiteConnection.LoadNextTask());
     }
 }

@@ -34,6 +34,9 @@ app.post('/api/mark-current-task-completed', (req, res) => {
 
 app.post('/api/move-to-next-task', (req, res) => {
     taskManager.moveToNextTask();
+    wss.clients.forEach(client => {
+        client.send(JSON.stringify({channel: "taskStatus", data: taskManager.currentTaskStatus}));
+    });
     res.send(true);
 });
 
@@ -44,7 +47,7 @@ app.post('/api/reset', (req, res) => {
 
 app.post('/api/notify-code-change', (req, res) => {
     wss.clients.forEach(client => {
-        client.send(JSON.stringify(req.body));
+        client.send(JSON.stringify({channel: "xmlCode", data: req.body.blocklyXML}));
     });
     res.send('New code change notified! with following data' + req.body)
 });

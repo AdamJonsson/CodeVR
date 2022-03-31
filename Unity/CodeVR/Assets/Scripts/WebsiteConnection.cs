@@ -50,4 +50,22 @@ public class WebsiteConnection
         }
     }
 
+    public static IEnumerator LoadNextTask()
+    {
+        WWWForm form = new WWWForm();
+        using (UnityWebRequest www = UnityWebRequest.Post(BaseAdress + "/api/move-to-next-task", form))
+        {
+            yield return www.SendWebRequest();
+
+            if (www.result != UnityWebRequest.Result.Success)
+            {
+                Debug.Log(www.error);
+            }
+            else
+            {
+                Debug.Log("Successfully updated website with new blockly code");
+            }
+        }
+    }
+
 }

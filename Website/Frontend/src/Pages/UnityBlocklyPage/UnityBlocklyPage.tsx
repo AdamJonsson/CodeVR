@@ -3,7 +3,8 @@ import { FC, useEffect, useState } from "react"
 import { UnityBlocklyGenerator } from "../../Components/BlocklyGenerator/UnityBlocklyGenerator"
 import { TaskPresenter } from "../../Components/TaskPresenter/TaskPresenter";
 import { TaskStatus } from "../../Helpers/taskHelper";
-import useUnityBlocklyXml, { WebSocketConnectionStatus } from "../../Hooks/useBlocklyXml";
+import useUnityBlocklyXml from "../../Hooks/useBlocklyXml";
+import { WebSocketConnectionStatus } from "../../Hooks/WebSocketConnectionStatus";
 
 import "./UnityBlocklyPage.css";
 
