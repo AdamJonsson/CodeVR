@@ -7,7 +7,7 @@ interface Task {
     testCases: TestCases[]
 }
 
-interface TestCases
+export interface TestCases
 {
     inputs: string[],
     output: string

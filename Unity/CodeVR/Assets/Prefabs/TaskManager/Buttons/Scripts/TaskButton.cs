@@ -21,6 +21,7 @@ public class TaskButton : MonoBehaviour
 
     private void OnTaskStatusChange(TaskStatusResponse taskStatus)
     {
+        Debug.Log(taskStatus.isCompleted);
         this.ToggleDisable(!taskStatus.isCompleted);
     }
 

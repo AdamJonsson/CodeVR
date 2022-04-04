@@ -44,3 +44,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6812dd6f8a99a4d99ad502239fd4b8cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _startingBlocksData:
+  - TaskID: test_task
+    BlocksContainer: {fileID: 3642513230351947424, guid: 8c6daa8f9aec13549bd85675fe8eac8d, type: 3}
+    Variables: []
+  - TaskID: drive_task
+    BlocksContainer: {fileID: 3642513230351947424, guid: e1c0cf1830c32d844b9f7ec11e9d0ded, type: 3}
+    Variables:
+    - age
+    - isDrunk

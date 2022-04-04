@@ -10,14 +10,27 @@ public class VariableDropdownHandler : MonoBehaviour
 
     private VariableDeclarationManager _variableDeclerationManager;
 
-    public string OverrideStartValue = null;
+    private string _startValueByVariableID = null;
+    private string StartValueByVariableID {
+        get 
+        {
+            if (this._startValueByVariableName == null || this._startValueByVariableName == "") return this._startValueByVariableID;
+            var foundVariable = this._variableDeclerationManager.Variables.Find(
+                (variable) => variable.Name == this._startValueByVariableName
+            );
+            if (foundVariable == null) return null;
+            return foundVariable.ID;
+        }
+    }
+    
+    [SerializeField] private string _startValueByVariableName = null;
 
     // Start is called before the first frame update
     void Start()
     {
         this._variableDeclerationManager = FindObjectOfType<VariableDeclarationManager>();
         this._variableDeclerationManager.OnVariablesChanged += this.OnVariablesChanged;
-        this.ChangeDropdownValues(this.OverrideStartValue);
+        this.ChangeDropdownValues(this.StartValueByVariableID);
     }
 
     private void OnVariablesChanged()
@@ -26,9 +39,9 @@ public class VariableDropdownHandler : MonoBehaviour
         this.ChangeDropdownValues();
     }
 
-    private void ChangeDropdownValues(string selectValue = null)
+    private void ChangeDropdownValues(string overrideStartValueWithVariableID = null)
     {
-        var currentSelectedValue = selectValue ?? this._dropdown.Value;
+        var currentSelectedValue = overrideStartValueWithVariableID ?? this._dropdown.Value;
         var newDropdownValues = this._variableDeclerationManager.Variables.Select((variable) => {
             return new DropdownInput.DropdownOption() {
                 Text = variable.Name,
@@ -38,6 +51,11 @@ public class VariableDropdownHandler : MonoBehaviour
         }).ToList();
 
         this._dropdown.SetOptions(newDropdownValues);
+    }
+
+    public void SetStartValueByVariableID(string variableID)
+    {
+        this._startValueByVariableID = variableID;
     }
 
     // Update is called once per frame

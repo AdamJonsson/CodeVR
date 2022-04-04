@@ -8,6 +8,15 @@ public class TaskStatusResponse
     public TaskStatus task;
     public bool isCompleted;
     public bool isLastTask;
+    public FailedTest failedTest;
+    public string currentOutput;
+}
+
+[Serializable]
+public class FailedTest
+{
+    public string inputs;
+    public string output;
 }
 
 [Serializable]

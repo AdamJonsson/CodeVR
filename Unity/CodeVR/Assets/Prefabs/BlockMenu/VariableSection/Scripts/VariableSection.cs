@@ -39,7 +39,7 @@ public class VariableSection : MonoBehaviour
     private void OnClone(CodeBlock block)
     {
         var dropdownHandler = block.GetComponent<VariableDropdownHandler>();
-        dropdownHandler.OverrideStartValue = this._variableDecleration.ID;
+        dropdownHandler.SetStartValueByVariableID(this._variableDecleration.ID);
     }
 
     private void OnEdit()

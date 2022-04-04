@@ -28,7 +28,12 @@ app.get('/api/current-task-status', (req, res) => {
 });
 
 app.post('/api/mark-current-task-completed', (req, res) => {
-    taskManager.markCurrentLevelComplete();
+    var data = JSON.parse(req.body?.data);
+    taskManager.updateTaskStatus(
+        data.isCompleted,
+        data.failedTest,
+        data.currentOutput,
+    );
     res.send(true);
 });
 

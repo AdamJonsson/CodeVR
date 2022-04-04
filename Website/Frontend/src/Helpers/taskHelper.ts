@@ -9,9 +9,22 @@ export default async function getCurrentTaskStatus() {
     return taskStatus as TaskStatus;
 }
 
-export async function markCurrentTaskAsComplete()
+export async function updateCurrentTaskStatus(isCompleted: boolean, failedTest: FailedTest | null, currentOutput: string)
 {
-    await fetch(`${baseAdress}/api/mark-current-task-completed`, { method: "POST"} );
+    const data = new URLSearchParams();
+    data.append('data', JSON.stringify({
+        isCompleted: isCompleted,
+        failedTest: failedTest,
+        currentOutput: currentOutput
+    }));
+
+    await fetch(`${baseAdress}/api/mark-current-task-completed`, {
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: data, 
+        method: "POST"
+    });
 }
 
 export async function moveToNextTask()
@@ -30,3 +43,7 @@ export interface TaskStatus {
     isLastTask: boolean
 }
 
+interface FailedTest {
+    inputs: string, 
+    output: string
+}

@@ -94,10 +94,14 @@ public class CodeBlockConnector : MonoBehaviour
     /// <summary>Is always null if the connector is an input</summary>
     public InputFinder InputFinder { get => this._inputFinder; }
 
+    void Awake()
+    {
+        this._inputFinder = GetComponent<InputFinder>();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        this._inputFinder = GetComponent<InputFinder>();
         if (Application.isPlaying)
             this.NotifyMissingFields();
     }
@@ -141,7 +145,7 @@ public class CodeBlockConnector : MonoBehaviour
     {
         this._connection = connector;
         this._connectionParticleSystem.Play();
-        this._inputFinder.ClearPotentialConnections();
+        if (this._inputFinder) this._inputFinder.ClearPotentialConnections();
         if (snapConnectorsBlockCluster)
         {
             connector.BlockAttachedTo.SnapBlockClusterToConnector(this);
