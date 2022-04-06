@@ -4,6 +4,7 @@ import testBlocklyCode from "../../Helpers/testBlocklyCode";
 
 import "./TaskPresenter.css";
 import { Button } from "@mui/material";
+import { updateCurrentTaskStatus } from "../../Helpers/taskHelper";
 
 interface TaskPresenterProps {
     code: string,
@@ -24,6 +25,15 @@ export const TaskPresenter: FC<TaskPresenterProps> = (props) => {
 
     useEffect(() => {
         var [taskCompleted, inputs, expectedOutput, output] = testBlocklyCode(props.code, props.task);
+
+        updateCurrentTaskStatus(
+            taskCompleted, 
+            taskCompleted ? null : {
+                inputs: inputs,
+                output: expectedOutput,
+            },
+            output
+        );
 
         setTaskState({
             taskCompleted: taskCompleted,

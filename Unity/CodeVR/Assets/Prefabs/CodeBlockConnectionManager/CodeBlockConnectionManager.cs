@@ -151,11 +151,14 @@ public class CodeBlockConnectionManager : MonoBehaviour
         return closestConnection;
     }
 
-    private void ConnectBlocks(CodeBlockConnector fromConnector, CodeBlockConnector toConnector)
+    public void ConnectBlocks(CodeBlockConnector fromConnector, CodeBlockConnector toConnector)
     {
         // Perform the basic connection
         fromConnector.Connect(connector: toConnector, snapConnectorsBlockCluster: false);
         toConnector.Connect(connector: fromConnector, snapConnectorsBlockCluster: true);
+
+        // Make the from-connector to have the same "active" state as the to-connector
+        fromConnector.BlockAttachedTo.gameObject.SetActive(toConnector.BlockAttachedTo.gameObject.activeSelf);
 
         // Notify the new block cluster of the connection. So it resize itself correctly
         toConnector.BlockAttachedTo.OnConnectionToThisBlock();

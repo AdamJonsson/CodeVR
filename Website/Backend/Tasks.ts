@@ -7,7 +7,7 @@ interface Task {
     testCases: TestCases[]
 }
 
-interface TestCases
+export interface TestCases
 {
     inputs: string[],
     output: string
@@ -17,13 +17,13 @@ export const allTasks: Task[] = [
     {
         id: "test_task",
         title: "Task 0: Debug task",
-        description: "The function 'test' should return true",
+        description: "The function should return 1337",
         functionName: "test",
         variables: [],
         testCases: [
             {
                 inputs: [],
-                output: "true"
+                output: "1337"
             }
         ]
     },

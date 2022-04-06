@@ -1,9 +1,11 @@
-import Task, { allTasks } from "./tasks";
+import Task, { allTasks, TestCases } from "./tasks";
 
 export default class TaskManager 
 {
     private currentTaskIndex: number = 0;
     private currentTaskCompleted: boolean = false;
+    private currentOutput: string = "TEST";
+    private failedTest: FailedTest | null = null;
 
     public get currentActiveTask() {
         return allTasks[this.currentTaskIndex];
@@ -14,6 +16,8 @@ export default class TaskManager
             task: this.currentActiveTask,
             isCompleted: this.currentTaskCompleted,
             isLastTask: this.isLastTask,
+            currentOutput: this.currentOutput,
+            failedTest: this.failedTest,
         }
     }
 
@@ -27,8 +31,10 @@ export default class TaskManager
         this.currentTaskCompleted = false;
     }
     
-    public markCurrentLevelComplete() {
-        this.currentTaskCompleted = true;
+    public updateTaskStatus(isCompleted: boolean, failedTest: FailedTest | null, currentOutput: string) {
+        this.currentTaskCompleted = isCompleted;
+        this.failedTest = failedTest;
+        this.currentOutput = currentOutput;
     }
 }
 
@@ -36,4 +42,11 @@ interface TaskStatus {
     task: Task,
     isCompleted: boolean,
     isLastTask: boolean,
+    failedTest: FailedTest | null,
+    currentOutput: string
+}
+
+interface FailedTest {
+    inputs: string, 
+    output: string
 }

@@ -26,17 +26,34 @@ public class CodeBlockManager : MonoBehaviour
             helperBlocksFound.AddRange(codeBlock.HelperBlocks);
         }
         this._allCodeBlocks.AddRange(helperBlocksFound);
-
-        Debug.Log("Number of blocks at start: " + this._allCodeBlocks.Count);
     }
 
     public CodeBlock CreateNewBlock(CodeBlock original, Vector3 position, Quaternion rotation)
     {
         var createdBlock = Instantiate(original, position, rotation);
-        this._allCodeBlocks.Add(createdBlock);
-        this._allCodeBlocks.AddRange(createdBlock.HelperBlocks);
+        this.AddBlockAndItsHelperBlocks(createdBlock);
         this._blocklyCodeManager.GenerateBlocklyCode();
         return createdBlock;
+    }
+
+    public void AddExistingBlock(List<CodeBlock> codeBlocks)
+    {
+        this.AddBlocksAndTheirHelperBlocks(codeBlocks);
+        this._blocklyCodeManager.GenerateBlocklyCode();
+    }
+
+    private void AddBlocksAndTheirHelperBlocks(List<CodeBlock> codeBlocks)
+    {
+        foreach (var codeBlock in codeBlocks)
+        {
+            this.AddBlockAndItsHelperBlocks(codeBlock);
+        }
+    }
+
+    private void AddBlockAndItsHelperBlocks(CodeBlock codeBlock)
+    {
+            this._allCodeBlocks.Add(codeBlock);
+            this._allCodeBlocks.AddRange(codeBlock.HelperBlocks);
     }
 
     public void DeleteBlock(CodeBlock blockToDelete)
@@ -56,5 +73,14 @@ public class CodeBlockManager : MonoBehaviour
 
         Destroy(blockToDelete.gameObject);
         this._blocklyCodeManager.GenerateBlocklyCode();
+    }
+
+    public void RemoveAllBlocksInScene()
+    {
+        var codeBlocksToRemove = new List<CodeBlock>(this._allCodeBlocks);
+        foreach (var codeBlock in codeBlocksToRemove)
+        {
+            this.DeleteBlock(codeBlock);
+        }
     }
 }
