@@ -4,24 +4,24 @@ function testBlocklyCode(code: string, task: Task): [boolean, string, string, st
   var allTestsPassed = true;
   var inputs: string[] = [];
   var expectedOutput = "";
-  var output: string = "";
+  var outputFromCurrentlyBlocklyCode: string = "";
   
   try {
     for (const testCase of task.testCases) {
-      output = "";
+      outputFromCurrentlyBlocklyCode = "";
       inputs = testCase.inputs;
       expectedOutput = testCase.output;
 
       eval(
         code +
-        `output = ${task.functionName}(${testCase.inputs.join(",")});`
+        `outputFromCurrentlyBlocklyCode = ${task.functionName}(${testCase.inputs.join(",")});`
       );
 
       try {
-        output = output.toString();
+        outputFromCurrentlyBlocklyCode = outputFromCurrentlyBlocklyCode.toString();
       } catch (error) {}
 
-      if (output !== testCase.output)
+      if (outputFromCurrentlyBlocklyCode !== testCase.output)
       {
         allTestsPassed = false;
         break;
@@ -29,7 +29,7 @@ function testBlocklyCode(code: string, task: Task): [boolean, string, string, st
     }
   } catch (error: any) {
     allTestsPassed = false;
-    output = error.message as string;
+    outputFromCurrentlyBlocklyCode = error.message as string;
   }
 
   var readableInputs = ""
@@ -43,7 +43,7 @@ function testBlocklyCode(code: string, task: Task): [boolean, string, string, st
     }
   }
 
-  return [allTestsPassed, readableInputs, expectedOutput, output];
+  return [allTestsPassed, readableInputs, expectedOutput, outputFromCurrentlyBlocklyCode];
 }
 
 export default testBlocklyCode;
