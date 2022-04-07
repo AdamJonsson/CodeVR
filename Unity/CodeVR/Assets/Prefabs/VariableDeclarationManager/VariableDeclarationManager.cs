@@ -42,6 +42,12 @@ public class VariableDeclarationManager : MonoBehaviour
         this.NotifyChange();
     }
 
+    public void RemoveVariableByName(string name)
+    {
+        this._variables.RemoveAt(this._variables.FindIndex((variable) => variable.Name == name));
+        this.NotifyChange();
+    }
+
     public void Rename(string id, string newName)
     {
         var variableToRename = this._variables.Find((variable) => variable.ID == id);

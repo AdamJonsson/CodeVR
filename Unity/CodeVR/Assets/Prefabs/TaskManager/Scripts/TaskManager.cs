@@ -17,6 +17,8 @@ public class TaskManager : MonoBehaviour
     private CodeBlockManager _codeBlockManager;
     private VariableDeclarationManager _variableManager;
 
+    private StartingBlockData _currentBlockDataSpawned;
+
     void Awake()
     {
         this._codeBlockConnectionManager = FindObjectOfType<CodeBlockConnectionManager>();
@@ -54,6 +56,8 @@ public class TaskManager : MonoBehaviour
 
     private void SpawnStartingBlock(string taskID)
     {
+        this.RemoveOldVariablesFromLastSpawn();
+
         var startingBlockContainerToSpawn = this._startingBlocksData.Find((startingBlockData) => startingBlockData.TaskID == taskID);
         if (startingBlockContainerToSpawn == null) return;
         
@@ -67,8 +71,17 @@ public class TaskManager : MonoBehaviour
 
         this._codeBlockManager.AddExistingBlock(startingBlockSpawned.CodeBlocks);
 
-
+        this._currentBlockDataSpawned = startingBlockContainerToSpawn;
         StartCoroutine(this.ConnectBlocks(startingBlockSpawned.ConnectionsAtStart));
+    }
+
+    private void RemoveOldVariablesFromLastSpawn()
+    {
+        if (this._currentBlockDataSpawned == null) return;
+        foreach (var variableName in this._currentBlockDataSpawned.Variables)
+        {
+            this._variableManager.RemoveVariableByName(variableName);
+        }
     }
 
     private IEnumerator ConnectBlocks(List<ConnectionAtStart> connectionsAtStart)
