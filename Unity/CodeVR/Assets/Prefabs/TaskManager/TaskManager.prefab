@@ -45,6 +45,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _startingBlocksData:
+  - TaskID: welcome_task_1
+    BlocksContainer: {fileID: 3642513230351947424, guid: 205825bd472be457f9cf983240eb5e71, type: 3}
+    Variables: []
+  - TaskID: welcome_task_2
+    BlocksContainer: {fileID: 3642513230351947424, guid: 8c630122dd7c54518b6bb97811a302af, type: 3}
+    Variables: []
+  - TaskID: math_task_1
+    BlocksContainer: {fileID: 3642513230351947424, guid: 53de5c7f1524642aeb6a5f7a2c61121c, type: 3}
+    Variables: []
+  - TaskID: math_task_2
+    BlocksContainer: {fileID: 3642513230351947424, guid: c124b2c2c53ac4e6880187b93070efa5, type: 3}
+    Variables:
+    - x
+    - y
+  - TaskID: math_task_3
+    BlocksContainer: {fileID: 3642513230351947424, guid: 746b769fed55443e89a2274c13ca4671, type: 3}
+    Variables:
+    - x
+    - y
   - TaskID: test_task
     BlocksContainer: {fileID: 3642513230351947424, guid: 8c6daa8f9aec13549bd85675fe8eac8d, type: 3}
     Variables: []
@@ -53,3 +72,4 @@ MonoBehaviour:
     Variables:
     - age
     - isDrunk
+  _disable: 0

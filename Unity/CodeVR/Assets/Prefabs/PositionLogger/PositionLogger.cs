@@ -23,7 +23,7 @@ public class PositionLogger : MonoBehaviour
         Debug.Log("Created a log file for position data at: " + filePath);
         this._streamWriter = new StreamWriter(fileStream);
 
-        this._streamWriter.Write("Ticks;");
+        this._streamWriter.Write("Milliseconds;");
         foreach (var logObject in this._logObjects)
         {
             this._streamWriter.Write(logObject.Name + ";");
@@ -40,8 +40,8 @@ public class PositionLogger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        var currentDate = DateTime.Now.Ticks;
-        this._streamWriter.Write(currentDate + ";");
+        var milliseconds = Mathf.Round(Time.timeSinceLevelLoad * 1000);
+        this._streamWriter.Write(milliseconds + ";");
         foreach (var logObject in this._logObjects)
         {
             var position = logObject.GameObject.transform.position;

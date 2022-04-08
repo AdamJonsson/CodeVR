@@ -11,6 +11,10 @@ public class TaskButton : MonoBehaviour
 
     private TaskManager _taskManager;
 
+    private string _forceLockTaskByID = "";
+
+    private TaskStatusResponse _currentTaskStatus;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +25,13 @@ public class TaskButton : MonoBehaviour
 
     private void OnTaskStatusChange(TaskStatusResponse taskStatus)
     {
-        Debug.Log(taskStatus.isCompleted);
+        this._currentTaskStatus = taskStatus;
+        if (this._forceLockTaskByID == taskStatus.task.id)
+        {
+            this.ToggleDisable(true);
+            return;
+        }
+
         this.ToggleDisable(!taskStatus.isCompleted);
     }
 
@@ -35,6 +45,7 @@ public class TaskButton : MonoBehaviour
     private void OnClick()
     {
         this.ToggleDisable(true);
+        this._forceLockTaskByID = this._currentTaskStatus.task.id;
         this._taskManager.LoadNextTask();
     }
 

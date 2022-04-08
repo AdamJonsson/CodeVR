@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class TaskScreen : MonoBehaviour
 {
+    [SerializeField] private GameObject _taskStatusContainer;
+    [SerializeField] private GameObject _taskCompletedContainer;
+    [SerializeField] private GameObject _taskLoadingContainer;
+    
     [SerializeField] private TMPro.TMP_Text _title;
     [SerializeField] private TMPro.TMP_Text _description;
     [SerializeField] private TMPro.TMP_Text _testStatus;
@@ -11,7 +15,11 @@ public class TaskScreen : MonoBehaviour
     [SerializeField] private TMPro.TMP_Text _expectedOutput;
     [SerializeField] private TMPro.TMP_Text _currentOutput;
 
+    [SerializeField] private AudioSource _audioSource;
+
     private TaskManager _taskManager;
+
+    private bool _taskCompletedHasHappened = false;
 
     // Start is called before the first frame update
     void Start()
@@ -22,28 +30,41 @@ public class TaskScreen : MonoBehaviour
 
     private void OnTaskStatusChange(TaskStatusResponse taskStatus)
     {
+        this.CheckForTaskComplated(taskStatus);
+        
         this._title.text = taskStatus.task.title;
         this._description.text = taskStatus.task.description;
 
-        if (taskStatus.isCompleted)
-        {
-            this._testStatus.text = "Task completed";
-            this._inputs.text = "";
-            this._expectedOutput.text = "";
-            this._currentOutput.text = "";
-
-            this._testStatus.color = new Color(0.0f, 0.7f, 0.0f, 1.0f);
-        }
-        else
-        {
-            this._testStatus.text = "Tests failed when:";
-            this._inputs.text = taskStatus.failedTest?.inputs ?? "";
-            this._expectedOutput.text = taskStatus.failedTest.output;
-            this._currentOutput.text = taskStatus.currentOutput;
-            
-            this._testStatus.color = new Color(0.7f, 0.0f, 0.0f, 1.0f);
-        }
+        this._taskCompletedContainer.SetActive(
+            taskStatus.isCompleted && this._taskManager.CurrentState == TaskManager.State.Ready
+        );
+        this._taskLoadingContainer.SetActive(
+            this._taskManager.CurrentState == TaskManager.State.Loading
+        );
+        this._taskStatusContainer.SetActive(
+            !taskStatus.isCompleted && this._taskManager.CurrentState == TaskManager.State.Ready
+        );
         
+        this._testStatus.text = "Tests failed when:";
+        this._inputs.text = taskStatus.failedTest?.inputs ?? "";
+        this._expectedOutput.text = taskStatus.failedTest.output;
+        this._currentOutput.text = taskStatus.currentOutput;
+    }
+
+    private void CheckForTaskComplated(TaskStatusResponse taskStatus)
+    {
+        if (!this._taskCompletedHasHappened && taskStatus.isCompleted)
+        {
+            this._taskCompletedHasHappened = true;
+            this.OnTaskCompleted();
+        }
+        if (!taskStatus.isCompleted)
+            this._taskCompletedHasHappened = false;
+    }
+
+    private void OnTaskCompleted()
+    {
+        this._audioSource.Play();
     }
 
     // Update is called once per frame
