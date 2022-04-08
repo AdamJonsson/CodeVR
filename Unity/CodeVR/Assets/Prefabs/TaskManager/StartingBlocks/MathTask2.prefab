@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4821922059862981013}
   - component: {fileID: 3642513230351947424}
+  - component: {fileID: 3564571587053691644}
   m_Layer: 0
   m_Name: MathTask2
   m_TagString: Untagged
@@ -57,6 +58,18 @@ MonoBehaviour:
   - {fileID: 1438729534844524072}
   - {fileID: 2473855612752894320}
   - {fileID: 3538384032933541508}
+--- !u!114 &3564571587053691644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3185100469467881224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11cb0c002996b4f63927c49b70167d29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   _connectionsAtStart:
   - From: {fileID: 5601816330616217176}
     To: {fileID: 5857795386852641414}
