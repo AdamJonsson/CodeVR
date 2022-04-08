@@ -2,6 +2,9 @@
 
 CodeVR is an visual programming language implementation inside VR that is based on [Blockly](https://developers.google.com/blockly). It allows you to program javascript inside VR by connecting block together.
 
+<img src="https://raw.githubusercontent.com/AdamJonsson/CodeVR/issue/74-new-readme/Readme/Banner.png">
+
+
 ---
 
 ## Setup for Users
