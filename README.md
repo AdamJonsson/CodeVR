@@ -1,10 +1,13 @@
 # CodeVR
+
 CodeVR is an visual programming language implementation inside VR that is based on [Blockly](https://developers.google.com/blockly). It allows you to program javascript inside VR by connecting block together.
 
 ---
 
 ## Setup for Users
-TODO
+* Setup the config to the correct IP adress. See the development setup.
+* Build the Unity project to an Oculus Quest headset.
+* Start the website, both the backend and frontend.
 
 ---
 
