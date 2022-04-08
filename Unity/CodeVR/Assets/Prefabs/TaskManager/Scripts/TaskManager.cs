@@ -1,10 +1,16 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
 public class TaskManager : MonoBehaviour
 {
+    public enum State {
+        Loading,
+        Ready
+    }
+
     [SerializeField] private List<StartingBlockData> _startingBlocksData;
 
     [SerializeField] private bool _disable;
@@ -19,6 +25,13 @@ public class TaskManager : MonoBehaviour
 
     private StartingBlockData _currentBlockDataSpawned;
 
+    private State _currentState = State.Loading;
+    public State CurrentState { get => this._currentState; }
+
+    private string _taskLogsFilePath;
+
+    private bool _taskIsCompleted = false;
+
     void Awake()
     {
         this._codeBlockConnectionManager = FindObjectOfType<CodeBlockConnectionManager>();
@@ -30,7 +43,10 @@ public class TaskManager : MonoBehaviour
     void Start()
     {
         if (!_disable)
+        {
+            this.CreateNewFile();
             InvokeRepeating(nameof(this.CheckStatus), 1.0f, 1.0f);
+        }
     }
 
     private void CheckStatus()
@@ -43,7 +59,20 @@ public class TaskManager : MonoBehaviour
         if (this.OnTaskStatusChange != null)
             this.OnTaskStatusChange.Invoke(taskStatusResponse);
 
-        if (taskStatusResponse.task.id != this._currentTaskID) this.HandleNewActiveTask(taskStatusResponse);
+        if (!_taskIsCompleted && taskStatusResponse.isCompleted)
+        {
+            this._taskIsCompleted = true;
+            this.LogTaskCompleted(taskStatusResponse);
+            Debug.Log("Log Task Completed!");
+        }
+
+        if (_taskIsCompleted && !taskStatusResponse.isCompleted)
+        {
+            this._taskIsCompleted = false;
+        }
+
+        if (taskStatusResponse.task.id != this._currentTaskID) 
+            this.HandleNewActiveTask(taskStatusResponse);
     }
 
     private void HandleNewActiveTask(TaskStatusResponse taskStatusResponse)
@@ -51,7 +80,7 @@ public class TaskManager : MonoBehaviour
         Debug.Log("NEW ACTIVE TASK!");
         this._currentTaskID = taskStatusResponse.task.id;
         this.SpawnStartingBlock(taskStatusResponse.task.id);
-
+        this._currentState = State.Ready;
     }
 
     private void SpawnStartingBlock(string taskID)
@@ -96,7 +125,23 @@ public class TaskManager : MonoBehaviour
 
     public void LoadNextTask()
     {
+        this._currentState = State.Loading;
         StartCoroutine(WebsiteConnection.LoadNextTask());
+    }
+
+    private void CreateNewFile()
+    {
+        Debug.Log(Application.persistentDataPath);
+        var currentDate = DateTime.Now.ToFileTime();
+        this._taskLogsFilePath = Application.persistentDataPath + "/task_logger_" + currentDate + ".txt";
+        File.Create(this._taskLogsFilePath);
+    }
+
+    private void LogTaskCompleted(TaskStatusResponse response)
+    {
+        StreamWriter sw = new StreamWriter(this._taskLogsFilePath, true);
+        sw.Write($"Task completed at;{Time.timeSinceLevelLoad};TaskID;{response.task.id};TaskTitle;{response.task.title}\n");
+        sw.Close();
     }
 }
 

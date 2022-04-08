@@ -29,6 +29,11 @@ public class TextInput : InputBase
 
     private bool _keyboardCurrentlyOpen = false;
 
+    void Awake()
+    {
+        this._value = this._startValue;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -40,7 +45,6 @@ public class TextInput : InputBase
 
         this._blocklyCodeManager = FindObjectOfType<BlocklyCodeManager>();
 
-        this._value = this._startValue;
 
         this.UpdateButtonText(this._value);
         if (this.OnChange != null)
