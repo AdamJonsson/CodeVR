@@ -101,7 +101,6 @@ public class TaskManager : MonoBehaviour
         this._codeBlockManager.AddExistingBlock(startingBlockSpawned.CodeBlocks);
 
         this._currentBlockDataSpawned = startingBlockContainerToSpawn;
-        StartCoroutine(this.ConnectBlocks(startingBlockSpawned.ConnectionsAtStart));
     }
 
     private void RemoveOldVariablesFromLastSpawn()
@@ -110,16 +109,6 @@ public class TaskManager : MonoBehaviour
         foreach (var variableName in this._currentBlockDataSpawned.Variables)
         {
             this._variableManager.RemoveVariableByName(variableName);
-        }
-    }
-
-    private IEnumerator ConnectBlocks(List<ConnectionAtStart> connectionsAtStart)
-    {
-        yield return new WaitForSeconds(0.1f);
-        foreach (var connectionAtStart in connectionsAtStart)
-        {
-            yield return new WaitForSeconds(0.1f);
-            this._codeBlockConnectionManager.ConnectBlocks(connectionAtStart.From, connectionAtStart.To);
         }
     }
 
