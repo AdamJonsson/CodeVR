@@ -17,6 +17,9 @@ public class CodeBlockSize : MonoBehaviour
     [SerializeField] private List<ExpandableBlock> _widthExpandableBlocks = new List<ExpandableBlock>();
     [SerializeField] private List<CodeBlockConnector> _connectorsThatEffectWidth = new List<CodeBlockConnector>();
 
+    [Header("Connectors")]
+    [SerializeField] private Vector3 _marginWhenNoConnectionExist = Vector3.zero;
+
     private CodeBlock _codeBlock;
 
     public float Height
@@ -72,11 +75,13 @@ public class CodeBlockSize : MonoBehaviour
     /// <summary>This is the height of the block itself and every block that is connected below. The distance between blocks are also included.</summary>
     public float HeightOfBlocksDown()
     {
-        var height = Height;
+        var height = this.Height;
         foreach (var connector in this._connectorsThatEffectHeight)
         {
-            if (!connector.IsConnected) continue;
-            height += connector.BlockConnectedTo.Size.HeightOfBlocksDown() + connector.ConnectionDistance;
+            if (!connector.IsConnected) 
+                height += _marginWhenNoConnectionExist.y;
+            else
+                height += connector.BlockConnectedTo.Size.HeightOfBlocksDown() + connector.ConnectionDistance;
         }
         return height;
     }
@@ -84,11 +89,13 @@ public class CodeBlockSize : MonoBehaviour
     /// <summary>This is the width of the block itself and every block that is connected to the right. The distance between blocks are also included.</summary>
     public float WidthOfBlocksRight()
     {
-        var width = Width;
+        var width = this.Width;
         foreach (var connector in this._connectorsThatEffectWidth)
         {
-            if (!connector.IsConnected) continue;
-            width += connector.BlockConnectedTo.Size.WidthOfBlocksRight() + connector.ConnectionDistance;
+            if (!connector.IsConnected) 
+                width += _marginWhenNoConnectionExist.x;
+            else
+                width += connector.BlockConnectedTo.Size.WidthOfBlocksRight() + connector.ConnectionDistance;
         }
         return width;
     }
