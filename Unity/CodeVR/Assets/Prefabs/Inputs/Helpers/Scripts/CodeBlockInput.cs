@@ -11,6 +11,8 @@ public class CodeBlockInput : MonoBehaviour
     [SerializeField] private TMP_Text _buttonText;
 
     [SerializeField] private RectTransform _canvas;
+    [SerializeField] private RectTransform _buttonRectTransform;
+    public RectTransform ButtonRectTransform { get => this._buttonRectTransform; }
 
     public void SetText(string newText, bool markAsPlaceholder = false)
     {

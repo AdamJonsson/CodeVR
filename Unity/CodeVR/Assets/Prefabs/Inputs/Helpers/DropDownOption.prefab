@@ -505,3 +505,4 @@ MonoBehaviour:
   _button: {fileID: 7213413254344339954}
   _buttonText: {fileID: 7614499796490672042}
   _canvas: {fileID: 8680508138516995859}
+  _buttonRectTransform: {fileID: 2987967264731831695}

@@ -8,12 +8,14 @@ public class ExpandableBlock : MonoBehaviour
 {
     [Header("Scaling Values")]
     [SerializeField] private Vector3 _expandScale = Vector3.one;
+    public Vector3 ExpandScale { get => this._expandScale; set => this._expandScale = value; }
 
     [Tooltip("Values in vector should vary between 1 and -1")]
     [SerializeField] private Vector3 _expandAnchor = Vector3.zero;
 
     [Header("Objects References")]
     [SerializeField] private List<ExpandableSetting> _expandables = new List<ExpandableSetting>();
+    public List<ExpandableSetting> Expandables { get => this._expandables; }
 
     [Header("Automatic Scale Settings")]
     [SerializeField] private CodeBlockSize.CalculationMode _heightCalculationMode = CodeBlockSize.CalculationMode.Additive;
@@ -34,6 +36,8 @@ public class ExpandableBlock : MonoBehaviour
     [Tooltip("Can be used to get extra padding for a new block connection")]
     [SerializeField] private Vector3 _extraExpandSize;
 
+    public Action OnResize;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -45,7 +49,7 @@ public class ExpandableBlock : MonoBehaviour
         if (!Application.isPlaying) this.ApplyScaleToExpandableSettings();
     }
 
-    private void ApplyScaleToExpandableSettings()
+    public void ApplyScaleToExpandableSettings()
     {
         foreach (var expandable in this._expandables)
         {
@@ -57,11 +61,14 @@ public class ExpandableBlock : MonoBehaviour
                 Vector3.Scale(this._expandScale - Vector3.one, this._expandAnchor + expandable.ScaleOffset)
                 / 2.0f;
         }
+
+        if (this.OnResize != null) this.OnResize.Invoke();
     }
 
     private float GetWidthFromInput(CodeBlock codeBlock)
     {
         if (_inputFieldEffectsWidth == null) return 0.0f;
+        if (codeBlock == null) return 0.0f;
         var inputRectTransform = this._inputFieldEffectsWidth.RectTransform;
         var widthOfInputField = inputRectTransform.rect.width * inputRectTransform.lossyScale.x / codeBlock.transform.localScale.x;
         return Mathf.Max(widthOfInputField, this._minExpandSize.x) + this._extraExpandSize.x;

@@ -24,6 +24,8 @@ public class CodeBlockText : MonoBehaviour
         this.UpdateTextElements();
     }
 
+    public void SetStartText(string text) => this._startText = text;
+
     private void UpdateTextElements()
     {
         if (Application.isPlaying) return;
