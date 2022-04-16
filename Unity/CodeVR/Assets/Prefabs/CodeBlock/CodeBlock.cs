@@ -105,6 +105,8 @@ public class CodeBlock : MonoBehaviour
 
     public CodeBlockSize Size { get => this._size; }
 
+    public Action OnConnectionsChangedToCluster;
+
     void Awake()
     {
         this._codeBlockInteractionManager = FindObjectOfType<CodeBlockInteractionManager>();
@@ -115,7 +117,6 @@ public class CodeBlock : MonoBehaviour
         this._id = System.Guid.NewGuid().ToString("N");
 
         this.SetupConnectors();
-        this.GetAllInputFinders();
     }
 
     void Start()
@@ -135,18 +136,23 @@ public class CodeBlock : MonoBehaviour
         this.NotifyBlockClusterOfNewConnection();
     }
 
-    private void OnNewConnectionToCluster()
+    private void HandleNewConnectionToCluster()
     {
         this._size.ResizeAllExpandableBlocks();
         foreach (var connector in this._outputConnectors)
         {
             connector.InputFinder.ClearPotentialConnections();
         }
+
+        if (this.OnConnectionsChangedToCluster != null)
+            this.OnConnectionsChangedToCluster.Invoke();
     }
 
     private void OnDetachConnectionFromCluster()
     {
         this._size.ResizeAllExpandableBlocks();
+        if (this.OnConnectionsChangedToCluster != null)
+            this.OnConnectionsChangedToCluster.Invoke();
     }
 
     private void NotifyBlockClusterOfNewConnection()
@@ -154,7 +160,7 @@ public class CodeBlock : MonoBehaviour
         var blocksToNotify = this.GetBlockCluster(true);
         foreach (var block in blocksToNotify)
         {
-            block.OnNewConnectionToCluster();
+            block.HandleNewConnectionToCluster();
         }
     }
 
@@ -169,6 +175,7 @@ public class CodeBlock : MonoBehaviour
 
     private void GetAllInputFinders()
     {
+        // this._inputFinders.Clear();
         foreach (var outputConnector in this._outputConnectors)
         {
             this._inputFinders.Add(outputConnector.GetComponent<InputFinder>());
@@ -243,6 +250,7 @@ public class CodeBlock : MonoBehaviour
     {
         this._outputConnectors = this._connectors.FindAll((connector) => connector.ConnectionType == CodeBlockConnector.Types.Output);
         this._inputConnectors = this._connectors.FindAll((connector) => connector.ConnectionType == CodeBlockConnector.Types.Input);
+        this.GetAllInputFinders();
     }
 
     public IEnumerable<PotentialConnection> GetAllPotentialConnections(bool includeIncompatibleConnections = false)
@@ -316,6 +324,7 @@ public class CodeBlock : MonoBehaviour
 
     public void RealignBlockCluster(CodeBlockConnector connectorToIgnore = null)
     {
+        Debug.Log("Number of connectors: " + this.AllConnectors.Count);
         foreach (var connector in AllConnectors)
         {
             if (!connector.IsConnected) continue;
@@ -330,11 +339,40 @@ public class CodeBlock : MonoBehaviour
         }
     }
 
+    public void ResizeBlockCluster()
+    {
+        foreach (var block in this.GetBlockCluster(true))
+        {
+            block._size.ResizeAllExpandableBlocks();
+        }
+        this.RealignBlockCluster();
+    }
+
     public bool BlockIsPartOfCluster(CodeBlock block)
     {
         var blockCluster = this.GetBlockCluster(true);
         return blockCluster.Contains(block);
     }
+
+    public void AddConnector(CodeBlockConnector newConnector)
+    {
+        this._connectors.Add(newConnector);
+        this.SetupConnectors();
+    }
+
+    public void RemoveConnector(CodeBlockConnector connectorToDelete)
+    {
+        this._connectors.Remove(connectorToDelete);
+        this.SetupConnectors();
+    }
+
+    public void AddColliderToInteractable(BoxCollider collider) {
+        this._interactable.enabled = false;
+        this._interactable.colliders.Add(collider);
+        this._interactable.enabled = true;
+    }
+    public void RemoveColliderFromInteractable(BoxCollider collider) => this._interactable.colliders.Remove(collider);
+
 }
 
 [Serializable]

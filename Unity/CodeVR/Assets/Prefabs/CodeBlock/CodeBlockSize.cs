@@ -7,17 +7,24 @@ public class CodeBlockSize : MonoBehaviour
 {
     [SerializeField] private Vector3 _staticSize = Vector3.one;
 
-    [Header("Height")]
+    [Header("--Height--")]
     [SerializeField] private CalculationMode _heightCalculationMode = CalculationMode.Largest;
     [SerializeField] private List<ExpandableBlock> _heightExpandableBlocks = new List<ExpandableBlock>();
+    public List<ExpandableBlock> HeightExpandableBlocks => this._heightExpandableBlocks;
+    
     [SerializeField] private List<CodeBlockConnector> _connectorsThatEffectHeight = new List<CodeBlockConnector>();
+    public List<ExpandableBlock> WidthExpandableBlocks => this._widthExpandableBlocks;
 
-    [Header("Width")]
+    [Header("--Width Expandables--")]
     [SerializeField] private CalculationMode _widthCalculationMode = CalculationMode.Largest;
     [SerializeField] private List<ExpandableBlock> _widthExpandableBlocks = new List<ExpandableBlock>();
+    
+    [Header("--Width Connectors--")]
+    [SerializeField] private CalculationMode _widthConnectorsCalculationMode = CalculationMode.Additive;
     [SerializeField] private List<CodeBlockConnector> _connectorsThatEffectWidth = new List<CodeBlockConnector>();
+    public List<CodeBlockConnector> ConnectorsThatEffectWidth { get => this._connectorsThatEffectWidth; set => this._connectorsThatEffectWidth = value; }
 
-    [Header("Connectors")]
+    [Header("--All Connectors--")]
     [SerializeField] private Vector3 _marginWhenNoConnectionExist = Vector3.zero;
 
     private CodeBlock _codeBlock;
@@ -89,15 +96,24 @@ public class CodeBlockSize : MonoBehaviour
     /// <summary>This is the width of the block itself and every block that is connected to the right. The distance between blocks are also included.</summary>
     public float WidthOfBlocksRight()
     {
-        var width = this.Width;
+        var sum = 0.0f;
+        var max = 0.0f;
         foreach (var connector in this._connectorsThatEffectWidth)
         {
-            if (!connector.IsConnected) 
-                width += _marginWhenNoConnectionExist.x;
+            if (!connector.IsConnected)
+            {
+                sum += this._marginWhenNoConnectionExist.x;
+                max = Mathf.Max(max, this._marginWhenNoConnectionExist.x);
+            }
             else
-                width += connector.BlockConnectedTo.Size.WidthOfBlocksRight() + connector.ConnectionDistance;
+            {
+                var size = connector.BlockConnectedTo.Size.WidthOfBlocksRight() + connector.ConnectionDistance;
+                sum += size;
+                max = Mathf.Max(max, size);
+            }
         }
-        return width;
+
+        return (this._widthConnectorsCalculationMode == CalculationMode.Additive ? sum : max) + this.Width;
     }
 
     private void OnInputsChangeThatEffectWidth(string value)

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -40,7 +41,8 @@ public class CodeBlockConnector : MonoBehaviour
     public Flows ConnectionFlow { get => _connectionFlow; }
 
     [SerializeField] private CodeBlock _blockAttachedTo;
-    public CodeBlock BlockAttachedTo { get => _blockAttachedTo; }
+    public CodeBlock BlockAttachedTo { get => _blockAttachedTo; set => this._blockAttachedTo = value; }
+
     public CodeBlock BlockConnectedTo 
     { 
         get {
@@ -80,6 +82,7 @@ public class CodeBlockConnector : MonoBehaviour
     public CodeBlockConnector Connection { get => _connection; }
     public bool IsConnected { get => _connection != null; }
 
+    public Action OnConnectionChanged;
 
     public Pose ConnectionPose 
     {
@@ -150,10 +153,21 @@ public class CodeBlockConnector : MonoBehaviour
         {
             connector.BlockAttachedTo.SnapBlockClusterToConnector(this);
         }
+        
+        if (this.OnConnectionChanged != null)
+            this.OnConnectionChanged.Invoke();
     }
 
     public void Detach()
     {
         this._connection = null;
+        if (this.OnConnectionChanged != null)
+            this.OnConnectionChanged.Invoke();
+    }
+
+    public void UpdateBlocklyConnectionSetting(string xmlTag, string nameAttributeValue)
+    {
+        this._xmlTag = xmlTag;
+        this._nameAttributeValue = nameAttributeValue;
     }
 }   

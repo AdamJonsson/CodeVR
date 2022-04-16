@@ -34,7 +34,12 @@ public class DropdownInput : InputBase
 
     private List<DropdownOption> _allOptionsExceptSelected = new List<DropdownOption>();
 
-    public override string Value { get => this._selectedOption.Value; }
+    public override string Value {
+        get {
+            if (this._selectedOption == null) return null;
+            return this._selectedOption.Value;
+        }
+    }
 
     private BlocklyCodeManager _blocklyCodeManager;
 
@@ -122,6 +127,8 @@ public class DropdownInput : InputBase
                 this.transform.rotation, 
                 this.transform.parent
             );
+            spawnedOption.Canvas.transform.localPosition = this._thisInput.Canvas.localPosition;
+            spawnedOption.ButtonRectTransform.pivot = this._thisInput.ButtonRectTransform.pivot;
             spawnedOption.SetText(option.Text);
             spawnedOption.SetCanvasSize(this._thisInput.CanvasSize);
             spawnedOption.SetTransparency(1.0f);
