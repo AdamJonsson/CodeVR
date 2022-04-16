@@ -30,4 +30,9 @@ public class ParameterSection : MonoBehaviour
             };
         }
     }
+
+    public void SetBlocklySetting(int index)
+    {
+        this.Connector.UpdateBlocklyConnectionSetting("value", "ARG" + index);
+    }
 }

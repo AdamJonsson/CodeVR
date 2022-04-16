@@ -13,6 +13,8 @@ public class FunctionCallBlock : MonoBehaviour
 
     [SerializeField] private DropdownInput _dropdownInput;
 
+    public DropdownInput DropdownInput { get => this._dropdownInput; }
+
     [SerializeField] private GameObject _blockSizeToFollow;
     
     public GameObject BlockSizeToFollow { get => this._blockSizeToFollow; }
@@ -26,6 +28,10 @@ public class FunctionCallBlock : MonoBehaviour
 
     private List<FunctionDeclareBlock> _currentFunctionsInScene = new List<FunctionDeclareBlock>();
 
+    private int _currentNumberOfFunctionsDeclareBlocks = 0;
+
+    private Dictionary<int, CodeBlockConnector> _connectorsDisconnectedByParameterChange = new Dictionary<int, CodeBlockConnector>();
+    
     void Awake()
     {
         this._codeBlock = this.GetComponent<CodeBlock>();
@@ -76,11 +82,16 @@ public class FunctionCallBlock : MonoBehaviour
         }
     }
 
-    private void AddParameterSection(ExpandableBlock parent, string name)
+    private void AddParameterSection(ExpandableBlock parent, string name, bool isLastParameter = false)
     {
         var child = Instantiate(this._parameterBlockPrefab, Vector3.zero, Quaternion.identity, parent.transform);
         child.transform.localPosition = Vector3.zero;
         child.transform.rotation = this._codeBlock.transform.rotation;
+        child.SetBlocklySetting(this._currentParameterBlocks.Count);
+
+        // We do not want any margin on the last parameter block
+        if (isLastParameter)
+            child.ExpandableBlock.SetExtraExpandSize(Vector3.zero);
 
         // Block and collider
         parent.Expandables.Add(child.ExpandableSetting);
@@ -104,7 +115,15 @@ public class FunctionCallBlock : MonoBehaviour
     private void RemoveParameterSection(ExpandableBlock parent, ParameterSection child)
     {
         if (child.Connector.IsConnected)
+        {
+            int parameterIndex = this._currentParameterBlocks.IndexOf(child);
+
+            // Create or override value in dictionary
+            if(!this._connectorsDisconnectedByParameterChange.TryAdd(parameterIndex, child.Connector.Connection))
+                this._connectorsDisconnectedByParameterChange[parameterIndex] = child.Connector.Connection;
+
             this._connectionManager.DetachConnector(child.Connector);
+        }
 
         parent.Expandables.Remove(child.ExpandableSetting);
         this._codeBlock.RemoveConnector(child.Connector);
@@ -114,7 +133,56 @@ public class FunctionCallBlock : MonoBehaviour
         Destroy(child.gameObject);
     }
 
+    private void ReconnectDisconnectedConnectorsFromParameterChange()
+    {
+        int index = -1;
+        foreach (var parameterBlock in this._currentParameterBlocks)
+        {
+            index++;
+            if (!this._connectorsDisconnectedByParameterChange.ContainsKey(index)) continue;
+            var connector = this._connectorsDisconnectedByParameterChange[index];
+            this._connectorsDisconnectedByParameterChange.Remove(index);
+
+            if (connector.IsConnected || parameterBlock.Connector.IsConnected) continue;
+            this._connectionManager.ConnectBlocks(connector, parameterBlock.Connector);
+        }
+    }
+
     private void HandleNewOrDeletedBlocks()
+    {
+        List<FunctionDeclareBlock> functionDeclareBlocks = this.FindCurrentFunctionBlocksInScene();
+        this._currentFunctionsInScene = functionDeclareBlocks;
+
+        if (functionDeclareBlocks.Count == this._currentNumberOfFunctionsDeclareBlocks) return;
+        
+        this.AddChangeListenersToFunctionBlocks(functionDeclareBlocks);
+        this.GenerateDropdownOptions(functionDeclareBlocks);
+        this.GenerateAllParameterOptionsToDropdown(functionDeclareBlocks);
+
+        this._currentNumberOfFunctionsDeclareBlocks = functionDeclareBlocks.Count;
+    }
+
+    private void GenerateAllParameterOptionsToDropdown(List<FunctionDeclareBlock> functionDeclareBlocks)
+    {
+        foreach (var functionDeclareBlock in functionDeclareBlocks)
+        {
+            this.OnParameterChanged(functionDeclareBlock);
+        }
+    }
+
+    private void AddChangeListenersToFunctionBlocks(List<FunctionDeclareBlock> functionDeclareBlocks)
+    {
+        foreach (var functionDeclareBlock in functionDeclareBlocks)
+        {
+            functionDeclareBlock.OnParameterChanged -= this.OnParameterChanged;
+            functionDeclareBlock.OnParameterChanged += this.OnParameterChanged;
+
+            functionDeclareBlock.OnNameChanged -= this.OnNameChanged;
+            functionDeclareBlock.OnNameChanged += this.OnNameChanged;
+        }
+    }
+
+    private List<FunctionDeclareBlock> FindCurrentFunctionBlocksInScene()
     {
         List<FunctionDeclareBlock> functionDeclareBlocks = new List<FunctionDeclareBlock>();
         foreach (var block in this._codeBlockManager.AllCodeBlocks)
@@ -123,21 +191,8 @@ public class FunctionCallBlock : MonoBehaviour
             if (!isFunctionBlock) continue;
             FunctionDeclareBlock functionDeclareBlock = block.GetComponent<FunctionDeclareBlock>();
             functionDeclareBlocks.Add(functionDeclareBlock);
-
-            functionDeclareBlock.OnParameterChanged -= this.OnParameterChanged;
-            functionDeclareBlock.OnParameterChanged += this.OnParameterChanged;
-
-            functionDeclareBlock.OnNameChanged -= this.OnNameChanged;
-            functionDeclareBlock.OnNameChanged += this.OnNameChanged;
         }
-
-        this._currentFunctionsInScene = functionDeclareBlocks;
-        this.GenerateDropdownOptions(functionDeclareBlocks);
-
-        foreach (var functionDeclareBlock in functionDeclareBlocks)
-        {
-            this.OnParameterChanged(functionDeclareBlock);
-        }
+        return functionDeclareBlocks;
     }
 
     private void GenerateDropdownOptions(List<FunctionDeclareBlock> functions)
@@ -159,8 +214,7 @@ public class FunctionCallBlock : MonoBehaviour
 
     private bool FunctionChangeRelevant(FunctionDeclareBlock functionDeclareBlock)
     {
-        return functionDeclareBlock.CodeBlock.ID == 
-        this._dropdownInput.SelectedOption.Value;
+        return functionDeclareBlock.CodeBlock.ID == this._dropdownInput.SelectedOption.Value;
     }
 
     private void OnNameChanged(FunctionDeclareBlock functionDeclareBlock)
@@ -182,9 +236,11 @@ public class FunctionCallBlock : MonoBehaviour
         {
             var parameter = parameters[i];
             var parent = this.GetParentParameterFromChildIndex(i);
-            this.AddParameterSection(parent, parameter.DropdownInput.SelectedOption.Text);
+            bool isLast = i == parameters.Count - 1;
+            this.AddParameterSection(parent, parameter.DropdownInput.SelectedOption.Text, isLast);
         }
 
+        this.ReconnectDisconnectedConnectorsFromParameterChange();
         this.ResizeParameterChildren();
         this._codeBlock.ResizeBlockCluster();
     }
@@ -195,5 +251,10 @@ public class FunctionCallBlock : MonoBehaviour
         var function = this._currentFunctionsInScene.Find((functionSearch) => functionSearch.CodeBlock.ID == selectedFunctionID);
         if (function == null) return;
         this.RecreateParameterSections(function);
+    }
+
+    public FunctionDeclareBlock SelectedFunction
+    {
+        get => this._currentFunctionsInScene.Find((function) => function.CodeBlock.ID == this._dropdownInput.Value);
     }
 }

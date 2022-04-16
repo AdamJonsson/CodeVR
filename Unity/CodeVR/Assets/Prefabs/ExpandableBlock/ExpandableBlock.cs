@@ -147,6 +147,8 @@ public class ExpandableBlock : MonoBehaviour
         return widthOfChildren + this._extraStaticSize.x;
     }
 
+    public void SetExtraExpandSize(Vector3 size) => this._extraExpandSize = size;
+
     [Serializable]
     public struct ExpandableSetting
     {

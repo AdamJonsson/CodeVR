@@ -10,8 +10,8 @@ public class FunctionDeclareBlock : MonoBehaviour
     public CodeBlock SettingBlock { get => this._settingBlock; }
 
     [SerializeField] private TextInput _nameInput;
-
     public TextInput NameInput { get => this._nameInput; }
+    public string Name { get => this._nameInput.Value; }
 
     private CodeBlock _codeBlock;
     public CodeBlock CodeBlock { get => this._codeBlock; }
@@ -36,6 +36,18 @@ public class FunctionDeclareBlock : MonoBehaviour
     {
         if (this.OnParameterChanged != null)
             this.OnParameterChanged.Invoke(this);
+
+        foreach (var param in this.GetCurrentParameters())
+        {
+            param.DropdownInput.OnChange -= this.HandleSettingBlockParamChange;
+            param.DropdownInput.OnChange += this.HandleSettingBlockParamChange;
+        }
+    }
+
+    private void HandleSettingBlockParamChange(string newValue)
+    {
+        if (this.OnParameterChanged != null)
+            this.OnParameterChanged.Invoke(this);
     }
 
     public List<VariableDropdownHandler> GetCurrentParameters()
@@ -46,5 +58,4 @@ public class FunctionDeclareBlock : MonoBehaviour
         return parametersAsDropdown;
     }
 
-    
 }

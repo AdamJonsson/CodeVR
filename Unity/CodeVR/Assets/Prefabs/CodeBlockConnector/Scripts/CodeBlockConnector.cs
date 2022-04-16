@@ -164,4 +164,10 @@ public class CodeBlockConnector : MonoBehaviour
         if (this.OnConnectionChanged != null)
             this.OnConnectionChanged.Invoke();
     }
+
+    public void UpdateBlocklyConnectionSetting(string xmlTag, string nameAttributeValue)
+    {
+        this._xmlTag = xmlTag;
+        this._nameAttributeValue = nameAttributeValue;
+    }
 }   
