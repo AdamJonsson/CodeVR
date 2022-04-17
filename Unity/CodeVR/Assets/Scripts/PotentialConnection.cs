@@ -17,7 +17,7 @@ public class PotentialConnection {
 
     private bool BlockCompatibleWithConnector(CodeBlock block, CodeBlockConnector connector)
     {
-        if (connector.CompatibleBlocks.Count == 0) return true;
-        return connector.CompatibleBlocks.Contains(block.Category);
+        if (connector.IncompatibleBlocks.Count == 0) return true;
+        return !connector.IncompatibleBlocks.Contains(block.Category);
     }
 }

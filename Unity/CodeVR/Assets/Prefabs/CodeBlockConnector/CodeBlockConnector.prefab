@@ -546,7 +546,7 @@ MonoBehaviour:
   _connectionType: 0
   _connectionFlow: 2
   _blockAttachedTo: {fileID: 0}
-  _compatibleBlocks: 
+  _compatibleBlocks: 000000000100000002000000030000000400000005000000060000000700000008000000
   _xmlTag: 
   _nameAttributeValue: 
   _connectionDistance: 0.25

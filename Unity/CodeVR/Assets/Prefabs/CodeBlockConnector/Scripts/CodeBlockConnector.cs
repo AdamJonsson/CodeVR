@@ -51,8 +51,8 @@ public class CodeBlockConnector : MonoBehaviour
         }
     }
 
-    [SerializeField] private List<CodeBlockCategory> _compatibleBlocks = new List<CodeBlockCategory>();
-    public List<CodeBlockCategory> CompatibleBlocks { get => this._compatibleBlocks; }
+    [SerializeField] private List<CodeBlockCategory> _incompatibleBlocks = new List<CodeBlockCategory>();
+    public List<CodeBlockCategory> IncompatibleBlocks { get => this._incompatibleBlocks; }
 
 
     [Header("Blockly settings")]

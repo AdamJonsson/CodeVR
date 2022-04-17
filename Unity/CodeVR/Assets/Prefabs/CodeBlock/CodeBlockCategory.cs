@@ -10,5 +10,8 @@ public enum CodeBlockCategory
     Text,
     Lists,
     Variables,
-    Functions
+    Functions,
+    BlockElseIf,
+    BlockElse,
+    Parameter,
 }
