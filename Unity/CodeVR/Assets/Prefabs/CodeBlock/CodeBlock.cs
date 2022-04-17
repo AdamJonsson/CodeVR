@@ -39,12 +39,19 @@ public class CodeBlock : MonoBehaviour
     [SerializeField] private bool _excludeInAutomaticBlocklyCodeGeneration = false;
     public bool ExcludeInAutomaticBlocklyCodeGeneration { get => this._excludeInAutomaticBlocklyCodeGeneration; }
 
+    [Tooltip("If enabled, the block is not going to use its own xml element, but put its content in the previous block. Is used forexample for the else-if and else blocks")]
+    [SerializeField] private bool _usePreviousBlockForXMLContent = false;
+    public bool UsePreviousBlockForXMLContent { get => this._usePreviousBlockForXMLContent; }
+
     private string _id;
 
     private CodeBlockSize _size;
 
     private List<CodeBlockConnector> _outputConnectors = new List<CodeBlockConnector>();
     private List<CodeBlockConnector> _inputConnectors = new List<CodeBlockConnector>();
+    private CodeBlockConnector _nextConnector = null;
+    public CodeBlockConnector NextConnector { get => this._nextConnector; }
+
     private List<InputFinder> _inputFinders = new List<InputFinder>();
 
     private CodeBlockContainer _currentContainer;
@@ -250,6 +257,7 @@ public class CodeBlock : MonoBehaviour
     {
         this._outputConnectors = this._connectors.FindAll((connector) => connector.ConnectionType == CodeBlockConnector.Types.Output);
         this._inputConnectors = this._connectors.FindAll((connector) => connector.ConnectionType == CodeBlockConnector.Types.Input);
+        this._nextConnector = this._connectors.Find((connector) => connector.XmlTag == "next");
         this.GetAllInputFinders();
     }
 

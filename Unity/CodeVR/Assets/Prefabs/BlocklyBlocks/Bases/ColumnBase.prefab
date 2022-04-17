@@ -700,11 +700,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -3184931884940399610, guid: f4d5111c3c2a141e78033c2b787575ad, type: 3}
       propertyPath: _startText
-      value: Do
+      value: DO
       objectReference: {fileID: 0}
     - target: {fileID: 472953189859411272, guid: f4d5111c3c2a141e78033c2b787575ad, type: 3}
       propertyPath: m_text
-      value: Do
+      value: DO
       objectReference: {fileID: 0}
     - target: {fileID: 472953189859411272, guid: f4d5111c3c2a141e78033c2b787575ad, type: 3}
       propertyPath: m_fontSize
@@ -712,7 +712,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2194244225480463897, guid: f4d5111c3c2a141e78033c2b787575ad, type: 3}
       propertyPath: m_text
-      value: Do
+      value: DO
       objectReference: {fileID: 0}
     - target: {fileID: 2194244225480463897, guid: f4d5111c3c2a141e78033c2b787575ad, type: 3}
       propertyPath: m_fontSize
@@ -1763,11 +1763,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -3184931884940399610, guid: f4d5111c3c2a141e78033c2b787575ad, type: 3}
       propertyPath: _startText
-      value: If
+      value: IF
       objectReference: {fileID: 0}
     - target: {fileID: 472953189859411272, guid: f4d5111c3c2a141e78033c2b787575ad, type: 3}
       propertyPath: m_text
-      value: If
+      value: IF
       objectReference: {fileID: 0}
     - target: {fileID: 472953189859411272, guid: f4d5111c3c2a141e78033c2b787575ad, type: 3}
       propertyPath: m_fontSize
@@ -1775,7 +1775,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2194244225480463897, guid: f4d5111c3c2a141e78033c2b787575ad, type: 3}
       propertyPath: m_text
-      value: If
+      value: IF
       objectReference: {fileID: 0}
     - target: {fileID: 2194244225480463897, guid: f4d5111c3c2a141e78033c2b787575ad, type: 3}
       propertyPath: m_fontSize
