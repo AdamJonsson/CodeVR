@@ -31,6 +31,7 @@ public class BlocklyXMLGenerator
         // Create the xml for all the blocks
         foreach (var block in blocks)
         {
+            if (block.UsePreviousBlockForXMLContent) continue;
             var xmlElementFromRootBlock = CreateXMLElementFromBlock(document, block);
             rootnode.AppendChild(xmlElementFromRootBlock);
         }
@@ -40,11 +41,14 @@ public class BlocklyXMLGenerator
         return document.OuterXml;
     }
 
-    public static XmlElement CreateXMLElementFromBlock(XmlDocument document, CodeBlock block)
+    public static XmlElement CreateXMLElementFromBlock(XmlDocument document, CodeBlock block, XmlElement xmlBlockElement = null)
     {
-        XmlElement xmlBlockElement = document.CreateElement("block");
-        xmlBlockElement.SetAttribute("type", block.BlocklyTypeString);
-        xmlBlockElement.SetAttribute("id", block.ID);
+        if (xmlBlockElement == null)
+        {
+            xmlBlockElement = document.CreateElement("block");
+            xmlBlockElement.SetAttribute("type", block.BlocklyTypeString);
+            xmlBlockElement.SetAttribute("id", block.ID);
+        }
 
         // Add fields
         foreach (var field in block.BlocklyFields)
@@ -55,7 +59,7 @@ public class BlocklyXMLGenerator
             xmlBlockElement.AppendChild(fieldElement);
         }
 
-        // Add curstom xml elements from block
+        // Add custom xml elements from block
         foreach (var customXMLElement in block.CustomXmlElements)
         {
             var xmlElement = customXMLElement.GetXmlElement(document);
@@ -70,6 +74,15 @@ public class BlocklyXMLGenerator
             if (!connector.IsConnected) continue;
             if (connector.BlockConnectedTo.ExcludeInAutomaticBlocklyCodeGeneration) continue;
             if (connector.XmlTag == null || connector.XmlTag == "") continue;
+
+            if (connector.BlockConnectedTo.UsePreviousBlockForXMLContent)
+            {
+                Debug.Log("Generating XML for: " + connector.BlockConnectedTo.BlocklyTypeString);
+                // Instead of creating a new block here, we are putting the content it the parent block.
+                xmlBlockElement = CreateXMLElementFromBlock(document, connector.BlockConnectedTo, xmlBlockElement);
+                // xmlBlockElement.AppendChild(blockContent);
+                continue;
+            }
 
             XmlElement connectorElement = document.CreateElement(connector.XmlTag);
             if (connector.NameAttributeValue != null)

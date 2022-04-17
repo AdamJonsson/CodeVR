@@ -20,8 +20,6 @@ public class BlocklyCodeManager : MonoBehaviour
             blockClusters.Add(block);
         }
 
-        Debug.Log("Number of blocks: " + this._blockManager.AllCodeBlocks.Count);
-
         var blocklyString = BlocklyXMLGenerator.CreateXMLStringFromRootBlocks(blockClusters, this._variableDeclarationManager.Variables);
         StartCoroutine(
             WebsiteConnection.UpdateBlocklyCode(blocklyString)
