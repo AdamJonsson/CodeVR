@@ -142,7 +142,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 464279294438429285, guid: 4df946eded5ec430b9ecfeda550f2395, type: 3}
       propertyPath: _category
-      value: 5
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 464279294438429285, guid: 4df946eded5ec430b9ecfeda550f2395, type: 3}
       propertyPath: _blocklyTypeString
@@ -191,6 +191,42 @@ PrefabInstance:
     - target: {fileID: 576343571334343446, guid: 4df946eded5ec430b9ecfeda550f2395, type: 3}
       propertyPath: _connectionCategory
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 576343571334343446, guid: 4df946eded5ec430b9ecfeda550f2395, type: 3}
+      propertyPath: _incompatibleBlocks.Array.size
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 576343571334343446, guid: 4df946eded5ec430b9ecfeda550f2395, type: 3}
+      propertyPath: _incompatibleBlocks.Array.data[1]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 576343571334343446, guid: 4df946eded5ec430b9ecfeda550f2395, type: 3}
+      propertyPath: _incompatibleBlocks.Array.data[2]
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 576343571334343446, guid: 4df946eded5ec430b9ecfeda550f2395, type: 3}
+      propertyPath: _incompatibleBlocks.Array.data[3]
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 576343571334343446, guid: 4df946eded5ec430b9ecfeda550f2395, type: 3}
+      propertyPath: _incompatibleBlocks.Array.data[4]
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 576343571334343446, guid: 4df946eded5ec430b9ecfeda550f2395, type: 3}
+      propertyPath: _incompatibleBlocks.Array.data[5]
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 576343571334343446, guid: 4df946eded5ec430b9ecfeda550f2395, type: 3}
+      propertyPath: _incompatibleBlocks.Array.data[6]
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 576343571334343446, guid: 4df946eded5ec430b9ecfeda550f2395, type: 3}
+      propertyPath: _incompatibleBlocks.Array.data[7]
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 576343571334343446, guid: 4df946eded5ec430b9ecfeda550f2395, type: 3}
+      propertyPath: _incompatibleBlocks.Array.data[8]
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1558929592787066899, guid: 4df946eded5ec430b9ecfeda550f2395, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -448,7 +484,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _dropdown: {fileID: 1662156577240641237}
-  OverrideStartValue: 
+  _startValueByVariableName: 
 --- !u!114 &6404180192162882840
 MonoBehaviour:
   m_ObjectHideFlags: 0

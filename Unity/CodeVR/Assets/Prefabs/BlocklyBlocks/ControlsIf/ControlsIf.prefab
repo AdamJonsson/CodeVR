@@ -15,6 +15,54 @@ PrefabInstance:
       propertyPath: _customXMLElements.Array.data[0]
       value: 
       objectReference: {fileID: 5672443429289243459}
+    - target: {fileID: 576343571334343446, guid: 9675922034bd040af81fede3c6ea4890, type: 3}
+      propertyPath: _incompatibleBlocks.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 576343571334343446, guid: 9675922034bd040af81fede3c6ea4890, type: 3}
+      propertyPath: _incompatibleBlocks.Array.data[0]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 576343571334343446, guid: 9675922034bd040af81fede3c6ea4890, type: 3}
+      propertyPath: _incompatibleBlocks.Array.data[1]
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000003080614407851, guid: 9675922034bd040af81fede3c6ea4890, type: 3}
+      propertyPath: _compatibleBlocks.Array.size
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000003080614407851, guid: 9675922034bd040af81fede3c6ea4890, type: 3}
+      propertyPath: _compatibleBlocks.Array.data[7]
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000003080614407851, guid: 9675922034bd040af81fede3c6ea4890, type: 3}
+      propertyPath: _compatibleBlocks.Array.data[8]
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3732833421425347194, guid: 9675922034bd040af81fede3c6ea4890, type: 3}
+      propertyPath: _incompatibleBlocks.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3732833421425347194, guid: 9675922034bd040af81fede3c6ea4890, type: 3}
+      propertyPath: _incompatibleBlocks.Array.data[0]
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3732833421425347194, guid: 9675922034bd040af81fede3c6ea4890, type: 3}
+      propertyPath: _incompatibleBlocks.Array.data[1]
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6664971751550474603, guid: 9675922034bd040af81fede3c6ea4890, type: 3}
+      propertyPath: _compatibleBlocks.Array.size
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6664971751550474603, guid: 9675922034bd040af81fede3c6ea4890, type: 3}
+      propertyPath: _compatibleBlocks.Array.data[7]
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6664971751550474603, guid: 9675922034bd040af81fede3c6ea4890, type: 3}
+      propertyPath: _compatibleBlocks.Array.data[8]
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 7985744678476896490, guid: 9675922034bd040af81fede3c6ea4890, type: 3}
       propertyPath: m_RootOrder
       value: 0

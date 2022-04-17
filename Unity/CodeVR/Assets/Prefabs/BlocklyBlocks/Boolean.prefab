@@ -151,6 +151,14 @@ PrefabInstance:
       propertyPath: _blocklyFields.Array.data[0].DynamicValue
       value: 
       objectReference: {fileID: 3548880034216208548}
+    - target: {fileID: 576343571334343446, guid: 958a5623916b9d842a6a5a51f35dd2c6, type: 3}
+      propertyPath: _incompatibleBlocks.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 576343571334343446, guid: 958a5623916b9d842a6a5a51f35dd2c6, type: 3}
+      propertyPath: _incompatibleBlocks.Array.data[0]
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 632445417908272139, guid: 958a5623916b9d842a6a5a51f35dd2c6, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1

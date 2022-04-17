@@ -1620,8 +1620,24 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4053330007800758289, guid: b95cd7d8e42ab4348963285cc8fc28f4, type: 3}
+      propertyPath: _incompatibleBlocks.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4053330007800758289, guid: b95cd7d8e42ab4348963285cc8fc28f4, type: 3}
       propertyPath: _compatibleBlocks.Array.data[0]
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4053330007800758289, guid: b95cd7d8e42ab4348963285cc8fc28f4, type: 3}
+      propertyPath: _incompatibleBlocks.Array.data[0]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4053330007800758289, guid: b95cd7d8e42ab4348963285cc8fc28f4, type: 3}
+      propertyPath: _incompatibleBlocks.Array.data[1]
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4053330007800758289, guid: b95cd7d8e42ab4348963285cc8fc28f4, type: 3}
+      propertyPath: _incompatibleBlocks.Array.data[2]
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4620819750103158277, guid: b95cd7d8e42ab4348963285cc8fc28f4, type: 3}
       propertyPath: m_IsActive
