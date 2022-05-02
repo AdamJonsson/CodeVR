@@ -64,6 +64,25 @@ MonoBehaviour:
     Variables:
     - x
     - y
+  - TaskID: age_bug
+    BlocksContainer: {fileID: 3642513230351947424, guid: 7cd93d88f780c3842aaccac7751ed3bb, type: 3}
+    Variables:
+    - age
+  - TaskID: area_task
+    BlocksContainer: {fileID: 3642513230351947424, guid: 8012c44cdfa95074aa223d9478b7d2af, type: 3}
+    Variables:
+    - x
+    - y
+  - TaskID: create_function_task
+    BlocksContainer: {fileID: 3642513230351947424, guid: 05bb3a1260b191f4d902e66230b2a3cf, type: 3}
+    Variables:
+    - x
+    - y
+    - a
+    - b
+  - TaskID: all_task_completed
+    BlocksContainer: {fileID: 3642513230351947424, guid: 9bc204eb3f8c49f4d8483985197f2f95, type: 3}
+    Variables: []
   - TaskID: test_task
     BlocksContainer: {fileID: 3642513230351947424, guid: 8c6daa8f9aec13549bd85675fe8eac8d, type: 3}
     Variables: []
