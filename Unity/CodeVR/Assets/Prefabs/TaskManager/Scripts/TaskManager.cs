@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Text;
 using UnityEngine;
 
 public class TaskManager : MonoBehaviour
@@ -123,7 +124,9 @@ public class TaskManager : MonoBehaviour
         Debug.Log(Application.persistentDataPath);
         var currentDate = DateTime.Now.ToFileTime();
         this._taskLogsFilePath = Application.persistentDataPath + "/task_logger_" + currentDate + ".txt";
-        File.Create(this._taskLogsFilePath);
+        var fileStream = File.Create(this._taskLogsFilePath);
+        fileStream.Write(new UTF8Encoding(true).GetBytes("Start\n"));
+        fileStream.Close();
     }
 
     private void LogTaskCompleted(TaskStatusResponse response)

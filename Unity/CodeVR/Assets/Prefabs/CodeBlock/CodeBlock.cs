@@ -108,6 +108,15 @@ public class CodeBlock : MonoBehaviour
         }
     }
 
+    public bool IsBlockCurrentlySelectedByOneHand
+    {
+        get 
+        {
+            if (this.Container == null) return false;
+            return this.Container.CodeBlockOrigin == this;
+        }
+    }
+
     public List<CodeBlockConnector> AllConnectors { get => this._connectors; }
 
     public CodeBlockSize Size { get => this._size; }
@@ -182,7 +191,6 @@ public class CodeBlock : MonoBehaviour
 
     private void GetAllInputFinders()
     {
-        // this._inputFinders.Clear();
         foreach (var outputConnector in this._outputConnectors)
         {
             this._inputFinders.Add(outputConnector.GetComponent<InputFinder>());
@@ -192,7 +200,8 @@ public class CodeBlock : MonoBehaviour
     public void OnUserSelected(SelectEnterEventArgs args)
     {
         var interactor = this._interactable.firstInteractorSelecting as XRRayInteractor;
-        bool shouldDetach = this.IsCurrentlyBeingMoved && !this.IsSolo;
+        bool handsAreSelectingTheSameBlock = this.IsBlockCurrentlySelectedByOneHand;
+        bool shouldDetach = !handsAreSelectingTheSameBlock && this.IsCurrentlyBeingMoved && !this.IsSolo;
         if (shouldDetach)
         {
             CodeBlockConnector detachmentPoint = FindBestDetachementPoint();
