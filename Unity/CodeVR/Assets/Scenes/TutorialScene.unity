@@ -938,6 +938,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GrabTutorial
       objectReference: {fileID: 0}
+    - target: {fileID: 7601190737544335903, guid: 596c3db69f080461188b5d4c6dec4cf1, type: 3}
+      propertyPath: m_text
+      value: Grab a block by poiting at it an press the grip button on the controller.
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 596c3db69f080461188b5d4c6dec4cf1, type: 3}
 --- !u!1 &357255791
@@ -8480,7 +8484,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7601190737544335903, guid: 596c3db69f080461188b5d4c6dec4cf1, type: 3}
       propertyPath: m_text
-      value: Disconnect blocks by holding the blocks with one hand and draging appart
+      value: Disconnect blocks by holding the blocks with one hand and drag appart
         one block with the other hand.
       objectReference: {fileID: 0}
     - target: {fileID: 9117923662421590080, guid: 596c3db69f080461188b5d4c6dec4cf1, type: 3}
