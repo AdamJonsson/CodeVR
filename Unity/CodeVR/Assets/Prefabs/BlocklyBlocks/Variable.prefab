@@ -12,6 +12,10 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 464279294438429285, guid: 4df946eded5ec430b9ecfeda550f2395, type: 3}
+      propertyPath: _originalPrefab
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 464279294438429285, guid: 4df946eded5ec430b9ecfeda550f2395, type: 3}
       propertyPath: _blocklyTypeString
       value: variables_get
       objectReference: {fileID: 0}
@@ -186,7 +190,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _dropdown: {fileID: 1662156577240641237}
-  OverrideStartValue: 
+  _startValueByVariableName: 
 --- !u!114 &6404180192162882840
 MonoBehaviour:
   m_ObjectHideFlags: 0

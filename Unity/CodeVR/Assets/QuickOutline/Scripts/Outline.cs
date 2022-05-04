@@ -85,6 +85,10 @@ public class Outline : MonoBehaviour {
     // Cache renderers
     renderers = GetComponentsInChildren<Renderer>();
 
+    var renderer = this.GetComponent<Renderer>();
+    var mainMaterial = renderer.materials[0];
+    renderer.materials = new Material[]{mainMaterial};
+
     // Instantiate outline materials
     outlineMaskMaterial = Instantiate(Resources.Load<Material>(@"Materials/OutlineMask"));
     outlineFillMaterial = Instantiate(Resources.Load<Material>(@"Materials/OutlineFill"));

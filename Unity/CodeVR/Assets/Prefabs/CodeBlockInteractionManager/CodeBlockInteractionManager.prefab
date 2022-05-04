@@ -107,3 +107,4 @@ MonoBehaviour:
       m_Action: Duplicate Button
       m_Flags: 0
     m_Flags: 0
+  _duplicationByStretchPrefab: {fileID: 6008293276211015054, guid: 7d928b05f2f647e4f8735786162fbef2, type: 3}

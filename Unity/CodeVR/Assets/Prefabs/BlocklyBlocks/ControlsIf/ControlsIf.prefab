@@ -8,6 +8,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 464279294438429285, guid: 9675922034bd040af81fede3c6ea4890, type: 3}
+      propertyPath: _originalPrefab
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 464279294438429285, guid: 9675922034bd040af81fede3c6ea4890, type: 3}
       propertyPath: _customXMLElements.Array.size
       value: 1
       objectReference: {fileID: 0}

@@ -132,6 +132,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 464279294438429285, guid: 958a5623916b9d842a6a5a51f35dd2c6, type: 3}
+      propertyPath: _originalPrefab
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 464279294438429285, guid: 958a5623916b9d842a6a5a51f35dd2c6, type: 3}
       propertyPath: _blocklyTypeString
       value: logic_boolean
       objectReference: {fileID: 0}

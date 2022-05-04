@@ -17,20 +17,22 @@ public class CodeBlockInteractionManager : MonoBehaviour
 
     [SerializeField] private InputAction _startSelectingRightController;
     [SerializeField] private InputAction _startSelectingLeftController;
-    [SerializeField] private InputAction _duplicateButton;
+
+    [SerializeField] private DuplicationByStretch _duplicationByStretchPrefab;
+
+    private CodeBlockManager _codeBlockManager;
 
     // Start is called before the first frame update
     void Start()
     {
+        this._codeBlockManager = FindObjectOfType<CodeBlockManager>();
         this._leftController.raycastMask = _codeBlockInteractionMask;
         this._rightController.raycastMask = _codeBlockInteractionMask;
         this._startSelectingRightController.performed += (context) => this.OnGripChange(context, this._rightController);
         this._startSelectingLeftController.performed += (context) => this.OnGripChange(context, this._leftController);
-        this._duplicateButton.performed += (context) => this.StartDuplicationOfBlock();
 
         this._startSelectingRightController.Enable();
         this._startSelectingLeftController.Enable();
-        this._duplicateButton.Enable();
     }
 
     // Update is called once per frame
@@ -83,7 +85,8 @@ public class CodeBlockInteractionManager : MonoBehaviour
                 container.transform.rotation
             );
         }
-        this._xrInteractionManager.SelectExit(interactor, interactor.firstInteractableSelected);
+        if (interactor.firstInteractableSelected != null)
+            this._xrInteractionManager.SelectExit(interactor, interactor.firstInteractableSelected);
         this._xrInteractionManager.SelectEnter(interactor, container.Interactable);
     }
 
@@ -95,17 +98,16 @@ public class CodeBlockInteractionManager : MonoBehaviour
         return codeBlockContainer.CodeBlockOrigin;
     }
 
-    private void StartDuplicationOfBlock()
+    public void VibrateHandsIfSomethingIsBeingHeld(float amplitude)
     {
-        var codeBlockToDuplicate = this.GetBlockHeldByRightHand();
-        if (codeBlockToDuplicate == null) return;
-
-        var streachBlock = Instantiate(codeBlockToDuplicate, codeBlockToDuplicate.transform.position, codeBlockToDuplicate.transform.rotation);
-        var streachBlockComponent = streachBlock.GetComponent<CodeBlockDuplicateStretcher>();
-        streachBlockComponent.enabled = true;
-
-        streachBlockComponent.StartStretchMode(this._rightController, codeBlockToDuplicate.transform, codeBlockToDuplicate);
-        this._xrInteractionManager.SelectExit(this._rightController, codeBlockToDuplicate.Container.Interactable);
-        // this._rightController.enabled = false;
+        this.VibrateHandIfSomethingIsBeingHeld(this._rightController, amplitude);
+        this.VibrateHandIfSomethingIsBeingHeld(this._leftController, amplitude);
     }
+
+    private void VibrateHandIfSomethingIsBeingHeld(XRRayInteractor interactor, float amplitude)
+    {
+        if (interactor.interactablesSelected.Count == 0) return;
+        interactor.SendHapticImpulse(amplitude, 0.1f);        
+    }
+
 }
