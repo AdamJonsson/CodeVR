@@ -17,6 +17,7 @@ public class CodeBlockInteractionManager : MonoBehaviour
 
     [SerializeField] private InputAction _startSelectingRightController;
     [SerializeField] private InputAction _startSelectingLeftController;
+    [SerializeField] private InputAction _duplicateButton;
 
     // Start is called before the first frame update
     void Start()
@@ -25,9 +26,11 @@ public class CodeBlockInteractionManager : MonoBehaviour
         this._rightController.raycastMask = _codeBlockInteractionMask;
         this._startSelectingRightController.performed += (context) => this.OnGripChange(context, this._rightController);
         this._startSelectingLeftController.performed += (context) => this.OnGripChange(context, this._leftController);
+        this._duplicateButton.performed += (context) => this.StartDuplicationOfBlock();
 
         this._startSelectingRightController.Enable();
         this._startSelectingLeftController.Enable();
+        this._duplicateButton.Enable();
     }
 
     // Update is called once per frame
@@ -38,7 +41,6 @@ public class CodeBlockInteractionManager : MonoBehaviour
 
     private void OnGripChange(InputAction.CallbackContext context, XRRayInteractor controller)
     {
-        Debug.Log("Press value: " + context.ReadValue<float>());
         bool isPressingDown = context.ReadValue<float>() > 0.1f;
         this.ToggleControllerUIInteraction(!isPressingDown, controller);
     }
@@ -75,14 +77,35 @@ public class CodeBlockInteractionManager : MonoBehaviour
         if (offsetGrab)
         {
             var attachmentTransform = interactor.GetAttachTransform(container.Interactable);
-            var attachmentGameObject = new GameObject();
-            attachmentGameObject.transform.parent = container.transform;
-            attachmentGameObject.transform.SetPositionAndRotation(
+            var containerTransform = container.Interactable.GetAttachTransform(interactor);
+            containerTransform.SetPositionAndRotation(
                 attachmentTransform.position, 
                 container.transform.rotation
             );
-            container.Interactable.attachTransform = attachmentGameObject.transform;
         }
+        this._xrInteractionManager.SelectExit(interactor, interactor.firstInteractableSelected);
         this._xrInteractionManager.SelectEnter(interactor, container.Interactable);
+    }
+
+    private CodeBlock GetBlockHeldByRightHand()
+    {
+        if (this._rightController.firstInteractableSelected == null) return null;
+        var codeBlockContainer = this._rightController.firstInteractableSelected.transform.gameObject.GetComponent<CodeBlockContainer>();
+        if (codeBlockContainer == null) return null;
+        return codeBlockContainer.CodeBlockOrigin;
+    }
+
+    private void StartDuplicationOfBlock()
+    {
+        var codeBlockToDuplicate = this.GetBlockHeldByRightHand();
+        if (codeBlockToDuplicate == null) return;
+
+        var streachBlock = Instantiate(codeBlockToDuplicate, codeBlockToDuplicate.transform.position, codeBlockToDuplicate.transform.rotation);
+        var streachBlockComponent = streachBlock.GetComponent<CodeBlockDuplicateStretcher>();
+        streachBlockComponent.enabled = true;
+
+        streachBlockComponent.StartStretchMode(this._rightController, codeBlockToDuplicate.transform, codeBlockToDuplicate);
+        this._xrInteractionManager.SelectExit(this._rightController, codeBlockToDuplicate.Container.Interactable);
+        // this._rightController.enabled = false;
     }
 }

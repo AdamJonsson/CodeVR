@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4615836069189851194}
   - component: {fileID: 7096149081139296630}
   - component: {fileID: -6347147416706373758}
+  - component: {fileID: 2900952576582215500}
   m_Layer: 7
   m_Name: CodeBlock
   m_TagString: Untagged
@@ -50,10 +51,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _connectors: []
   _containerPrefab: {fileID: 1387075339670064996, guid: 76dd11f3571aa4b1bbe6ddbec4197351, type: 3}
+  _helperBlocks: []
   _selectSound: {fileID: 8300000, guid: 4374a5446226647708ac622f2f4330f1, type: 3}
   _connectSound: {fileID: 8300000, guid: 874b95fa0534f43df83d1669f317ba80, type: 3}
   _detachSound: {fileID: 8300000, guid: f4c5ed6369f2840339d2b9d22fea74d6, type: 3}
   _audioSource: {fileID: 2741038212756663278}
+  _blocklyTypeString: 
+  _category: 0
+  _blocklyFields: []
+  _customXMLElements: []
+  _excludeInAutomaticBlocklyCodeGeneration: 0
+  _usePreviousBlockForXMLContent: 0
 --- !u!114 &4615836069189851194
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -72,7 +80,9 @@ MonoBehaviour:
   _connectorsThatEffectHeight: []
   _widthCalculationMode: 1
   _widthExpandableBlocks: []
+  _widthConnectorsCalculationMode: 0
   _connectorsThatEffectWidth: []
+  _marginWhenNoConnectionExist: {x: 0, y: 0, z: 0}
 --- !u!114 &7096149081139296630
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -167,6 +177,63 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &2900952576582215500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9427996589336988}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fca29037d267448d8b468905f9643cc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _duplicateSound: {fileID: 8300000, guid: f4c5ed6369f2840339d2b9d22fea74d6, type: 3}
+  _audioSource: {fileID: 2741038212756663278}
+  _duplicationSequenceDuration: 0.25
+  _duplicationAnimationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2.1474679
+      outSlope: 2.1474679
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.054913294
+    - serializedVersion: 3
+      time: 0.6290453
+      value: 1.0500627
+      inSlope: 0.5055238
+      outSlope: 0.5055238
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.8595828
+      value: 0.96962225
+      inSlope: -0.6391745
+      outSlope: -0.6391745
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0.03795533
+      outSlope: 0.03795533
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.062138736
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &3844262142989322241
 PrefabInstance:
   m_ObjectHideFlags: 0

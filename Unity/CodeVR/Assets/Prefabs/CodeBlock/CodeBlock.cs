@@ -230,7 +230,7 @@ public class CodeBlock : MonoBehaviour
 
         RaycastHit raycastHit;
         var raycastHitExist = interactor.TryGetCurrent3DRaycastHit(out raycastHit);
-        var spawnPosition = raycastHitExist ? (raycastHit.point + this.transform.forward * this.transform.localScale.z * 0.5f) : this.transform.position;
+        var spawnPosition = raycastHitExist ? (raycastHit.point) : this.transform.position;
 
         var newContainer = this.CreateNewContainer(spawnPosition);
         var blocksToMoveToContainer = this.GetBlockCluster();
