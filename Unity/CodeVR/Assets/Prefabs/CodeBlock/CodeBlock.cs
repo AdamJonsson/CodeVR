@@ -43,6 +43,9 @@ public class CodeBlock : MonoBehaviour
     [SerializeField] private bool _usePreviousBlockForXMLContent = false;
     public bool UsePreviousBlockForXMLContent { get => this._usePreviousBlockForXMLContent; }
 
+    [SerializeField] private DuplicationByStretch _duplicationByStretchPrefab;
+    [SerializeField, HideInInspector] private CodeBlock _originalPrefab;
+
     private string _id;
 
     private CodeBlockSize _size;
@@ -58,6 +61,7 @@ public class CodeBlock : MonoBehaviour
 
     private CodeBlockInteractionManager _codeBlockInteractionManager;
     private CodeBlockConnectionManager _codeBlockConnectionManager;
+    private CodeBlockManager _codeBlockManager;
 
     private XRSimpleInteractable _interactable;
 
@@ -68,6 +72,8 @@ public class CodeBlock : MonoBehaviour
     public bool HasContainer { get => _currentContainer != null; }
 
     public CodeBlockContainer Container { get => _currentContainer; }
+
+    public CodeBlock Prefab => this._originalPrefab;
 
     public bool IsCurrentlyBeingMoved 
     { 
@@ -108,12 +114,12 @@ public class CodeBlock : MonoBehaviour
         }
     }
 
-    public bool IsBlockCurrentlySelectedByOneHand
+    public bool IsBlockCurrentlySelectedByAInteractor
     {
         get 
         {
             if (this.Container == null) return false;
-            return this.Container.CodeBlockOrigin == this;
+            return this.IsCurrentlyBeingMoved && this.Container.CodeBlockOrigin == this;
         }
     }
 
@@ -127,6 +133,7 @@ public class CodeBlock : MonoBehaviour
     {
         this._codeBlockInteractionManager = FindObjectOfType<CodeBlockInteractionManager>();
         this._codeBlockConnectionManager = FindObjectOfType<CodeBlockConnectionManager>();
+        this._codeBlockManager = FindObjectOfType<CodeBlockManager>();
         this._interactable = GetComponent<XRSimpleInteractable>();
         this._size = this.GetComponent<CodeBlockSize>();
 
@@ -200,13 +207,26 @@ public class CodeBlock : MonoBehaviour
     public void OnUserSelected(SelectEnterEventArgs args)
     {
         var interactor = this._interactable.firstInteractorSelecting as XRRayInteractor;
-        bool handsAreSelectingTheSameBlock = this.IsBlockCurrentlySelectedByOneHand;
+        bool handsAreSelectingTheSameBlock = this.IsBlockCurrentlySelectedByAInteractor;
         bool shouldDetach = !handsAreSelectingTheSameBlock && this.IsCurrentlyBeingMoved && !this.IsSolo;
+
+        if (handsAreSelectingTheSameBlock)
+        {
+            var newBlock = this._codeBlockManager.CreateNewBlock(this, this.transform.position, this.transform.rotation);
+            newBlock.gameObject.SetActive(true);
+            var duplicationByStretch = Instantiate(this._duplicationByStretchPrefab, Vector3.zero, Quaternion.identity);
+            duplicationByStretch.SetBlockToFollow(newBlock, this, this._codeBlockInteractionManager);
+            newBlock.MakeUserGrabSelfAndConnectedBlocks(interactor, true);
+            return;
+        }
+
         if (shouldDetach)
         {
             CodeBlockConnector detachmentPoint = FindBestDetachementPoint();
             this._codeBlockConnectionManager.DetachConnector(detachmentPoint);
             this._audioSource.PlayOneShot(this._detachSound, 1.0f);
+            this.MakeUserGrabSelfAndConnectedBlocks(interactor, playGrabSound: !shouldDetach);
+            return;
         }
 
         this.MakeUserGrabSelfAndConnectedBlocks(interactor, playGrabSound: !shouldDetach);
@@ -230,7 +250,7 @@ public class CodeBlock : MonoBehaviour
 
         RaycastHit raycastHit;
         var raycastHitExist = interactor.TryGetCurrent3DRaycastHit(out raycastHit);
-        var spawnPosition = raycastHitExist ? (raycastHit.point + this.transform.forward * this.transform.localScale.z * 0.5f) : this.transform.position;
+        var spawnPosition = raycastHitExist ? (raycastHit.point) : this.transform.position;
 
         var newContainer = this.CreateNewContainer(spawnPosition);
         var blocksToMoveToContainer = this.GetBlockCluster();

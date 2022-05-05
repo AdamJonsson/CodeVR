@@ -11,7 +11,7 @@ public class CodeBlockContainer : MonoBehaviour
     private CodeBlockInteractionManager _codeBlockInteractionManager;
     private CodeBlock _codeBlockOrigin;
 
-    public XRGrabInteractable Interactable { get { return this._interactable; }}
+    public IXRSelectInteractable Interactable { get { return this._interactable; }}
 
     private bool _hasDeleteFlag = false;
     public bool HasDeleteFlag { get => this._hasDeleteFlag; }
