@@ -24,23 +24,25 @@ export const TaskPresenter: FC<TaskPresenterProps> = (props) => {
     });
 
     useEffect(() => {
-        var [taskCompleted, inputs, expectedOutput, output] = testBlocklyCode(props.code, props.task);
-
-        updateCurrentTaskStatus(
-            taskCompleted, 
-            taskCompleted ? null : {
+        testBlocklyCode(props.code, props.task).then(data => {
+            var [taskCompleted, inputs, expectedOutput, output] = data;
+            updateCurrentTaskStatus(
+                taskCompleted, 
+                taskCompleted ? null : {
+                    inputs: inputs,
+                    output: expectedOutput,
+                },
+                output
+            );
+    
+            setTaskState({
+                taskCompleted: taskCompleted,
                 inputs: inputs,
-                output: expectedOutput,
-            },
-            output
-        );
+                expectedOutput: expectedOutput,
+                output: output
+            })
+        });
 
-        setTaskState({
-            taskCompleted: taskCompleted,
-            inputs: inputs,
-            expectedOutput: expectedOutput,
-            output: output
-        })
     }, [props.code, props.task]);
 
     const onNextTaskButtonClicked = () => {
