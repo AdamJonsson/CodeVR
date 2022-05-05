@@ -2425,6 +2425,10 @@ PrefabInstance:
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 9147208355751664282, guid: a34e6df8b375543b5986556f8dd5ff09, type: 3}
+      propertyPath: _originalPrefab
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 9147208355751664282, guid: a34e6df8b375543b5986556f8dd5ff09, type: 3}
       propertyPath: _blocklyTypeString
       value: procedures_defreturn
       objectReference: {fileID: 0}

@@ -41,6 +41,17 @@ public class CodeBlockManager : MonoBehaviour
         return createdBlock;
     }
 
+    public CodeBlock CreateNewBlock(GameObject original, Vector3 position, Quaternion rotation)
+    {
+        var createdBlock = Instantiate(original, position, rotation);
+        var codeBlock = createdBlock.GetComponent<CodeBlock>();
+        this.AddBlockAndItsHelperBlocks(codeBlock);
+        this._blocklyCodeManager.GenerateBlocklyCode();
+        this.NotifyBlocksChanged();
+        return codeBlock;
+    }
+
+
     public void AddExistingBlock(List<CodeBlock> codeBlocks)
     {
         this.AddBlocksAndTheirHelperBlocks(codeBlocks);

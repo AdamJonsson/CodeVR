@@ -8,6 +8,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 464279294438429285, guid: e0aa8b9a644f7437e9d8eeb7d853f51d, type: 3}
+      propertyPath: _originalPrefab
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 464279294438429285, guid: e0aa8b9a644f7437e9d8eeb7d853f51d, type: 3}
       propertyPath: _blocklyTypeString
       value: logic_negate
       objectReference: {fileID: 0}

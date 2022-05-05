@@ -18,9 +18,14 @@ public class CodeBlockInteractionManager : MonoBehaviour
     [SerializeField] private InputAction _startSelectingRightController;
     [SerializeField] private InputAction _startSelectingLeftController;
 
+    [SerializeField] private DuplicationByStretch _duplicationByStretchPrefab;
+
+    private CodeBlockManager _codeBlockManager;
+
     // Start is called before the first frame update
     void Start()
     {
+        this._codeBlockManager = FindObjectOfType<CodeBlockManager>();
         this._leftController.raycastMask = _codeBlockInteractionMask;
         this._rightController.raycastMask = _codeBlockInteractionMask;
         this._startSelectingRightController.performed += (context) => this.OnGripChange(context, this._rightController);
@@ -38,7 +43,6 @@ public class CodeBlockInteractionManager : MonoBehaviour
 
     private void OnGripChange(InputAction.CallbackContext context, XRRayInteractor controller)
     {
-        Debug.Log("Press value: " + context.ReadValue<float>());
         bool isPressingDown = context.ReadValue<float>() > 0.1f;
         this.ToggleControllerUIInteraction(!isPressingDown, controller);
     }
@@ -75,14 +79,35 @@ public class CodeBlockInteractionManager : MonoBehaviour
         if (offsetGrab)
         {
             var attachmentTransform = interactor.GetAttachTransform(container.Interactable);
-            var attachmentGameObject = new GameObject();
-            attachmentGameObject.transform.parent = container.transform;
-            attachmentGameObject.transform.SetPositionAndRotation(
+            var containerTransform = container.Interactable.GetAttachTransform(interactor);
+            containerTransform.SetPositionAndRotation(
                 attachmentTransform.position, 
                 container.transform.rotation
             );
-            container.Interactable.attachTransform = attachmentGameObject.transform;
         }
+        if (interactor.firstInteractableSelected != null)
+            this._xrInteractionManager.SelectExit(interactor, interactor.firstInteractableSelected);
         this._xrInteractionManager.SelectEnter(interactor, container.Interactable);
     }
+
+    private CodeBlock GetBlockHeldByRightHand()
+    {
+        if (this._rightController.firstInteractableSelected == null) return null;
+        var codeBlockContainer = this._rightController.firstInteractableSelected.transform.gameObject.GetComponent<CodeBlockContainer>();
+        if (codeBlockContainer == null) return null;
+        return codeBlockContainer.CodeBlockOrigin;
+    }
+
+    public void VibrateHandsIfSomethingIsBeingHeld(float amplitude)
+    {
+        this.VibrateHandIfSomethingIsBeingHeld(this._rightController, amplitude);
+        this.VibrateHandIfSomethingIsBeingHeld(this._leftController, amplitude);
+    }
+
+    private void VibrateHandIfSomethingIsBeingHeld(XRRayInteractor interactor, float amplitude)
+    {
+        if (interactor.interactablesSelected.Count == 0) return;
+        interactor.SendHapticImpulse(amplitude, 0.1f);        
+    }
+
 }
