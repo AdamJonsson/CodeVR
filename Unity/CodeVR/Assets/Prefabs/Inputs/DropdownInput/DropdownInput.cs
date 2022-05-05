@@ -127,7 +127,7 @@ public class DropdownInput : InputBase
                 this.transform.rotation, 
                 this.transform.parent
             );
-            spawnedOption.Canvas.transform.localPosition = this._thisInput.Canvas.localPosition;
+            spawnedOption.Canvas.transform.localPosition = this._thisInput.Canvas.localPosition - this._thisInput.Canvas.transform.forward * 0.01f;
             spawnedOption.ButtonRectTransform.pivot = this._thisInput.ButtonRectTransform.pivot;
             spawnedOption.SetText(option.Text);
             spawnedOption.SetCanvasSize(this._thisInput.CanvasSize);

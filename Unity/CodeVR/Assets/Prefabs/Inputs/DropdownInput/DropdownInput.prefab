@@ -99,6 +99,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DropdownInput
       objectReference: {fileID: 0}
+    - target: {fileID: 7171053232475140839, guid: 3fb2a8fc6008b4a52a9df8833a886918, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7213413254344339954, guid: 3fb2a8fc6008b4a52a9df8833a886918, type: 3}
       propertyPath: m_Colors.m_NormalColor.a
       value: 0.39215687
