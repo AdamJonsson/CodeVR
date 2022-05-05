@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 2138677392}
-  m_IndirectSpecularColor: {r: 0.59360313, g: 0.59382254, b: 0.5936709, a: 1}
+  m_IndirectSpecularColor: {r: 0.59356904, g: 0.59376633, b: 0.5936319, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2109,6 +2109,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 931222158499227122, guid: 7f9b88e6f4f13ed4bbccf89f55661a1c, type: 3}
+      propertyPath: m_Colors.m_PressedColor.b
+      value: 0.39252102
+      objectReference: {fileID: 0}
+    - target: {fileID: 931222158499227122, guid: 7f9b88e6f4f13ed4bbccf89f55661a1c, type: 3}
+      propertyPath: m_Colors.m_PressedColor.g
+      value: 0.5283019
+      objectReference: {fileID: 0}
+    - target: {fileID: 931222158499227122, guid: 7f9b88e6f4f13ed4bbccf89f55661a1c, type: 3}
+      propertyPath: m_Colors.m_PressedColor.r
+      value: 0.34638664
+      objectReference: {fileID: 0}
+    - target: {fileID: 931222158499227122, guid: 7f9b88e6f4f13ed4bbccf89f55661a1c, type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.b
+      value: 0.6362614
+      objectReference: {fileID: 0}
+    - target: {fileID: 931222158499227122, guid: 7f9b88e6f4f13ed4bbccf89f55661a1c, type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.g
+      value: 0.8207547
+      objectReference: {fileID: 0}
+    - target: {fileID: 931222158499227122, guid: 7f9b88e6f4f13ed4bbccf89f55661a1c, type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.r
+      value: 0.56136525
+      objectReference: {fileID: 0}
     - target: {fileID: 3341548033414094197, guid: 7f9b88e6f4f13ed4bbccf89f55661a1c, type: 3}
       propertyPath: m_PresetInfoIsWorld
       value: 1
