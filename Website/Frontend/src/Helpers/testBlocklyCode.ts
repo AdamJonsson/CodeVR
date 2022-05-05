@@ -12,10 +12,12 @@ function testBlocklyCode(code: string, task: Task): [boolean, string, string, st
       inputs = testCase.inputs;
       expectedOutput = testCase.output;
 
-      eval(
-        code +
-        `outputFromCurrentlyBlocklyCode = ${task.functionName}(${testCase.inputs.join(",")});`
-      );
+      setTimeout(function(){
+        eval(
+          code +
+          `outputFromCurrentlyBlocklyCode = ${task.functionName}(${testCase.inputs.join(",")});`
+        );
+      }, 250);
 
       try {
         outputFromCurrentlyBlocklyCode = outputFromCurrentlyBlocklyCode.toString();
