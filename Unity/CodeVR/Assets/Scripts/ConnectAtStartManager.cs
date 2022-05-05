@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 
 public class ConnectAtStartManager : MonoBehaviour
@@ -38,10 +37,11 @@ public class ConnectAtStartManager : MonoBehaviour
         var index = 0;
         foreach (var connection in this._connectionsAtStart)
         {
-            Handles.Label(
-                connection.From.DistanceReferencePoint.position - (connection.From.DistanceReferencePoint.position - connection.To.DistanceReferencePoint.position) / 2, 
-                "C: " + index
-            );
+            // Uncomment this for a better debugging experience 
+            // Handles.Label(
+            //     connection.From.DistanceReferencePoint.position - (connection.From.DistanceReferencePoint.position - connection.To.DistanceReferencePoint.position) / 2, 
+            //     "C: " + index
+            // );
             Gizmos.DrawLine(connection.From.DistanceReferencePoint.position, connection.To.DistanceReferencePoint.position);
             index++;
         }

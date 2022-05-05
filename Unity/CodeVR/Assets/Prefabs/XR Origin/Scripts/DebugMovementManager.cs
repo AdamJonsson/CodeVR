@@ -25,6 +25,7 @@ public class DebugMovementManager : MonoBehaviour
 
     private void OnToggleMovement(InputAction.CallbackContext context)
     {
+        Debug.Log("Toggle movement!");
         this._movementScript.enabled = !this._movementScript.enabled;
         this._turnScript.enabled = !this._turnScript.enabled;
     }

@@ -899,7 +899,7 @@ MonoBehaviour:
       m_Flags: 4
     - m_Name: modifier
       m_Id: d90cc108-e49a-4521-ba7a-d91a674f4c31
-      m_Path: <XRController>{LeftHand}/joystickClicked
+      m_Path: <XRController>{LeftHand}/thumbstickClicked
       m_Interactions: 
       m_Processors: 
       m_Groups: 
@@ -907,7 +907,7 @@ MonoBehaviour:
       m_Flags: 8
     - m_Name: binding
       m_Id: 98d55773-a414-4ddd-9699-6d0942138649
-      m_Path: <XRController>{RightHand}/joystickClicked
+      m_Path: <XRController>{RightHand}/thumbstickClicked
       m_Interactions: 
       m_Processors: 
       m_Groups: 

@@ -53,6 +53,7 @@ public class ExpandableBlock : MonoBehaviour
     {
         foreach (var expandable in this._expandables)
         {
+            if (expandable.TransformReference == null) continue;
             if (expandable.ShouldScale)
                 expandable.TransformReference.localScale = Vector3.Scale(this._expandScale, expandable.ScaleFactor) + expandable.ExtraStaticScale;
 

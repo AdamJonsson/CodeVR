@@ -119,6 +119,7 @@ public class DropdownInput : InputBase
 
     private void CreateAndSpawnOptionGameObjects()
     {
+        if (this == null) return;
         foreach (var option in this._options)
         {
             var spawnedOption = Instantiate(

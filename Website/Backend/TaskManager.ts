@@ -2,7 +2,7 @@ import Task, { allTasks, TestCases } from "./tasks";
 
 export default class TaskManager 
 {
-    private currentTaskIndex: number = 5;
+    private currentTaskIndex: number = 1;
     private currentTaskCompleted: boolean = false;
     private currentOutput: string = "TEST";
     private failedTest: FailedTest | null = null;
