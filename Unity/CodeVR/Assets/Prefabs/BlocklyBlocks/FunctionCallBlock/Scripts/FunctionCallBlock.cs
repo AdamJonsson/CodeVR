@@ -13,6 +13,8 @@ public class FunctionCallBlock : MonoBehaviour
 
     [SerializeField] private DropdownInput _dropdownInput;
 
+    [SerializeField] private string _defaultFunctionIfNoneSelected;
+
     public DropdownInput DropdownInput { get => this._dropdownInput; }
 
     [SerializeField] private GameObject _blockSizeToFollow;
@@ -202,10 +204,15 @@ public class FunctionCallBlock : MonoBehaviour
         var newDropdownValues = functions.Select((function) => {
             var name = function.NameInput.Value;
             if (name == "") name = "Unnamed function";
+            bool isDefaultValue = false;
+            if (currentSelectedValue == null || currentSelectedValue == "")
+                isDefaultValue = function.NameInput.Value == this._defaultFunctionIfNoneSelected;
+            else
+                isDefaultValue = function.CodeBlock.ID == currentSelectedValue;
             return new DropdownInput.DropdownOption() {
                 Text = name,
                 Value = function.CodeBlock.ID,
-                IsDefaultValue = function.CodeBlock.ID == currentSelectedValue
+                IsDefaultValue = isDefaultValue
             };
         }).ToList();
 

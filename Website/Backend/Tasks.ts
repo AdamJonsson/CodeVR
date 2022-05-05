@@ -124,6 +124,20 @@ export const allTasks: Task[] = [
             }
         ]
     },
+    {
+        id: "match_correct_function_task",
+        title: "Task 6: Match number and function",
+        description: "The function 'MakeMeTrue' should return true. Do this by putting the correct function call with the correct number. For example, a function that return 6 should be connected with the number 6 (funcX == 6)",
+        functionName: "MakeMeTrue",
+        variables: [],
+        testCases: [
+            {
+                inputs: [],
+                output: "true"
+            },
+
+        ]
+    },
     // {
     //     id: "drive_task",
     //     title: "Task 1: Allowed to drive checker",
@@ -168,7 +182,7 @@ export const allTasks: Task[] = [
     // },
     {
         id: "area_task",
-        title: "Task 5: Calculate Area",
+        title: "Task 7: Calculate Area",
         description: "The function 'CalculateArea' should return the area of a rectangle with the sides 'X' and 'Y'. However, if any of the sides are less than zero, the function should also return 0",
         functionName: "CalculateArea",
         variables: ["x", "y"],
@@ -193,7 +207,7 @@ export const allTasks: Task[] = [
     },
     {
         id: "create_function_task",
-        title: "Task 6: Create Function",
+        title: "Task 8: Create Function",
         description: "The function 'CallFunction' should call a new function that you need to create. The new function should be called 'foo' and have the inputs 'a' and 'b'. It should only return true if a > b, otherwise false. Call the function using x as parameter a and y as parameter b.",
         functionName: "CallFunction",
         variables: ["x", "y"],

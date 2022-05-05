@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+[ExecuteInEditMode]
 public class TextInput : InputBase
 {
 
@@ -37,6 +38,10 @@ public class TextInput : InputBase
     // Start is called before the first frame update
     void Start()
     {
+
+        this.UpdateButtonText(this._value);
+
+        if (!Application.isPlaying) return;
         this._button.onClick.AddListener(this.OnInputFocus);
         this._rectTransform = this._button.GetComponent<RectTransform>();
 
@@ -46,9 +51,9 @@ public class TextInput : InputBase
         this._blocklyCodeManager = FindObjectOfType<BlocklyCodeManager>();
 
 
-        this.UpdateButtonText(this._value);
         if (this.OnChange != null)
             this.OnChange.Invoke(this._value);
+        
     }
 
     public void SetValue(string newValue)
