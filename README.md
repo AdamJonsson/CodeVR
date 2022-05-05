@@ -7,6 +7,11 @@ CodeVR is an visual programming language implementation inside VR that is based 
 
 ---
 
+## Tip and tricks for Developers
+* Enable movement by pressing down both joysticks on the controllers.
+
+---
+
 ## Setup for Users
 * Setup the config to the correct IP adress. See the development setup.
 * Build the Unity project to an Oculus Quest headset.
