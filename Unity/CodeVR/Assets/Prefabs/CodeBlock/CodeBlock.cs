@@ -44,7 +44,9 @@ public class CodeBlock : MonoBehaviour
     public bool UsePreviousBlockForXMLContent { get => this._usePreviousBlockForXMLContent; }
 
     [SerializeField] private DuplicationByStretch _duplicationByStretchPrefab;
-    [SerializeField, HideInInspector] private CodeBlock _originalPrefab;
+
+    [SerializeField] private List<DropdownInput> _dropdownsToCloseOnBlockSelect = new List<DropdownInput>();
+
 
     private string _id;
 
@@ -72,8 +74,6 @@ public class CodeBlock : MonoBehaviour
     public bool HasContainer { get => _currentContainer != null; }
 
     public CodeBlockContainer Container { get => _currentContainer; }
-
-    public CodeBlock Prefab => this._originalPrefab;
 
     public bool IsCurrentlyBeingMoved 
     { 
@@ -257,6 +257,7 @@ public class CodeBlock : MonoBehaviour
         var blocksToMoveToContainer = this.GetBlockCluster();
         foreach (var block in blocksToMoveToContainer)
         {
+            block.OnStartBeingMoved();
             block.MoveToContainer(newContainer);
         }
         this._codeBlockInteractionManager.MakeInteractorGrabContainer(newContainer, interactor, offsetGrab: true);
@@ -267,6 +268,14 @@ public class CodeBlock : MonoBehaviour
         var newContainer = Instantiate(_containerPrefab, spawnPosition, this.transform.rotation);
         newContainer.SetCodeBlockOrigin(this);
         return newContainer;
+    }
+
+    public void OnStartBeingMoved()
+    {
+        foreach (var dropdown in this._dropdownsToCloseOnBlockSelect)
+        {
+            dropdown.Collapse();
+        }
     }
 
     public void MoveToContainer(CodeBlockContainer container)

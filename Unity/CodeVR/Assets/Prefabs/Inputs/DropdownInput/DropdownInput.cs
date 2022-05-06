@@ -191,6 +191,13 @@ public class DropdownInput : InputBase
         OnHideDone();
     }
 
+    public void Collapse()
+    {
+        if (this._eventSystem != null)
+            this._eventSystem.SetSelectedGameObject(null);
+        StartCoroutine(HideOptions(() => {}));
+    }
+
     public void SelectOption(DropdownOption option)
     {
         if (option == null) return;
