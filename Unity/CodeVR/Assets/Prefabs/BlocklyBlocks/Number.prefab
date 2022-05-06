@@ -71,9 +71,29 @@ PrefabInstance:
       propertyPath: _valueIfEmpty
       value: Num
       objectReference: {fileID: 0}
+    - target: {fileID: 4505748805338490009, guid: 958a5623916b9d842a6a5a51f35dd2c6, type: 3}
+      propertyPath: _clearStartValueOnFirstSelect
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5088323793314406464, guid: 958a5623916b9d842a6a5a51f35dd2c6, type: 3}
       propertyPath: m_text
       value: 123
+      objectReference: {fileID: 0}
+    - target: {fileID: 5088323793314406464, guid: 958a5623916b9d842a6a5a51f35dd2c6, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5088323793314406464, guid: 958a5623916b9d842a6a5a51f35dd2c6, type: 3}
+      propertyPath: m_fontColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5088323793314406464, guid: 958a5623916b9d842a6a5a51f35dd2c6, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5088323793314406464, guid: 958a5623916b9d842a6a5a51f35dd2c6, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4278190080
       objectReference: {fileID: 0}
     - target: {fileID: 7985744678476896490, guid: 958a5623916b9d842a6a5a51f35dd2c6, type: 3}
       propertyPath: m_RootOrder
