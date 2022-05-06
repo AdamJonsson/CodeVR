@@ -39,7 +39,7 @@ public class TextInput : InputBase
 
     void Awake()
     {
-        if (this._value == null)
+        if (this._value == null || this._value == "")
             this._value = this._startValue;
     }
 
