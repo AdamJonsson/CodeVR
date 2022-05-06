@@ -155,7 +155,8 @@ public class CodeBlock : MonoBehaviour
 
     public void OnConnectionToThisBlock()
     {
-        this._audioSource.PlayOneShot(_connectSound, 1.0f);
+        if (this._audioSource.isActiveAndEnabled)
+            this._audioSource.PlayOneShot(_connectSound, 1.0f);
         this.NotifyBlockClusterOfNewConnection();
     }
 

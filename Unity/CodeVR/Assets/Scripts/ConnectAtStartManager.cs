@@ -29,6 +29,24 @@ public class ConnectAtStartManager : MonoBehaviour
             this._codeBlockConnectionManager.ConnectBlocks(connectionAtStart.From, connectionAtStart.To);
         }
     }
+
+    void OnDrawGizmos()
+    {
+        // Draw a yellow sphere at the transform's position
+        Gizmos.color = Color.yellow;
+        var index = 0;
+        foreach (var connection in this._connectionsAtStart)
+        {
+            // Uncomment this for a better debugging experience 
+            // Handles.Label(
+            //     connection.From.DistanceReferencePoint.position - (connection.From.DistanceReferencePoint.position - connection.To.DistanceReferencePoint.position) / 2, 
+            //     "C: " + index
+            // );
+            Gizmos.DrawLine(connection.From.DistanceReferencePoint.position, connection.To.DistanceReferencePoint.position);
+            index++;
+        }
+    }
+    
 }
 
 [Serializable]
