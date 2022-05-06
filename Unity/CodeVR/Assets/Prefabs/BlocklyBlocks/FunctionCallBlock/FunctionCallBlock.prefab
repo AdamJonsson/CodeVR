@@ -957,6 +957,14 @@ PrefabInstance:
       propertyPath: _customXMLElements.Array.data[0]
       value: 
       objectReference: {fileID: 5059374900960674123}
+    - target: {fileID: 9147208355751664282, guid: a34e6df8b375543b5986556f8dd5ff09, type: 3}
+      propertyPath: _dropdownsToCloseOnBlockSelect.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9147208355751664282, guid: a34e6df8b375543b5986556f8dd5ff09, type: 3}
+      propertyPath: _dropdownsToCloseOnBlockSelect.Array.data[0]
+      value: 
+      objectReference: {fileID: 8773538873921860304}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a34e6df8b375543b5986556f8dd5ff09, type: 3}
 --- !u!114 &464279294438429285 stripped
@@ -994,8 +1002,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _parameterBlockPrefab: {fileID: 4818104246912634329, guid: 248abf6359673443f967ef36ef4939a1, type: 3}
   _rootOfParameterBlocks: {fileID: 1680670964917819191}
-  _numbers: 5
   _dropdownInput: {fileID: 8773538873921860304}
+  _defaultFunctionIfNoneSelected: 
   _blockSizeToFollow: {fileID: 4404033987656485235}
 --- !u!114 &5059374900960674123
 MonoBehaviour:
