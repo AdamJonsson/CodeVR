@@ -17,9 +17,14 @@ public class TextInput : InputBase
 
     [SerializeField] private string _startValue = "";
 
+    [Tooltip("If true, when the user is selecting the text-input for the first time, the value is cleared")]
+    [SerializeField] private bool _clearStartValueOnFirstSelect = false;
+
     [SerializeField] private string _valueIfEmpty = "Text";
 
-    private string _value = "";
+    // We have this value serializeable to make the value being copied when the block is duplicated.
+    [SerializeField, HideInInspector] private string _value = "";
+
     public override string Value { get => this._value; }
 
     private RectTransform _rectTransform;
@@ -30,9 +35,12 @@ public class TextInput : InputBase
 
     private bool _keyboardCurrentlyOpen = false;
 
+    private bool _keyboardHasBeenOpened = false;
+
     void Awake()
     {
-        this._value = this._startValue;
+        if (this._value == null)
+            this._value = this._startValue;
     }
 
     // Start is called before the first frame update
@@ -53,7 +61,6 @@ public class TextInput : InputBase
 
         if (this.OnChange != null)
             this.OnChange.Invoke(this._value);
-        
     }
 
     public void SetValue(string newValue)
@@ -71,7 +78,12 @@ public class TextInput : InputBase
         {
             keyboard.gameObject.SetActive(false);
         }
+
+        if (!_keyboardHasBeenOpened)
+            this.SetValue("");
+            
         this.ToggleKeyboardVisibility(!this._keyboardCurrentlyOpen);
+
     }
 
     private void OnInputBlur()
@@ -124,5 +136,7 @@ public class TextInput : InputBase
     {
         this._vrKeyboard.gameObject.SetActive(show);
         this._keyboardCurrentlyOpen = show;
+        if (show)
+            this._keyboardHasBeenOpened = true;
     }
 }
