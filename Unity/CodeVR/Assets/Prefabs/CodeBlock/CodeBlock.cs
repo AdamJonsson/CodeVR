@@ -75,6 +75,10 @@ public class CodeBlock : MonoBehaviour
 
     public CodeBlockContainer Container { get => _currentContainer; }
 
+    private bool _isConnectionModeEnabled = true;
+
+    public bool IsConnectionModeEnabled => this._isConnectionModeEnabled;
+
     public bool IsCurrentlyBeingMoved 
     { 
         get {
@@ -147,10 +151,9 @@ public class CodeBlock : MonoBehaviour
         this._interactable.selectEntered.AddListener(OnUserSelected);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void ToggleConnectionMode(bool enabled)
     {
-        
+        this._isConnectionModeEnabled = enabled;
     }
 
     public void OnConnectionToThisBlock()
@@ -215,6 +218,12 @@ public class CodeBlock : MonoBehaviour
         {
             var newBlock = this._codeBlockManager.CreateNewBlock(this, this.transform.position, this.transform.rotation);
             newBlock.gameObject.SetActive(true);
+
+            // Disable connection mode;
+            newBlock.ToggleConnectionMode(false);
+            if (this.IsSolo)
+                this.ToggleConnectionMode(false);
+
             var duplicationByStretch = Instantiate(this._duplicationByStretchPrefab, Vector3.zero, Quaternion.identity);
             duplicationByStretch.SetBlockToFollow(newBlock, this, this._codeBlockInteractionManager);
             newBlock.MakeUserGrabSelfAndConnectedBlocks(interactor, true);

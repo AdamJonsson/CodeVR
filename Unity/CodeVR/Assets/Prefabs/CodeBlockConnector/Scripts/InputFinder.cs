@@ -54,6 +54,8 @@ public class InputFinder : MonoBehaviour
         if (inputConnector.ConnectionType == CodeBlockConnector.Types.Output) return false;
         if (inputConnector.ConnectionCategory != _outputConnector.ConnectionCategory) return false;
 
+        if (!inputConnector.BlockAttachedTo.IsConnectionModeEnabled || !_outputConnector.BlockAttachedTo.IsConnectionModeEnabled) return false;
+
         // At least one controller need to have the block grabbed
         if (!_outputConnector.BlockAttachedTo.IsCurrentlyBeingMoved && !inputConnector.BlockAttachedTo.IsCurrentlyBeingMoved && !this._connectionManager.DebugMode) return false;
 

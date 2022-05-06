@@ -91,9 +91,17 @@ public class DuplicationByStretch : MonoBehaviour
         this._cancelAnimationBlock.transform.position = this._cancelAnimationTargetBlock.transform.position * curveValue + this._positionWhenCancelAnimationStarted * (1 - curveValue);
         this._cancelAnimationBlock.transform.rotation = this._cancelAnimationTargetBlock.transform.rotation; 
 
+        if (!this._cancelAnimationBlock.IsSolo)
+        {
+            this._cancelAnimationBlock.RealignBlockCluster();
+            Destroy(this.gameObject);
+            return;
+        }
+
         if (durationOfCancelAnimation > this._cancelAnimationDuration)
         {
             this._codeBlockManager.DeleteBlock(this._cancelAnimationBlock);
+            this._cancelAnimationTargetBlock.ToggleConnectionMode(true);
             Destroy(this.gameObject);
         }
     }
@@ -118,6 +126,8 @@ public class DuplicationByStretch : MonoBehaviour
     private IEnumerator StartSnapSequence()
     {
         this._snapSequenceStarted = true;
+        this._newBlock.ToggleConnectionMode(true);
+        this._referenceToBlockBeingDuplicated.ToggleConnectionMode(true);
         this._particles.transform.position = this._referenceToBlockBeingDuplicated.transform.position + (this._newBlock.transform.position - this._referenceToBlockBeingDuplicated.transform.position) / 2;
         this._particles.transform.LookAt(this._referenceToBlockBeingDuplicated.transform, Vector3.up);
         this._particles.Play();
