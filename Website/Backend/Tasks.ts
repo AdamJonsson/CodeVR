@@ -43,7 +43,7 @@ export const allTasks: Task[] = [
     {
         id: "math_task_1",
         title: "Task 2: Simple multiplication",
-        description: "The function 'SolveMathProblem' should return the value of 2 x 3. Do this by using the arithmetic and number blocks in front of you.",
+        description: "The function 'SolveMathProblem' should return the value of 2 x 3. Do this by using the arithmetic block and number blocks in front of you.",
         functionName: "SolveMathProblem",
         variables: [],
         testCases: [
@@ -77,7 +77,7 @@ export const allTasks: Task[] = [
     {
         id: "math_task_3",
         title: "Task 4: Add new blocks",
-        description: "The function 'SolveMathProblem' should return the multiplication of variables 'X' and 'Y'. You need to add the new blocks from the menu to the left.",
+        description: "The function 'SolveMathProblem' should return the multiplication of the variables 'X' and 'Y'. You need to add the needed blocks from the menu to the left.",
         functionName: "SolveMathProblem",
         variables: ["x", "y"],
         testCases: [
@@ -127,7 +127,7 @@ export const allTasks: Task[] = [
     {
         id: "match_correct_function_task",
         title: "Task 6: Match number and function",
-        description: "The function 'MakeMeTrue' should return true. Do this by putting the correct function call with the correct number. For example, a function that return 6 should be connected with the number 6 (funcX == 6)",
+        description: "The function 'MakeMeTrue' should return true. Do this by putting the correct function call with the correct number. For example, a function that return 6 should be matched with the number 6.",
         functionName: "MakeMeTrue",
         variables: [],
         testCases: [
@@ -141,7 +141,7 @@ export const allTasks: Task[] = [
     {
         id: "order_numbers_task",
         title: "Task 7: Order numbers",
-        description: "In the function 'OrderNumbers', move the number blocks such that they are in acceding order. That is, 0 1 2 3 4... Remember to only move the number blocks! You are not allowed to edit the text.",
+        description: "In the function 'OrderNumbers', move the number blocks such that they are in acceding order. That is, 0 1 2 3 4... Remember to only move the number blocks! You are not allowed to edit the input.",
         functionName: "OrderNumbers",
         variables: [],
         testCases: [
@@ -197,7 +197,7 @@ export const allTasks: Task[] = [
     {
         id: "area_task",
         title: "Task 8: Calculate Area",
-        description: "The function 'CalculateArea' should return the area of a rectangle with the sides 'X' and 'Y'. However, if any of the sides are less than zero, the function should also return 0",
+        description: "The function 'CalculateArea' should return the area of a rectangle with the sides 'X' and 'Y'. However, if any of the sides are less than zero, the function should return 0",
         functionName: "CalculateArea",
         variables: ["x", "y"],
         testCases: [
