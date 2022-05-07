@@ -49,7 +49,6 @@ MonoBehaviour:
   _codeBlocks:
   - {fileID: 1002714149386681921}
   - {fileID: 5346041317918539423}
-  _connectionsAtStart: []
 --- !u!1001 &401374119157599904
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -57,9 +56,33 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4821922059862981013}
     m_Modifications:
+    - target: {fileID: 606933466960670614, guid: 949ac1ec9775b4a5f9846654e49923be, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2285069891315560255, guid: 949ac1ec9775b4a5f9846654e49923be, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2874489724073285679, guid: 949ac1ec9775b4a5f9846654e49923be, type: 3}
+      propertyPath: m_text
+      value: SayHi
+      objectReference: {fileID: 0}
+    - target: {fileID: 2874489724073285679, guid: 949ac1ec9775b4a5f9846654e49923be, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2874489724073285679, guid: 949ac1ec9775b4a5f9846654e49923be, type: 3}
+      propertyPath: m_fontColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2874489724073285679, guid: 949ac1ec9775b4a5f9846654e49923be, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2874489724073285679, guid: 949ac1ec9775b4a5f9846654e49923be, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4278190080
       objectReference: {fileID: 0}
     - target: {fileID: 3732520807605548410, guid: 949ac1ec9775b4a5f9846654e49923be, type: 3}
       propertyPath: m_SizeDelta.x
@@ -88,6 +111,10 @@ PrefabInstance:
     - target: {fileID: 4594611976055456060, guid: 949ac1ec9775b4a5f9846654e49923be, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6917181587169549558, guid: 949ac1ec9775b4a5f9846654e49923be, type: 3}
+      propertyPath: _value
+      value: SayHi
       objectReference: {fileID: 0}
     - target: {fileID: 6917181587169549558, guid: 949ac1ec9775b4a5f9846654e49923be, type: 3}
       propertyPath: _startValue
@@ -227,6 +254,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 4821922059862981013}
     m_Modifications:
     - target: {fileID: 1939365457599381499, guid: e0649a033210c6049b2b3cdfdc85242c, type: 3}
+      propertyPath: _value
+      value: Hello World
+      objectReference: {fileID: 0}
+    - target: {fileID: 1939365457599381499, guid: e0649a033210c6049b2b3cdfdc85242c, type: 3}
       propertyPath: _startValue
       value: Hello World
       objectReference: {fileID: 0}
@@ -301,6 +332,30 @@ PrefabInstance:
     - target: {fileID: 6686935604358035969, guid: e0649a033210c6049b2b3cdfdc85242c, type: 3}
       propertyPath: m_Name
       value: Text
+      objectReference: {fileID: 0}
+    - target: {fileID: 7129474970608253730, guid: e0649a033210c6049b2b3cdfdc85242c, type: 3}
+      propertyPath: m_text
+      value: Hello World
+      objectReference: {fileID: 0}
+    - target: {fileID: 7129474970608253730, guid: e0649a033210c6049b2b3cdfdc85242c, type: 3}
+      propertyPath: m_fontStyle
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7129474970608253730, guid: e0649a033210c6049b2b3cdfdc85242c, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7129474970608253730, guid: e0649a033210c6049b2b3cdfdc85242c, type: 3}
+      propertyPath: m_fontColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7129474970608253730, guid: e0649a033210c6049b2b3cdfdc85242c, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7129474970608253730, guid: e0649a033210c6049b2b3cdfdc85242c, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4278190080
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0649a033210c6049b2b3cdfdc85242c, type: 3}

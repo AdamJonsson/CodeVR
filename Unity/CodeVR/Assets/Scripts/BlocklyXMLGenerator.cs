@@ -37,7 +37,7 @@ public class BlocklyXMLGenerator
         }
 
         document.AppendChild(rootnode);
-        Debug.Log(document.OuterXml);
+        Debug.Log("Generated xml from current blocks in scene. See log for the entire xml. \n\n" + document.OuterXml + "\n\n");
         return document.OuterXml;
     }
 

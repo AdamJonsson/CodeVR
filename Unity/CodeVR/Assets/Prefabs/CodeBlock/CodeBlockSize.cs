@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(CodeBlock))]
 public class CodeBlockSize : MonoBehaviour
 {
     [SerializeField] private Vector3 _staticSize = Vector3.one;

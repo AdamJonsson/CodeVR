@@ -230,7 +230,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: TEXT
+  m_text: Text
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6c0187f299ee44119ab7b5db81fd1587, type: 2}
   m_sharedMaterial: {fileID: 2164040, guid: 6c0187f299ee44119ab7b5db81fd1587, type: 2}
@@ -239,8 +239,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4283256141
-  m_fontColor: {r: 0.3018868, g: 0.3018868, b: 0.3018868, a: 1}
+    rgba: 4286611584
+  m_fontColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -263,7 +263,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 2
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -391,7 +391,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3268915292779071636}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
   m_Name: 
@@ -507,7 +507,9 @@ MonoBehaviour:
   _button: {fileID: 6497524428083332051}
   _buttonText: {fileID: 5037347725565244322}
   _startValue: 
+  _clearStartValueOnFirstSelect: 0
   _valueIfEmpty: Text
+  _value: 
 --- !u!1001 &5752298457315022921
 PrefabInstance:
   m_ObjectHideFlags: 0

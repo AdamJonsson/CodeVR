@@ -380,7 +380,6 @@ public class CodeBlock : MonoBehaviour
 
     public void RealignBlockCluster(CodeBlockConnector connectorToIgnore = null)
     {
-        Debug.Log("Number of connectors: " + this.AllConnectors.Count);
         foreach (var connector in AllConnectors)
         {
             if (!connector.IsConnected) continue;

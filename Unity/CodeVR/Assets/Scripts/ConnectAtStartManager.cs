@@ -9,9 +9,12 @@ public class ConnectAtStartManager : MonoBehaviour
 
     private CodeBlockConnectionManager _codeBlockConnectionManager;
 
+    private BlocklyCodeManager _blocklyCodeManager;
+
     void Awake()
     {
         this._codeBlockConnectionManager = FindObjectOfType<CodeBlockConnectionManager>();
+        this._blocklyCodeManager = FindObjectOfType<BlocklyCodeManager>();
     }
 
     // Start is called before the first frame update
@@ -26,8 +29,9 @@ public class ConnectAtStartManager : MonoBehaviour
         foreach (var connectionAtStart in connectionsAtStart)
         {
             yield return new WaitForSeconds(0.1f);
-            this._codeBlockConnectionManager.ConnectBlocks(connectionAtStart.From, connectionAtStart.To);
+            this._codeBlockConnectionManager.ConnectBlocks(connectionAtStart.From, connectionAtStart.To, true);
         }
+        this._blocklyCodeManager.GenerateBlocklyCode();
     }
 
     void OnDrawGizmos()

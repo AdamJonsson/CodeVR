@@ -79,7 +79,7 @@ public class TextInput : InputBase
             keyboard.gameObject.SetActive(false);
         }
 
-        if (!_keyboardHasBeenOpened)
+        if (!_keyboardHasBeenOpened && this._clearStartValueOnFirstSelect)
             this.SetValue("");
             
         this.ToggleKeyboardVisibility(!this._keyboardCurrentlyOpen);
