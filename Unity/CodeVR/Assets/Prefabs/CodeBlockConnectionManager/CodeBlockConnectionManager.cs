@@ -23,6 +23,8 @@ public class CodeBlockConnectionManager : MonoBehaviour
 
     private CodeBlockManager _codeBlockManager;
 
+    private List<PotentialConnection> _currentPotentialConnections = new List<PotentialConnection>();
+
     void Start()
     {
         this._leftController.selectExited.AddListener(OnDropBlock);
@@ -37,6 +39,7 @@ public class CodeBlockConnectionManager : MonoBehaviour
 
     void Update()
     {
+        this._currentPotentialConnections = GetAllPotentialConnections(true);
         this.DrawConnectionLine();
         if (this._debugMode) this.DebugActionUpdate();
     }
@@ -133,13 +136,18 @@ public class CodeBlockConnectionManager : MonoBehaviour
 
     private PotentialConnection GetBestPotentialConnection(bool includeIncompatibleConnection = false) 
     {
-        var allPotentialConnections = this.GetAllPotentialConnections(includeIncompatibleConnection);
-        if (allPotentialConnections.Count == 0) return null;
+        List<PotentialConnection> allPotentialConnectionsToCompare;
+        if (includeIncompatibleConnection)
+            allPotentialConnectionsToCompare = this._currentPotentialConnections;
+        else
+            allPotentialConnectionsToCompare = this._currentPotentialConnections.Where((potentialConnection) => potentialConnection.IsCategoryCompatible == true).ToList();
+
+        if (allPotentialConnectionsToCompare.Count == 0) return null;
         
         float closestDistance = Mathf.Infinity;
         PotentialConnection closestConnection = null;
 
-        foreach (var potentialConnection in allPotentialConnections)
+        foreach (var potentialConnection in allPotentialConnectionsToCompare)
         {
             if (closestDistance > potentialConnection.Distance)
             {
@@ -151,7 +159,7 @@ public class CodeBlockConnectionManager : MonoBehaviour
         return closestConnection;
     }
 
-    public void ConnectBlocks(CodeBlockConnector fromConnector, CodeBlockConnector toConnector)
+    public void ConnectBlocks(CodeBlockConnector fromConnector, CodeBlockConnector toConnector, bool quiet = false)
     {
         // Perform the basic connection
         fromConnector.Connect(connector: toConnector, snapConnectorsBlockCluster: false);
@@ -166,7 +174,8 @@ public class CodeBlockConnectionManager : MonoBehaviour
         // After the cluster have resized itself, we need to realign the blocks again
         toConnector.BlockAttachedTo.RealignBlockCluster();
 
-        this._blocklyCodeManager.GenerateBlocklyCode();
+        if (!quiet)
+            this._blocklyCodeManager.GenerateBlocklyCode();
     }
 
     private IEnumerator DelayedRealignBlocks(CodeBlockConnector connector)

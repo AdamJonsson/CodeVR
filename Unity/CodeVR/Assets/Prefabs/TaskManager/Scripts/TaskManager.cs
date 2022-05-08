@@ -33,6 +33,8 @@ public class TaskManager : MonoBehaviour
 
     private bool _taskIsCompleted = false;
 
+    private float _checkStatusLoopTime = 1.0f;
+
     void Awake()
     {
         this._codeBlockConnectionManager = FindObjectOfType<CodeBlockConnectionManager>();
@@ -46,13 +48,25 @@ public class TaskManager : MonoBehaviour
         if (!_disable)
         {
             this.CreateNewFile();
-            InvokeRepeating(nameof(this.CheckStatus), 1.0f, 1.0f);
+            StartCoroutine(this.CheckStatus());
         }
     }
 
-    private void CheckStatus()
+    private IEnumerator CheckStatus()
     {
-        StartCoroutine(WebsiteConnection.GetTaskStatus((result) => this.OnCheckStatusResult(result)));
+        yield return new WaitForSeconds(this._checkStatusLoopTime);
+        StartCoroutine(WebsiteConnection.GetTaskStatus(
+            OnResult: (result) => {
+                this.OnCheckStatusResult(result);
+                this._checkStatusLoopTime = 1.0f;
+                StartCoroutine(this.CheckStatus());
+            },
+            OnError: () => {
+                this._checkStatusLoopTime += 1;
+                Debug.LogWarning("Could not get task status. Trying again in " + this._checkStatusLoopTime + " seconds.");
+                StartCoroutine(this.CheckStatus());
+            }
+        ));
     }
 
     private void OnCheckStatusResult(TaskStatusResponse taskStatusResponse)
@@ -78,7 +92,7 @@ public class TaskManager : MonoBehaviour
 
     private void HandleNewActiveTask(TaskStatusResponse taskStatusResponse)
     {
-        Debug.Log("NEW ACTIVE TASK!");
+        Debug.Log("New active task detected.");
         this._currentTaskID = taskStatusResponse.task.id;
         this.SpawnStartingBlock(taskStatusResponse.task.id);
         this._currentState = State.Ready;
@@ -100,7 +114,6 @@ public class TaskManager : MonoBehaviour
         }
 
         this._codeBlockManager.AddExistingBlock(startingBlockSpawned.CodeBlocks);
-
         this._currentBlockDataSpawned = startingBlockContainerToSpawn;
     }
 
@@ -121,7 +134,7 @@ public class TaskManager : MonoBehaviour
 
     private void CreateNewFile()
     {
-        Debug.Log(Application.persistentDataPath);
+        Debug.Log("Created log file for task data at: " + Application.persistentDataPath);
         var currentDate = DateTime.Now.ToFileTime();
         this._taskLogsFilePath = Application.persistentDataPath + "/task_logger_" + currentDate + ".txt";
         var fileStream = File.Create(this._taskLogsFilePath);

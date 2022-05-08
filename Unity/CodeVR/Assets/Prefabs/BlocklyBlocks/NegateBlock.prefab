@@ -15,6 +15,18 @@ PrefabInstance:
       propertyPath: _blocklyTypeString
       value: logic_negate
       objectReference: {fileID: 0}
+    - target: {fileID: 1944024492666253705, guid: e0aa8b9a644f7437e9d8eeb7d853f51d, type: 3}
+      propertyPath: m_Colliders.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1944024492666253705, guid: e0aa8b9a644f7437e9d8eeb7d853f51d, type: 3}
+      propertyPath: m_Colliders.Array.data[0]
+      value: 
+      objectReference: {fileID: 6992852432728476537}
+    - target: {fileID: 1944024492666253705, guid: e0aa8b9a644f7437e9d8eeb7d853f51d, type: 3}
+      propertyPath: m_Colliders.Array.data[1]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5745770437269044634, guid: e0aa8b9a644f7437e9d8eeb7d853f51d, type: 3}
       propertyPath: _xmlTag
       value: value
@@ -73,3 +85,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0aa8b9a644f7437e9d8eeb7d853f51d, type: 3}
+--- !u!65 &6992852432728476537 stripped
+BoxCollider:
+  m_CorrespondingSourceObject: {fileID: 3134728837087671039, guid: e0aa8b9a644f7437e9d8eeb7d853f51d, type: 3}
+  m_PrefabInstance: {fileID: 5371476557251049862}
+  m_PrefabAsset: {fileID: 0}

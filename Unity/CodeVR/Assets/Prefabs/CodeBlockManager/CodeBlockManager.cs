@@ -52,20 +52,26 @@ public class CodeBlockManager : MonoBehaviour
     }
 
 
-    public void AddExistingBlock(List<CodeBlock> codeBlocks)
+    public void AddExistingBlock(List<CodeBlock> codeBlocks, bool quiet = false)
     {
-        this.AddBlocksAndTheirHelperBlocks(codeBlocks);
-        this._blocklyCodeManager.GenerateBlocklyCode();
-        this.NotifyBlocksChanged();
+        this.AddBlocksAndTheirHelperBlocks(codeBlocks, true);
+
+        if (!quiet)
+        {
+            this._blocklyCodeManager.GenerateBlocklyCode();
+            this.NotifyBlocksChanged();
+        }
     }
 
-    private void AddBlocksAndTheirHelperBlocks(List<CodeBlock> codeBlocks)
+    private void AddBlocksAndTheirHelperBlocks(List<CodeBlock> codeBlocks, bool quiet = false)
     {
         foreach (var codeBlock in codeBlocks)
         {
             this.AddBlockAndItsHelperBlocks(codeBlock);
         }
-        this.NotifyBlocksChanged();
+
+        if (!quiet)
+            this.NotifyBlocksChanged();
     }
 
     private void AddBlockAndItsHelperBlocks(CodeBlock codeBlock)
@@ -80,6 +86,7 @@ public class CodeBlockManager : MonoBehaviour
         this._allCodeBlocks.Remove(blockToDelete);
         foreach (var helperBlock in blockToDelete.HelperBlocks)
         {
+            if (helperBlock == null) continue;
             this._allCodeBlocks.Remove(helperBlock);
             foreach (var helperBlockChild in helperBlock.GetBlockCluster(includeSelf: false))
             {
@@ -104,7 +111,7 @@ public class CodeBlockManager : MonoBehaviour
         this.NotifyBlocksChanged();
     }
 
-    private void NotifyBlocksChanged()
+    public void NotifyBlocksChanged()
     {
         if (this.OnBlocksAddedOrDeleted != null)
             this.OnBlocksAddedOrDeleted.Invoke();

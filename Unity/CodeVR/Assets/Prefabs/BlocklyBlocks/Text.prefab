@@ -71,6 +71,18 @@ PrefabInstance:
       propertyPath: _inputFieldEffectsWidth
       value: 
       objectReference: {fileID: 1939365457599381499}
+    - target: {fileID: 1944024492666253705, guid: 958a5623916b9d842a6a5a51f35dd2c6, type: 3}
+      propertyPath: m_Colliders.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1944024492666253705, guid: 958a5623916b9d842a6a5a51f35dd2c6, type: 3}
+      propertyPath: m_Colliders.Array.data[0]
+      value: 
+      objectReference: {fileID: 1147691632070519197}
+    - target: {fileID: 1944024492666253705, guid: 958a5623916b9d842a6a5a51f35dd2c6, type: 3}
+      propertyPath: m_Colliders.Array.data[1]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1989016854978620268, guid: 958a5623916b9d842a6a5a51f35dd2c6, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.325
@@ -145,6 +157,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 958a5623916b9d842a6a5a51f35dd2c6, type: 3}
+--- !u!65 &1147691632070519197 stripped
+BoxCollider:
+  m_CorrespondingSourceObject: {fileID: 3134728837087671039, guid: 958a5623916b9d842a6a5a51f35dd2c6, type: 3}
+  m_PrefabInstance: {fileID: 2624930293236685666}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1939365457599381499 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4505748805338490009, guid: 958a5623916b9d842a6a5a51f35dd2c6, type: 3}

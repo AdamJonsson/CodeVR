@@ -66,6 +66,7 @@ public class Trashcan : MonoBehaviour
         if (this._containerToRemove != null) return;
         foreach (var container in this._blocksInsideTrashcan)
         {
+            if (container == null) continue;
             container.transform.localScale = Vector3.one * this._hoverExpandAnimation.Evaluate(Time.timeSinceLevelLoad);
         }
     }
@@ -94,7 +95,8 @@ public class Trashcan : MonoBehaviour
         }
 
         this._audioSource.Play();
-        this._containerToRemove.DeleteContainerKeepChildren();
+        if (this._containerToRemove != null)
+            this._containerToRemove.DeleteContainerKeepChildren();
         this._blocksInsideTrashcan.Clear();
         this._containerToRemove = null;
     }
@@ -121,6 +123,7 @@ public class Trashcan : MonoBehaviour
     {
         foreach (var container in containers)
         {
+            if (container == null) continue;
             container.transform.localScale = Vector3.one;
         }
     }

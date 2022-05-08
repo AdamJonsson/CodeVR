@@ -63,6 +63,18 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 72618da1e05d246499edd738c3bcac05, type: 2}
+    - target: {fileID: 1944024492666253705, guid: 958a5623916b9d842a6a5a51f35dd2c6, type: 3}
+      propertyPath: m_Colliders.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1944024492666253705, guid: 958a5623916b9d842a6a5a51f35dd2c6, type: 3}
+      propertyPath: m_Colliders.Array.data[0]
+      value: 
+      objectReference: {fileID: 1726155378212386509}
+    - target: {fileID: 1944024492666253705, guid: 958a5623916b9d842a6a5a51f35dd2c6, type: 3}
+      propertyPath: m_Colliders.Array.data[1]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4505748805338490009, guid: 958a5623916b9d842a6a5a51f35dd2c6, type: 3}
       propertyPath: _startValue
       value: 123
@@ -156,3 +168,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2af0b1237a56fff4990124b34e77cdb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &1726155378212386509 stripped
+BoxCollider:
+  m_CorrespondingSourceObject: {fileID: 3134728837087671039, guid: 958a5623916b9d842a6a5a51f35dd2c6, type: 3}
+  m_PrefabInstance: {fileID: 4356179784363017266}
+  m_PrefabAsset: {fileID: 0}

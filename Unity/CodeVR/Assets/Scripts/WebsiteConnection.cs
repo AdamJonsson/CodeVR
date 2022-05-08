@@ -30,20 +30,21 @@ public class WebsiteConnection
         }
     }
 
-    public static IEnumerator GetTaskStatus(Action<TaskStatusResponse> OnResult)
+    public static IEnumerator GetTaskStatus(Action<TaskStatusResponse> OnResult, Action OnError)
     {
         WWWForm form = new WWWForm();
         using (UnityWebRequest www = UnityWebRequest.Get(BaseAdress + "/api/current-task-status"))
         {
+            www.timeout = 5;
             yield return www.SendWebRequest();
 
             if (www.result != UnityWebRequest.Result.Success)
             {
-                Debug.Log(www.error);
+                OnError.Invoke();
             }
             else
             {
-                Debug.Log(www.downloadHandler.text);
+                Debug.Log($"New task status. \n\n <i>${www.downloadHandler.text}</i>");
                 var parsedResponse = JsonUtility.FromJson<TaskStatusResponse>(www.downloadHandler.text);
                 OnResult.Invoke(parsedResponse);
             }

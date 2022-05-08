@@ -36,12 +36,27 @@ public class CodeBlock : MonoBehaviour
     [SerializeField] private List<CustomXMLElement> _customXMLElements;
     public List<CustomXMLElement> CustomXmlElements { get => this._customXMLElements; } 
 
+    [Tooltip("If this is enabled and the block has no connections, do not include the block in the blockly code generation")]
+    [SerializeField] private bool _ignoreBlocklyCodeGenerationIfSolo = false;
+
     [SerializeField] private bool _excludeInAutomaticBlocklyCodeGeneration = false;
-    public bool ExcludeInAutomaticBlocklyCodeGeneration { get => this._excludeInAutomaticBlocklyCodeGeneration; }
+    public bool ExcludeInAutomaticBlocklyCodeGeneration { 
+        get
+        {
+            if (this._excludeInAutomaticBlocklyCodeGeneration) return true;
+            if (this._ignoreBlocklyCodeGenerationIfSolo && this.IsSolo) return true;
+            return false;
+        }
+    }
 
     [Tooltip("If enabled, the block is not going to use its own xml element, but put its content in the previous block. Is used forexample for the else-if and else blocks")]
     [SerializeField] private bool _usePreviousBlockForXMLContent = false;
     public bool UsePreviousBlockForXMLContent { get => this._usePreviousBlockForXMLContent; }
+
+    
+    [Header("Other")]
+
+    [SerializeField] private bool _allowDuplicationByStretch = true;
 
     [SerializeField] private DuplicationByStretch _duplicationByStretchPrefab;
 
@@ -214,32 +229,42 @@ public class CodeBlock : MonoBehaviour
         bool handsAreSelectingTheSameBlock = this.IsBlockCurrentlySelectedByAInteractor;
         bool shouldDetach = !handsAreSelectingTheSameBlock && this.IsCurrentlyBeingMoved && !this.IsSolo;
 
-        if (handsAreSelectingTheSameBlock)
+        if (handsAreSelectingTheSameBlock && this._allowDuplicationByStretch)
         {
-            var newBlock = this._codeBlockManager.CreateNewBlock(this, this.transform.position, this.transform.rotation);
-            newBlock.gameObject.SetActive(true);
-
-            // Disable connection mode;
-            newBlock.ToggleConnectionMode(false);
-            if (this.IsSolo)
-                this.ToggleConnectionMode(false);
-
-            var duplicationByStretch = Instantiate(this._duplicationByStretchPrefab, Vector3.zero, Quaternion.identity);
-            duplicationByStretch.SetBlockToFollow(newBlock, this, this._codeBlockInteractionManager);
-            newBlock.MakeUserGrabSelfAndConnectedBlocks(interactor, true);
+            this.BeginDuplication(interactor);
             return;
         }
 
         if (shouldDetach)
         {
-            CodeBlockConnector detachmentPoint = FindBestDetachementPoint();
-            this._codeBlockConnectionManager.DetachConnector(detachmentPoint);
-            this._audioSource.PlayOneShot(this._detachSound, 1.0f);
-            this.MakeUserGrabSelfAndConnectedBlocks(interactor, playGrabSound: !shouldDetach);
+            this.DetachBlockFromCluster(interactor);
             return;
         }
 
-        this.MakeUserGrabSelfAndConnectedBlocks(interactor, playGrabSound: !shouldDetach);
+        this.MakeUserGrabSelfAndConnectedBlocks(interactor, playGrabSound: true);
+    }
+
+    private void BeginDuplication(XRRayInteractor interactor)
+    {
+        var newBlock = this._codeBlockManager.CreateNewBlock(this, this.transform.position, this.transform.rotation);
+        newBlock.gameObject.SetActive(true);
+
+        // Disable connection mode;
+        newBlock.ToggleConnectionMode(false);
+        if (this.IsSolo)
+            this.ToggleConnectionMode(false);
+
+        var duplicationByStretch = Instantiate(this._duplicationByStretchPrefab, Vector3.zero, Quaternion.identity);
+        duplicationByStretch.SetBlockToFollow(newBlock, this, this._codeBlockInteractionManager);
+        newBlock.MakeUserGrabSelfAndConnectedBlocks(interactor, true);
+    }
+
+    private void DetachBlockFromCluster(XRRayInteractor interactor)
+    {
+        CodeBlockConnector detachmentPoint = FindBestDetachementPoint();
+        this._codeBlockConnectionManager.DetachConnector(detachmentPoint);
+        this._audioSource.PlayOneShot(this._detachSound, 1.0f);
+        this.MakeUserGrabSelfAndConnectedBlocks(interactor, playGrabSound: false);
     }
 
     private CodeBlockConnector FindBestDetachementPoint()
@@ -380,7 +405,6 @@ public class CodeBlock : MonoBehaviour
 
     public void RealignBlockCluster(CodeBlockConnector connectorToIgnore = null)
     {
-        Debug.Log("Number of connectors: " + this.AllConnectors.Count);
         foreach (var connector in AllConnectors)
         {
             if (!connector.IsConnected) continue;

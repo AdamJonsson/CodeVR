@@ -272,6 +272,18 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1944024492666253705, guid: 4df946eded5ec430b9ecfeda550f2395, type: 3}
+      propertyPath: m_Colliders.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1944024492666253705, guid: 4df946eded5ec430b9ecfeda550f2395, type: 3}
+      propertyPath: m_Colliders.Array.data[0]
+      value: 
+      objectReference: {fileID: 7434292112885589335}
+    - target: {fileID: 1944024492666253705, guid: 4df946eded5ec430b9ecfeda550f2395, type: 3}
+      propertyPath: m_Colliders.Array.data[1]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1989016854978620268, guid: 4df946eded5ec430b9ecfeda550f2395, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.325
@@ -509,3 +521,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 230dd29b408004d38a083bac739b61e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &7434292112885589335 stripped
+BoxCollider:
+  m_CorrespondingSourceObject: {fileID: 3134728837087671039, guid: 4df946eded5ec430b9ecfeda550f2395, type: 3}
+  m_PrefabInstance: {fileID: 5524546807410988968}
+  m_PrefabAsset: {fileID: 0}

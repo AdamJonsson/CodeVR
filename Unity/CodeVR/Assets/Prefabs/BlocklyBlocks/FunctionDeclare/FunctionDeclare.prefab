@@ -1797,7 +1797,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5037347725565244322, guid: c5a9b480f856d254fa7afec7c72bf84b, type: 3}
       propertyPath: m_text
-      value: TEXT
+      value: Name
       objectReference: {fileID: 0}
     - target: {fileID: 6649780933001958312, guid: c5a9b480f856d254fa7afec7c72bf84b, type: 3}
       propertyPath: m_Name
@@ -2452,6 +2452,10 @@ PrefabInstance:
       propertyPath: _connectors.Array.data[1]
       value: 
       objectReference: {fileID: 6058388594807135372}
+    - target: {fileID: 9147208355751664282, guid: a34e6df8b375543b5986556f8dd5ff09, type: 3}
+      propertyPath: _allowDuplicationByStretch
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9147208355751664282, guid: a34e6df8b375543b5986556f8dd5ff09, type: 3}
       propertyPath: _helperBlocks.Array.data[0]
       value: 
