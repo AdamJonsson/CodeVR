@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using UnityEngine;
 
@@ -46,7 +47,7 @@ public class PositionLogger : MonoBehaviour
         {
             var position = logObject.GameObject.transform.position;
             var rotation = logObject.GameObject.transform.rotation.eulerAngles;
-            this._streamWriter.Write($"(x: {position.x}, y: {position.y}, z: {position.z}, rx: {rotation.x}, ry: {rotation.y}, rz: {rotation.z});");
+            this._streamWriter.Write($"(x: {position.x}, y: {position.y}, z: {position.z}, rx: {rotation.x}, ry: {rotation.y}, rz: {rotation.z});", CultureInfo.InvariantCulture);
         }
         this._streamWriter.Write("\n");
     }
