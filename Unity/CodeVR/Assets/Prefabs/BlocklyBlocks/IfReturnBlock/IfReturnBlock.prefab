@@ -2434,6 +2434,10 @@ PrefabInstance:
       value: OP
       objectReference: {fileID: 0}
     - target: {fileID: 9147208355751664282, guid: a34e6df8b375543b5986556f8dd5ff09, type: 3}
+      propertyPath: _ignoreBlocklyCodeGenerationIfSolo
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9147208355751664282, guid: a34e6df8b375543b5986556f8dd5ff09, type: 3}
       propertyPath: _blocklyFields.Array.data[0].DropdownInput
       value: 
       objectReference: {fileID: 0}
