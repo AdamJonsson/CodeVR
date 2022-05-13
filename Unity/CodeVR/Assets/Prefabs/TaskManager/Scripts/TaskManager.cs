@@ -93,6 +93,7 @@ public class TaskManager : MonoBehaviour
     private void HandleNewActiveTask(TaskStatusResponse taskStatusResponse)
     {
         Debug.Log("New active task detected.");
+        this.LogTaskStarted(taskStatusResponse);
         this._currentTaskID = taskStatusResponse.task.id;
         this.SpawnStartingBlock(taskStatusResponse.task.id);
         this._currentState = State.Ready;
@@ -145,7 +146,14 @@ public class TaskManager : MonoBehaviour
     private void LogTaskCompleted(TaskStatusResponse response)
     {
         StreamWriter sw = new StreamWriter(this._taskLogsFilePath, true);
-        sw.Write($"Task completed at;{Time.timeSinceLevelLoad};TaskID;{response.task.id};TaskTitle;{response.task.title}\n");
+        sw.Write($"Date: {DateTime.Now.ToString()}; Task completed at: {Time.timeSinceLevelLoad}; TaskID: {response.task.id}; TaskTitle: {response.task.title}\n");
+        sw.Close();
+    }
+
+    private void LogTaskStarted(TaskStatusResponse response)
+    {
+        StreamWriter sw = new StreamWriter(this._taskLogsFilePath, true);
+        sw.Write($"Date: {DateTime.Now.ToString()}; Task started at: {Time.timeSinceLevelLoad}; TaskID: {response.task.id}; TaskTitle: {response.task.title}\n");
         sw.Close();
     }
 }
