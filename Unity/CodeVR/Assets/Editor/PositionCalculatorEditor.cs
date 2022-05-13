@@ -21,6 +21,11 @@ public class PositionCalculatorEditor : Editor
         {
             this.SaveHeadsetData();
         }
+
+        if(GUILayout.Button("Save raw acceleration data"))
+        {
+            this.SaveRawAccelerationData();
+        }
     }
 
     private void SaveHeadsetData()
@@ -39,6 +44,24 @@ public class PositionCalculatorEditor : Editor
         foreach (var dataPoint in dataPoints)
         {
             writer.WriteLine($"{dataPoint.Time.ToString(invC)},{dataPoint.Acceleration.x.ToString(invC)},{dataPoint.Acceleration.y.ToString(invC)},{dataPoint.Acceleration.z.ToString(invC)}");
+        }
+        writer.Close();
+    }
+
+    private void SaveRawAccelerationData()
+    {
+        PositionCalculator positionCalculator = (PositionCalculator)target;
+        var path = this.OpenSaveFileDialog();
+        var dataPoints = positionCalculator.Headset.DataPoints;
+
+        //Write some text to the test.txt file
+        StreamWriter writer = new StreamWriter(path, true);
+        writer.WriteLine("Time,AccX,AccY,AccZ");
+
+        var invC = CultureInfo.InvariantCulture;
+        foreach (var dataPoint in dataPoints)
+        {
+            writer.WriteLine($"{dataPoint.Time.ToString(invC)},{(dataPoint.Acceleration.x / 9.8f).ToString(invC)},{(dataPoint.Acceleration.y / 9.8f + 1.0f).ToString(invC)},{(dataPoint.Acceleration.z / 9.8f).ToString(invC)}");
         }
         writer.Close();
     }

@@ -186,6 +186,7 @@ public class DeviceTrackingData
 
     private List<VectorWithTime> FilterOutSmallChanges(List<VectorWithTime> positions)
     {
+        return positions;
         List<VectorWithTime> filteredPositions = new List<VectorWithTime>();
         VectorWithTime lastPosition = positions.First();
         var minDistance = 0.01f;
