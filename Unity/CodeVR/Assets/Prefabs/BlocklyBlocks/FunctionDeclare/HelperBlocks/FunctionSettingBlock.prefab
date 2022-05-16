@@ -268,6 +268,10 @@ PrefabInstance:
       propertyPath: _category
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 464279294438429285, guid: db618c6a6a797481687e49e2477fe8a4, type: 3}
+      propertyPath: _isDeleteableUsingTrashcan
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 518190719502656724, guid: db618c6a6a797481687e49e2477fe8a4, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 

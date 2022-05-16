@@ -18,6 +18,18 @@ public class CodeBlockContainer : MonoBehaviour
 
     public CodeBlock CodeBlockOrigin { get => this._codeBlockOrigin; }
 
+    public bool CanBeDeletedUsingTrashcan 
+    {
+        get
+        {
+            foreach (var child in this.Children)
+            {
+                if (!child.IsDeleteableUsingTrashcan) return false;
+            }
+            return true;
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {

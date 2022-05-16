@@ -18,7 +18,7 @@ public class Trashcan : MonoBehaviour
 
     private MeshRenderer _meshRenderer; 
 
-    private List<CodeBlockContainer> _blocksInsideTrashcan = new List<CodeBlockContainer>();
+    private List<CodeBlockContainer> _blockContainersInsideTrashcan = new List<CodeBlockContainer>();
 
     private CodeBlockManager _codeBlockManager;
 
@@ -44,7 +44,7 @@ public class Trashcan : MonoBehaviour
 
     private void ApplyHoverColor()
     {
-        if (this._blocksInsideTrashcan.Count > 0)
+        if (this._blockContainersInsideTrashcan.Count > 0)
         {
             this._meshRenderer.material = this._hoverMaterial;
         }
@@ -64,7 +64,7 @@ public class Trashcan : MonoBehaviour
     private void AnimateHover()
     {
         if (this._containerToRemove != null) return;
-        foreach (var container in this._blocksInsideTrashcan)
+        foreach (var container in this._blockContainersInsideTrashcan)
         {
             if (container == null) continue;
             container.transform.localScale = Vector3.one * this._hoverExpandAnimation.Evaluate(Time.timeSinceLevelLoad);
@@ -76,7 +76,7 @@ public class Trashcan : MonoBehaviour
         var blockContainerDropped = args.interactableObject.transform.gameObject.GetComponent<CodeBlockContainer>();
         
         if (blockContainerDropped == null) return;
-        if (!this._blocksInsideTrashcan.Contains(blockContainerDropped)) return;
+        if (!this._blockContainersInsideTrashcan.Contains(blockContainerDropped)) return;
 
         
         var childrenToRemove = new List<CodeBlock>(blockContainerDropped.Children);
@@ -97,26 +97,28 @@ public class Trashcan : MonoBehaviour
         this._audioSource.Play();
         if (this._containerToRemove != null)
             this._containerToRemove.DeleteContainerKeepChildren();
-        this._blocksInsideTrashcan.Clear();
+        this._blockContainersInsideTrashcan.Clear();
         this._containerToRemove = null;
     }
 
 
     private void OnTriggerEnter(Collider other)
     {
-        var codeBlock = other.GetComponent<CodeBlockContainer>();
-        if (codeBlock == null) return;
+        var codeBlockContainer = other.GetComponent<CodeBlockContainer>();
+        if (codeBlockContainer == null) return;
+        if (!codeBlockContainer.CanBeDeletedUsingTrashcan) return;
 
-        this._blocksInsideTrashcan.Add(codeBlock);
+        this._blockContainersInsideTrashcan.Add(codeBlockContainer);
     }
 
     private void OnTriggerExit(Collider other)
     {
-        var codeBlock = other.GetComponent<CodeBlockContainer>();
-        if (codeBlock == null) return;
+        var codeBlockContainer = other.GetComponent<CodeBlockContainer>();
+        if (codeBlockContainer == null) return;
+        if (!codeBlockContainer.CanBeDeletedUsingTrashcan) return;
 
-        this.RestoreOriginalScaleForContainers(this._blocksInsideTrashcan);
-        this._blocksInsideTrashcan.Remove(codeBlock);
+        this.RestoreOriginalScaleForContainers(this._blockContainersInsideTrashcan);
+        this._blockContainersInsideTrashcan.Remove(codeBlockContainer);
     }
 
     private void RestoreOriginalScaleForContainers(List<CodeBlockContainer> containers)
