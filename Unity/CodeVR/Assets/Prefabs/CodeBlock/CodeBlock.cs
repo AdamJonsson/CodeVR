@@ -62,6 +62,9 @@ public class CodeBlock : MonoBehaviour
 
     [SerializeField] private List<DropdownInput> _dropdownsToCloseOnBlockSelect = new List<DropdownInput>();
 
+    [Tooltip("If this block should not be deleteable using the trashcan directly, set this option to false. Is forexample used for helper blocks.")]
+    [SerializeField] private bool _isDeleteableUsingTrashcan = true;
+    public bool IsDeleteableUsingTrashcan { get =>  this._isDeleteableUsingTrashcan; }
 
     private string _id;
 
