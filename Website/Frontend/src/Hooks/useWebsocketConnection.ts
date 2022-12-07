@@ -1,29 +1,33 @@
-import { useState, useEffect } from 'react';
-import config from '../config.json';
-import { WebSocketConnectionStatus } from './WebSocketConnectionStatus';
+import { useState, useEffect } from "react";
+import { WebSocketConnectionStatus } from "./WebSocketConnectionStatus";
 
-function useWebsocketConnection<T>(channel: string): [T | null, WebSocketConnectionStatus] {
+function useWebsocketConnection<T>(
+  channel: string
+): [T | null, WebSocketConnectionStatus] {
   console.log("Use Unity blockly xml");
 
   const [websocketData, setWebsocketData] = useState<T | null>(null);
-  const [connectionStatus, setConnectionStatus] = useState(WebSocketConnectionStatus.Unknown);
+  const [connectionStatus, setConnectionStatus] = useState(
+    WebSocketConnectionStatus.Unknown
+  );
 
   useEffect(() => {
+    var blocklyWebSocket = new WebSocket(
+      `ws://${process.env.REACT_APP_ADRESS}:8999`
+    );
 
-    var blocklyWebSocket = new WebSocket(`ws://${config.serverIP}:8999`);
-    
     blocklyWebSocket.onopen = () => {
       console.log("Socket open!");
       setConnectionStatus(WebSocketConnectionStatus.Success);
-    }
+    };
 
     blocklyWebSocket.onerror = () => {
       setConnectionStatus(WebSocketConnectionStatus.Error);
-    }
-    
+    };
+
     blocklyWebSocket.onclose = () => {
       setConnectionStatus(WebSocketConnectionStatus.LostConnection);
-    }
+    };
 
     blocklyWebSocket.onmessage = (message) => {
       var parsedData;
@@ -37,10 +41,10 @@ function useWebsocketConnection<T>(channel: string): [T | null, WebSocketConnect
       if (parsedData.channel === channel) {
         setWebsocketData(parsedData.data);
       }
-    }
+    };
 
     return function cleanup() {
-        blocklyWebSocket.close();
+      blocklyWebSocket.close();
     };
   }, [channel]);
 

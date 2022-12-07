@@ -1,7 +1,6 @@
-import { useState, useEffect } from 'react';
-import config from '../config.json';
-import useWebsocketConnection from './useWebsocketConnection';
-import { WebSocketConnectionStatus } from './WebSocketConnectionStatus';
+import { useState, useEffect } from "react";
+import useWebsocketConnection from "./useWebsocketConnection";
+import { WebSocketConnectionStatus } from "./WebSocketConnectionStatus";
 
 function useUnityBlocklyXml(): [string, WebSocketConnectionStatus] {
   console.log("Use Unity blockly xml");
@@ -14,7 +13,8 @@ function useUnityBlocklyXml(): [string, WebSocketConnectionStatus] {
     </xml>
   `);
 
-  const [blocklyXmlFromServer, connectionStatus] = useWebsocketConnection<string>("xmlCode");
+  const [blocklyXmlFromServer, connectionStatus] =
+    useWebsocketConnection<string>("xmlCode");
 
   useEffect(() => {
     if (blocklyXmlFromServer != null) {
