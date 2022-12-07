@@ -1,5 +1,6 @@
 const os = require("os");
 const fs = require("fs");
+require("dotenv").config();
 
 const ifaces = os.networkInterfaces();
 
@@ -11,7 +12,10 @@ const adresses = Object.values(ifaces).reduce((acc, iface) => {
   return acc.concat(targetAdresses);
 }, []);
 
-fs.writeFileSync(__dirname + "/.env", "REACT_APP_ADRESS=" + adresses[0]);
+if (adresses[0] !== process.env.REACT_APP_ADRESS) {
+  console.log("Local IP has changes, updating the .evn");
+  fs.writeFileSync(__dirname + "/.env", "REACT_APP_ADRESS=" + adresses[0]);
+}
 
 console.log("Local IP Adress of Server: ");
 console.log(adresses);
