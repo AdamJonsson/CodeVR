@@ -7,7 +7,8 @@
         "sourceMap": true,
         "typeRoots": [
             "node_modules/@types"
-        ]
+        ],
+        "moduleResolution": "node"
     },
     "exclude": [
         "dist",

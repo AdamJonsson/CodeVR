@@ -1,0 +1,39 @@
+#PART 1
+FROM node:18.11.0-alpine as react-app
+
+WORKDIR /usr/src/app
+
+COPY ./Frontend ./Frontend
+
+RUN cd ./Frontend && npm install && npm run build
+
+#PART 2
+FROM node:18.11.0-alpine as server-app
+
+WORKDIR /usr/src/app
+
+COPY ./Backend ./Backend
+
+RUN cd ./Backend && npm install && npm run build:server
+
+
+# PART 3
+FROM node:18.11.0-alpine as production
+
+ARG NODE_ENV=production
+ENV NODE_ENV ${NODE_ENV}
+
+WORKDIR /usr/src/app
+
+COPY --from=react-app /usr/src/app/Frontend/build ./Frontend/build
+COPY --from=server-app /usr/src/app/Backend/dist ./Backend/dist
+COPY --from=server-app /usr/src/app/Backend/package.json ./Backend
+COPY --from=server-app /usr/src/app/Backend/package-lock.json ./Backend
+
+RUN cd ./Backend && npm ci --omit=dev
+
+EXPOSE 8999
+
+WORKDIR /usr/src/app/Backend
+
+CMD ["node", "./dist/server/index.js"]
