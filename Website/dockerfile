@@ -1,6 +1,12 @@
 #PART 1
 FROM node:18.11.0-alpine as react-app
 
+ARG NODE_ENV production
+ARG REACT_APP_HEROKU_BASE_URL user-study-kth.herokuapp.com
+
+ENV NODE_ENV ${NODE_ENV}
+ENV REACT_APP_HEROKU_BASE_URL ${REACT_APP_HEROKU_BASE_URL}
+
 WORKDIR /usr/src/app
 
 COPY ./Frontend ./Frontend
@@ -19,9 +25,6 @@ RUN cd ./Backend && npm install && npm run build:server
 
 # PART 3
 FROM node:18.11.0-alpine as production
-
-ARG NODE_ENV=production
-ENV NODE_ENV ${NODE_ENV}
 
 WORKDIR /usr/src/app
 

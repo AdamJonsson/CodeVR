@@ -1,3 +1,8 @@
+setup:
+  config:
+    REACT_APP_HEROKU_BASE_URL: user-study-kth.herokuapp.com
 build:
+  config:
+    REACT_APP_HEROKU_BASE_URL: user-study-kth.herokuapp.com
   docker:
     web: docker-compose.yml

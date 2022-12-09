@@ -2,8 +2,12 @@ version: "3.8"
 
 services:
   blocks-kth:
+    platform: linux/amd64
     build:
       context: .
+      args:
+        NODE_ENV: production
+        REACT_APP_HEROKU_BASE_URL: user-study-kth.herokuapp.com
     container_name: blocks-kth-container
     image: blocks-kth-image
     ports:
