@@ -7,8 +7,11 @@ services:
       context: .
       args:
         NODE_ENV: production
-        REACT_APP_HEROKU_BASE_URL: user-study-kth.herokuapp.com
+        REACT_APP_ADRESS: 178.128.137.45
     container_name: blocks-kth-container
     image: blocks-kth-image
+    environment:
+      NODE_ENV: production
+      REACT_APP_ADRESS: 178.128.137.45
     ports:
       - "8999:8999"

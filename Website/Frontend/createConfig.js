@@ -6,19 +6,8 @@ console.log("NODE ENV: ");
 console.log(process.env.NODE_ENV);
 
 if (process.env.NODE_ENV === "production") {
-  console.log("Creating config for production");
-  if (process.env.REACT_APP_HEROKU_BASE_URL) {
-    console.log(
-      "Setting ENV REACT_APP_HEROKU_BASE_URL to: " +
-        process.env.REACT_APP_HEROKU_BASE_URL
-    );
-    process.env.REACT_APP_ADRESS = process.env.REACT_APP_HEROKU_BASE_URL;
-  } else {
-    console.log(
-      "REACT_APP_HEROKU_BASE_URL is missing. Please specify in docker-compose and rebuild "
-    );
-    process.exit(1);
-  }
+  console.log(process.env.REACT_APP_ADRESS);
+  console.log("In prod. Remember to set REACT_APP_ADRESS ENV variable");
 } else {
   // Iterate over interfaces ...
 
